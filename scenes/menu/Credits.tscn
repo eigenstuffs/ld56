@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://bg0v7uwrqhec0"]
+
+[ext_resource type="Script" path="res://scenes/menu/credits.gd" id="1_on07j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nd27h"]
+bg_color = Color(0.85098, 0.52549, 0.364706, 1)
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.686703, 0.388746, 0.237652, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_bottom_right = 5
+
+[sub_resource type="Theme" id="Theme_aeuk1"]
+Button/styles/normal = SubResource("StyleBoxFlat_nd27h")
+Button/styles/pressed = null
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_aeuk1")
+script = ExtResource("1_on07j")
+
+[node name="Back" type="Button" parent="."]
+light_mask = 3
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -38.0
+offset_right = 33.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.8, 0.8)
+text = "Back
+"
+
+[connection signal="pressed" from="Back" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

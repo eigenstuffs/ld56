@@ -1,0 +1,125 @@
+[gd_scene format=3 uid="uid://bu2lp6wn31n4"]
+
+[node name="ToDoList" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 61.0
+offset_bottom = 86.0
+
+[node name="Title" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -24.0
+offset_top = 2.0
+offset_right = 52.0
+offset_bottom = 25.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+text = "To Do List"
+
+[node name="ing1" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -28.0
+offset_top = 21.0
+offset_right = 48.0
+offset_bottom = 44.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+text = "Ing 1:"
+
+[node name="HSlider" type="HSlider" parent="ColorRect/ing1"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = -2.0
+offset_right = 57.0
+offset_bottom = 14.0
+
+[node name="ing2" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -28.0
+offset_top = 36.0
+offset_right = 48.0
+offset_bottom = 59.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+text = "Ing 2:"
+
+[node name="HSlider2" type="HSlider" parent="ColorRect/ing2"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = -2.0
+offset_right = 57.0
+offset_bottom = 14.0
+
+[node name="ing3" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -28.0
+offset_top = 51.0
+offset_right = 48.0
+offset_bottom = 74.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+text = "Ing 3:"
+
+[node name="HSlider3" type="HSlider" parent="ColorRect/ing3"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = -2.0
+offset_right = 57.0
+offset_bottom = 14.0
+
+[node name="ing4" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -28.0
+offset_top = 66.0
+offset_right = 48.0
+offset_bottom = 89.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+text = "Ing 4:"
+
+[node name="HSlider4" type="HSlider" parent="ColorRect/ing4"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = -2.0
+offset_right = 57.0
+offset_bottom = 14.0
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = 1.0
+offset_top = 93.0
+offset_right = 61.0
+offset_bottom = 178.0
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+offset_left = 258.0
+offset_top = 1.0
+offset_right = 318.0
+offset_bottom = 86.0
+
+[node name="ColorRect4" type="ColorRect" parent="."]
+offset_left = 258.0
+offset_top = 93.0
+offset_right = 318.0
+offset_bottom = 178.0
