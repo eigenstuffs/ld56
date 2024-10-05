@@ -1,17 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://qmhqm1065nks"]
+[gd_scene load_steps=5 format=3 uid="uid://qmhqm1065nks"]
 
 [ext_resource type="PackedScene" uid="uid://cispi52j1uphg" path="res://goblin_prototype.tscn" id="1_1tux6"]
 [ext_resource type="Script" path="res://nav_control.gd" id="1_7mcpk"]
-[ext_resource type="Script" path="res://goal.gd" id="3_q2bmc"]
+[ext_resource type="PackedScene" uid="uid://d13no63s202hy" path="res://goal.tscn" id="3_naiom"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_0bsv7"]
 vertices = PackedVector2Array(381, 166, 89, 167, 82, 17, 378, 17)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(71, 7, 80, 178, 392, 176, 388, 7)])
 source_geometry_group_name = &"navigation_polygon_source_group"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pto7x"]
-size = Vector2(40, 40)
 
 [node name="Pathfinding Scene" type="Node2D"]
 
@@ -22,23 +19,22 @@ navigation_polygon = SubResource("NavigationPolygon_0bsv7")
 [node name="NavControl" type="Node2D" parent="."]
 script = ExtResource("1_7mcpk")
 
-[node name="GoblinPrototype" parent="." instance=ExtResource("1_1tux6")]
-position = Vector2(37, 26)
+[node name="GoblinFolder" type="Node2D" parent="."]
+
+[node name="GoblinPrototype" parent="GoblinFolder" instance=ExtResource("1_1tux6")]
+position = Vector2(79, 25)
 scale = Vector2(0.0799535, 0.079999)
 
-[node name="Goal" type="Area2D" parent="."]
-position = Vector2(222, 101)
-script = ExtResource("3_q2bmc")
+[node name="GoblinPrototype2" parent="GoblinFolder" instance=ExtResource("1_1tux6")]
+position = Vector2(26, 89)
+scale = Vector2(0.0799535, 0.079999)
 
-[node name="ColorRect" type="ColorRect" parent="Goal"]
-offset_right = 40.0
-offset_bottom = 40.0
-mouse_filter = 2
+[node name="GoalFolder" type="Node2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
-position = Vector2(20, 20)
-shape = SubResource("RectangleShape2D_pto7x")
+[node name="Goal" parent="GoalFolder" instance=ExtResource("3_naiom")]
 
-[connection signal="listening_for_target" from="GoblinPrototype" to="NavControl" method="_on_goblin_prototype_listening_for_target"]
-[connection signal="input_event" from="Goal" to="Goal" method="_on_input_event"]
-[connection signal="listening_for_agent" from="Goal" to="NavControl" method="_on_goal_listening_for_agent"]
+[node name="Goal2" parent="GoalFolder" instance=ExtResource("3_naiom")]
+position = Vector2(120, 117)
+
+[node name="Goal3" parent="GoalFolder" instance=ExtResource("3_naiom")]
+position = Vector2(232, 35)

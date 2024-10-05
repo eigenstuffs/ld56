@@ -7,6 +7,7 @@ signal listening_for_target
 @onready var nav_agent = $NavigationAgent2D
 
 var movement_speed : float = 300
+var clicked : bool = false
 
 func _ready():
 	
@@ -32,6 +33,7 @@ func _physics_process(delta):
 
 func _on_input_event(viewport, event, shape_idx):
 	if event.is_action_pressed("LMB"):
+		clicked = true
 		print("you clicked on this character!")
 		emit_signal("listening_for_target")
 
