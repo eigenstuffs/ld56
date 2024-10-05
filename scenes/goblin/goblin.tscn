@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://scenes/goblin/explode.gd" id="5_76ybd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ka3y2"]
-size = Vector2(480, 316)
+size = Vector2(212, 598.583)
 
 [sub_resource type="Animation" id="Animation_mq68a"]
 resource_name = "explode"
@@ -35,19 +35,24 @@ input_pickable = true
 script = ExtResource("1_u2bdf")
 
 [node name="ClickableRegion" type="ColorRect" parent="."]
-offset_right = 644.0
-offset_bottom = 644.0
+offset_right = 650.0
+offset_bottom = 597.0
+scale = Vector2(0.1, 0.1)
 color = Color(0.423529, 0.419608, 0.0352941, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="Highlight" type="ColorRect" parent="."]
-offset_left = 47.0
-offset_top = 33.0
-offset_right = 603.0
-offset_bottom = 589.0
+offset_left = 5.0
+offset_top = 2.0
+offset_right = 561.0
+offset_bottom = 558.0
+scale = Vector2(0.1, 0.1)
 mouse_filter = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(330, 311)
+position = Vector2(33, 29)
+scale = Vector2(0.1, 0.1)
 shape = SubResource("RectangleShape2D_ka3y2")
 
 [node name="Idle" type="Node" parent="."]
@@ -74,6 +79,8 @@ libraries = {
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 avoidance_enabled = true
+radius = 150.0
+debug_enabled = true
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="gui_input" from="ClickableRegion" to="." method="_on_clickable_region_gui_input"]

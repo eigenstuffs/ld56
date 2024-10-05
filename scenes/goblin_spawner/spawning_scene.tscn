@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2udfg6553q7s"]
+
+[ext_resource type="PackedScene" uid="uid://bm74vuo3xy2g1" path="res://scenes/goblin_spawner/goblin_spawner.tscn" id="1_axapl"]
+
+[node name="SpawningScene" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 16.0
+offset_top = 94.0
+offset_right = 59.0
+offset_bottom = 179.0
+color = Color(0.853622, 0.655645, 0.741326, 1)
+
+[node name="GoblinSpawner" parent="." instance=ExtResource("1_axapl")]

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bm74vuo3xy2g1"]
+
+[ext_resource type="Script" path="res://scenes/goblin_spawner/goblin_spawner.gd" id="1_sjm38"]
+
+[node name="GoblinSpawner" type="Node2D" node_paths=PackedStringArray("spawn_folder")]
+script = ExtResource("1_sjm38")
+max_goblin = 5
+spawn_interval = 3.0
+spawn_folder = NodePath(".")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
