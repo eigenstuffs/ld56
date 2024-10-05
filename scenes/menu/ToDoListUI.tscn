@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://beg5hx4v60pqt"]
+[gd_scene load_steps=6 format=3 uid="uid://beg5hx4v60pqt"]
 
 [ext_resource type="Script" path="res://scenes/menu/to_do_list_ui.gd" id="1_fl081"]
 [ext_resource type="Texture2D" uid="uid://dicl0oxoa507v" path="res://assets/UIBorder/1pastalight.png" id="2_dusom"]
 [ext_resource type="Texture2D" uid="uid://dtckx0qfbhgvy" path="res://assets/UIBorder/5gnomegreen.png" id="3_8oygj"]
+[ext_resource type="Script" path="res://scenes/menu/to_do_labels.gd" id="3_fxnfq"]
 [ext_resource type="Texture2D" uid="uid://m65as66a46h2" path="res://assets/UIBorder/0pastayellow.png" id="4_ddg5d"]
 
 [node name="ToDoListUI" type="Control"]
@@ -87,6 +88,7 @@ grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 8
 text = "To Do List"
+script = ExtResource("3_fxnfq")
 
 [node name="ing1" type="Label" parent="ToDo Labels"]
 layout_mode = 1
