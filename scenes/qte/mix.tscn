@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwn6tdlp54duv"]
+
+[ext_resource type="Script" path="res://scenes/qte/mix.gd" id="1_xujds"]
+
+[node name="Mix" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_xujds")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
