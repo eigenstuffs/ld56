@@ -1,13 +1,13 @@
 [gd_scene load_steps=2 format=3 uid="uid://dpoi2qickalwg"]
 
-[ext_resource type="Texture2D" uid="uid://12honc2x0iw2" path="res://assets/arrow_spread_sheet.png" id="1_qt4mr"]
+[ext_resource type="Texture2D" uid="uid://12honc2x0iw2" path="res://assets/arrow_spread_sheet.png" id="1_shqi0"]
 
 [node name="Arrow" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 
 [node name="Sprite" type="Sprite2D" parent="."]
-texture = ExtResource("1_qt4mr")
+texture = ExtResource("1_shqi0")
 hframes = 4
 vframes = 4
 frame = 4

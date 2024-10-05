@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dwn6tdlp54duv"]
+[gd_scene load_steps=2 format=3 uid="uid://dwn6tdlp54duv"]
 
 [ext_resource type="Script" path="res://scenes/qte/mix.gd" id="1_xujds"]
-[ext_resource type="PackedScene" uid="uid://dpoi2qickalwg" path="res://assets/arrow.tscn" id="2_4m25g"]
 
 [node name="Mix" type="Control"]
 layout_mode = 3
@@ -10,22 +9,9 @@ script = ExtResource("1_xujds")
 
 [node name="Arrows" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_left = -96.0
-offset_right = 96.0
+offset_left = 80.0
+offset_top = 96.0
+offset_right = 272.0
+offset_bottom = 96.0
 theme_override_constants/separation = 18
 alignment = 1
-
-[node name="Arrow" parent="Arrows" instance=ExtResource("2_4m25g")]
-layout_mode = 2
-
-[node name="Arrow2" parent="Arrows" instance=ExtResource("2_4m25g")]
-layout_mode = 2
-
-[node name="Arrow3" parent="Arrows" instance=ExtResource("2_4m25g")]
-layout_mode = 2
-
-[node name="Arrow4" parent="Arrows" instance=ExtResource("2_4m25g")]
-layout_mode = 2
-
-[node name="Arrow5" parent="Arrows" instance=ExtResource("2_4m25g")]
-layout_mode = 2

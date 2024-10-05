@@ -3,7 +3,7 @@ class_name Mix extends Control
 @export var length : int = 4
 @export var combination : Array[String]
 
-const ARROW = preload("res://assets/arrow.tscn")
+const ARROW = preload("res://scenes/qte/arrow.tscn")
 
 @onready var arrows = $Arrows
 
@@ -23,7 +23,7 @@ func generate_combination(len : int):
 			4:
 				input = "right"
 		combination.append(input)
-		
+	print(combination)
 	create_icons()
 
 func create_icons():
@@ -40,3 +40,6 @@ func create_icons():
 				sprite.frame_coords = Vector2(2, 1)
 			"right":
 				sprite.frame_coords = Vector2(1, 1)
+
+func _input(event):
+	pass
