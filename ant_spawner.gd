@@ -18,6 +18,7 @@ func _ready() -> void:
 			add_child(ant)
 		else:
 			await reenabled
+		break
 
 func set_enabled(enabled : bool):
 	self.enabled = enabled

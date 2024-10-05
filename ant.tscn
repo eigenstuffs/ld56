@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://ant.gd" id="1_eaava"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c50ex"]
-size = Vector2(35, 33)
+size = Vector2(154, 162)
 
 [node name="Ant" type="CharacterBody2D"]
 script = ExtResource("1_eaava")
@@ -15,6 +15,6 @@ offset_bottom = 44.0
 [node name="navAgent" type="NavigationAgent2D" parent="."]
 
 [node name="HitboxCollider" type="CollisionShape2D" parent="."]
-position = Vector2(22.5, 22.5)
+position = Vector2(72, 71)
 shape = SubResource("RectangleShape2D_c50ex")
 disabled = true

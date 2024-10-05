@@ -1,6 +1,32 @@
-[gd_scene load_steps=2 format=3 uid="uid://cpk2s6eelww0t"]
+[gd_scene load_steps=3 format=3 uid="uid://cpk2s6eelww0t"]
 
 [ext_resource type="Script" path="res://ant_spawner.gd" id="1_hnfn6"]
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_jv74x"]
+vertices = PackedVector2Array(97.6016, 159.203, 94.0391, 113.25, 258.211, 114.242, 380.781, 158.297, 383.312, 95.5938, 253.711, 40.3984, 379.328, 42.6797, 377.047, 8.03125, 98.7266, 6.21875, 93.3984, 42.3672, 93.4609, 39.0078)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 3, 2, 5, 6), PackedInt32Array(7, 6, 5, 8), PackedInt32Array(8, 5, 9, 10)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(81.4802, 37.9451, 88.5217, -5.83771, 388.288, -3.89181, 391.306, 41.8369, 395.33, 95.3493, 392.312, 170.267, 86.5098, 171.239, 80.4742, 93.4033)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+agent_radius = 12.0
+
 [node name="AntSpawner" type="Node2D"]
 script = ExtResource("1_hnfn6")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+position = Vector2(-78, 6)
+scale = Vector2(0.994107, 1.0278)
+navigation_polygon = SubResource("NavigationPolygon_jv74x")
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="NavigationRegion2D"]
+position = Vector2(78.4624, -5.83771)
+scale = Vector2(1.00593, 0.972952)
+vertices = PackedVector2Array(7, 62, 163, 60, 166, 111, 6, 110)
+affect_navigation_mesh = true
+
+[node name="ColorRect" type="ColorRect" parent="NavigationRegion2D/NavigationObstacle2D"]
+offset_left = 8.0
+offset_top = 63.0
+offset_right = 152.0
+offset_bottom = 109.0
+color = Color(1.65302e-05, 1.65302e-05, 1.65302e-05, 1)
+metadata/_edit_use_anchors_ = true
