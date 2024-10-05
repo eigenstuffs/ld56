@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://beg5hx4v60pqt"]
+[gd_scene load_steps=5 format=3 uid="uid://beg5hx4v60pqt"]
 
 [ext_resource type="Script" path="res://scenes/menu/to_do_list_ui.gd" id="1_fl081"]
+[ext_resource type="Texture2D" uid="uid://dicl0oxoa507v" path="res://assets/UIBorder/1pastalight.png" id="2_dusom"]
+[ext_resource type="Texture2D" uid="uid://dtckx0qfbhgvy" path="res://assets/UIBorder/5gnomegreen.png" id="3_8oygj"]
+[ext_resource type="Texture2D" uid="uid://m65as66a46h2" path="res://assets/UIBorder/0pastayellow.png" id="4_ddg5d"]
 
 [node name="ToDoListUI" type="Control"]
 layout_mode = 3
@@ -9,147 +12,158 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_fl081")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ToDo Progress Bar" type="NinePatchRect" parent="."]
 layout_mode = 0
 offset_left = 1.0
 offset_top = 1.0
 offset_right = 61.0
 offset_bottom = 86.0
+texture = ExtResource("2_dusom")
+script = ExtResource("1_fl081")
 
-[node name="Title" type="Label" parent="ColorRect"]
+[node name="ProgressBar" type="ProgressBar" parent="ToDo Progress Bar"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -24.0
-offset_top = 2.0
-offset_right = 52.0
-offset_bottom = 25.0
+offset_left = -4.0
+offset_top = 20.0
+offset_right = 31.0
+offset_bottom = 35.0
+grow_horizontal = 2
+scale = Vector2(0.8, 0.8)
+theme_override_font_sizes/font_size = 7
+
+[node name="ProgressBar2" type="ProgressBar" parent="ToDo Progress Bar"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -3.0
+offset_top = 37.0
+offset_right = 32.0
+offset_bottom = 52.0
+grow_horizontal = 2
+scale = Vector2(0.8, 0.8)
+theme_override_font_sizes/font_size = 7
+
+[node name="ProgressBar3" type="ProgressBar" parent="ToDo Progress Bar"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -5.0
+offset_top = 53.0
+offset_right = 30.0
+offset_bottom = 68.0
+grow_horizontal = 2
+scale = Vector2(0.8, 0.8)
+theme_override_font_sizes/font_size = 7
+
+[node name="ProgressBar4" type="ProgressBar" parent="ToDo Progress Bar"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -4.0
+offset_top = 69.0
+offset_right = 31.0
+offset_bottom = 84.0
+grow_horizontal = 2
+scale = Vector2(0.8, 0.8)
+theme_override_font_sizes/font_size = 7
+
+[node name="ToDo Labels" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -148.0
+offset_top = 4.0
+offset_right = -72.0
+offset_bottom = 27.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 8
 text = "To Do List"
 
-[node name="ing1" type="Label" parent="ColorRect"]
+[node name="ing1" type="Label" parent="ToDo Labels"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -28.0
-offset_top = 21.0
-offset_right = 48.0
-offset_bottom = 44.0
+offset_left = -42.0
+offset_top = 17.0
+offset_right = 34.0
+offset_bottom = 40.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 7
 text = "Ing 1:"
 
-[node name="ProgressBar" type="ProgressBar" parent="ColorRect/ing1"]
+[node name="ing2" type="Label" parent="ToDo Labels"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -16.0
-offset_top = 1.0
-offset_right = 19.0
-offset_bottom = 13.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 5
-
-[node name="ing2" type="Label" parent="ColorRect"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -28.0
-offset_top = 36.0
-offset_right = 48.0
-offset_bottom = 59.0
+offset_left = -41.0
+offset_top = 34.0
+offset_right = 35.0
+offset_bottom = 57.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 7
 text = "Ing 2:"
 
-[node name="ProgressBar2" type="ProgressBar" parent="ColorRect/ing2"]
+[node name="ing3" type="Label" parent="ToDo Labels"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -16.0
-offset_right = 19.0
-offset_bottom = 12.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 5
-
-[node name="ing3" type="Label" parent="ColorRect"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -28.0
-offset_top = 51.0
-offset_right = 48.0
-offset_bottom = 74.0
+offset_left = -43.0
+offset_top = 50.0
+offset_right = 33.0
+offset_bottom = 73.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 7
 text = "Ing 3:"
 
-[node name="ProgressBar3" type="ProgressBar" parent="ColorRect/ing3"]
+[node name="ing4" type="Label" parent="ToDo Labels"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -16.0
-offset_right = 19.0
-offset_bottom = 12.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 5
-
-[node name="ing4" type="Label" parent="ColorRect"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -28.0
+offset_left = -42.0
 offset_top = 66.0
-offset_right = 48.0
+offset_right = 34.0
 offset_bottom = 89.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 7
 text = "Ing 4:"
 
-[node name="ProgressBar4" type="ProgressBar" parent="ColorRect/ing4"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -16.0
-offset_right = 19.0
-offset_bottom = 12.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 5
-
-[node name="ColorRect2" type="ColorRect" parent="."]
+[node name="NinePatchRect2" type="NinePatchRect" parent="."]
 layout_mode = 0
 offset_left = 1.0
 offset_top = 94.0
 offset_right = 61.0
 offset_bottom = 179.0
+texture = ExtResource("3_8oygj")
 
-[node name="ColorRect3" type="ColorRect" parent="."]
+[node name="NinePatchRect3" type="NinePatchRect" parent="."]
 layout_mode = 0
 offset_left = 259.0
 offset_top = 1.0
 offset_right = 319.0
 offset_bottom = 86.0
+texture = ExtResource("3_8oygj")
 
-[node name="ColorRect4" type="ColorRect" parent="."]
+[node name="NinePatchRect4" type="NinePatchRect" parent="."]
 layout_mode = 0
 offset_left = 259.0
 offset_top = 94.0
 offset_right = 319.0
 offset_bottom = 179.0
+texture = ExtResource("4_ddg5d")
