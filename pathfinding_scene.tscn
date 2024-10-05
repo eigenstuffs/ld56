@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://qmhqm1065nks"]
+
+[ext_resource type="PackedScene" uid="uid://cispi52j1uphg" path="res://goblin_prototype.tscn" id="1_1tux6"]
+[ext_resource type="Script" path="res://nav_control.gd" id="1_7mcpk"]
+[ext_resource type="Script" path="res://goal.gd" id="3_q2bmc"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_0bsv7"]
+vertices = PackedVector2Array(381, 166, 89, 167, 82, 17, 378, 17)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(71, 7, 80, 178, 392, 176, 388, 7)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pto7x"]
+size = Vector2(40, 40)
+
+[node name="Pathfinding Scene" type="Node2D"]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+position = Vector2(-71, -1)
+navigation_polygon = SubResource("NavigationPolygon_0bsv7")
+
+[node name="NavControl" type="Node2D" parent="."]
+script = ExtResource("1_7mcpk")
+
+[node name="GoblinPrototype" parent="." instance=ExtResource("1_1tux6")]
+position = Vector2(37, 26)
+scale = Vector2(0.0799535, 0.079999)
+
+[node name="Goal" type="Area2D" parent="."]
+position = Vector2(222, 101)
+script = ExtResource("3_q2bmc")
+
+[node name="ColorRect" type="ColorRect" parent="Goal"]
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_pto7x")
+
+[connection signal="listening_for_target" from="GoblinPrototype" to="NavControl" method="_on_goblin_prototype_listening_for_target"]
+[connection signal="input_event" from="Goal" to="Goal" method="_on_input_event"]
+[connection signal="listening_for_agent" from="Goal" to="NavControl" method="_on_goal_listening_for_agent"]

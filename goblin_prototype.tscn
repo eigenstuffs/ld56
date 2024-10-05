@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://cispi52j1uphg"]
+
+[ext_resource type="Script" path="res://goblin_prototype.gd" id="1_gjhtb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s3kes"]
+size = Vector2(614, 624.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mfuli"]
+size = Vector2(671, 657)
+
+[node name="GoblinPrototype" type="CharacterBody2D"]
+collision_layer = 3
+collision_mask = 3
+input_pickable = true
+script = ExtResource("1_gjhtb")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 644.0
+offset_bottom = 644.0
+mouse_filter = 2
+color = Color(0.423529, 0.419608, 0.0352941, 1)
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(322, 323)
+shape = SubResource("RectangleShape2D_s3kes")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(325.5, 318.5)
+shape = SubResource("RectangleShape2D_mfuli")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
