@@ -8,10 +8,24 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_xujds")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="Arrows" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -96.0
+offset_right = 96.0
+theme_override_constants/separation = 18
+alignment = 1
 
-[node name="Arrow" parent="HBoxContainer" instance=ExtResource("2_4m25g")]
+[node name="Arrow" parent="Arrows" instance=ExtResource("2_4m25g")]
+layout_mode = 2
+
+[node name="Arrow2" parent="Arrows" instance=ExtResource("2_4m25g")]
+layout_mode = 2
+
+[node name="Arrow3" parent="Arrows" instance=ExtResource("2_4m25g")]
+layout_mode = 2
+
+[node name="Arrow4" parent="Arrows" instance=ExtResource("2_4m25g")]
+layout_mode = 2
+
+[node name="Arrow5" parent="Arrows" instance=ExtResource("2_4m25g")]
 layout_mode = 2
