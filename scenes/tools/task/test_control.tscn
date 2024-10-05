@@ -1,0 +1,55 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyeqgvcaa0q0x"]
+
+[ext_resource type="Script" path="res://scenes/tools/task/test_control.gd" id="1_dpygu"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dpygu")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -61.0
+offset_right = 58.0
+offset_bottom = 27.0
+grow_horizontal = 2
+
+[node name="ProgressBar2" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -60.0
+offset_top = 43.0
+offset_right = 59.0
+offset_bottom = 70.0
+grow_horizontal = 2
+
+[node name="ProgressBar3" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -60.0
+offset_top = 85.0
+offset_right = 59.0
+offset_bottom = 112.0
+grow_horizontal = 2
+
+[node name="ProgressBar4" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -60.0
+offset_top = 126.0
+offset_right = 59.0
+offset_bottom = 153.0
+grow_horizontal = 2
