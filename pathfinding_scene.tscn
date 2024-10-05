@@ -1,12 +1,12 @@
 [gd_scene load_steps=5 format=3 uid="uid://qmhqm1065nks"]
 
-[ext_resource type="Script" path="res://nav_control.gd" id="1_7mcpk"]
+[ext_resource type="PackedScene" uid="uid://bmq52iegph5xs" path="res://scenes/tools/goblin_nav_control.tscn" id="1_pm3wh"]
 [ext_resource type="PackedScene" uid="uid://d13no63s202hy" path="res://scenes/goal/goal.tscn" id="3_naiom"]
 [ext_resource type="PackedScene" uid="uid://dy33jjb3kjeiu" path="res://scenes/goblin/goblin.tscn" id="3_vmkwa"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_0bsv7"]
-vertices = PackedVector2Array(97.6016, 159.203, 94.0391, 113.25, 258.211, 114.242, 380.781, 158.297, 383.312, 95.5938, 253.711, 40.3984, 379.328, 42.6797, 377.047, 8.03125, 98.7266, 6.21875, 93.3984, 42.3672, 93.4609, 39.0078)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 3, 2, 5, 6), PackedInt32Array(7, 6, 5, 8), PackedInt32Array(8, 5, 9, 10)])
+vertices = PackedVector2Array(383.312, 95.5938, 380.781, 158.297, 319.812, 120, 319.812, 41.5234, 379.328, 42.6797, 97.6016, 159.203, 133.641, 120, 135.094, 41.5234, 92.4766, 93.1094, 93.4609, 39.0078, 98.7266, 6.21875, 377.047, 8.03125)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(2, 1, 5, 6), PackedInt32Array(7, 6, 5, 8, 9, 10), PackedInt32Array(7, 10, 11, 3), PackedInt32Array(3, 11, 4)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(81.4802, 37.9451, 88.5217, -5.83771, 388.288, -3.89181, 391.306, 41.8369, 395.33, 95.3493, 392.312, 170.267, 86.5098, 171.239, 80.4742, 93.4033)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 12.0
@@ -21,39 +21,36 @@ navigation_polygon = SubResource("NavigationPolygon_0bsv7")
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="NavigationRegion2D"]
 position = Vector2(78.4624, -5.83771)
 scale = Vector2(1.00593, 0.972952)
-vertices = PackedVector2Array(7, 62, 163, 60, 166, 111, 6, 110)
+vertices = PackedVector2Array(68, 61, 228, 61, 228, 117, 67, 117)
 affect_navigation_mesh = true
 
 [node name="ColorRect" type="ColorRect" parent="NavigationRegion2D/NavigationObstacle2D"]
-offset_left = 8.0
-offset_top = 63.0
-offset_right = 152.0
-offset_bottom = 109.0
+offset_left = 75.0
+offset_top = 67.0
+offset_right = 219.0
+offset_bottom = 113.0
 color = Color(1.65302e-05, 1.65302e-05, 1.65302e-05, 1)
 
-[node name="NavControl" type="Node2D" parent="."]
-script = ExtResource("1_7mcpk")
+[node name="NavControl" parent="." instance=ExtResource("1_pm3wh")]
 
-[node name="GoalFolder" type="Node2D" parent="."]
-
-[node name="Goal" parent="GoalFolder" instance=ExtResource("3_naiom")]
+[node name="Goal" parent="NavControl/GoalFolder" index="0" instance=ExtResource("3_naiom")]
 position = Vector2(73, 14)
 
-[node name="Goal2" parent="GoalFolder" instance=ExtResource("3_naiom")]
+[node name="Goal2" parent="NavControl/GoalFolder" index="1" instance=ExtResource("3_naiom")]
 position = Vector2(247, 126)
 
-[node name="Goal3" parent="GoalFolder" instance=ExtResource("3_naiom")]
+[node name="Goal3" parent="NavControl/GoalFolder" index="2" instance=ExtResource("3_naiom")]
 position = Vector2(200, 11)
 
-[node name="Goal4" parent="GoalFolder" instance=ExtResource("3_naiom")]
-position = Vector2(43, 124)
+[node name="Goal4" parent="NavControl/GoalFolder" index="3" instance=ExtResource("3_naiom")]
+position = Vector2(101, 129)
 
-[node name="GoblinFolder" type="Node2D" parent="."]
-
-[node name="Goblin" parent="GoblinFolder" instance=ExtResource("3_vmkwa")]
+[node name="Goblin" parent="NavControl/GoblinFolder" index="0" instance=ExtResource("3_vmkwa")]
 position = Vector2(30, 128)
 scale = Vector2(0.03, 0.03)
 
-[node name="Goblin2" parent="GoblinFolder" instance=ExtResource("3_vmkwa")]
+[node name="Goblin2" parent="NavControl/GoblinFolder" index="1" instance=ExtResource("3_vmkwa")]
 position = Vector2(79, 150)
 scale = Vector2(0.03, 0.03)
+
+[editable path="NavControl"]

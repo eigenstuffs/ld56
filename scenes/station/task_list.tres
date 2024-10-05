@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="TaskList" load_steps=7 format=3 uid="uid://ba21ngubr8154"]
+
+[ext_resource type="Script" path="res://scenes/station/task_list.gd" id="1_my3oc"]
+[ext_resource type="Script" path="res://scenes/station/task_info.gd" id="2_wa504"]
+
+[sub_resource type="Resource" id="Resource_g0eld"]
+script = ExtResource("2_wa504")
+task_name = "Cutting"
+total_time = 5.0
+
+[sub_resource type="Resource" id="Resource_78625"]
+script = ExtResource("2_wa504")
+task_name = "Cooking"
+total_time = 15.0
+
+[sub_resource type="Resource" id="Resource_opugk"]
+script = ExtResource("2_wa504")
+task_name = "Fighting"
+total_time = 10.0
+
+[sub_resource type="Resource" id="Resource_pnm8w"]
+script = ExtResource("2_wa504")
+task_name = "Plating"
+total_time = 5.0
+
+[resource]
+script = ExtResource("1_my3oc")
+task_array = Array[ExtResource("2_wa504")]([SubResource("Resource_g0eld"), SubResource("Resource_78625"), SubResource("Resource_opugk"), SubResource("Resource_pnm8w")])

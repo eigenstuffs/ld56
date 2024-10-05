@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmq52iegph5xs"]
+
+[ext_resource type="Script" path="res://scenes/tools/goblin_nav_control.gd" id="1_xsfgd"]
+
+[node name="NavControl" type="Node2D"]
+script = ExtResource("1_xsfgd")
+
+[node name="GoalFolder" type="Node2D" parent="."]
+
+[node name="GoblinFolder" type="Node2D" parent="."]

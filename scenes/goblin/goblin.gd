@@ -18,6 +18,7 @@ signal listening_for_target
 var movement_speed : float = 300
 var clicked : bool = false
 var state := STATE.IDLE
+var current_state_child
 
 func _ready():
 	change_state("Idle")
@@ -29,6 +30,8 @@ func actor_setup():
 	await get_tree().physics_frame
 
 func change_state(to : String):
+	if current_state_child != null and current_state_child is GoblinState:
+		current_state_child.stop()
 	var target_state
 	match to:
 		"Idle":
@@ -43,6 +46,7 @@ func change_state(to : String):
 			target_state = STATE.EXPLODE
 	state = target_state
 	find_child(to).init()
+	current_state_child = find_child(to)
 
 func set_movement_target(movement_target : Vector2):
 	nav_agent.target_position = movement_target

@@ -2,8 +2,8 @@ extends Node2D
 
 class_name Nav_Control
 
-@onready var goblin_folder = $"../GoblinFolder"
-@onready var goal_folder = $"../GoalFolder"
+@onready var goblin_folder = $GoblinFolder
+@onready var goal_folder = $GoalFolder
 
 var goblin_array : Array[GoblinBase] = []
 var goal_array : Array[Goal] = []

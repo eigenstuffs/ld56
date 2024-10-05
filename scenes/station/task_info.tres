@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Task_Info" load_steps=2 format=3 uid="uid://duhor2xkr6hy1"]
+
+[ext_resource type="Script" path="res://scenes/station/task_info.gd" id="1_jkb7q"]
+
+[resource]
+script = ExtResource("1_jkb7q")
+task_name = ""
+total_time = 0.0
