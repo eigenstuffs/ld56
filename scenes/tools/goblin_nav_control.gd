@@ -42,4 +42,4 @@ func _on_goblin_listening_for_target():
 	agent_found = true
 
 func _on_goal_listening_for_agent():
-	goal_found = true
+	goal_found = agent_found

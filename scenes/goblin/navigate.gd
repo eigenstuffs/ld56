@@ -15,7 +15,6 @@ func run():
 
 func stop():
 	enable_process = false
-	goblin.highlight.color = Color.WHITE
 	
 func _physics_process(delta):
 	if enable_process:

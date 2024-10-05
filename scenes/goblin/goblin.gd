@@ -4,6 +4,7 @@ class_name GoblinBase
 
 enum STATE {
 	IDLE,
+	STUNNED,
 	NAVIGATE,
 	WORKING,
 	AWAITING_INPUT,
@@ -15,7 +16,7 @@ signal listening_for_target
 @onready var nav_agent = $NavigationAgent2D
 @onready var highlight : ColorRect = $Highlight #TODO temporary
 
-var movement_speed : float = 300
+@export var movement_speed : float = 100
 var clicked : bool = false
 var state := STATE.IDLE
 var current_state_child
@@ -32,10 +33,15 @@ func actor_setup():
 func change_state(to : String):
 	if current_state_child != null and current_state_child is GoblinState:
 		current_state_child.stop()
+	set_collision_layer(1)
+	set_collision_mask(1)
 	var target_state
 	match to:
 		"Idle":
 			target_state = STATE.IDLE
+		"Stunned":
+			target_state = STATE.STUNNED
+			$Navigate.stop()
 		"Navigate":
 			target_state = STATE.NAVIGATE
 		"Working":
@@ -53,10 +59,17 @@ func set_movement_target(movement_target : Vector2):
 	change_state("Navigate")
 
 func _on_clickable_region_gui_input(event):
-	if event.is_action_pressed("LMB"):
-		clicked = true
-		change_state("AwaitingInput")
+	if event.is_action_pressed("LMB") and (state == STATE.IDLE or state == STATE.AWAITING_INPUT):
+		clicked = !clicked
+		change_state("AwaitingInput" if clicked else "Idle")
 		#print("you clicked on this character!") #TODO remove this
-		emit_signal("listening_for_target")
+		if clicked: emit_signal("listening_for_target")
+		#this may lead to goblin_nav_control _process running but doing nothing for a single loop
+
+func _on_goblin_hitbox_area_entered(area: Area2D) -> void:
+	if area.get_parent() is GoblinBase:
+		if state == STATE.NAVIGATE and area.get_parent().state == STATE.NAVIGATE:
+			change_state("Stunned")
+			area.get_parent().change_state("Stunned")
 
 #Helper function called by different states
