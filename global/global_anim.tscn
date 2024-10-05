@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://dbw0afldygwr3"]
+
+[node name="GlobalAnim" type="CanvasLayer"]
