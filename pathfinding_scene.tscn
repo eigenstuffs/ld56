@@ -34,16 +34,16 @@ color = Color(1.65302e-05, 1.65302e-05, 1.65302e-05, 1)
 [node name="NavControl" parent="." instance=ExtResource("1_pm3wh")]
 
 [node name="Goal" parent="NavControl/GoalFolder" index="0" instance=ExtResource("3_naiom")]
-position = Vector2(73, 14)
+position = Vector2(87, 31)
 
 [node name="Goal2" parent="NavControl/GoalFolder" index="1" instance=ExtResource("3_naiom")]
-position = Vector2(247, 126)
+position = Vector2(266, 149)
 
 [node name="Goal3" parent="NavControl/GoalFolder" index="2" instance=ExtResource("3_naiom")]
-position = Vector2(200, 11)
+position = Vector2(211, 33)
 
 [node name="Goal4" parent="NavControl/GoalFolder" index="3" instance=ExtResource("3_naiom")]
-position = Vector2(101, 129)
+position = Vector2(113, 150)
 
 [node name="Goblin" parent="NavControl/GoblinFolder" index="0" instance=ExtResource("3_vmkwa")]
 position = Vector2(30, 128)
