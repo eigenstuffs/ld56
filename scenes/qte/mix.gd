@@ -36,13 +36,13 @@ func create_icons():
 		var sprite = a.find_child("Sprite") as Sprite2D
 		match i:
 			"up":
-				sprite.frame_coords = Vector2(0, 1)
+				sprite.frame_coords = Vector2(0, 0)
 			"down":
-				sprite.frame_coords = Vector2(3, 1)
+				sprite.frame_coords = Vector2(3, 0)
 			"left":
-				sprite.frame_coords = Vector2(2, 1)
+				sprite.frame_coords = Vector2(2, 0)
 			"right":
-				sprite.frame_coords = Vector2(1, 1)
+				sprite.frame_coords = Vector2(1, 0)
 
 func _input(event):
 	if event.is_action_pressed("up") and combination[0] == "up":
