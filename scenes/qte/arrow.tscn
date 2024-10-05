@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvosu2xmpgi4v"]
+
+[ext_resource type="Texture2D" uid="uid://12honc2x0iw2" path="res://assets/arrow_spread_sheet.png" id="1_5e4kw"]
+
+[node name="Arrow" type="Sprite2D"]
+texture = ExtResource("1_5e4kw")
+hframes = 4
+vframes = 4
+frame = 4
