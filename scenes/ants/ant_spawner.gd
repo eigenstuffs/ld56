@@ -2,7 +2,7 @@ extends Node2D
 
 class_name	AntSpawner
 
-const AntPrefab = preload("res://ant.tscn")
+const AntPrefab = preload("res://scenes/ants/ant.tscn")
 @export var spawnTimeMin  = 2
 @export var spawnTimeMax  = 2
 @onready var enabled = true

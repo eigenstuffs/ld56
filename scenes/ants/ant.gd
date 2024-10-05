@@ -15,7 +15,7 @@ var state := STATE.NAVIGATE
 
 func _ready():
 	global_position = Vector2([-30,get_viewport().size.x + 30].pick_random(), get_viewport().size.y)
-	global_position = Vector2.ZERO
+	#global_position = Vector2.ZERO
 	nav_agent = $navAgent
 	after_ready.call_deferred()
 	
@@ -36,8 +36,6 @@ func _physics_process(delta: float) -> void:
 			var current_agent_position: Vector2 = global_position
 			var next_path_position: Vector2 = nav_agent.get_next_path_position()
 			velocity = current_agent_position.direction_to(next_path_position) * speed
-			print(current_agent_position)
-			print(nav_agent.target_position)
 			move_and_slide()
 	
 func eat():

@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpk2s6eelww0t"]
+
+[ext_resource type="Script" path="res://scenes/ants/ant_spawner.gd" id="1_hnfn6"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_cgkt2"]
+vertices = PackedVector2Array(29, 157, 315, 156, 314, 158, 28, 159, 26, 106, 27, 107, 174, 106, 176, 108, 176, 80, 175, 81, 28, 78, 27, 80, 27, 25, 28, 27, 314, 25, 314, 27)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(0, 3, 4, 5), PackedInt32Array(5, 4, 6, 7), PackedInt32Array(8, 7, 6, 9), PackedInt32Array(10, 8, 9, 11), PackedInt32Array(10, 11, 12, 13), PackedInt32Array(13, 12, 14, 15)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(314, 25, 27, 25, 27, 80, 175, 81, 174, 106, 26, 106, 28, 159, 314, 158, 315, 156, 29, 157, 27, 107, 176, 108, 176, 80, 28, 78, 28, 27, 314, 27)])
+agent_radius = 0.0
+
+[node name="AntSpawner" type="NavigationRegion2D"]
+navigation_polygon = SubResource("NavigationPolygon_cgkt2")
+script = ExtResource("1_hnfn6")
+
+[node name="Ceiling" type="ColorRect" parent="."]
+offset_left = 1.0
+offset_top = 1.00001
+offset_right = 314.0
+offset_bottom = 26.0
+
+[node name="SideWall" type="ColorRect" parent="."]
+offset_left = 1.52856
+offset_top = 1.8888
+offset_right = 26.5286
+offset_bottom = 174.889
+
+[node name="Floor" type="ColorRect" parent="."]
+offset_left = 2.01174
+offset_top = 156.645
+offset_right = 315.012
+offset_bottom = 181.645
+
+[node name="MidWall" type="ColorRect" parent="."]
+offset_left = 0.534454
+offset_top = 81.0294
+offset_right = 173.534
+offset_bottom = 106.029

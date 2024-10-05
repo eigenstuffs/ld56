@@ -36,6 +36,7 @@ func _process(delta):
 		for goblin : GoblinBase in target_goblins:
 			var rand_vec = Vector2.from_angle(randf_range(0,2*PI))
 			rand_vec *= randf_range(0,target_goal.scale.x * 10)
+			print(rand_vec)
 			goblin.set_movement_target(target_goal.global_position + rand_vec)
 		goal_found = false
 		agent_found = false
