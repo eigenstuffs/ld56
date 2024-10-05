@@ -5,12 +5,7 @@ class_name Recipe
 @export var dish_name : String
 @export var required_ing : Array[IngredientInfo] = []
 @export var required_amount : Array[int] = []
-
-var current_amount : Array[int] = []
-
-func _ready():
-	current_amount.resize(required_amount.size())
-	current_amount.fill(0)
+@export var current_amount : Array[int]
 
 #getters
 func find_by_name(name : String):

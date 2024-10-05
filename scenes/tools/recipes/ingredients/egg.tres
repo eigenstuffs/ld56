@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="IngredientInfo" load_steps=2 format=3 uid="uid://cyvura4urvq1v"]
 
-[ext_resource type="Script" path="res://scenes/tools/recipes/ingredients/ingredient_info.gd" id="1_i1wre"]
+[ext_resource type="Script" path="res://scenes/tools/recipes/ingredients/ingredient_info.gd" id="1_660gi"]
 
 [resource]
-script = ExtResource("1_i1wre")
-ing_name = "Veggie"
+script = ExtResource("1_660gi")
+ing_name = "Egg"
