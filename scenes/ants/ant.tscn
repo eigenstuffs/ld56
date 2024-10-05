@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c8jqb53u6wfet"]
 
-[ext_resource type="Script" path="res://ant.gd" id="1_eaava"]
+[ext_resource type="Script" path="res://scenes/ants/ant.gd" id="1_eaava"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c50ex"]
 size = Vector2(19, 17)
