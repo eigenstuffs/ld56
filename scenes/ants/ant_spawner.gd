@@ -11,6 +11,7 @@ signal reenabled
 
 func _ready() -> void:
 	while true:
+		break
 		currTimer = get_tree().create_timer(randi_range(spawnTimeMin,spawnTimeMax))
 		await currTimer.timeout
 		if enabled:
@@ -18,7 +19,6 @@ func _ready() -> void:
 			add_child(ant)
 		else:
 			await reenabled
-		break
 
 func set_enabled(enabled : bool):
 	self.enabled = enabled

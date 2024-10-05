@@ -15,7 +15,7 @@ var state := STATE.NAVIGATE
 
 func _ready():
 	global_position = Vector2([-30,get_viewport().size.x + 30].pick_random(), get_viewport().size.y)
-	#global_position = Vector2.ZERO
+	global_position = Vector2.ZERO
 	nav_agent = $navAgent
 	after_ready.call_deferred()
 	
