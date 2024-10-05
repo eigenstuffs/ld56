@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dy33jjb3kjeiu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ka3y2"]
+size = Vector2(24, 24)
+
+[node name="Goblin" type="CharacterBody2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 24.0
+offset_bottom = 24.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(12, 12)
+shape = SubResource("RectangleShape2D_ka3y2")
