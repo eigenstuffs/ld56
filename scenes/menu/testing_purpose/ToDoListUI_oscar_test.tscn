@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://teo71o0ubvgw"]
+[gd_scene load_steps=7 format=3 uid="uid://beg5hx4v60pqt"]
 
-[ext_resource type="Script" path="res://scenes/menu/to_do_list_ui.gd" id="1_fl081"]
-[ext_resource type="Texture2D" uid="uid://dicl0oxoa507v" path="res://assets/UIBorder/1pastalight.png" id="2_dusom"]
-[ext_resource type="Texture2D" uid="uid://dtckx0qfbhgvy" path="res://assets/UIBorder/5gnomegreen.png" id="3_8oygj"]
-[ext_resource type="Script" path="res://scenes/menu/to_do_labels.gd" id="3_fxnfq"]
-[ext_resource type="Texture2D" uid="uid://m65as66a46h2" path="res://assets/UIBorder/0pastayellow.png" id="4_ddg5d"]
+[ext_resource type="Texture2D" uid="uid://dicl0oxoa507v" path="res://assets/UIBorder/1pastalight.png" id="1_n20rs"]
+[ext_resource type="Script" path="res://scenes/menu/to_do_list_ui.gd" id="2_o57ob"]
+[ext_resource type="Script" path="res://scenes/menu/to_do_labels.gd" id="3_03v4d"]
+[ext_resource type="Texture2D" uid="uid://dtckx0qfbhgvy" path="res://assets/UIBorder/5gnomegreen.png" id="4_l6u4d"]
+[ext_resource type="Texture2D" uid="uid://m65as66a46h2" path="res://assets/UIBorder/0pastayellow.png" id="5_8acoa"]
+[ext_resource type="Theme" uid="uid://pvw013v2skuc" path="res://scenes/menu/testing_purpose/test_theme.tres" id="6_w3wma"]
 
 [node name="ToDoListUI" type="Control"]
 layout_mode = 3
@@ -20,8 +21,8 @@ offset_left = 1.0
 offset_top = 1.0
 offset_right = 61.0
 offset_bottom = 86.0
-texture = ExtResource("2_dusom")
-script = ExtResource("1_fl081")
+texture = ExtResource("1_n20rs")
+script = ExtResource("2_o57ob")
 
 [node name="ProgressBar" type="ProgressBar" parent="ToDo Progress Bar"]
 layout_mode = 1
@@ -88,7 +89,7 @@ grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 8
 text = "To Do List"
-script = ExtResource("3_fxnfq")
+script = ExtResource("3_03v4d")
 
 [node name="ing1" type="Label" parent="ToDo Labels"]
 layout_mode = 1
@@ -152,7 +153,7 @@ offset_left = 1.0
 offset_top = 94.0
 offset_right = 61.0
 offset_bottom = 179.0
-texture = ExtResource("3_8oygj")
+texture = ExtResource("4_l6u4d")
 
 [node name="NinePatchRect3" type="NinePatchRect" parent="."]
 layout_mode = 0
@@ -160,7 +161,7 @@ offset_left = 259.0
 offset_top = 1.0
 offset_right = 319.0
 offset_bottom = 86.0
-texture = ExtResource("3_8oygj")
+texture = ExtResource("4_l6u4d")
 
 [node name="NinePatchRect4" type="NinePatchRect" parent="."]
 layout_mode = 0
@@ -168,4 +169,17 @@ offset_left = 259.0
 offset_top = 94.0
 offset_right = 319.0
 offset_bottom = 179.0
-texture = ExtResource("4_ddg5d")
+texture = ExtResource("5_8acoa")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect4"]
+layout_mode = 0
+offset_right = 60.0
+offset_bottom = 84.0
+
+[node name="DishName" type="Label" parent="NinePatchRect4/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("6_w3wma")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 13
+text = "Name"
+horizontal_alignment = 1
