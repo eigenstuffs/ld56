@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=9 format=3 uid="uid://d4y7qwdst5mh"]
+
+[ext_resource type="Script" path="res://scenes/tools/recipes/ingredients/ingredient_info.gd" id="1_08j56"]
+[ext_resource type="Resource" uid="uid://bmkk420mxdsfw" path="res://scenes/tools/recipes/ingredients/meat.tres" id="2_yyh4r"]
+[ext_resource type="Resource" uid="uid://dao308cgo2ler" path="res://scenes/tools/recipes/ingredients/spices.tres" id="3_bx5uj"]
+[ext_resource type="Resource" uid="uid://dokfg58iwq26p" path="res://scenes/tools/recipes/ingredients/flour.tres" id="3_kdmeo"]
+[ext_resource type="Resource" uid="uid://cyvura4urvq1v" path="res://scenes/tools/recipes/ingredients/egg.tres" id="4_6bi0g"]
+[ext_resource type="Resource" uid="uid://d2510q2f76g23" path="res://scenes/tools/recipes/ingredients/sugar.tres" id="5_i8xku"]
+[ext_resource type="Resource" uid="uid://c7dthmhxgd8m" path="res://scenes/tools/recipes/ingredients/veggie.tres" id="5_l7v8u"]
+[ext_resource type="Script" path="res://scenes/tools/recipes/recipe.gd" id="6_pnnd0"]
+
+[resource]
+script = ExtResource("6_pnnd0")
+dish_name = "Ghost Pepper Curry"
+required_ing = Array[ExtResource("1_08j56")]([ExtResource("2_yyh4r"), ExtResource("3_bx5uj"), ExtResource("3_kdmeo"), ExtResource("5_i8xku"), ExtResource("4_6bi0g"), ExtResource("5_l7v8u")])
+required_amount = Array[int]([2, 2, 1, 1, 1, 1])

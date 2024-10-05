@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=6 format=3 uid="uid://cnhywb24r0wdq"]
+
+[ext_resource type="Script" path="res://scenes/tools/recipes/ingredients/ingredient_info.gd" id="1_63l58"]
+[ext_resource type="Script" path="res://scenes/tools/recipes/recipe.gd" id="2_1m5b0"]
+[ext_resource type="Resource" uid="uid://cyvura4urvq1v" path="res://scenes/tools/recipes/ingredients/egg.tres" id="2_uvhtn"]
+[ext_resource type="Resource" uid="uid://dao308cgo2ler" path="res://scenes/tools/recipes/ingredients/spices.tres" id="3_ivpr4"]
+[ext_resource type="Resource" uid="uid://c7dthmhxgd8m" path="res://scenes/tools/recipes/ingredients/veggie.tres" id="4_ry032"]
+
+[resource]
+script = ExtResource("2_1m5b0")
+dish_name = "Deviled Eggs"
+required_ing = Array[ExtResource("1_63l58")]([ExtResource("2_uvhtn"), ExtResource("3_ivpr4"), ExtResource("4_ry032")])
+required_amount = Array[int]([1, 1, 1])

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="IngredientInfo" load_steps=2 format=3 uid="uid://d2510q2f76g23"]
+
+[ext_resource type="Script" path="res://scenes/tools/recipes/ingredients/ingredient_info.gd" id="1_uhusk"]
+
+[resource]
+script = ExtResource("1_uhusk")
+ing_name = "Sugar"

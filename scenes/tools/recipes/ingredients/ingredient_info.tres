@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://chvaqsq1btxe8"]
+
+[ext_resource type="Script" path="res://scenes/tools/recipes/ingredients/ingredient_info.gd" id="1_bduvp"]
+
+[resource]
+script = ExtResource("1_bduvp")
+ing_name = ""
