@@ -77,3 +77,4 @@ avoidance_enabled = true
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="gui_input" from="ClickableRegion" to="." method="_on_clickable_region_gui_input"]
+[connection signal="navigate_process" from="Navigate" to="." method="_on_navigate_navigate_process"]
