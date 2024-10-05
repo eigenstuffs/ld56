@@ -11,3 +11,6 @@ func run():
 	
 func change_state(to : String):
 	goblin.state = to
+
+func stop():
+	pass
