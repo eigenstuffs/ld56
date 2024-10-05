@@ -2,21 +2,17 @@ extends CharacterBody2D
 
 class_name GoblinBase
 
-@export_enum("Idle",
+@export_enum(
+	"Idle",
 	"Navigate",
 	"Working",
 	"AwaitingInput",
-	"Explode") var state
+	"Explode"
+) var state = "Idle"
 
 func _process(delta):
-	match state:
-		"Idle":
-			$Idle.run()
-		"Navigate":
-			$Navigate.run()
-		"Working":
-			$Working.run()
-		"AwaitingInput":
-			$AwaitingInput.run()
-		"Explode":
-			$Explode.run()
+	find_child(state).run()
+
+func change_state(to : String):
+	state = to
+	find_child(state).init()
