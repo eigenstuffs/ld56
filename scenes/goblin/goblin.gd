@@ -2,7 +2,11 @@ extends CharacterBody2D
 
 class_name GoblinBase
 
-@export_enum("Idle", "Navigate", "Task", "Explode") var state
+@export_enum("Idle",
+	"Navigate",
+	"Working",
+	"AwaitingInput",
+	"Explode") var state
 
 func _process(delta):
 	match state:
@@ -10,7 +14,9 @@ func _process(delta):
 			$Idle.run()
 		"Navigate":
 			$Navigate.run()
-		"Task":
-			$Task.run()
+		"Working":
+			$Working.run()
+		"AwaitingInput":
+			$AwaitingInput.run()
 		"Explode":
 			$Explode.run()

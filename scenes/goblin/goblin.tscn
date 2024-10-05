@@ -1,13 +1,17 @@
-[gd_scene load_steps=12 format=3 uid="uid://dy33jjb3kjeiu"]
+[gd_scene load_steps=13 format=3 uid="uid://dy33jjb3kjeiu"]
 
 [ext_resource type="Script" path="res://scenes/goblin/goblin.gd" id="1_u2bdf"]
 [ext_resource type="Script" path="res://scenes/goblin/idle.gd" id="2_u32ex"]
 [ext_resource type="Script" path="res://scenes/goblin/navigate.gd" id="3_638pl"]
-[ext_resource type="Script" path="res://scenes/goblin/task.gd" id="4_62six"]
+[ext_resource type="Script" path="res://scenes/goblin/working.gd" id="4_84cvj"]
+[ext_resource type="Script" path="res://scenes/goblin/awaiting_input.gd" id="5_0atyx"]
 [ext_resource type="Script" path="res://scenes/goblin/explode.gd" id="5_76ybd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ka3y2"]
 size = Vector2(24, 24)
+
+[sub_resource type="Animation" id="Animation_mq68a"]
+resource_name = "explode"
 
 [sub_resource type="Animation" id="Animation_pff5u"]
 resource_name = "idle"
@@ -17,9 +21,6 @@ resource_name = "navigate"
 
 [sub_resource type="Animation" id="Animation_1ga21"]
 resource_name = "task"
-
-[sub_resource type="Animation" id="Animation_mq68a"]
-resource_name = "explode"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rsokv"]
 _data = {
@@ -46,8 +47,11 @@ script = ExtResource("2_u32ex")
 [node name="Navigate" type="Node" parent="."]
 script = ExtResource("3_638pl")
 
-[node name="Task" type="Node" parent="."]
-script = ExtResource("4_62six")
+[node name="Working" type="Node" parent="."]
+script = ExtResource("4_84cvj")
+
+[node name="AwaitingInput" type="Node" parent="."]
+script = ExtResource("5_0atyx")
 
 [node name="Explode" type="Node" parent="."]
 script = ExtResource("5_76ybd")
