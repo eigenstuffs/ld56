@@ -2,31 +2,36 @@
 
 [ext_resource type="Script" path="res://ant_spawner.gd" id="1_hnfn6"]
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_jv74x"]
-vertices = PackedVector2Array(97.6016, 159.203, 94.0391, 113.25, 258.211, 114.242, 380.781, 158.297, 383.312, 95.5938, 253.711, 40.3984, 379.328, 42.6797, 377.047, 8.03125, 98.7266, 6.21875, 93.3984, 42.3672, 93.4609, 39.0078)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 3, 2, 5, 6), PackedInt32Array(7, 6, 5, 8), PackedInt32Array(8, 5, 9, 10)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(81.4802, 37.9451, 88.5217, -5.83771, 388.288, -3.89181, 391.306, 41.8369, 395.33, 95.3493, 392.312, 170.267, 86.5098, 171.239, 80.4742, 93.4033)])
-source_geometry_group_name = &"navigation_polygon_source_group"
-agent_radius = 12.0
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_cgkt2"]
+vertices = PackedVector2Array(29, 157, 315, 156, 314, 158, 28, 159, 26, 106, 27, 107, 174, 106, 176, 108, 176, 80, 175, 81, 28, 78, 27, 80, 27, 25, 28, 27, 314, 25, 314, 27)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(0, 3, 4, 5), PackedInt32Array(5, 4, 6, 7), PackedInt32Array(8, 7, 6, 9), PackedInt32Array(10, 8, 9, 11), PackedInt32Array(10, 11, 12, 13), PackedInt32Array(13, 12, 14, 15)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(314, 25, 27, 25, 27, 80, 175, 81, 174, 106, 26, 106, 28, 159, 314, 158, 315, 156, 29, 157, 27, 107, 176, 108, 176, 80, 28, 78, 28, 27, 314, 27)])
+agent_radius = 0.0
 
-[node name="AntSpawner" type="Node2D"]
+[node name="AntSpawner" type="NavigationRegion2D"]
+navigation_polygon = SubResource("NavigationPolygon_cgkt2")
 script = ExtResource("1_hnfn6")
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-position = Vector2(-78, 6)
-scale = Vector2(0.994107, 1.0278)
-navigation_polygon = SubResource("NavigationPolygon_jv74x")
+[node name="Ceiling" type="ColorRect" parent="."]
+offset_left = 1.0
+offset_top = 1.00001
+offset_right = 314.0
+offset_bottom = 26.0
 
-[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="NavigationRegion2D"]
-position = Vector2(78.4624, -5.83771)
-scale = Vector2(1.00593, 0.972952)
-vertices = PackedVector2Array(7, 62, 163, 60, 166, 111, 6, 110)
-affect_navigation_mesh = true
+[node name="SideWall" type="ColorRect" parent="."]
+offset_left = 1.52856
+offset_top = 1.8888
+offset_right = 26.5286
+offset_bottom = 174.889
 
-[node name="ColorRect" type="ColorRect" parent="NavigationRegion2D/NavigationObstacle2D"]
-offset_left = 8.0
-offset_top = 63.0
-offset_right = 152.0
-offset_bottom = 109.0
-color = Color(1.65302e-05, 1.65302e-05, 1.65302e-05, 1)
-metadata/_edit_use_anchors_ = true
+[node name="Floor" type="ColorRect" parent="."]
+offset_left = 2.01174
+offset_top = 156.645
+offset_right = 315.012
+offset_bottom = 181.645
+
+[node name="MidWall" type="ColorRect" parent="."]
+offset_left = 0.534454
+offset_top = 81.0294
+offset_right = 173.534
+offset_bottom = 106.029
