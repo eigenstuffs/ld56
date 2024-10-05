@@ -47,14 +47,14 @@ position = Vector2(113, 150)
 
 [node name="Goblin" parent="NavControl/GoblinFolder" index="0" instance=ExtResource("3_vmkwa")]
 position = Vector2(30, 128)
-scale = Vector2(0.05, 0.05)
+scale = Vector2(0.2, 0.2)
 
 [node name="Goblin2" parent="NavControl/GoblinFolder" index="1" instance=ExtResource("3_vmkwa")]
 position = Vector2(79, 150)
-scale = Vector2(0.05, 0.05)
+scale = Vector2(0.2, 0.2)
 
 [node name="Goblin3" parent="NavControl/GoblinFolder" index="2" instance=ExtResource("3_vmkwa")]
 position = Vector2(44, 164)
-scale = Vector2(0.05, 0.05)
+scale = Vector2(0.2, 0.2)
 
 [editable path="NavControl"]
