@@ -1,11 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://bu2lp6wn31n4"]
+[gd_scene load_steps=2 format=3 uid="uid://beg5hx4v60pqt"]
 
-[ext_resource type="Script" path="res://scenes/menu/to_do_list.gd" id="1_31k78"]
+[ext_resource type="Script" path="res://scenes/menu/to_do_list_ui.gd" id="1_fl081"]
 
-[node name="ToDoList" type="Node2D"]
-script = ExtResource("1_31k78")
+[node name="ToDoListUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fl081")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
 offset_left = 1.0
 offset_top = 1.0
 offset_right = 61.0
@@ -127,18 +134,21 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 5
 
 [node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
 offset_left = 1.0
 offset_top = 94.0
 offset_right = 61.0
 offset_bottom = 179.0
 
 [node name="ColorRect3" type="ColorRect" parent="."]
+layout_mode = 0
 offset_left = 259.0
 offset_top = 1.0
 offset_right = 319.0
 offset_bottom = 86.0
 
 [node name="ColorRect4" type="ColorRect" parent="."]
+layout_mode = 0
 offset_left = 259.0
 offset_top = 94.0
 offset_right = 319.0

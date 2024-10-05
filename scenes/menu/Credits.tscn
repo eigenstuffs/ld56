@@ -25,6 +25,51 @@ grow_vertical = 2
 theme = SubResource("Theme_aeuk1")
 script = ExtResource("1_on07j")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.489622, 0.489622, 0.489622, 1)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -27.0
+offset_top = 5.0
+offset_right = 28.0
+offset_bottom = 28.0
+grow_horizontal = 2
+text = "Credits"
+
+[node name="Label2" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.5
+offset_top = -61.5
+offset_right = 87.5
+offset_bottom = 61.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 7
+text = "Angelina Wu - 2D Art
+Branden Bohrnsen - Project Manager, Programming
+Caominh Le - Programming
+Joice He - 2D Art
+Jon Wake - Sound Design
+Lauclan ___ - UI/UX 
+Lea ___ - 2D Art Animation
+Nyla Jafri - UI/UX
+Oscar Su - Programming, UI/UX"
+
 [node name="Back" type="Button" parent="."]
 light_mask = 3
 layout_mode = 1
@@ -33,10 +78,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -32.0
-offset_top = -38.0
-offset_right = 33.0
-offset_bottom = -12.0
+offset_left = -26.0
+offset_top = -25.0
+offset_right = 39.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.8, 0.8)
