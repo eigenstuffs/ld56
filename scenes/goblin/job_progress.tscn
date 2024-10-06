@@ -1,9 +1,24 @@
-[gd_scene load_steps=8 format=3 uid="uid://dme20mm4yty5m"]
+[gd_scene load_steps=8 format=3 uid="uid://0p8vty7m6ato"]
 
 [ext_resource type="Texture2D" uid="uid://bnbah5o10c0or" path="res://assets/bar/outline.png" id="1_pr1fq"]
 [ext_resource type="Texture2D" uid="uid://bbwgun741xuls" path="res://assets/bar/fill.png" id="2_1uiht"]
 [ext_resource type="Script" path="res://scenes/goblin/job_progress.gd" id="3_m2qpy"]
 [ext_resource type="Texture2D" uid="uid://dn0ae81vmn2d7" path="res://assets/bar/red.png" id="4_ws2mk"]
+
+[sub_resource type="Animation" id="Animation_n421s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Red:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_r00cs"]
 resource_name = "flash"
@@ -20,21 +35,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_n421s"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Red:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6sxh1"]

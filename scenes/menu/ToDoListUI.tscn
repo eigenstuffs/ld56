@@ -35,6 +35,7 @@ offset_top = 20.0
 offset_right = 22.0
 offset_bottom = 36.0
 grow_horizontal = 2
+mouse_filter = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 8
 
@@ -48,6 +49,7 @@ offset_top = 44.0
 offset_right = 22.0
 offset_bottom = 60.0
 grow_horizontal = 2
+mouse_filter = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 8
 
@@ -61,6 +63,7 @@ offset_top = 68.0
 offset_right = 22.0
 offset_bottom = 84.0
 grow_horizontal = 2
+mouse_filter = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 8
 
@@ -135,6 +138,7 @@ offset_left = 8.0
 offset_top = 15.0
 offset_right = 52.0
 offset_bottom = 45.0
+mouse_filter = 2
 theme_override_constants/separation = 0
 
 [node name="TitleLabel" type="Label" parent="GoblinCounter/VBoxContainer"]
@@ -165,6 +169,7 @@ offset_left = 6.0
 offset_top = 16.0
 offset_right = 54.0
 offset_bottom = 64.0
+mouse_filter = 2
 
 [node name="Recipe" type="NinePatchRect" parent="."]
 layout_mode = 0
@@ -180,3 +185,4 @@ offset_left = 8.0
 offset_top = 2.0
 offset_right = 52.0
 offset_bottom = 87.0
+mouse_filter = 2

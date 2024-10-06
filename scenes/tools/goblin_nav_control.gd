@@ -4,9 +4,8 @@ class_name Nav_Control
 
 @onready var goblin_folder = $GoblinFolder
 @onready var goal_folder = $GoalFolder
-
 var goblin_array : Array[GoblinBase] = []
-var goal_array : Array[Goal] = []
+@export var goal_array : Array[Goal] = []
 var agent_found : bool = false
 var goal_found : bool = false
 
@@ -16,8 +15,9 @@ func _ready():
 		goblin.connect("listening_for_target", _on_goblin_listening_for_target)
 	for goal : Goal in goal_folder.get_children():
 		goal_array.append(goal)
-		goal.connect("listening_for_agent", _on_goal_listening_for_agent)
 		print(goal)
+	for goal : Goal in goal_array:
+		goal.connect("listening_for_agent", _on_goal_listening_for_agent)
 	
 func _process(delta):
 	#logic: if both and agent and a goal are clicked, let agent go to the goal

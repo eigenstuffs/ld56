@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/enemy_event/bird_window.gd" id="1_mps5j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d4iih"]
-size = Vector2(194, 173)
+size = Vector2(177.778, 177.778)
 
 [node name="BirdWindow" type="Area2D"]
 position = Vector2(98, 87)

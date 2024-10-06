@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://tq42g3xnxngh"]
+[gd_scene load_steps=16 format=3 uid="uid://tq42g3xnxngh"]
 
 [ext_resource type="Texture2D" uid="uid://ccxx0lpjdnpsr" path="res://assets/temp_with_latter.jpg" id="1_31b1t"]
 [ext_resource type="PackedScene" uid="uid://bmq52iegph5xs" path="res://scenes/tools/goblin_nav_control.tscn" id="2_7etuc"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dwn6tdlp54duv" path="res://scenes/qte/mix.tscn" id="7_0nvxj"]
 [ext_resource type="Resource" uid="uid://bmkk420mxdsfw" path="res://scenes/tools/recipes/ingredients/meat.tres" id="8_4u4bp"]
 [ext_resource type="Resource" uid="uid://cyvura4urvq1v" path="res://scenes/tools/recipes/ingredients/egg.tres" id="8_oobhy"]
+[ext_resource type="PackedScene" uid="uid://teo71o0ubvgw" path="res://scenes/menu/ToDoListUI.tscn" id="9_0a727"]
 [ext_resource type="Script" path="res://scenes/tools/recipes/ingredients/ingredient_info.gd" id="9_p4p1p"]
 [ext_resource type="Resource" uid="uid://c7dthmhxgd8m" path="res://scenes/tools/recipes/ingredients/veggie.tres" id="10_yun1q"]
 
@@ -35,7 +36,8 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_31b1t")
 
-[node name="NavControl" parent="." instance=ExtResource("2_7etuc")]
+[node name="NavControl" parent="." node_paths=PackedStringArray("goal_array") instance=ExtResource("2_7etuc")]
+goal_array = [NodePath("../CanvasLayer/BirdWindow")]
 
 [node name="Goal" parent="NavControl/GoalFolder" index="0" instance=ExtResource("3_tr6ll")]
 position = Vector2(193, 142)
@@ -49,15 +51,10 @@ position = Vector2(37, 153)
 [node name="Goal3" parent="NavControl/GoalFolder" index="3" instance=ExtResource("3_tr6ll")]
 position = Vector2(96, 77)
 
-[node name="BirdWindow" parent="NavControl/GoalFolder" index="4" node_paths=PackedStringArray("garrison_point") instance=ExtResource("4_n28lg")]
-position = Vector2(281, 88)
-scale = Vector2(0.4, 0.4)
-garrison_point = NodePath("../Hole2Window")
-
-[node name="Goal5" parent="NavControl/GoalFolder" index="5" instance=ExtResource("3_tr6ll")]
+[node name="Goal5" parent="NavControl/GoalFolder" index="4" instance=ExtResource("3_tr6ll")]
 position = Vector2(89, -27)
 
-[node name="Goal7" parent="NavControl/GoalFolder" index="6" instance=ExtResource("3_tr6ll")]
+[node name="Goal7" parent="NavControl/GoalFolder" index="5" instance=ExtResource("3_tr6ll")]
 position = Vector2(214, 24)
 
 [node name="Goblin" parent="NavControl/GoblinFolder" index="0" instance=ExtResource("4_1y4fi")]
@@ -102,7 +99,6 @@ affect_navigation_mesh = true
 [node name="Job" type="Area2D" parent="Jobs"]
 position = Vector2(88, -24)
 script = ExtResource("6_ahie5")
-job_type = 0
 time = 5
 qte = ExtResource("7_0nvxj")
 item_reward = ExtResource("8_4u4bp")
@@ -113,7 +109,6 @@ shape = SubResource("RectangleShape2D_nr38a")
 [node name="Job2" type="Area2D" parent="Jobs"]
 position = Vector2(210, 28)
 script = ExtResource("6_ahie5")
-job_type = 1
 time = 8
 items_needed = Array[ExtResource("9_p4p1p")]([ExtResource("8_oobhy"), ExtResource("10_yun1q")])
 
@@ -131,4 +126,44 @@ position = Vector2(-160, -90)
 [node name="BottomRight" type="Node2D" parent="Camera2D"]
 position = Vector2(160, 182)
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ToDoListUI" parent="CanvasLayer" instance=ExtResource("9_0a727")]
+
+[node name="BirdWindow" parent="CanvasLayer" node_paths=PackedStringArray("garrison_point") instance=ExtResource("4_n28lg")]
+position = Vector2(290, 57)
+scale = Vector2(0.27, 0.27)
+garrison_point = NodePath("../../NavControl/GoalFolder/Hole2Window")
+
+[node name="ColorRect" parent="CanvasLayer/BirdWindow" index="0"]
+offset_left = -89.0
+offset_top = 67.0
+offset_right = 89.0
+offset_bottom = 89.0
+mouse_filter = 2
+
+[node name="GoblinCount" parent="CanvasLayer/BirdWindow" index="2"]
+offset_left = -85.1852
+offset_top = 70.3704
+offset_right = 58.8148
+offset_bottom = 100.37
+mouse_filter = 2
+
+[node name="Countdown" parent="CanvasLayer/BirdWindow" index="3"]
+offset_left = 44.4444
+offset_top = -85.1852
+offset_right = 84.4444
+offset_bottom = -45.1852
+mouse_filter = 2
+
+[node name="ClickRegionCollider" parent="CanvasLayer/BirdWindow" index="4"]
+position = Vector2(-0.00012207, 0)
+
+[node name="AbortButton" parent="CanvasLayer/BirdWindow" index="5"]
+offset_left = 44.4444
+offset_top = 66.6667
+offset_right = 89.4444
+offset_bottom = 88.6667
+
 [editable path="NavControl"]
+[editable path="CanvasLayer/BirdWindow"]
