@@ -86,6 +86,7 @@ libraries = {
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 10.0
+path_postprocessing = 1
 avoidance_enabled = true
 radius = 150.0
 debug_enabled = true

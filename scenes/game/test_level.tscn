@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://dy33jjb3kjeiu" path="res://scenes/goblin/goblin.tscn" id="4_1y4fi"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_nq5ct"]
-vertices = PackedVector2Array(48.9375, 153.906, 50.1484, 166, 7.59375, 166, 9.4375, 133.82, 193.297, 155.047, 62.0391, 132.812, 174.578, 149.211, 309.359, -79.9609, 309.633, -73, 246.656, -73, 61.0391, -79.0312, 71, 49.6875, 61.6406, 49.0234, 123.727, 31.4688, 250.391, 38, 128.039, 38, 82.8672, 70.75, 71, 93, 92.7891, 84.7891, 150.953, 93, 126.352, 68, 185.938, 68, 152.148, 103.859, 198.672, 141, 185.398, 134.82, 61.9922, 122, 129.922, 122, 156.812, 138.547)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5, 6), PackedInt32Array(7, 8, 9, 10), PackedInt32Array(11, 12, 10, 9, 13), PackedInt32Array(9, 14, 15, 13), PackedInt32Array(11, 13, 16), PackedInt32Array(17, 11, 16), PackedInt32Array(17, 16, 18), PackedInt32Array(19, 17, 18), PackedInt32Array(19, 18, 20, 21), PackedInt32Array(22, 19, 21, 23, 24), PackedInt32Array(5, 25, 26, 27), PackedInt32Array(24, 23, 4, 6), PackedInt32Array(27, 6, 5)])
+vertices = PackedVector2Array(48.9375, 153.906, 50.1484, 166, 7.59375, 166, 9.4375, 133.82, 193.297, 155.047, 62.0391, 132.812, 174.578, 149.211, 309.359, -79.9609, 309.633, -73, 246.656, -73, 61.0391, -79.0312, 61.3438, -16.0234, 160.188, -22.3984, 71, 49.6875, 61.6406, 49.0234, 61.4688, 12, 151.961, 12, 123.727, 31.4688, 61.9922, 122, 129.922, 122, 156.812, 138.547, 126.352, 68, 185.938, 68, 198.672, 141, 144.891, 95.1484, 250.391, 38, 128.039, 38, 182.148, 29.8984, 165.18, -17.1172, 164.594, -17.1094, 155.469, -17.0078, 165.109, -16.4922, 193.078, 17.0703, 82.8672, 70.75, 71, 93.25, 92.7891, 84.7891, 147.258, 99.2969, 185.398, 134.82)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5, 6), PackedInt32Array(7, 8, 9, 10), PackedInt32Array(11, 10, 9, 12), PackedInt32Array(13, 14, 15, 16, 17), PackedInt32Array(5, 18, 19, 20), PackedInt32Array(21, 22, 23, 24), PackedInt32Array(25, 26, 17, 27), PackedInt32Array(28, 29, 12), PackedInt32Array(12, 30, 11), PackedInt32Array(12, 9, 25, 28), PackedInt32Array(31, 28, 25, 32), PackedInt32Array(27, 32, 25), PackedInt32Array(16, 27, 17), PackedInt32Array(13, 17, 33), PackedInt32Array(34, 13, 33), PackedInt32Array(34, 33, 35), PackedInt32Array(24, 34, 35), PackedInt32Array(24, 35, 21), PackedInt32Array(36, 24, 23, 37), PackedInt32Array(37, 23, 4, 6), PackedInt32Array(20, 6, 5)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(51, -89, 52, 123, 0, 124, -3, 176, 196, 176, 209, 142, 194, 56, 261, 56, 257, -63, 320, -63, 319, -90)])
 
 [node name="TestLevel" type="Node2D"]
@@ -52,7 +52,7 @@ scale = Vector2(0.3, 0.3)
 navigation_polygon = SubResource("NavigationPolygon_nq5ct")
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="NavigationRegion2D"]
-vertices = PackedVector2Array(61, 112, 143, 112, 142, 103, 61, 103, 61, 59, 47, 58, 45, 111)
+vertices = PackedVector2Array(61, 112, 143, 112, 139, 105, 61, 103, 61, 59, 47, 58, 45, 111)
 affect_navigation_mesh = true
 
 [node name="NavigationObstacle2D2" type="NavigationObstacle2D" parent="NavigationRegion2D"]
@@ -87,5 +87,21 @@ color = Color(0.460347, 0.460347, 0.460347, 1)
 position = Vector2(61, -116)
 vertices = PackedVector2Array(61, 174, 197, 174, 197, 164, 60, 164)
 affect_navigation_mesh = true
+
+[node name="NavigationObstacle2D6" type="NavigationObstacle2D" parent="NavigationRegion2D"]
+position = Vector2(122, -232)
+vertices = PackedVector2Array(-62, 234, 31, 234, 32, 225, -63, 226)
+affect_navigation_mesh = true
+
+[node name="NavigationObstacle2D7" type="NavigationObstacle2D" parent="NavigationRegion2D"]
+vertices = PackedVector2Array(160, -7, 153, 1, 180, 17)
+affect_navigation_mesh = true
+
+[node name="ColorRect" type="ColorRect" parent="NavigationRegion2D/NavigationObstacle2D7"]
+offset_left = 158.0
+offset_top = -8.0
+offset_right = 210.0
+rotation = 0.842248
+color = Color(0.460347, 0.460347, 0.460347, 1)
 
 [editable path="NavControl"]
