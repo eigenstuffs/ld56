@@ -152,9 +152,9 @@ color = Color(0.639216, 0.631373, 0.305882, 1)
 
 [node name="Num" type="ColorRect" parent="GoblinCounter"]
 layout_mode = 0
-offset_left = 7.5
+offset_left = 7.25
 offset_top = 16.0
-offset_right = 52.5
+offset_right = 52.25
 offset_bottom = 29.0
 color = Color(0.639216, 0.631373, 0.305882, 1)
 
@@ -176,12 +176,12 @@ color = Color(0.196078, 0.235294, 0.223529, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GoblinCounter"]
 layout_mode = 0
-offset_left = 8.0
+offset_left = 7.0
 offset_top = 15.0
-offset_right = 52.0
-offset_bottom = 45.0
+offset_right = 51.0
+offset_bottom = 52.0
 mouse_filter = 2
-theme_override_constants/separation = 0
+theme_override_constants/separation = 4
 
 [node name="TitleLabel" type="Label" parent="GoblinCounter/VBoxContainer"]
 layout_mode = 2
@@ -195,9 +195,9 @@ horizontal_alignment = 1
 
 [node name="NinePatchRect" type="NinePatchRect" parent="GoblinCounter"]
 layout_mode = 0
-offset_left = 10.0
+offset_left = 9.0
 offset_top = 42.0
-offset_right = 50.0
+offset_right = 49.0
 offset_bottom = 82.0
 texture = ExtResource("6_muqmv")
 
