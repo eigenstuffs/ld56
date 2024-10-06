@@ -75,8 +75,8 @@ func _on_goblin_hitbox_area_entered(area: Area2D) -> void:
 			area.get_parent().change_state("Stunned")
 
 func _on_goblin_hitbox_input_event(viewport, event, shape_idx):
+	get_viewport().set_input_as_handled()
 	if event.is_action_pressed("LMB") and (state == STATE.IDLE or state == STATE.AWAITING_INPUT):
 		clicked = !clicked
 		change_state("AwaitingInput" if clicked else "Idle")
 		if clicked: emit_signal("listening_for_target")
-		get_viewport().set_input_as_handled()

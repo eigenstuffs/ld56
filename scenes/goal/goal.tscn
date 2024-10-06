@@ -21,4 +21,6 @@ metadata/_edit_use_anchors_ = true
 shape = SubResource("RectangleShape2D_pto7x")
 debug_color = Color(0.453896, 0.896618, 1, 0.42)
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
 [connection signal="input_event" from="." to="." method="_on_input_event"]
