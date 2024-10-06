@@ -9,9 +9,11 @@ script = ExtResource("1_xujds")
 
 [node name="Arrows" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 80.0
-offset_top = 96.0
-offset_right = 272.0
-offset_bottom = 96.0
+offset_left = -96.0
+offset_right = 96.0
 theme_override_constants/separation = 18
 alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

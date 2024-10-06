@@ -1,8 +1,7 @@
-extends Node
+extends GoblinState
 
 func init():
-	pass
-	#get_parent().queue_free()
+	get_parent().queue_free()
 
 func run():
 	pass

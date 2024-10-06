@@ -7,6 +7,7 @@ enum STATE {
 	STUNNED,
 	NAVIGATE,
 	WORKING,
+	JOB_DONE,
 	AWAITING_INPUT,
 	EATEN,
 	EXPLODE
@@ -49,6 +50,8 @@ func change_state(to : String):
 			target_state = STATE.NAVIGATE
 		"Working":
 			target_state = STATE.WORKING
+		"JobDone":
+			target_state = STATE.JOB_DONE
 		"AwaitingInput":
 			target_state = STATE.AWAITING_INPUT
 		"Eaten":
@@ -74,10 +77,16 @@ func _on_goblin_hitbox_area_entered(area: Area2D) -> void:
 		if state == STATE.NAVIGATE and area.get_parent().state == STATE.NAVIGATE:
 			change_state("Stunned")
 			area.get_parent().change_state("Stunned")
+	if area is Job:
+		change_state("Working")
+		$Working.job(area)
+		# job done
 
 func _on_goblin_hitbox_input_event(viewport, event, shape_idx):
 	get_viewport().set_input_as_handled()
-	if event.is_action_pressed("LMB") and (state == STATE.IDLE or state == STATE.AWAITING_INPUT):
+	if event.is_action_pressed("LMB") and (state == STATE.IDLE or state == STATE.AWAITING_INPUT or state == STATE.JOB_DONE):
+		if has_node("JobProgress"):
+			get_node("JobProgress").queue_free()
 		clicked = !clicked
 		change_state("AwaitingInput" if clicked else "Idle")
 		if clicked: emit_signal("listening_for_target")

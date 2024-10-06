@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d3shgxs7dewx0"]
+[gd_scene load_steps=11 format=3 uid="uid://d3shgxs7dewx0"]
 
 [ext_resource type="Texture2D" uid="uid://ccxx0lpjdnpsr" path="res://assets/temp_with_latter.jpg" id="1_31b1t"]
 [ext_resource type="PackedScene" uid="uid://bmq52iegph5xs" path="res://scenes/tools/goblin_nav_control.tscn" id="2_7etuc"]
@@ -6,12 +6,17 @@
 [ext_resource type="PackedScene" uid="uid://dy33jjb3kjeiu" path="res://scenes/goblin/goblin.tscn" id="4_1y4fi"]
 [ext_resource type="PackedScene" uid="uid://bjv16f3io6fw3" path="res://scenes/ants/bird_window.tscn" id="4_n28lg"]
 [ext_resource type="Script" path="res://scenes/game/camera_2d.gd" id="6_3amsy"]
+[ext_resource type="Script" path="res://scenes/utilities/job.gd" id="6_ahie5"]
+[ext_resource type="PackedScene" uid="uid://dwn6tdlp54duv" path="res://scenes/qte/mix.tscn" id="7_0nvxj"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_nq5ct"]
 vertices = PackedVector2Array(146.289, 96.8281, 144.328, 98.2188, 143.711, 97.1172, 51.1484, 155.93, 52.3594, 168, 5.47656, 168, 7.5625, 131.852, 194.672, 157.047, 60.0312, 130.852, 151.312, 139.32, 59.9766, 119.953, 60.75, 120, 311.289, -81.9688, 311.703, -71, 248.727, -71, 59.0312, -81.0234, 59.3516, -14, 163.023, -22.6016, 122.359, 38, 59.5938, 38, 59.4609, 10, 151.203, 10, 166.453, 23.0625, 69, 95.2031, 69, 66.8984, 124.68, 65.8281, 152.797, 86.9062, 130.703, 120, 182.508, 121.031, 197.992, 125.508, 200.742, 141.203, 161.992, 131.703, 139.391, 40, 252.453, 40, 176.578, 16.1406, 156.383, -15.0234)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 5, 6), PackedInt32Array(7, 3, 6, 8, 9), PackedInt32Array(8, 10, 11), PackedInt32Array(12, 13, 14, 15), PackedInt32Array(16, 15, 14, 17), PackedInt32Array(18, 19, 20, 21, 22), PackedInt32Array(0, 2, 23, 24, 25, 26), PackedInt32Array(8, 11, 27, 9), PackedInt32Array(28, 29, 30, 7, 9, 31), PackedInt32Array(26, 28, 31, 0), PackedInt32Array(32, 26, 25, 18), PackedInt32Array(32, 18, 22, 33), PackedInt32Array(33, 22, 34), PackedInt32Array(14, 33, 34, 17), PackedInt32Array(16, 17, 35)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(51, -89, 52, 123, 0, 124, -3, 176, 196, 176, 209, 142, 194, 56, 261, 56, 257, -63, 320, -63, 319, -90)])
 agent_radius = 8.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nr38a"]
+size = Vector2(32, 32)
 
 [node name="TestLevel" type="Node2D"]
 
@@ -93,16 +98,28 @@ affect_navigation_mesh = true
 vertices = PackedVector2Array(160, -7, 153, 1, 167, 13)
 affect_navigation_mesh = true
 
+[node name="Jobs" type="Node2D" parent="."]
+
+[node name="Job" type="Area2D" parent="Jobs"]
+position = Vector2(88, -24)
+script = ExtResource("6_ahie5")
+time = 5
+qte = ExtResource("7_0nvxj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jobs/Job"]
+shape = SubResource("RectangleShape2D_nr38a")
+
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(160, -8)
+position = Vector2(160, 24)
+zoom = Vector2(0.75, 0.75)
 limit_smoothed = true
 script = ExtResource("6_3amsy")
 
 [node name="TopLeft" type="Node2D" parent="Camera2D"]
-position = Vector2(-160, -88)
+position = Vector2(-160, -120)
 
 [node name="BottomRight" type="Node2D" parent="Camera2D"]
-position = Vector2(160, 184)
+position = Vector2(160, 160)
 
 [editable path="NavControl"]
 [editable path="NavControl/GoalFolder/BirdWindow"]

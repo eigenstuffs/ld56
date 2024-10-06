@@ -12,7 +12,7 @@ func run():
 	pass
 	
 func change_state(to : String):
-	goblin.state = to
+	goblin.change_state(to)
 
 func stop():
 	pass

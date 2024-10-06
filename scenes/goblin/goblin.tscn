@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dy33jjb3kjeiu"]
+[gd_scene load_steps=27 format=3 uid="uid://dy33jjb3kjeiu"]
 
 [ext_resource type="Script" path="res://scenes/goblin/goblin.gd" id="1_u2bdf"]
 [ext_resource type="Script" path="res://scenes/goblin/idle.gd" id="2_u32ex"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scenes/goblin/awaiting_input.gd" id="5_0atyx"]
 [ext_resource type="Script" path="res://scenes/goblin/eaten.gd" id="5_0gohk"]
 [ext_resource type="Script" path="res://scenes/goblin/explode.gd" id="5_76ybd"]
+[ext_resource type="Script" path="res://scenes/goblin/job_done.gd" id="7_bykpk"]
 [ext_resource type="Texture2D" uid="uid://b0xvywq32ugu2" path="res://assets/goblin_sprites/gob_front.png" id="9_1lubn"]
 [ext_resource type="Texture2D" uid="uid://g7h8imohxvcb" path="res://assets/goblin_sprites/gob_walk_right.png" id="9_ibqqf"]
 [ext_resource type="Texture2D" uid="uid://d21yer14wmdgo" path="res://assets/goblin_sprites/gob_salute.png" id="9_t7lnl"]
@@ -147,6 +148,11 @@ script = ExtResource("5_0gohk")
 [node name="Working" type="Node" parent="."]
 script = ExtResource("4_84cvj")
 
+[node name="JobDone" type="Node" parent="."]
+script = ExtResource("7_bykpk")
+
+[node name="Timer" type="Timer" parent="JobDone"]
+
 [node name="AwaitingInput" type="Node" parent="."]
 script = ExtResource("5_0atyx")
 
@@ -164,6 +170,8 @@ avoidance_enabled = true
 radius = 150.0
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="listening_for_target" from="." to="JobDone" method="_on_goblin_listening_for_target"]
 [connection signal="area_entered" from="Goblin_hitbox" to="." method="_on_goblin_hitbox_area_entered"]
 [connection signal="input_event" from="Goblin_hitbox" to="." method="_on_goblin_hitbox_input_event"]
 [connection signal="navigate_process" from="Navigate" to="." method="_on_navigate_navigate_process"]
+[connection signal="timeout" from="JobDone/Timer" to="JobDone" method="_on_timer_timeout"]

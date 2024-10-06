@@ -1,7 +1,8 @@
 class_name Mix extends Control
 
-signal win
-signal lose
+signal done
+
+var result : String
 
 @export var length : int = 4
 @export var combination : Array[String]
@@ -9,9 +10,11 @@ signal lose
 const ARROW = preload("res://scenes/qte/arrow.tscn")
 
 @onready var arrows = $Arrows
+@onready var timer : Timer = $Timer
 
 func _ready():
 	generate_combination(length)
+	timer.start(1)
 
 func generate_combination(len : int):
 	for i in len:
@@ -45,23 +48,36 @@ func create_icons():
 				sprite.frame_coords = Vector2(1, 0)
 
 func _input(event):
-	if event.is_action_pressed("up") and combination[0] == "up":
-		remove_first()
-	elif event.is_action_pressed("down") and combination[0] == "down":
-		remove_first()
-	elif event.is_action_pressed("right") and combination[0] == "right":
-		remove_first()
-	elif event.is_action_pressed("left") and combination[0] == "left":
-		remove_first()
+	if event.pressed:
+		if event.is_action_pressed("up") and combination[0] == "up":
+			remove_first()
+		elif event.is_action_pressed("down") and combination[0] == "down":
+			remove_first()
+		elif event.is_action_pressed("right") and combination[0] == "right":
+			remove_first()
+		elif event.is_action_pressed("left") and combination[0] == "left":
+			remove_first()
+		else:
+			lose_minigame()
 		
 func remove_first():
+	timer.stop()
+	timer.start(1)
 	combination.remove_at(0)
 	arrows.get_child(0).queue_free()
 	if combination.size() == 0:
 		win_minigame()
 		
 func win_minigame():
-	win.emit()
+	result = "win"
+	done.emit()
+	queue_free()
 
 func lose_minigame():
-	lose.emit()
+	result = "lose"
+	done.emit()
+	queue_free()
+
+func _on_timer_timeout():
+	lose_minigame()
+	print("timeout")

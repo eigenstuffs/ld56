@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://gei3y75mlyn5"]
+
+[ext_resource type="Script" path="res://scenes/utilities/job.gd" id="1_fwcje"]
+[ext_resource type="PackedScene" uid="uid://dwn6tdlp54duv" path="res://scenes/qte/mix.tscn" id="2_g27tk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nr38a"]
+size = Vector2(32, 32)
+
+[node name="Job" type="Area2D"]
+script = ExtResource("1_fwcje")
+qte = ExtResource("2_g27tk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_nr38a")
