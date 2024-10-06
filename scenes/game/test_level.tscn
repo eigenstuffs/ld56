@@ -153,9 +153,10 @@ position = Vector2(160, 182)
 
 [node name="ToDoListUI" parent="CanvasLayer" instance=ExtResource("9_0a727")]
 
-[node name="BirdWindow" parent="CanvasLayer" instance=ExtResource("4_n28lg")]
+[node name="BirdWindow" parent="CanvasLayer" node_paths=PackedStringArray("garrison_point") instance=ExtResource("4_n28lg")]
 position = Vector2(301, 55)
 scale = Vector2(0.3, 0.3)
+garrison_point = NodePath("../../NavControl/GoalFolder/Hole2Window")
 
 [node name="ColorRect" parent="CanvasLayer/BirdWindow" index="0"]
 offset_left = -117.0
