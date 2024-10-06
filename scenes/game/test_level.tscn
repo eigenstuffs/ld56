@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://d3shgxs7dewx0"]
+[gd_scene load_steps=8 format=3 uid="uid://d3shgxs7dewx0"]
 
 [ext_resource type="Texture2D" uid="uid://ccxx0lpjdnpsr" path="res://assets/temp_with_latter.jpg" id="1_31b1t"]
 [ext_resource type="PackedScene" uid="uid://bmq52iegph5xs" path="res://scenes/tools/goblin_nav_control.tscn" id="2_7etuc"]
 [ext_resource type="PackedScene" uid="uid://d13no63s202hy" path="res://scenes/goal/goal.tscn" id="3_tr6ll"]
 [ext_resource type="PackedScene" uid="uid://dy33jjb3kjeiu" path="res://scenes/goblin/goblin.tscn" id="4_1y4fi"]
-[ext_resource type="PackedScene" path="res://scenes/ants/bird_window.tscn" id="4_n28lg"]
+[ext_resource type="PackedScene" uid="uid://bjv16f3io6fw3" path="res://scenes/ants/bird_window.tscn" id="4_n28lg"]
+[ext_resource type="Script" path="res://scenes/game/camera_2d.gd" id="6_3amsy"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_nq5ct"]
 vertices = PackedVector2Array(146.289, 96.8281, 144.328, 98.2188, 143.711, 97.1172, 51.1484, 155.93, 52.3594, 168, 5.47656, 168, 7.5625, 131.852, 194.672, 157.047, 60.0312, 130.852, 151.312, 139.32, 59.9766, 119.953, 60.75, 120, 311.289, -81.9688, 311.703, -71, 248.727, -71, 59.0312, -81.0234, 59.3516, -14, 163.023, -22.6016, 122.359, 38, 59.5938, 38, 59.4609, 10, 151.203, 10, 166.453, 23.0625, 69, 95.2031, 69, 66.8984, 124.68, 65.8281, 152.797, 86.9062, 130.703, 120, 182.508, 121.031, 197.992, 125.508, 200.742, 141.203, 161.992, 131.703, 139.391, 40, 252.453, 40, 176.578, 16.1406, 156.383, -15.0234)
@@ -14,18 +15,16 @@ agent_radius = 8.0
 
 [node name="TestLevel" type="Node2D"]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = -1
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+[node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = -100.0
+offset_right = 320.0
+offset_bottom = 180.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_31b1t")
-metadata/_edit_lock_ = true
 
 [node name="NavControl" parent="." instance=ExtResource("2_7etuc")]
 
@@ -93,6 +92,17 @@ affect_navigation_mesh = true
 [node name="NavigationObstacle2D7" type="NavigationObstacle2D" parent="NavigationRegion2D"]
 vertices = PackedVector2Array(160, -7, 153, 1, 167, 13)
 affect_navigation_mesh = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(160, -8)
+limit_smoothed = true
+script = ExtResource("6_3amsy")
+
+[node name="TopLeft" type="Node2D" parent="Camera2D"]
+position = Vector2(-160, -88)
+
+[node name="BottomRight" type="Node2D" parent="Camera2D"]
+position = Vector2(160, 184)
 
 [editable path="NavControl"]
 [editable path="NavControl/GoalFolder/BirdWindow"]
