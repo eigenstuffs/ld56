@@ -5,11 +5,11 @@ var goblin_count: int = 0
 @onready var count_label = $VBoxContainer/CountLabel
 
 func _ready():
-	title_label.text = "Goblins\nOn Standby"
+	title_label.text = "On Standby"
 	update_goblin_count()
 
 func update_goblin_count():
-	count_label.text = "x " + str(goblin_count)
+	count_label.text = str(goblin_count)
 
 func add_goblins(count: int):
 	goblin_count += count
