@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
 [gd_scene load_steps=15 format=3 uid="uid://dy33jjb3kjeiu"]
-=======
-[gd_scene load_steps=20 format=3 uid="uid://dy33jjb3kjeiu"]
->>>>>>> Stashed changes
 
 [ext_resource type="Script" path="res://scenes/goblin/goblin.gd" id="1_u2bdf"]
 [ext_resource type="Script" path="res://scenes/goblin/idle.gd" id="2_u32ex"]
@@ -12,46 +8,9 @@
 [ext_resource type="Script" path="res://scenes/goblin/awaiting_input.gd" id="5_0atyx"]
 [ext_resource type="Script" path="res://scenes/goblin/eaten.gd" id="5_0gohk"]
 [ext_resource type="Script" path="res://scenes/goblin/explode.gd" id="5_76ybd"]
-[ext_resource type="Texture2D" uid="uid://bat6eu8431bic" path="res://assets/GoblinSprites/gob_walk_right.png" id="8_sb43b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b7bol"]
-size = Vector2(11, 22)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_k6rj3"]
-atlas = ExtResource("8_sb43b")
-region = Rect2(0, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_n5w67"]
-atlas = ExtResource("8_sb43b")
-region = Rect2(24, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mpqij"]
-atlas = ExtResource("8_sb43b")
-region = Rect2(48, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wh710"]
-atlas = ExtResource("8_sb43b")
-region = Rect2(72, 0, 24, 24)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_gffm2"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_k6rj3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_n5w67")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mpqij")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wh710")
-}],
-"loop": true,
-"name": &"walking",
-"speed": 10.0
-}]
+size = Vector2(28, 57)
 
 [sub_resource type="Animation" id="Animation_mq68a"]
 resource_name = "explode"
@@ -78,18 +37,27 @@ input_pickable = true
 script = ExtResource("1_u2bdf")
 movement_speed = 200.0
 
+[node name="ClickableRegion" type="ColorRect" parent="."]
+offset_left = -32.0
+offset_top = -30.0
+offset_right = 618.0
+offset_bottom = 567.0
+scale = Vector2(0.1, 0.1)
+color = Color(0.423529, 0.419608, 0.0352941, 1)
+metadata/_edit_use_anchors_ = true
+
 [node name="Highlight" type="ColorRect" parent="."]
-offset_left = -7.0
-offset_top = -12.0
-offset_right = 143.0
-offset_bottom = 228.0
+offset_left = -27.0
+offset_top = -28.0
+offset_right = 529.0
+offset_bottom = 528.0
 scale = Vector2(0.1, 0.1)
 mouse_filter = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="Goblin_hitbox" type="Area2D" parent="."]
 
 [node name="Goblin_Collider" type="CollisionShape2D" parent="Goblin_hitbox"]
-position = Vector2(0.5, 1)
 shape = SubResource("RectangleShape2D_b7bol")
 
 [node name="Idle" type="Node" parent="."]
@@ -113,11 +81,6 @@ script = ExtResource("5_0atyx")
 [node name="Explode" type="Node" parent="."]
 script = ExtResource("5_76ybd")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_gffm2")
-animation = &"walking"
-frame_progress = 0.919437
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_rsokv")
@@ -132,6 +95,7 @@ avoidance_enabled = true
 radius = 150.0
 debug_enabled = true
 
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="gui_input" from="ClickableRegion" to="." method="_on_clickable_region_gui_input"]
 [connection signal="area_entered" from="Goblin_hitbox" to="." method="_on_goblin_hitbox_area_entered"]
-[connection signal="input_event" from="Goblin_hitbox" to="." method="_on_goblin_hitbox_input_event"]
 [connection signal="navigate_process" from="Navigate" to="." method="_on_navigate_navigate_process"]
