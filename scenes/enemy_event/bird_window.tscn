@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bjv16f3io6fw3"]
 
-[ext_resource type="Script" path="res://scenes/ants/bird_window.gd" id="1_mps5j"]
+[ext_resource type="Script" path="res://scenes/enemy_event/bird_window.gd" id="1_mps5j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d4iih"]
 size = Vector2(194, 173)

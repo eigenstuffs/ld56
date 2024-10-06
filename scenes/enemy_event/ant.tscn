@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://g3qdu7lr2wns"]
 
-[ext_resource type="Script" path="res://scenes/ants/ant.gd" id="1_eaava"]
+[ext_resource type="Script" path="res://scenes/enemy_event/ant.gd" id="1_eaava"]
 [ext_resource type="PackedScene" uid="uid://d13no63s202hy" path="res://scenes/goal/goal.tscn" id="2_wnjf2"]
 
 [node name="Ant" type="CharacterBody2D"]

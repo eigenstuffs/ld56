@@ -34,7 +34,7 @@ project/assembly_name="ld56"
 [file_customization]
 
 folder_colors={
-"res://scenes/ants/": "red",
+"res://scenes/enemy_event/": "red",
 "res://scenes/game/": "purple",
 "res://scenes/goal/": "blue",
 "res://scenes/goblin/": "green",

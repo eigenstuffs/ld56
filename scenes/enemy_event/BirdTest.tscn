@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dg62hmhlaheyf"]
 
-[ext_resource type="PackedScene" uid="uid://bjv16f3io6fw3" path="res://scenes/ants/bird_window.tscn" id="1_5qser"]
+[ext_resource type="PackedScene" uid="uid://bjv16f3io6fw3" path="res://scenes/enemy_event/bird_window.tscn" id="1_5qser"]
 [ext_resource type="PackedScene" uid="uid://bmq52iegph5xs" path="res://scenes/tools/goblin_nav_control.tscn" id="2_4owce"]
 [ext_resource type="PackedScene" uid="uid://dy33jjb3kjeiu" path="res://scenes/goblin/goblin.tscn" id="3_0lge2"]
 

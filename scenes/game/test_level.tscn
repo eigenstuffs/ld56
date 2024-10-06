@@ -1,10 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://d3shgxs7dewx0"]
+[gd_scene load_steps=11 format=3 uid="uid://tq42g3xnxngh"]
 
 [ext_resource type="Texture2D" uid="uid://ccxx0lpjdnpsr" path="res://assets/temp_with_latter.jpg" id="1_31b1t"]
 [ext_resource type="PackedScene" uid="uid://bmq52iegph5xs" path="res://scenes/tools/goblin_nav_control.tscn" id="2_7etuc"]
 [ext_resource type="PackedScene" uid="uid://d13no63s202hy" path="res://scenes/goal/goal.tscn" id="3_tr6ll"]
 [ext_resource type="PackedScene" uid="uid://dy33jjb3kjeiu" path="res://scenes/goblin/goblin.tscn" id="4_1y4fi"]
-[ext_resource type="PackedScene" uid="uid://bjv16f3io6fw3" path="res://scenes/ants/bird_window.tscn" id="4_n28lg"]
+[ext_resource type="PackedScene" uid="uid://bjv16f3io6fw3" path="res://scenes/enemy_event/bird_window.tscn" id="4_n28lg"]
 [ext_resource type="Script" path="res://scenes/game/camera_2d.gd" id="6_3amsy"]
 [ext_resource type="Script" path="res://scenes/utilities/job.gd" id="6_ahie5"]
 [ext_resource type="PackedScene" uid="uid://dwn6tdlp54duv" path="res://scenes/qte/mix.tscn" id="7_0nvxj"]
