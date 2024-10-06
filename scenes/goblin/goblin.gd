@@ -20,6 +20,7 @@ signal listening_for_target
 var clicked : bool = false
 var state := STATE.IDLE
 var current_state_child
+var curr_target : Goal = null
 
 func _ready():
 	change_state("Idle")
@@ -54,8 +55,8 @@ func change_state(to : String):
 	find_child(to).init()
 	current_state_child = find_child(to)
 
-func set_movement_target(movement_target : Vector2):
-	nav_agent.target_position = movement_target
+func set_movement_target(movement_target : Goal):
+	curr_target = movement_target
 	change_state("Navigate")
 
 func _on_clickable_region_gui_input(event):

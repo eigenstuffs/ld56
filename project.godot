@@ -38,7 +38,9 @@ folder_colors={
 "res://scenes/goal/": "blue",
 "res://scenes/goblin/": "green",
 "res://scenes/goblin_spawner/": "green",
-"res://scenes/menu/": "purple"
+"res://scenes/menu/": "purple",
+"res://scenes/qte/": "orange",
+"res://scenes/tools/": "orange"
 }
 
 [input]
