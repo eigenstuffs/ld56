@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://d3shgxs7dewx0"]
+[gd_scene load_steps=19 format=3 uid="uid://tq42g3xnxngh"]
 
 [ext_resource type="Texture2D" uid="uid://ccxx0lpjdnpsr" path="res://assets/temp_with_latter.jpg" id="1_31b1t"]
 [ext_resource type="PackedScene" uid="uid://bmq52iegph5xs" path="res://scenes/tools/goblin_nav_control.tscn" id="2_7etuc"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://scenes/utilities/job.gd" id="6_ahie5"]
 [ext_resource type="PackedScene" uid="uid://dwn6tdlp54duv" path="res://scenes/qte/mix.tscn" id="7_0nvxj"]
 [ext_resource type="Resource" uid="uid://cyvura4urvq1v" path="res://scenes/tools/recipes/ingredients/egg.tres" id="8_oobhy"]
+[ext_resource type="PackedScene" uid="uid://teo71o0ubvgw" path="res://scenes/menu/ToDoListUI.tscn" id="9_0a727"]
 [ext_resource type="Script" path="res://scenes/tools/recipes/ingredients/ingredient_info.gd" id="9_p4p1p"]
 [ext_resource type="Resource" uid="uid://c7dthmhxgd8m" path="res://scenes/tools/recipes/ingredients/veggie.tres" id="10_yun1q"]
 [ext_resource type="Script" path="res://scenes/utilities/cooking.gd" id="12_ypyma"]
@@ -38,7 +39,8 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_31b1t")
 
-[node name="NavControl" parent="." instance=ExtResource("2_7etuc")]
+[node name="NavControl" parent="." node_paths=PackedStringArray("goal_array") instance=ExtResource("2_7etuc")]
+goal_array = [NodePath("../CanvasLayer/BirdWindow")]
 
 [node name="Goal" parent="NavControl/GoalFolder" index="0" instance=ExtResource("3_tr6ll")]
 position = Vector2(193, 142)
@@ -52,15 +54,10 @@ position = Vector2(37, 153)
 [node name="Goal3" parent="NavControl/GoalFolder" index="3" instance=ExtResource("3_tr6ll")]
 position = Vector2(96, 77)
 
-[node name="BirdWindow" parent="NavControl/GoalFolder" index="4" node_paths=PackedStringArray("garrison_point") instance=ExtResource("4_n28lg")]
-position = Vector2(281, 88)
-scale = Vector2(0.4, 0.4)
-garrison_point = NodePath("../Hole2Window")
-
-[node name="Goal5" parent="NavControl/GoalFolder" index="5" instance=ExtResource("3_tr6ll")]
+[node name="Goal5" parent="NavControl/GoalFolder" index="4" instance=ExtResource("3_tr6ll")]
 position = Vector2(89, -27)
 
-[node name="Goal7" parent="NavControl/GoalFolder" index="6" instance=ExtResource("3_tr6ll")]
+[node name="Goal7" parent="NavControl/GoalFolder" index="5" instance=ExtResource("3_tr6ll")]
 position = Vector2(214, 24)
 
 [node name="Goblin" parent="NavControl/GoblinFolder" index="0" instance=ExtResource("4_1y4fi")]
@@ -152,4 +149,37 @@ position = Vector2(-160, -90)
 [node name="BottomRight" type="Node2D" parent="Camera2D"]
 position = Vector2(160, 182)
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ToDoListUI" parent="CanvasLayer" instance=ExtResource("9_0a727")]
+
+[node name="BirdWindow" parent="CanvasLayer" instance=ExtResource("4_n28lg")]
+position = Vector2(301, 55)
+scale = Vector2(0.3, 0.3)
+
+[node name="ColorRect" parent="CanvasLayer/BirdWindow" index="0"]
+offset_left = -117.0
+offset_top = 53.0
+offset_right = 43.0
+
+[node name="GoblinCount" parent="CanvasLayer/BirdWindow" index="2"]
+offset_left = -116.667
+offset_top = 63.3333
+offset_right = 27.3333
+offset_bottom = 93.3333
+
+[node name="Countdown" parent="CanvasLayer/BirdWindow" index="3"]
+offset_left = -1.90735e-05
+offset_top = -73.3333
+offset_right = 40.0
+offset_bottom = -33.3333
+
+[node name="ClickRegionCollider" parent="CanvasLayer/BirdWindow" index="4"]
+position = Vector2(-36.6666, 6.66665)
+
+[node name="AbortButton" parent="CanvasLayer/BirdWindow" index="5"]
+offset_left = -3.33329
+offset_right = 41.6667
+
 [editable path="NavControl"]
+[editable path="CanvasLayer/BirdWindow"]
