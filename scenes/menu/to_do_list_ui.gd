@@ -31,7 +31,7 @@ func show_recipe(index):
 		for i in range(recipe.required_ing.size()):
 			var ing_name: String = recipe.required_ing[i].ing_name
 			var req_amount: int = recipe.required_amount[i]
-			var current_amount: int = get_player_inventory_amount(ing_name)  # Use actual game logic to fetch inventory info
+			var current_amount: int = get_player_inventory_amount(ing_name)  # use actual game logic to fetch inventory info
 
 			var ingredient_label = Label.new()
 			ingredient_label.text = ing_name + ": " + str(current_amount) + "/" + str(req_amount)
