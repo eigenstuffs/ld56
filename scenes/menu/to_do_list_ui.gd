@@ -1,55 +1,64 @@
 extends Control
 
-var task_list : TaskList = preload("res://scenes/tools/task/task_list.tres")
+var task_list: TaskList = preload("res://scenes/tools/task/task_list.tres")
 @onready var breakfast_recipe = preload("res://scenes/tools/recipes/breakfast_recipe.tres")
+@onready var soup_recipe = preload("res://scenes/tools/recipes/soup_recipe.tres")
+@onready var curry_recipe = preload("res://scenes/tools/recipes/curry_recipe.tres")
+@onready var dessert_recipe = preload("res://scenes/tools/recipes/dessert_recipe.tres")
+
 var label_theme = preload("res://scenes/menu/testing_purpose/test_theme.tres")
 @onready var recipe_container = $Recipe/VBoxContainer
 
+var recipes = []
+var current_recipe_index = 0
+
 func _ready():
-	#for index in range(get_child_count()):
-	#	get_child(index).value = task_list.task_array[index].total_time
-	#	print(task_list.task_array[index].total_time)
+	recipes = [breakfast_recipe, soup_recipe, curry_recipe, dessert_recipe]
 	
-	#breakfast
-	for index in range(breakfast_recipe.required_ing.size()):
-		var ing_name : String = breakfast_recipe.required_ing[index].ing_name
-		var req_amount : int = breakfast_recipe.required_amount[index]
-		var current_amount : int = 0
-		var a = Label.new()
-		a.text = ing_name + ": " + str(current_amount) + "/" + str(req_amount)
-		a.theme = label_theme
-		print(str(breakfast_recipe.enough(ing_name)))
-		recipe_container.add_child(a)
+	show_recipe(current_recipe_index)
+
+func show_recipe(index):
+	clear_container(recipe_container)
+
+	if index < recipes.size():
+		var recipe = recipes[index]
+
+		for i in range(recipe.required_ing.size()):
+			var ing_name: String = recipe.required_ing[i].ing_name
+			var req_amount: int = recipe.required_amount[i]
+			var current_amount: int = get_player_inventory_amount(ing_name)  # Use actual game logic to fetch inventory info
+
+			var ingredient_label = Label.new()
+			ingredient_label.text = ing_name + ": " + str(current_amount) + "/" + str(req_amount)
+			ingredient_label.theme = label_theme
+			
+			print(str(recipe.enough(ing_name)))
+			
+			recipe_container.add_child(ingredient_label)
+	else:
+		print("Recipe index is out of bounds")
+
+func clear_container(container: VBoxContainer):
+	for child in container.get_children():
+		container.remove_child(child)
+		child.queue_free()
+
+func complete_recipe():
+	if current_recipe_index < recipes.size():
+		# inventory str to complete current recipe
+		# recipes[current_recipe_index].mark_as_completed()? figure out later
 	
-	#lunch	
-	for index in range(soup_recipe.required_ing.size()):
-		var ing_name : String = soup_recipe.required_ing[index].ing_name
-		var req_amount : int = soup_recipe.required_amount[index]
-		var current_amount : int = 0
-		var a = Label.new()
-		a.text = ing_name + ": " + str(current_amount) + "/" + str(req_amount)
-		a.theme = label_theme
-		print(str(soup_recipe.enough(ing_name)))
-		recipe_container.add_child(a)
-		
-	#dinner
-	for index in range(curry_recipe.required_ing.size()):
-		var ing_name : String = curry_recipe.required_ing[index].ing_name
-		var req_amount : int = curry_recipe.required_amount[index]
-		var current_amount : int = 0
-		var a = Label.new()
-		a.text = ing_name + ": " + str(current_amount) + "/" + str(req_amount)
-		a.theme = label_theme
-		print(str(curry_recipe.enough(ing_name)))
-		recipe_container.add_child(a)
-		
-	#dessert
-	for index in range(dessert_recipe.required_ing.size()):
-		var ing_name : String = dessert_recipe.required_ing[index].ing_name
-		var req_amount : int = dessert_recipe.required_amount[index]
-		var current_amount : int = 0
-		var a = Label.new()
-		a.text = ing_name + ": " + str(current_amount) + "/" + str(req_amount)
-		a.theme = label_theme
-		print(str(dessert_recipe.enough(ing_name)))
-		recipe_container.add_child(a)
+		current_recipe_index += 1
+		if current_recipe_index < recipes.size():
+			show_recipe(current_recipe_index)
+		else:
+			print("All recipes completed!")
+
+
+func get_player_inventory_amount(ing_name: String) -> int:
+	# what we doing
+	return 0 
+
+func _input(event):
+	if event.is_action_pressed("ui_accept"):
+		complete_recipe()
