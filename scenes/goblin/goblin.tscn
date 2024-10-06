@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dy33jjb3kjeiu"]
+[gd_scene load_steps=26 format=3 uid="uid://dy33jjb3kjeiu"]
 
 [ext_resource type="Script" path="res://scenes/goblin/goblin.gd" id="1_u2bdf"]
 [ext_resource type="Script" path="res://scenes/goblin/idle.gd" id="2_u32ex"]
@@ -8,30 +8,16 @@
 [ext_resource type="Script" path="res://scenes/goblin/awaiting_input.gd" id="5_0atyx"]
 [ext_resource type="Script" path="res://scenes/goblin/eaten.gd" id="5_0gohk"]
 [ext_resource type="Script" path="res://scenes/goblin/explode.gd" id="5_76ybd"]
+[ext_resource type="Texture2D" uid="uid://b0xvywq32ugu2" path="res://assets/goblin_sprites/gob_front.png" id="9_1lubn"]
 [ext_resource type="Texture2D" uid="uid://g7h8imohxvcb" path="res://assets/goblin_sprites/gob_walk_right.png" id="9_ibqqf"]
+[ext_resource type="Texture2D" uid="uid://d21yer14wmdgo" path="res://assets/goblin_sprites/gob_salute.png" id="9_t7lnl"]
+[ext_resource type="Texture2D" uid="uid://cx8dra5qo7xut" path="res://assets/goblin_sprites/gob_right.png" id="10_qkls0"]
+[ext_resource type="Texture2D" uid="uid://cbxe04rnea8u6" path="res://assets/goblin_sprites/gob_back.png" id="11_cwiyn"]
+[ext_resource type="Texture2D" uid="uid://dv10by8yp601y" path="res://assets/goblin_sprites/gob_left.png" id="12_cvlm8"]
+[ext_resource type="Texture2D" uid="uid://dlbwjtuwvf16j" path="res://assets/goblin_sprites/gob_walk_item_right.png" id="14_1c3y7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b7bol"]
 size = Vector2(15, 21)
-
-[sub_resource type="Animation" id="Animation_mq68a"]
-resource_name = "explode"
-
-[sub_resource type="Animation" id="Animation_pff5u"]
-resource_name = "idle"
-
-[sub_resource type="Animation" id="Animation_ge4dy"]
-resource_name = "navigate"
-
-[sub_resource type="Animation" id="Animation_1ga21"]
-resource_name = "task"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_rsokv"]
-_data = {
-"explode": SubResource("Animation_mq68a"),
-"idle": SubResource("Animation_pff5u"),
-"navigate": SubResource("Animation_ge4dy"),
-"task": SubResource("Animation_1ga21")
-}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k3ftk"]
 atlas = ExtResource("9_ibqqf")
@@ -49,8 +35,49 @@ region = Rect2(48, 0, 24, 24)
 atlas = ExtResource("9_ibqqf")
 region = Rect2(72, 0, 24, 24)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_mjvfy"]
+atlas = ExtResource("14_1c3y7")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p35mk"]
+atlas = ExtResource("14_1c3y7")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gh1qg"]
+atlas = ExtResource("14_1c3y7")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqe2v"]
+atlas = ExtResource("14_1c3y7")
+region = Rect2(72, 0, 24, 24)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_nv43h"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_t7lnl")
+}],
+"loop": true,
+"name": &"await_input",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_1lubn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_qkls0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_cwiyn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_cvlm8")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_k3ftk")
@@ -67,14 +94,31 @@ animations = [{
 "loop": true,
 "name": &"walking",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mjvfy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p35mk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gh1qg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqe2v")
+}],
+"loop": true,
+"name": &"walking_item",
+"speed": 10.0
 }]
 
 [node name="Goblin" type="CharacterBody2D"]
 input_pickable = true
 script = ExtResource("1_u2bdf")
-movement_speed = 200.0
 
 [node name="Highlight" type="ColorRect" parent="."]
+visible = false
 offset_left = -6.0
 offset_top = -9.0
 offset_right = 124.0
@@ -109,24 +153,15 @@ script = ExtResource("5_0atyx")
 [node name="Explode" type="Node" parent="."]
 script = ExtResource("5_76ybd")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_rsokv")
-}
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_nv43h")
-animation = &"walking"
-frame_progress = 0.52466
+animation = &"await_input"
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 10.0
 path_postprocessing = 1
 avoidance_enabled = true
 radius = 150.0
-debug_enabled = true
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="area_entered" from="Goblin_hitbox" to="." method="_on_goblin_hitbox_area_entered"]

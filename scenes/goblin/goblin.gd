@@ -16,6 +16,7 @@ signal listening_for_target
 
 @onready var nav_agent = $NavigationAgent2D
 @onready var highlight : ColorRect = $Highlight #TODO temporary
+@onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
 
 @export var movement_speed : float = 100
 var clicked : bool = false
