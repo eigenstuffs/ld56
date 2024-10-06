@@ -44,7 +44,7 @@ func clear_gobs(killed : bool):
 			gob.change_state("Eaten")
 		else:
 			gob.visible = true
-			gob.set_movement_target(garrison_point)
+			gob.set_target_pos(garrison_point.global_position)
 		await get_tree().create_timer(0.1 if killed else 0.5).timeout
 
 func _on_abort_button_pressed() -> void:

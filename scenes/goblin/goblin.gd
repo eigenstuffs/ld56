@@ -74,9 +74,10 @@ func set_movement_target(movement_target : Goal):
 		change_state("Navigate")
 
 func set_target_pos(target_pos : Vector2):
-	var obj = Goal.new()
+	var obj :Goal = Goal.new()
 	obj.global_position = target_pos
 	obj.scale = Vector2(1,1)
+	obj.target_node = obj;
 	set_movement_target(obj)
 
 func _on_goblin_hitbox_area_entered(area: Area2D) -> void:
