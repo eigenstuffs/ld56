@@ -14,10 +14,11 @@ offset_top = -20.0
 offset_right = 20.0
 offset_bottom = 20.0
 mouse_filter = 2
-color = Color(0.302876, 0.472943, 0.780756, 1)
+color = Color(1, 1, 1, 0.211765)
 metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_pto7x")
+debug_color = Color(0.453896, 0.896618, 1, 0.42)
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

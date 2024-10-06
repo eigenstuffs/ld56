@@ -1,0 +1,107 @@
+[gd_scene load_steps=6 format=3 uid="uid://d3shgxs7dewx0"]
+
+[ext_resource type="Texture2D" uid="uid://d2pq1ucxfmki6" path="res://assets/temp_background.jpg" id="1_uirb6"]
+[ext_resource type="PackedScene" uid="uid://bmq52iegph5xs" path="res://scenes/tools/goblin_nav_control.tscn" id="2_7etuc"]
+[ext_resource type="PackedScene" uid="uid://d13no63s202hy" path="res://scenes/goal/goal.tscn" id="3_tr6ll"]
+[ext_resource type="PackedScene" uid="uid://dy33jjb3kjeiu" path="res://scenes/goblin/goblin.tscn" id="4_1y4fi"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_nq5ct"]
+vertices = PackedVector2Array(48.9375, 153.906, 50.1484, 166, 7.59375, 166, 9.4375, 133.82, 193.297, 155.047, 62.0391, 132.812, 174.578, 149.211, 309.359, -79.9609, 309.633, -73, 246.656, -73, 61.0391, -79.0312, 61.3438, -16.0234, 160.188, -22.3984, 71, 49.6875, 61.6406, 49.0234, 61.4688, 12, 151.961, 12, 123.727, 31.4688, 61.9922, 122, 129.922, 122, 156.812, 138.547, 126.352, 68, 185.938, 68, 198.672, 141, 144.891, 95.1484, 250.391, 38, 128.039, 38, 182.148, 29.8984, 165.18, -17.1172, 164.594, -17.1094, 155.469, -17.0078, 165.109, -16.4922, 193.078, 17.0703, 82.8672, 70.75, 71, 93.25, 92.7891, 84.7891, 147.258, 99.2969, 185.398, 134.82)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5, 6), PackedInt32Array(7, 8, 9, 10), PackedInt32Array(11, 10, 9, 12), PackedInt32Array(13, 14, 15, 16, 17), PackedInt32Array(5, 18, 19, 20), PackedInt32Array(21, 22, 23, 24), PackedInt32Array(25, 26, 17, 27), PackedInt32Array(28, 29, 12), PackedInt32Array(12, 30, 11), PackedInt32Array(12, 9, 25, 28), PackedInt32Array(31, 28, 25, 32), PackedInt32Array(27, 32, 25), PackedInt32Array(16, 27, 17), PackedInt32Array(13, 17, 33), PackedInt32Array(34, 13, 33), PackedInt32Array(34, 33, 35), PackedInt32Array(24, 34, 35), PackedInt32Array(24, 35, 21), PackedInt32Array(36, 24, 23, 37), PackedInt32Array(37, 23, 4, 6), PackedInt32Array(20, 6, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(51, -89, 52, 123, 0, 124, -3, 176, 196, 176, 209, 142, 194, 56, 261, 56, 257, -63, 320, -63, 319, -90)])
+
+[node name="TestLevel" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -100.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_uirb6")
+
+[node name="NavControl" parent="." instance=ExtResource("2_7etuc")]
+
+[node name="Goal" parent="NavControl/GoalFolder" index="0" instance=ExtResource("3_tr6ll")]
+position = Vector2(193, 142)
+
+[node name="Goal2" parent="NavControl/GoalFolder" index="1" instance=ExtResource("3_tr6ll")]
+position = Vector2(37, 153)
+
+[node name="Goal3" parent="NavControl/GoalFolder" index="2" instance=ExtResource("3_tr6ll")]
+position = Vector2(84, 80)
+
+[node name="Goal4" parent="NavControl/GoalFolder" index="3" instance=ExtResource("3_tr6ll")]
+position = Vector2(226, 27)
+
+[node name="Goal5" parent="NavControl/GoalFolder" index="4" instance=ExtResource("3_tr6ll")]
+position = Vector2(89, -27)
+
+[node name="Goal6" parent="NavControl/GoalFolder" index="5" instance=ExtResource("3_tr6ll")]
+position = Vector2(274, -86)
+
+[node name="Goblin" parent="NavControl/GoblinFolder" index="0" instance=ExtResource("4_1y4fi")]
+position = Vector2(83, 146)
+scale = Vector2(0.3, 0.3)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_nq5ct")
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="NavigationRegion2D"]
+vertices = PackedVector2Array(61, 112, 143, 112, 139, 105, 61, 103, 61, 59, 47, 58, 45, 111)
+affect_navigation_mesh = true
+
+[node name="NavigationObstacle2D2" type="NavigationObstacle2D" parent="NavigationRegion2D"]
+vertices = PackedVector2Array(61, 174, 187, 174, 187, 165, 60, 164)
+affect_navigation_mesh = true
+
+[node name="NavigationObstacle2D3" type="NavigationObstacle2D" parent="NavigationRegion2D"]
+vertices = PackedVector2Array(143, 109, 172, 136, 162, 130, 136, 114)
+affect_navigation_mesh = true
+
+[node name="ColorRect" type="ColorRect" parent="NavigationRegion2D/NavigationObstacle2D3"]
+offset_left = 142.0
+offset_top = 109.0
+offset_right = 198.0
+offset_bottom = 117.0
+rotation = 0.73471
+color = Color(0.460347, 0.460347, 0.460347, 1)
+
+[node name="NavigationObstacle2D4" type="NavigationObstacle2D" parent="NavigationRegion2D"]
+vertices = PackedVector2Array(122, 47, 128, 56, 96, 72)
+affect_navigation_mesh = true
+
+[node name="ColorRect" type="ColorRect" parent="NavigationRegion2D/NavigationObstacle2D4"]
+offset_left = 128.0
+offset_top = 53.0
+offset_right = 180.0
+offset_bottom = 61.0
+rotation = 2.42012
+color = Color(0.460347, 0.460347, 0.460347, 1)
+
+[node name="NavigationObstacle2D5" type="NavigationObstacle2D" parent="NavigationRegion2D"]
+position = Vector2(61, -116)
+vertices = PackedVector2Array(61, 174, 197, 174, 197, 164, 60, 164)
+affect_navigation_mesh = true
+
+[node name="NavigationObstacle2D6" type="NavigationObstacle2D" parent="NavigationRegion2D"]
+position = Vector2(122, -232)
+vertices = PackedVector2Array(-62, 234, 31, 234, 32, 225, -63, 226)
+affect_navigation_mesh = true
+
+[node name="NavigationObstacle2D7" type="NavigationObstacle2D" parent="NavigationRegion2D"]
+vertices = PackedVector2Array(160, -7, 153, 1, 180, 17)
+affect_navigation_mesh = true
+
+[node name="ColorRect" type="ColorRect" parent="NavigationRegion2D/NavigationObstacle2D7"]
+offset_left = 158.0
+offset_top = -8.0
+offset_right = 210.0
+rotation = 0.842248
+color = Color(0.460347, 0.460347, 0.460347, 1)
+
+[editable path="NavControl"]
