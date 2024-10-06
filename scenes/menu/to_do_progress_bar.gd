@@ -4,7 +4,6 @@ var task_list : TaskList = preload("res://scenes/tools/task/task_list.tres")
 
 var has_found_all_ingredients = false
 var has_cooked_all_objects = false
-var has_plated_everything = false
 var has_defeated_all_enemies = false
 
 func _ready():
@@ -17,7 +16,6 @@ func _ready():
 func _process(delta):
 	update_prep_progress()
 	update_cooking_progress()
-	update_plating_progress()
 	update_def_progress()
 
 func update_prep_progress():
@@ -34,15 +32,8 @@ func update_cooking_progress():
 	else:
 		cooking_pb.value = calculate_cooking_progress()
 
-func update_plating_progress():
-	var plating_pb = get_child(2)
-	if has_plated_everything:
-		plating_pb.value = 100
-	else:
-		plating_pb.value = calculate_plating_progress()
-
 func update_def_progress():
-	var def_pb = get_child(3)
+	var def_pb = get_child(2)
 	if has_defeated_all_enemies:
 		def_pb.value = 100
 	else:
@@ -54,9 +45,6 @@ func calculate_prep_progress():
 
 func calculate_cooking_progress():
 	return 30 
-
-func calculate_plating_progress():
-	return 40
 
 func calculate_def_progress():
 	return 20 

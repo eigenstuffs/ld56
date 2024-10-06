@@ -3,7 +3,7 @@ extends Control
 var task_list : TaskList = preload("res://scenes/tools/task/task_list.tres")
 @onready var breakfast_recipe = preload("res://scenes/tools/recipes/breakfast_recipe.tres")
 var label_theme = preload("res://scenes/menu/testing_purpose/test_theme.tres")
-@onready var recipe_container = $"../NinePatchRect4/VBoxContainer"
+@onready var recipe_container = $"../Recipe/RecipeLabels"
 
 func _ready():
 	for index in range(get_child_count()):

@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://dicl0oxoa507v" path="res://assets/UIBorder/1pastalight.png" id="2_dusom"]
 [ext_resource type="Script" path="res://scenes/menu/to_do_progress_bar.gd" id="2_sq61w"]
 [ext_resource type="Texture2D" uid="uid://dtckx0qfbhgvy" path="res://assets/UIBorder/5gnomegreen.png" id="3_8oygj"]
-[ext_resource type="Script" path="res://scenes/menu/to_do_labels.gd" id="3_fxnfq"]
 [ext_resource type="Texture2D" uid="uid://m65as66a46h2" path="res://assets/UIBorder/0pastayellow.png" id="4_ddg5d"]
+[ext_resource type="FontFile" uid="uid://b4vbbcycecu1k" path="res://assets/VT323/VT323-Regular.ttf" id="4_oc57p"]
 
 [node name="ToDoListUI" type="Control"]
 layout_mode = 3
@@ -14,161 +14,240 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_fl081")
 
-[node name="ToDo Progress Bar" type="NinePatchRect" parent="."]
+[node name="Progress Bars" type="NinePatchRect" parent="."]
 layout_mode = 0
-offset_left = 1.0
-offset_top = 1.0
-offset_right = 61.0
-offset_bottom = 86.0
+offset_right = 60.0
+offset_bottom = 90.0
 texture = ExtResource("2_dusom")
 script = ExtResource("2_sq61w")
 
-[node name="ProgressBar" type="ProgressBar" parent="ToDo Progress Bar"]
+[node name="ProgressBar" type="ProgressBar" parent="Progress Bars"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -5.0
-offset_top = 17.0
-offset_right = 30.0
-offset_bottom = 32.0
-grow_horizontal = 2
-scale = Vector2(0.8, 0.8)
-theme_override_font_sizes/font_size = 7
-
-[node name="ProgressBar2" type="ProgressBar" parent="ToDo Progress Bar"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -5.0
-offset_top = 34.0
-offset_right = 30.0
-offset_bottom = 49.0
-grow_horizontal = 2
-scale = Vector2(0.8, 0.8)
-theme_override_font_sizes/font_size = 7
-
-[node name="ProgressBar3" type="ProgressBar" parent="ToDo Progress Bar"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -5.0
-offset_top = 51.0
-offset_right = 30.0
-offset_bottom = 66.0
-grow_horizontal = 2
-scale = Vector2(0.8, 0.8)
-theme_override_font_sizes/font_size = 7
-
-[node name="ProgressBar4" type="ProgressBar" parent="ToDo Progress Bar"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -5.0
-offset_top = 68.0
-offset_right = 30.0
-offset_bottom = 83.0
-grow_horizontal = 2
-scale = Vector2(0.8, 0.8)
-theme_override_font_sizes/font_size = 7
-
-[node name="ToDo Labels" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -148.0
-offset_top = 4.0
-offset_right = -72.0
-offset_bottom = 27.0
+offset_left = -18.0
+offset_top = 24.0
+offset_right = 22.0
+offset_bottom = 41.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 8
-text = "To Do List"
-script = ExtResource("3_fxnfq")
+theme_override_fonts/font = ExtResource("4_oc57p")
+theme_override_font_sizes/font_size = 12
 
-[node name="Prep" type="Label" parent="ToDo Labels"]
+[node name="ProgressBar2" type="ProgressBar" parent="Progress Bars"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -42.0
-offset_top = 14.0
-offset_right = 34.0
-offset_bottom = 37.0
+offset_left = -18.0
+offset_top = 48.0
+offset_right = 22.0
+offset_bottom = 65.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 7
+theme_override_fonts/font = ExtResource("4_oc57p")
+theme_override_font_sizes/font_size = 12
+
+[node name="ProgressBar4" type="ProgressBar" parent="Progress Bars"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -18.0
+offset_top = 72.0
+offset_right = 22.0
+offset_bottom = 89.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_oc57p")
+theme_override_font_sizes/font_size = 12
+
+[node name="Progress Labels" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -155.0
+offset_top = 2.0
+offset_right = -104.0
+offset_bottom = 19.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_oc57p")
+text = "Progress"
+
+[node name="Prep" type="Label" parent="Progress Labels"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -22.5
+offset_top = 13.0
+offset_right = 53.5
+offset_bottom = 36.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_oc57p")
+theme_override_font_sizes/font_size = 11
 text = "Prep"
 
-[node name="Cook" type="Label" parent="ToDo Labels"]
+[node name="Cook" type="Label" parent="Progress Labels"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -42.0
-offset_top = 31.0
-offset_right = 34.0
-offset_bottom = 54.0
+offset_left = -22.5
+offset_top = 37.0
+offset_right = 53.5
+offset_bottom = 60.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 7
+theme_override_fonts/font = ExtResource("4_oc57p")
+theme_override_font_sizes/font_size = 11
 text = "Cook"
 
-[node name="Plate" type="Label" parent="ToDo Labels"]
+[node name="DEF" type="Label" parent="Progress Labels"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -42.0
-offset_top = 48.0
-offset_right = 34.0
-offset_bottom = 71.0
+offset_left = -22.5
+offset_top = 61.0
+offset_right = 53.5
+offset_bottom = 84.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 7
-text = "Plate"
-
-[node name="DEF" type="Label" parent="ToDo Labels"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -42.0
-offset_top = 65.0
-offset_right = 34.0
-offset_bottom = 88.0
-grow_horizontal = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 7
-text = "DEF
+theme_override_fonts/font = ExtResource("4_oc57p")
+theme_override_font_sizes/font_size = 11
+text = "Defense
 "
 
 [node name="NinePatchRect2" type="NinePatchRect" parent="."]
 layout_mode = 0
-offset_left = 1.0
-offset_top = 94.0
-offset_right = 61.0
-offset_bottom = 179.0
+offset_top = 90.0
+offset_right = 60.0
+offset_bottom = 180.0
 texture = ExtResource("3_8oygj")
 
 [node name="NinePatchRect3" type="NinePatchRect" parent="."]
 layout_mode = 0
-offset_left = 259.0
-offset_top = 1.0
-offset_right = 319.0
-offset_bottom = 86.0
+offset_left = 260.0
+offset_right = 320.0
+offset_bottom = 90.0
 texture = ExtResource("3_8oygj")
 
-[node name="NinePatchRect4" type="NinePatchRect" parent="."]
+[node name="Recipe" type="NinePatchRect" parent="."]
 layout_mode = 0
-offset_left = 259.0
-offset_top = 94.0
-offset_right = 319.0
-offset_bottom = 179.0
+offset_left = 260.0
+offset_top = 90.0
+offset_right = 320.0
+offset_bottom = 180.0
 texture = ExtResource("4_ddg5d")
-script = ExtResource("1_fl081")
+
+[node name="RecipeLabels" type="Label" parent="Recipe"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -19.0
+offset_top = 3.0
+offset_right = 32.0
+offset_bottom = 20.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_oc57p")
+text = "Recipe
+"
+
+[node name="ing 1" type="Label" parent="Recipe/RecipeLabels"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -2.5
+offset_top = 15.0
+offset_right = 15.5
+offset_bottom = 27.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_oc57p")
+theme_override_font_sizes/font_size = 11
+text = "x ?"
+
+[node name="ing 2" type="Label" parent="Recipe/RecipeLabels"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -2.5
+offset_top = 27.0
+offset_right = 15.5
+offset_bottom = 39.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_oc57p")
+theme_override_font_sizes/font_size = 11
+text = "x ?"
+
+[node name="ing 3" type="Label" parent="Recipe/RecipeLabels"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -2.5
+offset_top = 39.0
+offset_right = 15.5
+offset_bottom = 51.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_oc57p")
+theme_override_font_sizes/font_size = 11
+text = "x ?"
+
+[node name="ing 4" type="Label" parent="Recipe/RecipeLabels"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -2.5
+offset_top = 51.0
+offset_right = 15.5
+offset_bottom = 63.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_oc57p")
+theme_override_font_sizes/font_size = 11
+text = "x ?"
+
+[node name="ing 5" type="Label" parent="Recipe/RecipeLabels"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -2.5
+offset_top = 63.0
+offset_right = 15.5
+offset_bottom = 75.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_oc57p")
+theme_override_font_sizes/font_size = 11
+text = "x ?"
+
+[node name="ing 6" type="Label" parent="Recipe/RecipeLabels"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -2.5
+offset_top = 75.0
+offset_right = 15.5
+offset_bottom = 87.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_oc57p")
+theme_override_font_sizes/font_size = 11
+text = "x ?"
