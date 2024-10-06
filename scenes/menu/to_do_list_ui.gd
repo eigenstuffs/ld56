@@ -22,7 +22,12 @@ func show_recipe(index):
 
 	if index < recipes.size():
 		var recipe = recipes[index]
-
+		
+		var dish_name_label = Label.new()
+		dish_name_label.text = recipe.dish_name
+		dish_name_label.theme = label_theme
+		recipe_container.add_child(dish_name_label)
+		
 		for i in range(recipe.required_ing.size()):
 			var ing_name: String = recipe.required_ing[i].ing_name
 			var req_amount: int = recipe.required_amount[i]
@@ -31,7 +36,7 @@ func show_recipe(index):
 			var ingredient_label = Label.new()
 			ingredient_label.text = ing_name + ": " + str(current_amount) + "/" + str(req_amount)
 			ingredient_label.theme = label_theme
-			
+
 			print(str(recipe.enough(ing_name)))
 			
 			recipe_container.add_child(ingredient_label)
@@ -45,19 +50,16 @@ func clear_container(container: VBoxContainer):
 
 func complete_recipe():
 	if current_recipe_index < recipes.size():
-		# inventory str to complete current recipe
-		# recipes[current_recipe_index].mark_as_completed()? figure out later
-	
+		# add logic to complete recipe
 		current_recipe_index += 1
 		if current_recipe_index < recipes.size():
 			show_recipe(current_recipe_index)
 		else:
 			print("All recipes completed!")
 
-
 func get_player_inventory_amount(ing_name: String) -> int:
-	# what we doing
-	return 0 
+	# add inventory
+	return 0
 
 func _input(event):
 	if event.is_action_pressed("ui_accept"):
