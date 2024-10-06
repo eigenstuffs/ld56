@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Recipe" load_steps=7 format=3 uid="uid://beb746r3b6hyc"]
+[gd_resource type="Resource" script_class="Recipe" load_steps=8 format=3 uid="uid://beb746r3b6hyc"]
 
 [ext_resource type="Script" path="res://scenes/tools/recipes/ingredients/ingredient_info.gd" id="1_aygtu"]
+[ext_resource type="Texture2D" uid="uid://hrfrg1xr8o4s" path="res://assets/chicken_noodle_soup.png" id="1_jfec5"]
 [ext_resource type="Resource" uid="uid://bmkk420mxdsfw" path="res://scenes/tools/recipes/ingredients/meat.tres" id="2_7j614"]
 [ext_resource type="Resource" uid="uid://dokfg58iwq26p" path="res://scenes/tools/recipes/ingredients/flour.tres" id="3_1bmw4"]
 [ext_resource type="Resource" uid="uid://c7dthmhxgd8m" path="res://scenes/tools/recipes/ingredients/veggie.tres" id="4_th63c"]
@@ -14,6 +15,7 @@ state = null
 [resource]
 script = ExtResource("5_g4kr4")
 dish_name = "Chicken Noodle Soup"
+recipe_img = ExtResource("1_jfec5")
 required_ing = Array[ExtResource("1_aygtu")]([ExtResource("2_7j614"), ExtResource("3_1bmw4"), SubResource("Resource_oj7w0"), ExtResource("4_th63c")])
 required_amount = Array[int]([2, 1, 1, 1])
 current_amount = Array[int]([0, 0, 0, 0])

@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Recipe" load_steps=7 format=3 uid="uid://cv5m163x66a1o"]
+[gd_resource type="Resource" script_class="Recipe" load_steps=8 format=3 uid="uid://cv5m163x66a1o"]
 
 [ext_resource type="Script" path="res://scenes/tools/recipes/ingredients/ingredient_info.gd" id="1_6ytxt"]
+[ext_resource type="Texture2D" uid="uid://5re8lgh5yfgh" path="res://assets/chocolate_lavacake.png" id="1_mg33w"]
 [ext_resource type="Resource" uid="uid://dokfg58iwq26p" path="res://scenes/tools/recipes/ingredients/flour.tres" id="4_tgbdr"]
 [ext_resource type="Resource" uid="uid://cdf3qkx0eu3hv" path="res://scenes/tools/recipes/ingredients/secret.tres" id="5_1c66u"]
 [ext_resource type="Resource" uid="uid://d2510q2f76g23" path="res://scenes/tools/recipes/ingredients/sugar.tres" id="5_ekjn2"]
@@ -14,6 +15,7 @@ state = null
 [resource]
 script = ExtResource("8_d2x4x")
 dish_name = "Chocolate Lavacake"
+recipe_img = ExtResource("1_mg33w")
 required_ing = Array[ExtResource("1_6ytxt")]([ExtResource("5_ekjn2"), ExtResource("4_tgbdr"), SubResource("Resource_oj7w0"), ExtResource("5_1c66u")])
 required_amount = Array[int]([2, 2, 2, 1])
 current_amount = Array[int]([0, 0, 0, 0])

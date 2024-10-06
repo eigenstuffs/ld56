@@ -26,7 +26,7 @@ var clicked : bool = false
 var state := STATE.IDLE
 var current_state_child
 var curr_target : Goal = null
-var item_holding : IngredientInfo = null
+var item_holding = null
 
 func _ready():
 	change_state("Idle")
@@ -99,9 +99,13 @@ func _on_goblin_hitbox_input_event(viewport, event, shape_idx):
 		change_state("AwaitingInput" if clicked else "Idle")
 		if clicked: emit_signal("listening_for_target")
 
-func hold_item(ingredient : IngredientInfo):
-	item_holding = ingredient
-	item.texture = item_holding.get_current_sprite()
+func hold_item(stuff):
+	if stuff is IngredientInfo:
+		item_holding = stuff
+		item.texture = item_holding.get_current_sprite()
+	if stuff is Recipe:
+		item_holding = stuff
+		item.texture = item_holding.recipe_img
 
 func remove_item():
 	item_holding = null
