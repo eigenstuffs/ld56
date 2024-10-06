@@ -62,6 +62,7 @@ func set_movement_target(movement_target : Goal):
 	curr_target = movement_target
 	change_state("Navigate")
 
+<<<<<<< Updated upstream
 func set_target_pos(target_pos : Vector2):
 	var obj = Goal.new()
 	obj.global_position = target_pos
@@ -76,10 +77,19 @@ func _on_clickable_region_gui_input(event):
 		if clicked: emit_signal("listening_for_target")
 		#this may lead to goblin_nav_control _process running but doing nothing for a single loop
 
+=======
+>>>>>>> Stashed changes
 func _on_goblin_hitbox_area_entered(area: Area2D) -> void:
 	if area.get_parent() is GoblinBase:
 		if state == STATE.NAVIGATE and area.get_parent().state == STATE.NAVIGATE:
 			change_state("Stunned")
 			area.get_parent().change_state("Stunned")
 
-#Helper function called by different states
+
+func _on_goblin_hitbox_input_event(viewport, event, shape_idx):
+	if event.is_action_pressed("LMB") and (state == STATE.IDLE or state == STATE.AWAITING_INPUT):
+		clicked = !clicked
+		change_state("AwaitingInput" if clicked else "Idle")
+		#print("you clicked on this character!") #TODO remove this
+		if clicked: emit_signal("listening_for_target")
+		get_viewport().set_input_as_handled()
