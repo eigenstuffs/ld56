@@ -48,7 +48,7 @@ func create_icons():
 				sprite.frame_coords = Vector2(1, 0)
 
 func _input(event):
-	if event.pressed:
+	if event is InputEventKey and event.pressed:
 		if event.is_action_pressed("up") and combination[0] == "up":
 			remove_first()
 		elif event.is_action_pressed("down") and combination[0] == "down":
