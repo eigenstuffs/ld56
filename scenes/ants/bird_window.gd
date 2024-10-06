@@ -4,6 +4,7 @@ class_name Bird_Window extends Goal
 @onready var goblin_text = $GoblinCount
 @onready var count_text = $Countdown
 @onready var abort_button := $AbortButton
+var garrison_point
 var countdown = 0
 var goblins : Array[GoblinBase] = []
 @export var num_birds = 1
@@ -12,6 +13,8 @@ var goblins : Array[GoblinBase] = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$GarrisonPoint.visible = false
+	garrison_point = $GarrisonPoint.global_position
 	while true:
 		countdown = 0
 		count_text.visible = false
@@ -41,12 +44,12 @@ func clear_gobs(killed : bool):
 			gob.change_state("Eaten")
 		else:
 			gob.visible = true
-			gob.set_target_pos(Vector2.ZERO) #TODO idk where the spawn is or where to return to	
+			gob.set_target_pos(garrison_point)
 		await get_tree().create_timer(0.1 if killed else 0.5).timeout
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.get_parent() is GoblinBase:
-		abort_button.disabled = len(goblins) > 0 && !abort_button.disabled
+		abort_button.disabled = len(goblins) > 0 && abort_button.disabled
 		var gob = area.get_parent()
 		goblins.append(gob)
 		gob.visible = false
@@ -54,5 +57,7 @@ func _on_area_entered(area: Area2D) -> void:
 
 func _on_abort_button_pressed() -> void:
 	abort_button.disabled = true
+	abort_button.text = "Aborting..."
 	await get_tree().create_timer(2).timeout
 	clear_gobs(false)
+	abort_button.text = "Abort"

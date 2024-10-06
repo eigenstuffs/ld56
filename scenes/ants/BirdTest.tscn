@@ -21,6 +21,12 @@ navigation_polygon = SubResource("NavigationPolygon_7j33s")
 position = Vector2(269, 45)
 scale = Vector2(0.5, 0.5)
 
+[node name="GarrisonPoint" parent="NavControl/GoalFolder/BirdWindow" index="4"]
+offset_left = -210.0
+offset_top = 58.0
+offset_right = -193.0
+offset_bottom = 75.0
+
 [node name="GoblinFolder" parent="NavControl" index="1"]
 position = Vector2(7, 43)
 
@@ -37,3 +43,4 @@ position = Vector2(23, 60)
 scale = Vector2(0.2, 0.2)
 
 [editable path="NavControl"]
+[editable path="NavControl/GoalFolder/BirdWindow"]
