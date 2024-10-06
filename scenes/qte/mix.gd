@@ -14,7 +14,7 @@ const ARROW = preload("res://scenes/qte/arrow.tscn")
 
 func _ready():
 	generate_combination(length)
-	timer.start(1)
+	timer.start(2.5)
 
 func generate_combination(len : int):
 	for i in len:

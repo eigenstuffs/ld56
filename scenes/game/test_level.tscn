@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://tq42g3xnxngh"]
+[gd_scene load_steps=11 format=3 uid="uid://d3shgxs7dewx0"]
 
 [ext_resource type="Texture2D" uid="uid://ccxx0lpjdnpsr" path="res://assets/temp_with_latter.jpg" id="1_31b1t"]
 [ext_resource type="PackedScene" uid="uid://bmq52iegph5xs" path="res://scenes/tools/goblin_nav_control.tscn" id="2_7etuc"]
@@ -110,16 +110,15 @@ qte = ExtResource("7_0nvxj")
 shape = SubResource("RectangleShape2D_nr38a")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(160, 24)
-zoom = Vector2(0.75, 0.75)
+position = Vector2(160, -10)
 limit_smoothed = true
 script = ExtResource("6_3amsy")
 
 [node name="TopLeft" type="Node2D" parent="Camera2D"]
-position = Vector2(-160, -120)
+position = Vector2(-160, -90)
 
 [node name="BottomRight" type="Node2D" parent="Camera2D"]
-position = Vector2(160, 160)
+position = Vector2(160, 182)
 
 [editable path="NavControl"]
 [editable path="NavControl/GoalFolder/BirdWindow"]
