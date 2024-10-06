@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://teo71o0ubvgw"]
+[gd_scene load_steps=7 format=3 uid="uid://teo71o0ubvgw"]
 
 [ext_resource type="Script" path="res://scenes/menu/to_do_list_ui.gd" id="1_fl081"]
 [ext_resource type="Texture2D" uid="uid://dicl0oxoa507v" path="res://assets/UIBorder/1pastalight.png" id="2_dusom"]
+[ext_resource type="Script" path="res://scenes/menu/to_do_progress_bar.gd" id="2_sq61w"]
 [ext_resource type="Texture2D" uid="uid://dtckx0qfbhgvy" path="res://assets/UIBorder/5gnomegreen.png" id="3_8oygj"]
 [ext_resource type="Script" path="res://scenes/menu/to_do_labels.gd" id="3_fxnfq"]
 [ext_resource type="Texture2D" uid="uid://m65as66a46h2" path="res://assets/UIBorder/0pastayellow.png" id="4_ddg5d"]
@@ -21,17 +22,17 @@ offset_top = 1.0
 offset_right = 61.0
 offset_bottom = 86.0
 texture = ExtResource("2_dusom")
-script = ExtResource("1_fl081")
+script = ExtResource("2_sq61w")
 
 [node name="ProgressBar" type="ProgressBar" parent="ToDo Progress Bar"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -4.0
-offset_top = 20.0
-offset_right = 31.0
-offset_bottom = 35.0
+offset_left = -5.0
+offset_top = 17.0
+offset_right = 30.0
+offset_bottom = 32.0
 grow_horizontal = 2
 scale = Vector2(0.8, 0.8)
 theme_override_font_sizes/font_size = 7
@@ -41,10 +42,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -3.0
-offset_top = 37.0
-offset_right = 32.0
-offset_bottom = 52.0
+offset_left = -5.0
+offset_top = 34.0
+offset_right = 30.0
+offset_bottom = 49.0
 grow_horizontal = 2
 scale = Vector2(0.8, 0.8)
 theme_override_font_sizes/font_size = 7
@@ -55,9 +56,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -5.0
-offset_top = 53.0
+offset_top = 51.0
 offset_right = 30.0
-offset_bottom = 68.0
+offset_bottom = 66.0
 grow_horizontal = 2
 scale = Vector2(0.8, 0.8)
 theme_override_font_sizes/font_size = 7
@@ -67,10 +68,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -4.0
-offset_top = 69.0
-offset_right = 31.0
-offset_bottom = 84.0
+offset_left = -5.0
+offset_top = 68.0
+offset_right = 30.0
+offset_bottom = 83.0
 grow_horizontal = 2
 scale = Vector2(0.8, 0.8)
 theme_override_font_sizes/font_size = 7
@@ -90,61 +91,62 @@ theme_override_font_sizes/font_size = 8
 text = "To Do List"
 script = ExtResource("3_fxnfq")
 
-[node name="ing1" type="Label" parent="ToDo Labels"]
+[node name="Prep" type="Label" parent="ToDo Labels"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -42.0
-offset_top = 17.0
+offset_top = 14.0
 offset_right = 34.0
-offset_bottom = 40.0
+offset_bottom = 37.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 7
-text = "Ing 1:"
+text = "Prep"
 
-[node name="ing2" type="Label" parent="ToDo Labels"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -41.0
-offset_top = 34.0
-offset_right = 35.0
-offset_bottom = 57.0
-grow_horizontal = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 7
-text = "Ing 2:"
-
-[node name="ing3" type="Label" parent="ToDo Labels"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -43.0
-offset_top = 50.0
-offset_right = 33.0
-offset_bottom = 73.0
-grow_horizontal = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 7
-text = "Ing 3:"
-
-[node name="ing4" type="Label" parent="ToDo Labels"]
+[node name="Cook" type="Label" parent="ToDo Labels"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -42.0
-offset_top = 66.0
+offset_top = 31.0
 offset_right = 34.0
-offset_bottom = 89.0
+offset_bottom = 54.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 7
-text = "Ing 4:"
+text = "Cook"
+
+[node name="Plate" type="Label" parent="ToDo Labels"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -42.0
+offset_top = 48.0
+offset_right = 34.0
+offset_bottom = 71.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 7
+text = "Plate"
+
+[node name="DEF" type="Label" parent="ToDo Labels"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -42.0
+offset_top = 65.0
+offset_right = 34.0
+offset_bottom = 88.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 7
+text = "DEF
+"
 
 [node name="NinePatchRect2" type="NinePatchRect" parent="."]
 layout_mode = 0
@@ -169,3 +171,4 @@ offset_top = 94.0
 offset_right = 319.0
 offset_bottom = 179.0
 texture = ExtResource("4_ddg5d")
+script = ExtResource("1_fl081")
