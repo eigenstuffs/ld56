@@ -88,6 +88,7 @@ libraries = {
 path_desired_distance = 10.0
 avoidance_enabled = true
 radius = 150.0
+debug_enabled = true
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="gui_input" from="ClickableRegion" to="." method="_on_clickable_region_gui_input"]
