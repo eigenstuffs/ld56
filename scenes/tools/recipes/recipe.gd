@@ -3,6 +3,7 @@ extends Resource
 class_name Recipe
 
 @export var dish_name : String
+@export var recipe_img : Texture2D
 @export var required_ing : Array[IngredientInfo] = []
 @export var required_amount : Array[int] = []
 @export var current_amount : Array[int]

@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Recipe" load_steps=9 format=3 uid="uid://d4y7qwdst5mh"]
+[gd_resource type="Resource" script_class="Recipe" load_steps=10 format=3 uid="uid://d4y7qwdst5mh"]
 
 [ext_resource type="Script" path="res://scenes/tools/recipes/ingredients/ingredient_info.gd" id="1_08j56"]
+[ext_resource type="Texture2D" uid="uid://nwvicwjoec7" path="res://assets/ghost_pepper_curry.png" id="1_vrief"]
 [ext_resource type="Resource" uid="uid://bmkk420mxdsfw" path="res://scenes/tools/recipes/ingredients/meat.tres" id="2_yyh4r"]
 [ext_resource type="Resource" uid="uid://dao308cgo2ler" path="res://scenes/tools/recipes/ingredients/spices.tres" id="3_bx5uj"]
 [ext_resource type="Resource" uid="uid://dokfg58iwq26p" path="res://scenes/tools/recipes/ingredients/flour.tres" id="3_kdmeo"]
@@ -16,6 +17,7 @@ state = null
 [resource]
 script = ExtResource("6_pnnd0")
 dish_name = "Ghost Pepper Curry"
+recipe_img = ExtResource("1_vrief")
 required_ing = Array[ExtResource("1_08j56")]([ExtResource("2_yyh4r"), ExtResource("3_bx5uj"), ExtResource("3_kdmeo"), ExtResource("5_i8xku"), SubResource("Resource_oj7w0"), ExtResource("5_l7v8u")])
 required_amount = Array[int]([2, 2, 1, 1, 1, 1])
 current_amount = Array[int]([0, 0, 0, 0, 0, 0])
