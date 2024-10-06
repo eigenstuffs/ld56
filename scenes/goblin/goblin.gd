@@ -8,6 +8,7 @@ enum STATE {
 	NAVIGATE,
 	WORKING,
 	AWAITING_INPUT,
+	EATEN,
 	EXPLODE
 }
 
@@ -49,6 +50,8 @@ func change_state(to : String):
 			target_state = STATE.WORKING
 		"AwaitingInput":
 			target_state = STATE.AWAITING_INPUT
+		"Eaten":
+			target_state = STATE.EATEN
 		"Explode":
 			target_state = STATE.EXPLODE
 	state = target_state
@@ -58,6 +61,12 @@ func change_state(to : String):
 func set_movement_target(movement_target : Goal):
 	curr_target = movement_target
 	change_state("Navigate")
+
+func set_target_pos(target_pos : Vector2):
+	var obj = Goal.new()
+	obj.global_position = target_pos
+	obj.scale = Vector2(1,1)
+	set_movement_target(obj)
 
 func _on_clickable_region_gui_input(event):
 	if event.is_action_pressed("LMB") and (state == STATE.IDLE or state == STATE.AWAITING_INPUT):
