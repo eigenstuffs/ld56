@@ -11,6 +11,7 @@
 [sub_resource type="Resource" id="Resource_oj7w0"]
 script = ExtResource("1_08j56")
 ing_name = "Egg"
+state = null
 
 [resource]
 script = ExtResource("6_pnnd0")

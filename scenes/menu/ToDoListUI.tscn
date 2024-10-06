@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://teo71o0ubvgw"]
+[gd_scene load_steps=8 format=3 uid="uid://teo71o0ubvgw"]
 
 [ext_resource type="Script" path="res://scenes/menu/to_do_list_ui.gd" id="1_fl081"]
 [ext_resource type="Texture2D" uid="uid://dicl0oxoa507v" path="res://assets/UIBorder/1pastalight.png" id="2_dusom"]
 [ext_resource type="Script" path="res://scenes/menu/to_do_progress_bar.gd" id="2_sq61w"]
 [ext_resource type="Texture2D" uid="uid://dtckx0qfbhgvy" path="res://assets/UIBorder/5gnomegreen.png" id="3_8oygj"]
 [ext_resource type="Texture2D" uid="uid://m65as66a46h2" path="res://assets/UIBorder/0pastayellow.png" id="4_ddg5d"]
-[ext_resource type="Texture2D" uid="uid://b0xvywq32ugu2" path="res://assets/goblin_sprites/gob_front.png" id="6_kdqik"]
+[ext_resource type="Script" path="res://scenes/menu/goblin_counter.gd" id="5_06jbi"]
+[ext_resource type="Texture2D" uid="uid://d21yer14wmdgo" path="res://assets/goblin_sprites/gob_salute.png" id="6_muqmv"]
 
 [node name="ToDoListUI" type="Control"]
 layout_mode = 3
@@ -120,18 +121,37 @@ theme_override_font_sizes/font_size = 8
 text = "Defense
 "
 
-[node name="NinePatchRect2" type="NinePatchRect" parent="."]
+[node name="GoblinCounter" type="NinePatchRect" parent="."]
 layout_mode = 0
-offset_top = 93.0
+offset_top = 92.0
 offset_right = 60.0
-offset_bottom = 180.0
+offset_bottom = 179.0
 texture = ExtResource("3_8oygj")
+script = ExtResource("5_06jbi")
 
-[node name="GobFront" type="Sprite2D" parent="NinePatchRect2"]
-position = Vector2(30, 51)
-texture = ExtResource("6_kdqik")
+[node name="VBoxContainer" type="VBoxContainer" parent="GoblinCounter"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 15.0
+offset_right = 52.0
+offset_bottom = 45.0
+theme_override_constants/separation = 0
 
-[node name="NinePatchRect3" type="NinePatchRect" parent="."]
+[node name="TitleLabel" type="Label" parent="GoblinCounter/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+
+[node name="CountLabel" type="Label" parent="GoblinCounter/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+
+[node name="GobSalute" type="Sprite2D" parent="GoblinCounter"]
+position = Vector2(30, 69)
+texture = ExtResource("6_muqmv")
+
+[node name="Window" type="NinePatchRect" parent="."]
 layout_mode = 0
 offset_left = 260.0
 offset_top = 17.0
@@ -139,7 +159,7 @@ offset_right = 320.0
 offset_bottom = 87.0
 texture = ExtResource("3_8oygj")
 
-[node name="ColorRect" type="ColorRect" parent="NinePatchRect3"]
+[node name="ColorRect" type="ColorRect" parent="Window"]
 layout_mode = 0
 offset_left = 6.0
 offset_top = 16.0
@@ -149,9 +169,9 @@ offset_bottom = 64.0
 [node name="Recipe" type="NinePatchRect" parent="."]
 layout_mode = 0
 offset_left = 260.0
-offset_top = 93.0
+offset_top = 92.0
 offset_right = 320.0
-offset_bottom = 180.0
+offset_bottom = 179.0
 texture = ExtResource("4_ddg5d")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Recipe"]

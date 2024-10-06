@@ -10,12 +10,9 @@ class_name Job extends Area2D
 
 signal job_done
 
-func extra_conditions():
-	pass
-
 func give_reward():
 	match job_type:
-		0:
+		0: #Getting
 			item_reward.state = 0
 			return item_reward
 		1: 

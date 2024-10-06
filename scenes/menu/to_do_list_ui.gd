@@ -49,7 +49,6 @@ func show_recipe(index):
 			var current_amount: int = get_player_inventory_amount(ing_name)
 
 			var hbox = HBoxContainer.new()
-
 			var texture = load_texture_for_ingredient(ing_name)
 			if texture:
 				var sprite = TextureRect.new()
@@ -57,7 +56,8 @@ func show_recipe(index):
 				hbox.add_child(sprite)
 
 			var ingredient_label = Label.new()
-			ingredient_label.text = ing_name.capitalize() + ": " + str(current_amount) + "/" + str(req_amount)
+			# Remove ingredient name from the UI display:
+			ingredient_label.text = str(current_amount) + "/" + str(req_amount)
 			ingredient_label.theme = label_theme
 			hbox.add_child(ingredient_label)
 
