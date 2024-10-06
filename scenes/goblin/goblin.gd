@@ -16,7 +16,7 @@ enum STATE {
 signal listening_for_target
 
 @onready var ingredient : Recipe = preload("res://scenes/tools/recipes/all_ingredients.tres")
-@onready var nav_agent = $NavigationAgent2D
+@onready var nav_agent : NavigationAgent2D = $NavigationAgent2D
 @onready var highlight : ColorRect = $Highlight #TODO temporary
 @onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var item : Sprite2D = $Item
@@ -67,7 +67,11 @@ func change_state(to : String):
 
 func set_movement_target(movement_target : Goal):
 	curr_target = movement_target
-	change_state("Navigate")
+	nav_agent.target_position = movement_target.global_position
+	if nav_agent.is_navigation_finished():
+		movement_target._on_area_entered($Goblin_hitbox)
+	else:
+		change_state("Navigate")
 
 func set_target_pos(target_pos : Vector2):
 	var obj = Goal.new()

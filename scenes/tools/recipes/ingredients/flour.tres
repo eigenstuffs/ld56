@@ -1,11 +1,8 @@
-[gd_resource type="Resource" script_class="IngredientInfo" load_steps=3 format=3 uid="uid://dokfg58iwq26p"]
+[gd_resource type="Resource" script_class="IngredientInfo" load_steps=2 format=3 uid="uid://dokfg58iwq26p"]
 
 [ext_resource type="Script" path="res://scenes/tools/recipes/ingredients/ingredient_info.gd" id="1_s5mah"]
-[ext_resource type="Texture2D" uid="uid://bmkv8n6lu1fuw" path="res://assets/ingredients/flour.png" id="2_epm62"]
 
 [resource]
 script = ExtResource("1_s5mah")
 ing_name = "Flour"
-state = 1
-sprite_upd = ExtResource("2_epm62")
-sprite_prd = ExtResource("2_epm62")
+state = null

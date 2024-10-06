@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dg62hmhlaheyf"]
+[gd_scene load_steps=6 format=3 uid="uid://dg62hmhlaheyf"]
 
 [ext_resource type="PackedScene" uid="uid://bjv16f3io6fw3" path="res://scenes/enemy_event/bird_window.tscn" id="1_5qser"]
 [ext_resource type="PackedScene" uid="uid://bmq52iegph5xs" path="res://scenes/tools/goblin_nav_control.tscn" id="2_4owce"]
 [ext_resource type="PackedScene" uid="uid://dy33jjb3kjeiu" path="res://scenes/goblin/goblin.tscn" id="3_0lge2"]
+[ext_resource type="PackedScene" uid="uid://d13no63s202hy" path="res://scenes/goal/goal.tscn" id="3_ijifn"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_7j33s"]
 vertices = PackedVector2Array(411.273, 254.258, 14.2891, 170.93, 19.6406, 20.9609, 311.398, 20.0234)
@@ -17,15 +18,13 @@ navigation_polygon = SubResource("NavigationPolygon_7j33s")
 
 [node name="NavControl" parent="." instance=ExtResource("2_4owce")]
 
-[node name="BirdWindow" parent="NavControl/GoalFolder" index="0" instance=ExtResource("1_5qser")]
+[node name="BirdWindow" parent="NavControl/GoalFolder" index="0" node_paths=PackedStringArray("garrison_point") instance=ExtResource("1_5qser")]
 position = Vector2(269, 45)
 scale = Vector2(0.5, 0.5)
+garrison_point = NodePath("../Garrison_point")
 
-[node name="GarrisonPoint" parent="NavControl/GoalFolder/BirdWindow" index="4"]
-offset_left = -210.0
-offset_top = 58.0
-offset_right = -193.0
-offset_bottom = 75.0
+[node name="Garrison_point" parent="NavControl/GoalFolder" index="1" instance=ExtResource("3_ijifn")]
+position = Vector2(156, 124)
 
 [node name="GoblinFolder" parent="NavControl" index="1"]
 position = Vector2(7, 43)
