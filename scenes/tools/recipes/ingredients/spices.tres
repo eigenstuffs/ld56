@@ -1,7 +1,11 @@
-[gd_resource type="Resource" script_class="IngredientInfo" load_steps=2 format=3 uid="uid://dao308cgo2ler"]
+[gd_resource type="Resource" script_class="IngredientInfo" load_steps=3 format=3 uid="uid://dao308cgo2ler"]
 
 [ext_resource type="Script" path="res://scenes/tools/recipes/ingredients/ingredient_info.gd" id="1_crbtj"]
+[ext_resource type="Texture2D" uid="uid://p7b6a64g46o3" path="res://assets/ingredients/spice.png" id="2_tk0h7"]
 
 [resource]
 script = ExtResource("1_crbtj")
 ing_name = "Spices"
+state = 1
+sprite_upd = ExtResource("2_tk0h7")
+sprite_prd = ExtResource("2_tk0h7")

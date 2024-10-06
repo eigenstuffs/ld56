@@ -169,6 +169,9 @@ path_postprocessing = 1
 avoidance_enabled = true
 radius = 150.0
 
+[node name="Item" type="Sprite2D" parent="."]
+position = Vector2(0, -18)
+
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="listening_for_target" from="." to="JobDone" method="_on_goblin_listening_for_target"]
 [connection signal="area_entered" from="Goblin_hitbox" to="." method="_on_goblin_hitbox_area_entered"]

@@ -1,7 +1,12 @@
-[gd_resource type="Resource" script_class="IngredientInfo" load_steps=2 format=3 uid="uid://bmkk420mxdsfw"]
+[gd_resource type="Resource" script_class="IngredientInfo" load_steps=4 format=3 uid="uid://bmkk420mxdsfw"]
 
 [ext_resource type="Script" path="res://scenes/tools/recipes/ingredients/ingredient_info.gd" id="1_1i40d"]
+[ext_resource type="Texture2D" uid="uid://cml2fsp7abf7q" path="res://assets/ingredients/meat_defrosted.png" id="2_m80s2"]
+[ext_resource type="Texture2D" uid="uid://yvwg33n6bspo" path="res://assets/ingredients/meat_frosted.png" id="3_fkhs1"]
 
 [resource]
 script = ExtResource("1_1i40d")
 ing_name = "Meat"
+state = 0
+sprite_upd = ExtResource("3_fkhs1")
+sprite_prd = ExtResource("2_m80s2")

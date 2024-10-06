@@ -15,15 +15,18 @@ enum STATE {
 
 signal listening_for_target
 
+@onready var ingredient : Recipe = preload("res://scenes/tools/recipes/all_ingredients.tres")
 @onready var nav_agent = $NavigationAgent2D
 @onready var highlight : ColorRect = $Highlight #TODO temporary
 @onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
+@onready var item : Sprite2D = $Item
 
 @export var movement_speed : float = 100
 var clicked : bool = false
 var state := STATE.IDLE
 var current_state_child
 var curr_target : Goal = null
+var item_holding : IngredientInfo = null
 
 func _ready():
 	change_state("Idle")
@@ -90,3 +93,11 @@ func _on_goblin_hitbox_input_event(viewport, event, shape_idx):
 		clicked = !clicked
 		change_state("AwaitingInput" if clicked else "Idle")
 		if clicked: emit_signal("listening_for_target")
+
+func hold_item(ingredient : IngredientInfo):
+	item_holding = ingredient
+	item.texture = item_holding.get_current_sprite()
+
+func remove_item():
+	item_holding = null
+	item.texture = null

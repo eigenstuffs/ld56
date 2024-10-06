@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=10 format=3 uid="uid://d2w7w7y125h3k"]
+
+[ext_resource type="Script" path="res://scenes/tools/recipes/ingredients/ingredient_info.gd" id="1_6sxis"]
+[ext_resource type="Resource" uid="uid://cyvura4urvq1v" path="res://scenes/tools/recipes/ingredients/egg.tres" id="2_g43nm"]
+[ext_resource type="Resource" uid="uid://bmkk420mxdsfw" path="res://scenes/tools/recipes/ingredients/meat.tres" id="2_ghlem"]
+[ext_resource type="Resource" uid="uid://dokfg58iwq26p" path="res://scenes/tools/recipes/ingredients/flour.tres" id="3_sl38k"]
+[ext_resource type="Resource" uid="uid://c7dthmhxgd8m" path="res://scenes/tools/recipes/ingredients/veggie.tres" id="4_e7akr"]
+[ext_resource type="Resource" uid="uid://cdf3qkx0eu3hv" path="res://scenes/tools/recipes/ingredients/secret.tres" id="5_kl22t"]
+[ext_resource type="Script" path="res://scenes/tools/recipes/recipe.gd" id="5_ll0jq"]
+[ext_resource type="Resource" uid="uid://dao308cgo2ler" path="res://scenes/tools/recipes/ingredients/spices.tres" id="6_005a2"]
+[ext_resource type="Resource" uid="uid://d2510q2f76g23" path="res://scenes/tools/recipes/ingredients/sugar.tres" id="7_ong68"]
+
+[resource]
+script = ExtResource("5_ll0jq")
+dish_name = "All Ingredients"
+required_ing = Array[ExtResource("1_6sxis")]([ExtResource("2_g43nm"), ExtResource("3_sl38k"), ExtResource("2_ghlem"), ExtResource("5_kl22t"), ExtResource("6_005a2"), ExtResource("7_ong68"), ExtResource("4_e7akr")])
+required_amount = Array[int]([0, 0, 0, 0, 0, 0, 0])
+current_amount = Array[int]([0, 0, 0, 0, 0, 0, 0])
