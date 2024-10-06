@@ -48,7 +48,7 @@ func clear_gobs(killed : bool):
 		await get_tree().create_timer(0.1 if killed else 0.5).timeout
 
 func _on_area_entered(area: Area2D) -> void:
-	if area.get_parent() is GoblinBase:
+	if area.get_parent() is GoblinBase and area.get_parent().curr_target == self:
 		abort_button.disabled = len(goblins) > 0 && abort_button.disabled
 		var gob = area.get_parent()
 		goblins.append(gob)
