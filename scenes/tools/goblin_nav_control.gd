@@ -17,6 +17,7 @@ func _ready():
 	for goal : Goal in goal_folder.get_children():
 		goal_array.append(goal)
 		goal.connect("listening_for_agent", _on_goal_listening_for_agent)
+		print(goal)
 	
 func _process(delta):
 	#logic: if both and agent and a goal are clicked, let agent go to the goal

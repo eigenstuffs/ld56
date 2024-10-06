@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dy33jjb3kjeiu"]
+[gd_scene load_steps=15 format=3 uid="uid://dy33jjb3kjeiu"]
 
 [ext_resource type="Script" path="res://scenes/goblin/goblin.gd" id="1_u2bdf"]
 [ext_resource type="Script" path="res://scenes/goblin/idle.gd" id="2_u32ex"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://scenes/goblin/stunned.gd" id="3_y3xjl"]
 [ext_resource type="Script" path="res://scenes/goblin/working.gd" id="4_84cvj"]
 [ext_resource type="Script" path="res://scenes/goblin/awaiting_input.gd" id="5_0atyx"]
+[ext_resource type="Script" path="res://scenes/goblin/eaten.gd" id="5_0gohk"]
 [ext_resource type="Script" path="res://scenes/goblin/explode.gd" id="5_76ybd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b7bol"]
@@ -67,6 +68,9 @@ script = ExtResource("3_y3xjl")
 
 [node name="Navigate" type="Node" parent="."]
 script = ExtResource("3_638pl")
+
+[node name="Eaten" type="Node" parent="."]
+script = ExtResource("5_0gohk")
 
 [node name="Working" type="Node" parent="."]
 script = ExtResource("4_84cvj")

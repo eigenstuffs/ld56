@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://dinmrt7gxpolk"]
+
+[ext_resource type="Texture2D" uid="uid://b0pp6jm2asics" path="res://assets/SpeechBubble.png" id="1_uyv5e"]
+
+[node name="DialogBubble" type="Node2D"]
+position = Vector2(0, -15)
+
+[node name="Node2D" type="Node2D" parent="."]
+scale = Vector2(0.2, 0.2)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Node2D"]
+offset_left = -235.0
+offset_top = -725.0
+offset_right = 3680.0
+offset_bottom = 65.0
+texture = ExtResource("1_uyv5e")
+patch_margin_left = 1500
+patch_margin_top = 200
+patch_margin_right = 200
+patch_margin_bottom = 400
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+modulate = Color(0, 0, 0, 1)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -291.0
+offset_right = 696.0
+offset_bottom = -17.0
+grow_vertical = 0
+theme_override_font_sizes/normal_font_size = 100
+text = "Row1
+Row2"
+fit_content = true
