@@ -6,6 +6,7 @@ func job(area : Job):
 	area.goblins_engagaed += 1
 	if area.goblins_engagaed >= area.goblins_needed:
 		if area.items_needed.size() == 0 or goblin.item_holding in area.items_needed:
+			if area.items_needed.size() > 0: goblin.remove_item()
 			if area.qte != null:
 				var a = area.qte.instantiate() as Mix
 				get_tree().current_scene.add_child(a)
@@ -20,6 +21,5 @@ func job(area : Job):
 			await get_tree().create_timer(area.time).timeout
 			print("Done job")
 			b.queue_free()
-			goblin.hold_item(area.item_reward)
-			print(goblin.item_holding.ing_name)
+			goblin.hold_item(area.give_reward())
 			change_state("JobDone")
