@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://teo71o0ubvgw"]
+[gd_scene load_steps=7 format=3 uid="uid://teo71o0ubvgw"]
 
 [ext_resource type="Script" path="res://scenes/menu/to_do_list_ui.gd" id="1_fl081"]
 [ext_resource type="Texture2D" uid="uid://dicl0oxoa507v" path="res://assets/UIBorder/1pastalight.png" id="2_dusom"]
 [ext_resource type="Script" path="res://scenes/menu/to_do_progress_bar.gd" id="2_sq61w"]
 [ext_resource type="Texture2D" uid="uid://dtckx0qfbhgvy" path="res://assets/UIBorder/5gnomegreen.png" id="3_8oygj"]
 [ext_resource type="Texture2D" uid="uid://m65as66a46h2" path="res://assets/UIBorder/0pastayellow.png" id="4_ddg5d"]
+[ext_resource type="Texture2D" uid="uid://b0xvywq32ugu2" path="res://assets/goblin_sprites/gob_front.png" id="6_kdqik"]
 
 [node name="ToDoListUI" type="Control"]
 layout_mode = 3
@@ -124,6 +125,10 @@ offset_top = 93.0
 offset_right = 60.0
 offset_bottom = 180.0
 texture = ExtResource("3_8oygj")
+
+[node name="GobFront" type="Sprite2D" parent="NinePatchRect2"]
+position = Vector2(30, 51)
+texture = ExtResource("6_kdqik")
 
 [node name="NinePatchRect3" type="NinePatchRect" parent="."]
 layout_mode = 0
