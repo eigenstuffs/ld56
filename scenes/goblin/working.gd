@@ -1,5 +1,7 @@
 extends GoblinState
 
+class_name Working
+
 const JOB_PROGRESS : PackedScene = preload("res://scenes/goblin/job_progress.tscn")
 
 func job(area : Job):
@@ -10,27 +12,22 @@ func job(area : Job):
 				if area.items_needed.size() > 0: #give the job its holding item
 					area.item_reward = goblin.item_holding
 					goblin.remove_item()
-				if area.qte != null:
-					var a = area.qte.instantiate() as Mix
-					get_tree().current_scene.add_child(a)
-					a.global_position = get_parent().global_position - Vector2(0, 16)
-					await a.done
-					if a.result == "lose":
-						goblin.change_state("Explode")
-						return
+				area.pre_job(goblin)
+				await area.job_done
 				var b = JOB_PROGRESS.instantiate() as TextureProgressBar
 				add_child(b)
 				b.global_position = get_parent().global_position - Vector2(8, 24)
-				area.init()
+				area.dur_job(goblin)
 				b.start(area.time)
 				play_random_animation()
 				await get_tree().create_timer(area.time).timeout
 				print("Done job")
 				b.queue_free()
+				area.post_job(goblin)
+				await area.job_done
+				change_state("Idle")
 				change_state("JobDone")
 				goblin.hold_item(area.give_reward())
-				return
-	change_state("Idle")
 
 func play_random_animation():
 	var n = randi_range(0, 2)

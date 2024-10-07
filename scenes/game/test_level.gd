@@ -3,7 +3,7 @@ extends Node2D
 class_name Level
 
 @export var next_level : Level #to be added
-@export var n_goblins : int = 1
+@export var goblin_names : Array[String] = ["Victor"]
 @export var recipe_manager : Recipe_Display
 var progress_bar : ProgressBarManager
 var goblin_counter : GoblinCounter
@@ -27,9 +27,10 @@ func _ready():
 	birds.connect("gobs_changed", update_defense)
 	birds.connect("def_failed", bird_penalty)
 	goblin_counter = recipe_manager.goblin_counter
-	goblin_counter.add_goblins(n_goblins)
-	for n in range(n_goblins):
+	goblin_counter.add_goblins(len(goblin_names))
+	for name in goblin_names:
 		var a = goblin.instantiate()
+		a.gob_name = name
 		a.connect("update_progress", update_progress)
 		a.connect("state_changed", update_gob_count)
 		a.global_position = $GoblinSpawnPoint.global_position

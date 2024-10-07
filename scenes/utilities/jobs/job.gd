@@ -9,8 +9,12 @@ class_name Job extends Area2D
 
 signal job_done
 
-func init():
+func pre_job(goblin : GoblinBase):
+	job_done.emit()
+func dur_job(goblin : GoblinBase):
 	pass
+func post_job(goblin : GoblinBase):
+	job_done.emit()
 	
 func additional_conditions():
 	return true

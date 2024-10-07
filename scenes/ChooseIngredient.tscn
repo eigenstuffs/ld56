@@ -1,17 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://cnliugkwdvva7"]
+[gd_scene load_steps=8 format=3 uid="uid://cnliugkwdvva7"]
 
 [ext_resource type="Script" path="res://scenes/choose_ingredient.gd" id="1_ahy1n"]
 [ext_resource type="Script" path="res://scenes/tools/recipes/ingredients/ingredient_info.gd" id="2_kmc2c"]
 [ext_resource type="Texture2D" uid="uid://dxp5rc82dl6jr" path="res://assets/ingredients/egg.png" id="2_ypra0"]
 [ext_resource type="Texture2D" uid="uid://bqbefijjxuwba" path="res://assets/ingredients/redo.png" id="3_3nacp"]
 [ext_resource type="Resource" uid="uid://cyvura4urvq1v" path="res://scenes/tools/recipes/ingredients/egg.tres" id="3_xvne2"]
+[ext_resource type="Resource" uid="uid://dao308cgo2ler" path="res://scenes/tools/recipes/ingredients/spices.tres" id="4_2gfht"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eohmf"]
 size = Vector2(16, 16)
 
-[node name="ChooseIngredient" type="Node"]
+[node name="ChooseIngredient" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_ahy1n")
-pick_from = Array[ExtResource("2_kmc2c")]([ExtResource("3_xvne2")])
+pick_from = Array[ExtResource("2_kmc2c")]([ExtResource("3_xvne2"), ExtResource("4_2gfht")])
 
 [node name="Sprite1" type="Sprite2D" parent="."]
 position = Vector2(146, 46)

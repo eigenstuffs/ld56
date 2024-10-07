@@ -1,4 +1,4 @@
-extends Node
+extends Control
 
 class_name ChoosingIngredient
 
@@ -7,6 +7,7 @@ var selection : Array[IngredientInfo] = [null, null, null]
 var selected : IngredientInfo
 @export var pick_from : Array[IngredientInfo]
 var pick_from_left : Array[IngredientInfo]
+signal done
 
 func _ready() -> void:
 	selected = null
@@ -30,7 +31,7 @@ func _on_area_3_input_event(viewport: Node, event: InputEvent, shape_idx: int) -
 	click_action(event, 3)
 
 func _on_area_4_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	repick()
+	if event.is_action_pressed("LMB"): repick()
 	
 func click_action(event : InputEvent, choice : int):
 	if event.is_action_pressed("LMB"):
@@ -38,3 +39,4 @@ func click_action(event : InputEvent, choice : int):
 		for sprite in sprites:
 			sprite.queue_free()
 		$Sprite4.queue_free()
+		done.emit()

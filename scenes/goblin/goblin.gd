@@ -22,7 +22,7 @@ signal update_progress(stuff)
 @onready var nav_agent : NavigationAgent2D = $NavigationAgent2D
 @onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var item : Sprite2D = $Item
-
+@export var gob_name := ""
 @export var movement_speed : float = 100
 var clicked : bool = false
 var state := STATE.IDLE
@@ -32,7 +32,7 @@ var item_holding = null
 
 func _ready():
 	change_state("Idle")
-	
+	$Name.text = "[center]" + gob_name
 	actor_setup.call_deferred()
 	
 func actor_setup():
@@ -94,6 +94,12 @@ func hold_item(stuff):
 	if stuff is Recipe:
 		item_holding = stuff
 	item.texture = notice
+
+func set_target_pos(Vector2 pos):
+	pass
+	
+func set_movement_target(target_goal):
+	pass
 
 func updateProgress():
 	if item.texture == notice:

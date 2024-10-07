@@ -6,8 +6,21 @@ signal ingredient_gotten
 
 @export var ingredient_box : Array[IngredientInfo]
 
-func init():
+func pre_job(gob : GoblinBase):
+	var a : ChoosingIngredient = qte.instantiate()
+	get_tree().current_scene.add_child(a)
+	a.global_position = get_parent().global_position - Vector2(0, 16)
+	await a.done
+	if a.result == "lose":
+		gob.change_state("Explode")
+		return
+	job_done.emit()
+		
+func dur_job(gob : GoblinBase):
 	get_next_reward()
+
+func post_job(gob :GoblinBase):
+	job_done.emit()
 
 func get_next_reward():
 	if ingredient_box.size() != 0:
@@ -19,3 +32,4 @@ func give_reward():
 	if item_reward == null:
 		return null
 	return item_reward
+	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://dy33jjb3kjeiu"]
+[gd_scene load_steps=78 format=3 uid="uid://dy33jjb3kjeiu"]
 
 [ext_resource type="Script" path="res://scenes/goblin/goblin.gd" id="1_u2bdf"]
 [ext_resource type="Script" path="res://scenes/goblin/idle.gd" id="2_u32ex"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://dlbwjtuwvf16j" path="res://assets/goblin_sprites/gob_walk_item_right.png" id="14_1c3y7"]
 [ext_resource type="Texture2D" uid="uid://cp6weiycj2wq4" path="res://assets/goblin_sprites/gob_work_back.png" id="17_0qwfu"]
 [ext_resource type="Texture2D" uid="uid://nhw2ad6tbq5e" path="res://assets/goblin_sprites/gob_work_front.png" id="18_0mwk0"]
+[ext_resource type="FontFile" uid="uid://r78uefbd72ri" path="res://assets/Tiny5-Regular.ttf" id="21_32hmp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b7bol"]
 size = Vector2(15, 21)
@@ -518,6 +519,19 @@ radius = 150.0
 
 [node name="Item" type="Sprite2D" parent="."]
 position = Vector2(0, -18)
+
+[node name="Name" type="RichTextLabel" parent="."]
+modulate = Color(1, 1, 0, 1)
+offset_left = -20.0
+offset_top = 11.0
+offset_right = 20.0
+offset_bottom = 20.0
+theme_override_fonts/normal_font = ExtResource("21_32hmp")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "[center] Name"
+fit_content = true
+scroll_active = false
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="listening_for_target" from="." to="JobDone" method="_on_goblin_listening_for_target"]
