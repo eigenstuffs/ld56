@@ -5,6 +5,7 @@
 [ext_resource type="FontFile" uid="uid://r78uefbd72ri" path="res://assets/Tiny5-Regular.ttf" id="3_dxv5h"]
 
 [node name="Dialogue" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

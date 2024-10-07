@@ -4,6 +4,8 @@ var first_launch : bool = true
 
 const DIALOGUE : PackedScene = preload("res://scenes/utilities/dialogue.tscn")
 
+signal done
+
 func dialogue(text : Array[String], bars : bool = true):
 	if bars:
 		GlobalAnim.bars_down()
@@ -15,3 +17,4 @@ func dialogue(text : Array[String], bars : bool = true):
 	a.queue_free()
 	if bars:
 		GlobalAnim.bars_up()
+	done.emit()

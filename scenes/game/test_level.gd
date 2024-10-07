@@ -16,7 +16,6 @@ var recipe_index := 0
 @onready var score_screen = preload("res://scenes/utilities/score_screen.tscn")
 @onready var chef_sprite = $Chef
 
-var paused := false
 var time = 0
 var ing_gathered = {}
 var ing_delivered = {}
@@ -45,7 +44,7 @@ func _ready():
 	recipe_manager.show_recipe(recipe_list[0], ing_delivered)
 	
 func _process(delta: float) -> void:
-	if !paused: time += delta
+	if !get_tree().paused: time += delta
 
 func level_end():
 	var n_star = calculate_score()

@@ -2114,6 +2114,7 @@ value = 5.0
 show_percentage = false
 
 [node name="Timer" type="Timer" parent="."]
+process_mode = 1
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="pressed" from="AbortButton" to="." method="_on_abort_button_pressed"]

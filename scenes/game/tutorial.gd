@@ -27,4 +27,5 @@ func _ready():
 			],
 			false
 		)
+	await Utilities.done
 	get_tree().paused = false

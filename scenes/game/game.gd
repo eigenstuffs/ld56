@@ -1,6 +1,5 @@
 extends Node2D
 class_name Game
-var paused := false
 var time = 0
 @export var gob_folder : Node2D
 @export var progress_bar : ProgressBarManager
@@ -11,7 +10,7 @@ func _ready() -> void:
 		gob.connect("update_progress", update_progress)
 
 func _process(delta: float) -> void:
-	if !paused: time += delta
+	if !get_tree().paused: time += delta
 
 func update_progress(stuff):
 	if stuff is IngredientInfo:
