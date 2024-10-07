@@ -5,7 +5,9 @@ class_name Level
 @export var next_level : Level
 @export var n_goblins : int = 1
 @export var progress_bar : ProgressBarManager
+@export var cook : CookingJob
 @export var recipe_list : Array[Recipe] = []
+var recipe_index := 0
 @onready var nav_control : Nav_Control= $NavControl
 @onready var goblin = preload("res://scenes/goblin/goblin.tscn")
 @onready var score_screen = preload("res://scenes/utilities/score_screen.tscn")
@@ -19,6 +21,12 @@ func _ready():
 		a.global_position = $GoblinSpawnPoint.global_position
 		nav_control.goblin_folder.add_child(a)
 	nav_control.init()
+	var num_ings = 0
+	for rec in recipe_list:
+		num_ings += len(rec.required_ing)
+	progress_bar.update_prep_progress(0,num_ings)
+	progress_bar.update_cooking_progress(0,len(recipe_list))
+	cook.update_recipe(recipe_list[0])
 	
 func _process(delta: float) -> void:
 	if !paused: time += delta

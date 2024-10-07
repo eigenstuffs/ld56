@@ -28,11 +28,10 @@ agent_radius = 8.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nr38a"]
 size = Vector2(32, 32)
 
-[node name="TestLevel" type="Node2D" node_paths=PackedStringArray("progress_bar", "cook")]
+[node name="TestLevel" type="Node2D" node_paths=PackedStringArray("progress_bar")]
 script = ExtResource("1_sw3k0")
 n_goblins = 2
 progress_bar = NodePath("CanvasLayer/ToDoListUI/Progress Bars")
-cook = NodePath("Jobs/Cooking")
 recipe_list = Array[ExtResource("2_wbmnp")]([ExtResource("13_8lfds"), ExtResource("13_8lfds")])
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -126,11 +125,10 @@ items_needed = [ExtResource("8_oobhy"), ExtResource("10_yun1q"), null]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Jobs/Prepping"]
 shape = SubResource("RectangleShape2D_nr38a")
 
-[node name="Cooking" type="Area2D" parent="Jobs" node_paths=PackedStringArray("recipe_window")]
+[node name="Cooking" type="Area2D" parent="Jobs"]
 position = Vector2(193, 137)
 script = ExtResource("12_ypyma")
 product = ExtResource("13_8lfds")
-recipe_window = NodePath("../../CanvasLayer/ToDoListUI")
 items_needed = [ExtResource("8_oobhy"), ExtResource("10_yun1q"), ExtResource("13_agnl4")]
 item_reward = ExtResource("13_8lfds")
 
