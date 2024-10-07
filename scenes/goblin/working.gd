@@ -22,6 +22,7 @@ func job(area : Job):
 				b.global_position = get_parent().global_position - Vector2(8, 24)
 				area.init()
 				b.start(area.time)
+				play_random_animation()
 				await get_tree().create_timer(area.time).timeout
 				print("Done job")
 				b.queue_free()
@@ -29,3 +30,8 @@ func job(area : Job):
 				goblin.hold_item(area.give_reward())
 				return
 	change_state("Idle")
+
+func play_random_animation():
+	var n = randi_range(0, 2)
+	if n == 0: goblin.sprite.play("working_front")
+	else: goblin.sprite.play("working_back")
