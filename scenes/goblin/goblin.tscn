@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dy33jjb3kjeiu"]
+[gd_scene load_steps=37 format=3 uid="uid://dy33jjb3kjeiu"]
 
 [ext_resource type="Script" path="res://scenes/goblin/goblin.gd" id="1_u2bdf"]
 [ext_resource type="Script" path="res://scenes/goblin/idle.gd" id="2_u32ex"]
@@ -16,6 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://cbxe04rnea8u6" path="res://assets/goblin_sprites/gob_back.png" id="11_cwiyn"]
 [ext_resource type="Texture2D" uid="uid://dv10by8yp601y" path="res://assets/goblin_sprites/gob_left.png" id="12_cvlm8"]
 [ext_resource type="Texture2D" uid="uid://dlbwjtuwvf16j" path="res://assets/goblin_sprites/gob_walk_item_right.png" id="14_1c3y7"]
+[ext_resource type="Texture2D" uid="uid://cp6weiycj2wq4" path="res://assets/goblin_sprites/gob_work_back.png" id="17_0qwfu"]
+[ext_resource type="Texture2D" uid="uid://nhw2ad6tbq5e" path="res://assets/goblin_sprites/gob_work_front.png" id="18_0mwk0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b7bol"]
 size = Vector2(15, 21)
@@ -50,6 +52,38 @@ region = Rect2(48, 0, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dqe2v"]
 atlas = ExtResource("14_1c3y7")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c00oq"]
+atlas = ExtResource("17_0qwfu")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o4nne"]
+atlas = ExtResource("17_0qwfu")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bnx40"]
+atlas = ExtResource("17_0qwfu")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uwddb"]
+atlas = ExtResource("17_0qwfu")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gvrjy"]
+atlas = ExtResource("18_0mwk0")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ylq22"]
+atlas = ExtResource("18_0mwk0")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmqf4"]
+atlas = ExtResource("18_0mwk0")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4652"]
+atlas = ExtResource("18_0mwk0")
 region = Rect2(72, 0, 24, 24)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nv43h"]
@@ -112,6 +146,40 @@ animations = [{
 "loop": true,
 "name": &"walking_item",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c00oq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o4nne")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bnx40")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uwddb")
+}],
+"loop": true,
+"name": &"working_back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gvrjy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ylq22")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dmqf4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w4652")
+}],
+"loop": true,
+"name": &"working_front",
+"speed": 5.0
 }]
 
 [node name="Goblin" type="CharacterBody2D"]
@@ -161,7 +229,8 @@ script = ExtResource("5_76ybd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_nv43h")
-animation = &"await_input"
+animation = &"working_back"
+frame_progress = 0.850578
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 10.0
