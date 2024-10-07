@@ -1,0 +1,61 @@
+[gd_scene load_steps=7 format=3 uid="uid://cnliugkwdvva7"]
+
+[ext_resource type="Script" path="res://scenes/choose_ingredient.gd" id="1_ahy1n"]
+[ext_resource type="Script" path="res://scenes/tools/recipes/ingredients/ingredient_info.gd" id="2_kmc2c"]
+[ext_resource type="Texture2D" uid="uid://dxp5rc82dl6jr" path="res://assets/ingredients/egg.png" id="2_ypra0"]
+[ext_resource type="Texture2D" uid="uid://bqbefijjxuwba" path="res://assets/ingredients/redo.png" id="3_3nacp"]
+[ext_resource type="Resource" uid="uid://cyvura4urvq1v" path="res://scenes/tools/recipes/ingredients/egg.tres" id="3_xvne2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eohmf"]
+size = Vector2(16, 16)
+
+[node name="ChooseIngredient" type="Node"]
+script = ExtResource("1_ahy1n")
+pick_from = Array[ExtResource("2_kmc2c")]([ExtResource("3_xvne2")])
+
+[node name="Sprite1" type="Sprite2D" parent="."]
+position = Vector2(146, 46)
+texture = ExtResource("2_ypra0")
+
+[node name="Area1" type="Area2D" parent="Sprite1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite1/Area1"]
+shape = SubResource("RectangleShape2D_eohmf")
+
+[node name="Sprite2" type="Sprite2D" parent="."]
+position = Vector2(166, 46)
+texture = ExtResource("2_ypra0")
+
+[node name="Area2" type="Area2D" parent="Sprite2"]
+position = Vector2(10, 38)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2/Area2"]
+position = Vector2(-10, -38)
+shape = SubResource("RectangleShape2D_eohmf")
+
+[node name="Sprite3" type="Sprite2D" parent="."]
+position = Vector2(186, 46)
+texture = ExtResource("2_ypra0")
+
+[node name="Area3" type="Area2D" parent="Sprite3"]
+position = Vector2(0, 76)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite3/Area3"]
+position = Vector2(0, -76)
+shape = SubResource("RectangleShape2D_eohmf")
+
+[node name="Sprite4" type="Sprite2D" parent="."]
+position = Vector2(206, 46)
+texture = ExtResource("3_3nacp")
+
+[node name="Area4" type="Area2D" parent="Sprite4"]
+position = Vector2(0, 76)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite4/Area4"]
+position = Vector2(0, -76)
+shape = SubResource("RectangleShape2D_eohmf")
+
+[connection signal="input_event" from="Sprite1/Area1" to="." method="_on_area_1_input_event"]
+[connection signal="input_event" from="Sprite2/Area2" to="." method="_on_area_2_input_event"]
+[connection signal="input_event" from="Sprite3/Area3" to="." method="_on_area_3_input_event"]
+[connection signal="input_event" from="Sprite4/Area4" to="." method="_on_area_4_input_event"]

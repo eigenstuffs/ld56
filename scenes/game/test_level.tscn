@@ -251,6 +251,7 @@ shape = SubResource("RectangleShape2D_nr38a")
 position = Vector2(160, 88)
 limit_smoothed = true
 script = ExtResource("6_3amsy")
+move_speed = 2
 
 [node name="TopLeft" type="Node2D" parent="Camera2D"]
 position = Vector2(-160, -90)
