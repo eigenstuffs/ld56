@@ -24,4 +24,4 @@ func _input(event):
 		if label.visible_ratio == 1:
 			next.emit()
 		else:
-			label.visible_ratio == 1
+			label.visible_ratio = 1

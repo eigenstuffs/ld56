@@ -23,7 +23,7 @@ func stop():
 	enable_process = false
 	goblin.sprite.stop()
 	
-func _physics_process(delta):
+func _process(_delta):
 	if enable_process:
 		goblin.nav_agent.target_position = goblin.curr_target.target_node.global_position + rand_offset
 		if goblin.nav_agent.is_navigation_finished():
