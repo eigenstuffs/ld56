@@ -48,7 +48,7 @@ metadata/_edit_lock_ = true
 position = Vector2(71, 149)
 
 [node name="NavControl" parent="." node_paths=PackedStringArray("goal_array") instance=ExtResource("2_7etuc")]
-goal_array = [null]
+goal_array = [NodePath("../CanvasLayer/BirdWindow")]
 
 [node name="Goal" parent="NavControl/GoalFolder" index="0" instance=ExtResource("3_tr6ll")]
 position = Vector2(193, 142)
