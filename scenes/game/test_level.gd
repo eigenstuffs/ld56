@@ -116,7 +116,7 @@ func bird_penalty():
 	
 #mode is normal cooking, mode 1 is bird event, mode 2 is goblin died or cooking qte failed
 func clear_recipe(recipe : Recipe, mode = 1):
-	if mode == null:
+	if mode == 0:
 		for i in range(len(recipe.required_ing)):
 			update_ingredient(recipe.required_ing[i], -recipe.required_amount[i], 2)
 	elif recipe_index > 0:
