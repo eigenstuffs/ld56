@@ -27,10 +27,9 @@ agent_radius = 8.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nr38a"]
 size = Vector2(32, 32)
 
-[node name="TestLevel" type="Node2D" node_paths=PackedStringArray("progress_bar")]
+[node name="TestLevel" type="Node2D"]
 script = ExtResource("1_sw3k0")
 n_goblins = 2
-progress_bar = NodePath("CanvasLayer/ToDoListUI/Progress Bars")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -190,5 +189,4 @@ offset_right = 41.6667
 [connection signal="plating_complete" from="Jobs/Plating" to="." method="_on_plating_plating_complete"]
 
 [editable path="NavControl"]
-[editable path="CanvasLayer/ToDoListUI"]
 [editable path="CanvasLayer/BirdWindow"]

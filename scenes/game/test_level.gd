@@ -5,6 +5,7 @@ class_name Level
 @export var next_level : Level
 @export var n_goblins : int = 1
 @export var progress_bar : ProgressBarManager
+@export var recipe_list : Array[Recipe] = []
 @onready var nav_control : Nav_Control= $NavControl
 @onready var goblin = preload("res://scenes/goblin/goblin.tscn")
 @onready var score_screen = preload("res://scenes/utilities/score_screen.tscn")
