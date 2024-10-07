@@ -2,26 +2,18 @@ extends Job
 
 class_name CookingJob
 
-@export var product : Recipe
+var product : Recipe
 @export var ingredient_gathered = []
 var ing_gathered := {}
 @export var cook_time : int = 8
 @export var drop_time : int = 0
-signal ing_recieved(ing)
+signal ing_recieved(ing)	
 @export var collectTask : PackedScene
 
 func pre_job(gob : GoblinBase):
 	ingredient_gathered.append(gob.item_holding.ing_name)
 	emit_signal("ing_recieved", gob.item_holding)
 	gob.remove_item()
-	var count : int = 0
-	for item in items_needed:
-		if item.ing_name in ingredient_gathered:
-			count += 1
-	if count >= items_needed.size():
-		item_reward = product
-		time = cook_time
-	else: time = drop_time
 	finish_pre_job()
 	
 func post_job(gob : GoblinBase):
@@ -38,11 +30,6 @@ func post_job(gob : GoblinBase):
 		task.queue_free()	
 	gob.change_state("Idle")
 	finish_post_job()
-	
-func init():
-	if item_reward != null:
-		emit_signal("ing_recieved", item_reward)
-		item_reward = null
 
 func give_reward():
 	var prod = product
@@ -56,6 +43,3 @@ func check_trigger(gob : GoblinBase) -> bool:
 func start_cooking(rec : Recipe):
 	product = rec
 	time = cook_time
-
-func give_product(gob : GoblinBase):
-	gob.item_holding = product

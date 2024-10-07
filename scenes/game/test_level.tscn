@@ -237,8 +237,6 @@ shape = SubResource("RectangleShape2D_nr38a")
 [node name="Cooking" type="Area2D" parent="Jobs"]
 position = Vector2(205, 170)
 script = ExtResource("12_ypyma")
-product = ExtResource("13_8lfds")
-ingredient_gathered = [ExtResource("8_oobhy"), ExtResource("10_yun1q")]
 collectTask = ExtResource("14_1odvp")
 items_needed = [ExtResource("8_oobhy"), ExtResource("10_yun1q"), ExtResource("13_agnl4")]
 item_reward = ExtResource("13_8lfds")
