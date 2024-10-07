@@ -1,8 +1,8 @@
 extends GoblinState
 
 #goblin is the parent Goblin
-@export var stun_time := 2.0
-@export var immune_time := 0.1
+@export var stun_time := 0.5
+@export var immune_time := 0.5
 var enable_process : bool = false
 
 func init():

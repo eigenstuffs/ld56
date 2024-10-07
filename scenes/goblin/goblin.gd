@@ -70,9 +70,10 @@ func change_state(to : String):
 
 func _on_goblin_hitbox_area_entered(area: Area2D) -> void:
 	if area.get_parent() is GoblinBase:
-		if state == STATE.NAVIGATE and area.get_parent().state == STATE.NAVIGATE:
-			change_state("Stunned")
-			area.get_parent().change_state("Stunned")
+		if state == STATE.NAVIGATE and randf() < 0.3:
+			if area.get_parent().state == STATE.NAVIGATE:
+				change_state("Stunned")
+				area.get_parent().change_state("Stunned")
 	if area is Job:
 		change_state("Working")
 		$Working.job(area)

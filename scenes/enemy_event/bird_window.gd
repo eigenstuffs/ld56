@@ -11,6 +11,7 @@ var goblins : Array[GoblinBase] = []
 var num_birds = 0
 @export var min_time = 5
 @export var max_time = 10
+@export var garrison_time = 30
 @export var garrison_point : Goal
 signal gobs_changed
 signal def_failed
@@ -18,21 +19,21 @@ signal def_failed
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	target_node = garrison_point
+	progress_bar.max_value = garrison_time
 	garrison_point.connect("entered", add_gob)
 	while true:
 		num_birds = 0
 		emit_signal("gobs_changed")
 		progress_bar.value = 0
-		progress_bar.modulate = Color.GRAY
 		sprite.texture = birdImages[0]
 		await get_tree().create_timer(randi_range(min_time,max_time)).timeout
 		num_birds = randi_range(1,max_birds)
 		emit_signal("gobs_changed")
-		progress_bar.modulate = Color.WHITE
+		progress_bar.max_value = garrison_time
 		sprite.texture = birdImages[num_birds]
 		timer.stop()
-		for i in range(0,15):
-			progress_bar.value = 15 - i
+		for i in range(0,garrison_time):
+			progress_bar.value = garrison_time - i
 			timer.start(1)
 			await timer.timeout
 		if len(goblins) < num_birds * 3:
