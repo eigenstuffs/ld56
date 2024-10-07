@@ -31,6 +31,3 @@ func _on_confirm_pressed():
 func _on_replay_pressed():
 	replay.emit()
 	print("replay")
-
-func _ready():
-	init(3)

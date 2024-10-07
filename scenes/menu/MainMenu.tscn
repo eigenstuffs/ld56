@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b4rbcguy1q4wp" path="res://assets/menu/credits2.png" id="5_nfjm3"]
 [ext_resource type="Texture2D" uid="uid://cnlylkjd7dghy" path="res://assets/menu/quit1.png" id="6_cmsli"]
 [ext_resource type="Texture2D" uid="uid://dthrak38b13p1" path="res://assets/menu/quit2.png" id="7_2r0ra"]
-[ext_resource type="AudioStream" uid="uid://cjfe37oc1qywe" path="res://assets/Music/Gobblin Goblins Breakfast.mp3" id="9_7xg3t"]
+[ext_resource type="AudioStream" uid="uid://cuovb20i3i13e" path="res://assets/Music/Gobblin Goblin Extra Song.mp3" id="9_fog8a"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nd27h"]
 bg_color = Color(0.85098, 0.52549, 0.364706, 1)
@@ -76,7 +76,7 @@ texture_pressed = ExtResource("7_2r0ra")
 texture_hover = ExtResource("7_2r0ra")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("9_7xg3t")
+stream = ExtResource("9_fog8a")
 autoplay = true
 
 [node name="sfx" type="AudioStreamPlayer" parent="."]
