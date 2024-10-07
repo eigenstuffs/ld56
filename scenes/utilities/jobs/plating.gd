@@ -6,7 +6,6 @@ signal plating_complete
 
 func pre_job(gob : GoblinBase):
 	item_reward = gob.item_holding
-	time = item_reward.prep_time
 	gob.remove_item()
 	finish_pre_job()
 

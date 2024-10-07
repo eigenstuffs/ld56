@@ -35,9 +35,9 @@ func post_job(gob : GoblinBase):
 			gob.change_state("Explode")
 			return
 		gob.hold_item(give_reward())
-		gob.change_state("Idle")
-		finish_post_job()
-		task.queue_free()
+		task.queue_free()	
+	gob.change_state("Idle")
+	finish_post_job()
 	
 func init():
 	if item_reward != null:
