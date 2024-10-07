@@ -7,6 +7,7 @@ var selection : Array[IngredientInfo] = [null, null, null]
 var selected : IngredientInfo
 @export var pick_from : Array[IngredientInfo]
 var pick_from_left : Array[IngredientInfo]
+var result
 signal done
 
 func _ready() -> void:
@@ -39,4 +40,5 @@ func click_action(event : InputEvent, choice : int):
 		for sprite in sprites:
 			sprite.queue_free()
 		$Sprite4.queue_free()
+		result = "done"
 		done.emit()
