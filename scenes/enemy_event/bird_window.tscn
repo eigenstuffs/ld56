@@ -1,47 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://bjv16f3io6fw3"]
+[gd_scene load_steps=5 format=3 uid="uid://bjv16f3io6fw3"]
 
 [ext_resource type="Script" path="res://scenes/enemy_event/bird_window.gd" id="1_mps5j"]
 [ext_resource type="FontFile" uid="uid://r78uefbd72ri" path="res://assets/Tiny5-Regular.ttf" id="2_cduet"]
+[ext_resource type="Texture2D" uid="uid://cyfpbdp3a6y33" path="res://assets/birds/bird_0.png" id="2_r31tf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d4iih"]
-size = Vector2(161.111, 160.278)
+size = Vector2(162, 162)
 
 [node name="BirdWindow" type="Area2D"]
-position = Vector2(196, 82)
 script = ExtResource("1_mps5j")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -99.0
-offset_top = 55.0
-offset_right = 98.0
-offset_bottom = 87.0
-mouse_filter = 2
-color = Color(0.144063, 0.144063, 0.144063, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-
-[node name="GoblinCount" type="RichTextLabel" parent="."]
-offset_left = 17.0
-offset_top = 11.0
-offset_right = 161.0
-offset_bottom = 41.0
-mouse_filter = 2
-theme_override_fonts/normal_font = ExtResource("2_cduet")
-theme_override_font_sizes/normal_font_size = 7
-text = "Garrisoned Goblins: 0"
-fit_content = true
-metadata/_edit_use_anchors_ = true
-
-[node name="Countdown" type="RichTextLabel" parent="."]
-offset_left = 52.0
-offset_top = -84.0
-offset_right = 92.0
-offset_bottom = -44.0
-mouse_filter = 2
-bbcode_enabled = true
-text = "[right]15"
-metadata/_edit_use_anchors_ = true
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(3.375, 3.375)
+texture = ExtResource("2_r31tf")
 
 [node name="ClickRegionCollider" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_d4iih")
@@ -52,15 +23,15 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 46.0
-offset_top = 60.0
-offset_right = 91.0
-offset_bottom = 82.0
+offset_left = 35.0
+offset_top = 53.0
+offset_right = 80.0
+offset_bottom = 79.0
 grow_horizontal = 0
 grow_vertical = 2
-theme_override_font_sizes/font_size = 10
+theme_override_fonts/font = ExtResource("2_cduet")
 disabled = true
-text = "Abort"
+text = "Flee"
 metadata/_edit_use_anchors_ = true
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

@@ -18,7 +18,6 @@ func _ready() -> void:
 	while true:
 		countdown = 0
 		count_text.visible = false
-		$ColorRect.color = Color.BLACK
 		#TODO burdless sprite animation
 		await get_tree().create_timer(randi_range(min_time,max_time)).timeout
 		$ColorRect.color = Color.RED

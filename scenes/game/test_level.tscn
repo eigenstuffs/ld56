@@ -48,7 +48,7 @@ metadata/_edit_lock_ = true
 position = Vector2(71, 149)
 
 [node name="NavControl" parent="." node_paths=PackedStringArray("goal_array") instance=ExtResource("2_7etuc")]
-goal_array = [NodePath("../CanvasLayer/BirdWindow")]
+goal_array = [null]
 
 [node name="Goal" parent="NavControl/GoalFolder" index="0" instance=ExtResource("3_tr6ll")]
 position = Vector2(193, 142)
@@ -159,36 +159,11 @@ position = Vector2(160, 182)
 [node name="ToDoListUI" parent="CanvasLayer" instance=ExtResource("9_0a727")]
 
 [node name="BirdWindow" parent="CanvasLayer" node_paths=PackedStringArray("garrison_point") instance=ExtResource("4_n28lg")]
-position = Vector2(301, 55)
+position = Vector2(290, 57)
 scale = Vector2(0.3, 0.3)
 garrison_point = NodePath("../../NavControl/GoalFolder/Hole2Window")
-
-[node name="ColorRect" parent="CanvasLayer/BirdWindow" index="0"]
-offset_left = -117.0
-offset_top = 53.0
-offset_right = 43.0
-
-[node name="GoblinCount" parent="CanvasLayer/BirdWindow" index="2"]
-offset_left = -116.667
-offset_top = 63.3333
-offset_right = 27.3333
-offset_bottom = 93.3333
-
-[node name="Countdown" parent="CanvasLayer/BirdWindow" index="3"]
-offset_left = -1.90735e-05
-offset_top = -73.3333
-offset_right = 40.0
-offset_bottom = -33.3333
-
-[node name="ClickRegionCollider" parent="CanvasLayer/BirdWindow" index="4"]
-position = Vector2(-36.6666, 6.66665)
-
-[node name="AbortButton" parent="CanvasLayer/BirdWindow" index="5"]
-offset_left = -3.33329
-offset_right = 41.6667
 
 [connection signal="plating_complete" from="Jobs/Plating" to="." method="_on_plating_plating_complete"]
 
 [editable path="NavControl"]
 [editable path="CanvasLayer/ToDoListUI"]
-[editable path="CanvasLayer/BirdWindow"]
