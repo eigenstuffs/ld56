@@ -56,3 +56,6 @@ func check_trigger(gob : GoblinBase) -> bool:
 func start_cooking(rec : Recipe):
 	product = rec
 	time = cook_time
+
+func give_product(gob : GoblinBase):
+	gob.item_holding = product

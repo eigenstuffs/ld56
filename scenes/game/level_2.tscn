@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://bo3chmn1jqbjk"]
+[gd_scene load_steps=39 format=3 uid="uid://bo3chmn1jqbjk"]
 
 [ext_resource type="Script" path="res://scenes/game/test_level.gd" id="1_ws1x8"]
 [ext_resource type="PackedScene" uid="uid://cnmjn3lypjwsh" path="res://scenes/game/level_3.tscn" id="2_all8s"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" path="res://scenes/utilities/jobs/prepping.gd" id="13_opri8"]
 [ext_resource type="Script" path="res://scenes/utilities/jobs/cooking.gd" id="14_7h8p6"]
 [ext_resource type="Resource" uid="uid://cnhywb24r0wdq" path="res://scenes/tools/recipes/breakfast_recipe.tres" id="15_ab5sv"]
+[ext_resource type="PackedScene" uid="uid://f47peacw0kny" path="res://scenes/CollectionTask.tscn" id="16_xak2k"]
 [ext_resource type="Script" path="res://scenes/utilities/jobs/plating.gd" id="16_xnmxi"]
 [ext_resource type="Script" path="res://scenes/game/camera_2d.gd" id="17_bdcs0"]
 [ext_resource type="PackedScene" uid="uid://teo71o0ubvgw" path="res://scenes/menu/ToDoListUI.tscn" id="18_bslxr"]
@@ -217,9 +218,9 @@ affect_navigation_mesh = true
 [node name="Getting" type="Area2D" parent="Jobs"]
 position = Vector2(88, -24)
 script = ExtResource("7_rergb")
+choosing_task = ExtResource("12_rym65")
 ingredient_box = Array[ExtResource("8_j1c1p")]([ExtResource("9_lqi73"), ExtResource("10_lvwib"), ExtResource("11_0t5bn")])
 time = 5
-qte = ExtResource("12_rym65")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Jobs/Getting"]
 shape = SubResource("RectangleShape2D_nr38a")
@@ -227,6 +228,7 @@ shape = SubResource("RectangleShape2D_nr38a")
 [node name="Prepping" type="Area2D" parent="Jobs"]
 position = Vector2(210, 34)
 script = ExtResource("13_opri8")
+collectTask = ExtResource("16_xak2k")
 time = 3
 items_needed = [ExtResource("11_0t5bn"), ExtResource("10_lvwib"), null]
 
@@ -236,6 +238,7 @@ shape = SubResource("RectangleShape2D_nr38a")
 [node name="Cooking" type="Area2D" parent="Jobs"]
 position = Vector2(205, 170)
 script = ExtResource("14_7h8p6")
+product = ExtResource("3_jcy7a")
 ingredient_gathered = [ExtResource("11_0t5bn"), ExtResource("10_lvwib"), ExtResource("9_lqi73")]
 items_needed = [ExtResource("11_0t5bn"), ExtResource("10_lvwib"), ExtResource("9_lqi73")]
 item_reward = ExtResource("15_ab5sv")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://cnmjn3lypjwsh"]
+[gd_scene load_steps=39 format=3 uid="uid://cnmjn3lypjwsh"]
 
 [ext_resource type="Script" path="res://scenes/game/test_level.gd" id="1_uiv7x"]
 [ext_resource type="Script" path="res://scenes/tools/recipes/recipe.gd" id="2_8pux4"]
@@ -18,6 +18,7 @@
 [ext_resource type="Script" path="res://scenes/utilities/jobs/cooking.gd" id="14_kwufi"]
 [ext_resource type="Resource" uid="uid://cnhywb24r0wdq" path="res://scenes/tools/recipes/breakfast_recipe.tres" id="15_wj1qo"]
 [ext_resource type="Script" path="res://scenes/utilities/jobs/plating.gd" id="16_3grkn"]
+[ext_resource type="PackedScene" uid="uid://f47peacw0kny" path="res://scenes/CollectionTask.tscn" id="16_fh1d7"]
 [ext_resource type="Script" path="res://scenes/game/camera_2d.gd" id="17_ip8s0"]
 [ext_resource type="PackedScene" uid="uid://teo71o0ubvgw" path="res://scenes/menu/ToDoListUI.tscn" id="18_fc6ha"]
 [ext_resource type="PackedScene" uid="uid://bjv16f3io6fw3" path="res://scenes/enemy_event/bird_window.tscn" id="19_jr6qh"]
@@ -217,9 +218,9 @@ affect_navigation_mesh = true
 [node name="Getting" type="Area2D" parent="Jobs"]
 position = Vector2(88, -24)
 script = ExtResource("7_p237e")
+choosing_task = ExtResource("12_hvwwk")
 ingredient_box = Array[ExtResource("8_fe7rk")]([ExtResource("9_7weaf"), ExtResource("10_jw4xi"), ExtResource("11_bwlbc")])
 time = 5
-qte = ExtResource("12_hvwwk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Jobs/Getting"]
 shape = SubResource("RectangleShape2D_nr38a")
@@ -227,6 +228,7 @@ shape = SubResource("RectangleShape2D_nr38a")
 [node name="Prepping" type="Area2D" parent="Jobs"]
 position = Vector2(210, 34)
 script = ExtResource("13_ehn4j")
+collectTask = ExtResource("16_fh1d7")
 time = 3
 items_needed = [ExtResource("11_bwlbc"), ExtResource("10_jw4xi"), null]
 
@@ -236,6 +238,7 @@ shape = SubResource("RectangleShape2D_nr38a")
 [node name="Cooking" type="Area2D" parent="Jobs"]
 position = Vector2(205, 170)
 script = ExtResource("14_kwufi")
+product = ExtResource("3_wt156")
 ingredient_gathered = [ExtResource("11_bwlbc"), ExtResource("10_jw4xi"), ExtResource("9_7weaf")]
 items_needed = [ExtResource("11_bwlbc"), ExtResource("10_jw4xi"), ExtResource("9_7weaf")]
 item_reward = ExtResource("15_wj1qo")
