@@ -175,7 +175,7 @@ position = Vector2(92, -33)
 scale = Vector2(1, 1.6)
 
 [node name="Anchor" parent="NavControl/GoalFolder/Goal5" index="2"]
-position = Vector2(0, 15)
+position = Vector2(0, 12.5)
 
 [node name="Goal7" parent="NavControl/GoalFolder" index="5" instance=ExtResource("3_tr6ll")]
 position = Vector2(214, 18)

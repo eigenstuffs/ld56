@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://dy33jjb3kjeiu"]
+[gd_scene load_steps=77 format=3 uid="uid://dy33jjb3kjeiu"]
 
 [ext_resource type="Script" path="res://scenes/goblin/goblin.gd" id="1_u2bdf"]
 [ext_resource type="Script" path="res://scenes/goblin/idle.gd" id="2_u32ex"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://cx8dra5qo7xut" path="res://assets/goblin_sprites/gob_right.png" id="10_qkls0"]
 [ext_resource type="Texture2D" uid="uid://caq3sdxb24ioc" path="res://assets/goblin_sprites/gob_death.png" id="11_alydn"]
 [ext_resource type="Texture2D" uid="uid://cbxe04rnea8u6" path="res://assets/goblin_sprites/gob_back.png" id="11_cwiyn"]
+[ext_resource type="Texture2D" uid="uid://dgg76cee1rtx2" path="res://assets/goblin_sprites/gob_idle.png" id="12_33mda"]
 [ext_resource type="Texture2D" uid="uid://dv10by8yp601y" path="res://assets/goblin_sprites/gob_left.png" id="12_cvlm8"]
 [ext_resource type="Texture2D" uid="uid://dlbwjtuwvf16j" path="res://assets/goblin_sprites/gob_walk_item_right.png" id="14_1c3y7"]
 [ext_resource type="Texture2D" uid="uid://cp6weiycj2wq4" path="res://assets/goblin_sprites/gob_work_back.png" id="17_0qwfu"]
@@ -158,6 +159,22 @@ region = Rect2(768, 0, 24, 24)
 [sub_resource type="AtlasTexture" id="AtlasTexture_4sjdm"]
 atlas = ExtResource("11_alydn")
 region = Rect2(792, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8d4l6"]
+atlas = ExtResource("12_33mda")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6b45b"]
+atlas = ExtResource("12_33mda")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bp2ut"]
+atlas = ExtResource("12_33mda")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxqy6"]
+atlas = ExtResource("12_33mda")
+region = Rect2(72, 0, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k3ftk"]
 atlas = ExtResource("9_ibqqf")
@@ -342,6 +359,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_8d4l6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6b45b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bp2ut")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hxqy6")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("9_1lubn")
 }, {
 "duration": 1.0,
@@ -354,7 +388,7 @@ animations = [{
 "texture": ExtResource("12_cvlm8")
 }],
 "loop": true,
-"name": &"idle",
+"name": &"spinning",
 "speed": 4.0
 }, {
 "frames": [{
@@ -473,14 +507,14 @@ script = ExtResource("5_76ybd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_nv43h")
-animation = &"explode"
+animation = &"idle"
+frame_progress = 0.363884
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 10.0
 path_postprocessing = 1
 avoidance_enabled = true
 radius = 150.0
-debug_enabled = true
 
 [node name="Item" type="Sprite2D" parent="."]
 position = Vector2(0, -18)
