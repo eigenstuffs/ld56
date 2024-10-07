@@ -1,12 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://cnliugkwdvva7"]
+[gd_scene load_steps=10 format=3 uid="uid://2v2fud3h5g7"]
 
-[ext_resource type="Script" path="res://scenes/choose_ingredient.gd" id="1_ahy1n"]
-[ext_resource type="Script" path="res://scenes/tools/recipes/ingredients/ingredient_info.gd" id="2_kmc2c"]
-[ext_resource type="Texture2D" uid="uid://dxp5rc82dl6jr" path="res://assets/ingredients/egg.png" id="2_ypra0"]
-[ext_resource type="Texture2D" uid="uid://bqbefijjxuwba" path="res://assets/ingredients/redo.png" id="3_3nacp"]
-[ext_resource type="Resource" uid="uid://cyvura4urvq1v" path="res://scenes/tools/recipes/ingredients/egg.tres" id="3_xvne2"]
-[ext_resource type="Resource" uid="uid://dao308cgo2ler" path="res://scenes/tools/recipes/ingredients/spices.tres" id="4_2gfht"]
-[ext_resource type="Resource" uid="uid://c7dthmhxgd8m" path="res://scenes/tools/recipes/ingredients/veggie.tres" id="5_3nx4b"]
+[ext_resource type="Script" path="res://scenes/choose_ingredient.gd" id="1_nlf6k"]
+[ext_resource type="Script" path="res://scenes/tools/recipes/ingredients/ingredient_info.gd" id="2_odf04"]
+[ext_resource type="Resource" uid="uid://cyvura4urvq1v" path="res://scenes/tools/recipes/ingredients/egg.tres" id="3_4fud1"]
+[ext_resource type="Resource" uid="uid://bmkk420mxdsfw" path="res://scenes/tools/recipes/ingredients/meat.tres" id="4_of8pj"]
+[ext_resource type="Resource" uid="uid://c7dthmhxgd8m" path="res://scenes/tools/recipes/ingredients/veggie.tres" id="5_7f2ro"]
+[ext_resource type="Texture2D" uid="uid://dxp5rc82dl6jr" path="res://assets/ingredients/egg.png" id="6_8ult2"]
+[ext_resource type="Resource" uid="uid://dokfg58iwq26p" path="res://scenes/tools/recipes/ingredients/flour.tres" id="6_eugfg"]
+[ext_resource type="Texture2D" uid="uid://bqbefijjxuwba" path="res://assets/ingredients/redo.png" id="7_owold"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eohmf"]
 size = Vector2(16, 16)
@@ -14,12 +15,12 @@ size = Vector2(16, 16)
 [node name="ChooseIngredient" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_ahy1n")
-pick_from = Array[ExtResource("2_kmc2c")]([ExtResource("3_xvne2"), ExtResource("5_3nx4b"), ExtResource("4_2gfht")])
+script = ExtResource("1_nlf6k")
+pick_from = Array[ExtResource("2_odf04")]([ExtResource("3_4fud1"), ExtResource("4_of8pj"), ExtResource("5_7f2ro"), ExtResource("6_eugfg")])
 
 [node name="Sprite1" type="Sprite2D" parent="."]
 position = Vector2(-30, -20)
-texture = ExtResource("2_ypra0")
+texture = ExtResource("6_8ult2")
 
 [node name="Area1" type="Area2D" parent="Sprite1"]
 
@@ -28,7 +29,7 @@ shape = SubResource("RectangleShape2D_eohmf")
 
 [node name="Sprite2" type="Sprite2D" parent="."]
 position = Vector2(-10, -20)
-texture = ExtResource("2_ypra0")
+texture = ExtResource("6_8ult2")
 
 [node name="Area2" type="Area2D" parent="Sprite2"]
 position = Vector2(10, 38)
@@ -39,7 +40,7 @@ shape = SubResource("RectangleShape2D_eohmf")
 
 [node name="Sprite3" type="Sprite2D" parent="."]
 position = Vector2(10, -20)
-texture = ExtResource("2_ypra0")
+texture = ExtResource("6_8ult2")
 
 [node name="Area3" type="Area2D" parent="Sprite3"]
 
@@ -48,7 +49,7 @@ shape = SubResource("RectangleShape2D_eohmf")
 
 [node name="Sprite4" type="Sprite2D" parent="."]
 position = Vector2(30, -20)
-texture = ExtResource("3_3nacp")
+texture = ExtResource("7_owold")
 
 [node name="Area4" type="Area2D" parent="Sprite4"]
 

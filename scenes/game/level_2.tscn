@@ -11,9 +11,9 @@
 [ext_resource type="Script" path="res://scenes/utilities/jobs/getting.gd" id="7_rergb"]
 [ext_resource type="Script" path="res://scenes/tools/recipes/ingredients/ingredient_info.gd" id="8_j1c1p"]
 [ext_resource type="Resource" uid="uid://dao308cgo2ler" path="res://scenes/tools/recipes/ingredients/spices.tres" id="9_lqi73"]
+[ext_resource type="PackedScene" uid="uid://2v2fud3h5g7" path="res://scenes/ChooseIngredient2.tscn" id="10_0ridv"]
 [ext_resource type="Resource" uid="uid://c7dthmhxgd8m" path="res://scenes/tools/recipes/ingredients/veggie.tres" id="10_lvwib"]
 [ext_resource type="Resource" uid="uid://cyvura4urvq1v" path="res://scenes/tools/recipes/ingredients/egg.tres" id="11_0t5bn"]
-[ext_resource type="PackedScene" uid="uid://cnliugkwdvva7" path="res://scenes/ChooseIngredient.tscn" id="12_rym65"]
 [ext_resource type="Script" path="res://scenes/utilities/jobs/prepping.gd" id="13_opri8"]
 [ext_resource type="Script" path="res://scenes/utilities/jobs/cooking.gd" id="14_7h8p6"]
 [ext_resource type="Resource" uid="uid://cnhywb24r0wdq" path="res://scenes/tools/recipes/breakfast_recipe.tres" id="15_ab5sv"]
@@ -218,7 +218,7 @@ affect_navigation_mesh = true
 [node name="Getting" type="Area2D" parent="Jobs"]
 position = Vector2(88, -24)
 script = ExtResource("7_rergb")
-choosing_task = ExtResource("12_rym65")
+choosing_task = ExtResource("10_0ridv")
 ingredient_box = Array[ExtResource("8_j1c1p")]([ExtResource("9_lqi73"), ExtResource("10_lvwib"), ExtResource("11_0t5bn")])
 time = 5
 
