@@ -46,9 +46,9 @@ texture = ExtResource("2_re45a")
 
 [node name="Play" type="TextureButton" parent="."]
 layout_mode = 2
-offset_left = 270.0
+offset_left = 269.5
 offset_top = 115.0
-offset_right = 326.0
+offset_right = 325.5
 offset_bottom = 133.0
 texture_normal = ExtResource("3_22poo")
 texture_pressed = ExtResource("4_nvxj4")
@@ -66,9 +66,9 @@ texture_hover = ExtResource("5_nfjm3")
 
 [node name="Quit" type="TextureButton" parent="."]
 layout_mode = 2
-offset_left = 270.0
+offset_left = 269.5
 offset_top = 155.0
-offset_right = 326.0
+offset_right = 325.5
 offset_bottom = 173.0
 texture_normal = ExtResource("6_cmsli")
 texture_pressed = ExtResource("7_2r0ra")
