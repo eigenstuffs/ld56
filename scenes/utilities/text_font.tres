@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://d27tr1u6r7tm7"]
+
+[ext_resource type="FontFile" uid="uid://r78uefbd72ri" path="res://assets/Tiny5-Regular.ttf" id="1_cbau2"]
+
+[resource]
+Label/fonts/font = ExtResource("1_cbau2")

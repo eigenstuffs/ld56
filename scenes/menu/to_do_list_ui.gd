@@ -1,4 +1,5 @@
 extends Control
+
 class_name Recipe_Display
 
 var task_list: TaskList = preload("res://scenes/tools/task/task_list.tres")
