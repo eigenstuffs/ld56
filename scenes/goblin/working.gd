@@ -8,6 +8,13 @@ func job(area : Job):
 	goblin.change_state("Idle")
 	area.goblins_engagaed += 1
 	if area.goblins_engagaed >= area.goblins_needed:
+		if area is CookingJob:
+			area.give_product(goblin)
+			goblin.item.texture = goblin.item_holding.recipe_img
+			return
+		if area is PlatingJob:
+			area.emit_signal("plating_complete")
+			return
 		if area.check_trigger(goblin):
 			area.pre_job(goblin)
 			if not area.pre_job_bool:
