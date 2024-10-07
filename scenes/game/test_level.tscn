@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://tq42g3xnxngh"]
+[gd_scene load_steps=20 format=3 uid="uid://d3shgxs7dewx0"]
 
 [ext_resource type="Texture2D" uid="uid://ccxx0lpjdnpsr" path="res://assets/temp_with_latter.jpg" id="1_31b1t"]
 [ext_resource type="PackedScene" uid="uid://bmq52iegph5xs" path="res://scenes/tools/goblin_nav_control.tscn" id="2_7etuc"]
@@ -6,10 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://dy33jjb3kjeiu" path="res://scenes/goblin/goblin.tscn" id="4_1y4fi"]
 [ext_resource type="PackedScene" uid="uid://bjv16f3io6fw3" path="res://scenes/enemy_event/bird_window.tscn" id="4_n28lg"]
 [ext_resource type="Script" path="res://scenes/game/camera_2d.gd" id="6_3amsy"]
-[ext_resource type="Script" path="res://scenes/utilities/job.gd" id="6_ahie5"]
+[ext_resource type="Script" path="res://scenes/utilities/getting.gd" id="6_q5p7q"]
 [ext_resource type="PackedScene" uid="uid://dwn6tdlp54duv" path="res://scenes/qte/mix.tscn" id="7_0nvxj"]
 [ext_resource type="Resource" uid="uid://cyvura4urvq1v" path="res://scenes/tools/recipes/ingredients/egg.tres" id="8_oobhy"]
 [ext_resource type="PackedScene" uid="uid://teo71o0ubvgw" path="res://scenes/menu/ToDoListUI.tscn" id="9_0a727"]
+[ext_resource type="Script" path="res://scenes/utilities/prepping.gd" id="9_ltjqr"]
 [ext_resource type="Script" path="res://scenes/tools/recipes/ingredients/ingredient_info.gd" id="9_p4p1p"]
 [ext_resource type="Resource" uid="uid://c7dthmhxgd8m" path="res://scenes/tools/recipes/ingredients/veggie.tres" id="10_yun1q"]
 [ext_resource type="Script" path="res://scenes/utilities/cooking.gd" id="12_ypyma"]
@@ -99,26 +100,26 @@ affect_navigation_mesh = true
 
 [node name="Jobs" type="Node2D" parent="."]
 
-[node name="Job" type="Area2D" parent="Jobs"]
+[node name="Getting" type="Area2D" parent="Jobs"]
 position = Vector2(88, -24)
-script = ExtResource("6_ahie5")
+script = ExtResource("6_q5p7q")
+ingredient_box = Array[ExtResource("9_p4p1p")]([ExtResource("13_agnl4"), ExtResource("10_yun1q"), ExtResource("8_oobhy")])
 time = 5
 qte = ExtResource("7_0nvxj")
-item_reward = ExtResource("8_oobhy")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Jobs/Job"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jobs/Getting"]
 shape = SubResource("RectangleShape2D_nr38a")
 
-[node name="Job2" type="Area2D" parent="Jobs"]
+[node name="Prepping" type="Area2D" parent="Jobs"]
 position = Vector2(210, 28)
-script = ExtResource("6_ahie5")
-time = 8
-items_needed = [ExtResource("8_oobhy"), ExtResource("10_yun1q")]
+script = ExtResource("9_ltjqr")
+time = 3
+items_needed = [ExtResource("8_oobhy"), ExtResource("10_yun1q"), null]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Jobs/Job2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jobs/Prepping"]
 shape = SubResource("RectangleShape2D_nr38a")
 
-[node name="Job3" type="Area2D" parent="Jobs"]
+[node name="Cooking" type="Area2D" parent="Jobs"]
 position = Vector2(193, 137)
 script = ExtResource("12_ypyma")
 product = ExtResource("13_8lfds")
@@ -126,16 +127,16 @@ ingredient_gathered = Array[ExtResource("9_p4p1p")]([ExtResource("13_agnl4"), Ex
 items_needed = [ExtResource("8_oobhy"), ExtResource("10_yun1q"), ExtResource("13_agnl4")]
 item_reward = ExtResource("13_8lfds")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Jobs/Job3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jobs/Cooking"]
 shape = SubResource("RectangleShape2D_nr38a")
 
-[node name="Job4" type="Area2D" parent="Jobs"]
+[node name="Plating" type="Area2D" parent="Jobs"]
 position = Vector2(96, 80)
 script = ExtResource("15_ywuxg")
 time = 1
 items_needed = [ExtResource("13_8lfds")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Jobs/Job4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jobs/Plating"]
 shape = SubResource("RectangleShape2D_nr38a")
 
 [node name="Camera2D" type="Camera2D" parent="."]
