@@ -1,10 +1,10 @@
 [gd_scene load_steps=21 format=3 uid="uid://tq42g3xnxngh"]
 
-[ext_resource type="Texture2D" uid="uid://ccxx0lpjdnpsr" path="res://assets/temp_with_latter.jpg" id="1_31b1t"]
 [ext_resource type="Script" path="res://scenes/game/test_level.gd" id="1_sw3k0"]
 [ext_resource type="PackedScene" uid="uid://bmq52iegph5xs" path="res://scenes/tools/goblin_nav_control.tscn" id="2_7etuc"]
 [ext_resource type="Script" path="res://scenes/tools/recipes/recipe.gd" id="2_wbmnp"]
 [ext_resource type="PackedScene" uid="uid://d13no63s202hy" path="res://scenes/goal/goal.tscn" id="3_tr6ll"]
+[ext_resource type="Texture2D" uid="uid://tum4qkjre8jo" path="res://assets/bg no sprite boundary.PNG" id="4_ahfmr"]
 [ext_resource type="PackedScene" uid="uid://bjv16f3io6fw3" path="res://scenes/enemy_event/bird_window.tscn" id="4_n28lg"]
 [ext_resource type="Script" path="res://scenes/game/camera_2d.gd" id="6_3amsy"]
 [ext_resource type="Script" path="res://scenes/utilities/jobs/getting.gd" id="6_q5p7q"]
@@ -39,13 +39,12 @@ recipe_list = Array[ExtResource("2_wbmnp")]([ExtResource("13_8lfds"), ExtResourc
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -100.0
+offset_top = -112.0
 offset_right = 320.0
-offset_bottom = 180.0
+offset_bottom = 178.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_31b1t")
-metadata/_edit_lock_ = true
+texture = ExtResource("4_ahfmr")
 
 [node name="GoblinSpawnPoint" type="Node2D" parent="."]
 position = Vector2(71, 149)
@@ -57,7 +56,7 @@ goal_array = [NodePath("../CanvasLayer/BirdWindow")]
 position = Vector2(193, 142)
 
 [node name="Hole2Window" parent="NavControl/GoalFolder" index="1" instance=ExtResource("3_tr6ll")]
-position = Vector2(288, -82)
+position = Vector2(210, -82)
 
 [node name="Goal2" parent="NavControl/GoalFolder" index="2" instance=ExtResource("3_tr6ll")]
 position = Vector2(37, 153)
