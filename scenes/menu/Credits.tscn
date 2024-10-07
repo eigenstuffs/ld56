@@ -64,15 +64,15 @@ offset_bottom = 59.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 7
-text = "Angelina Wu - 2D Art
-Branden Bohrnsen - Project Manager, Programming
+text = "Angelina Wu - 2D Art, Background Artist
+Branden Bohrnsen - Programming
 Caominh Le - Programming
-Joice He - 2D Art
+Joice He - Project Manager, 2D Art, UX/UI Designer
 Jon Wake - Sound Design
-Lauclan  - UI/UX 
+Lauclan  - UX/UI Designer
 Lea Sioson - 2D Art Animation
-Nyla Jafri - UI/UX
-Oscar Su - Programming, UI/UX"
+Nyla Jafri - UX/UI Developer
+Oscar Su - Programming, UX/UI Developer"
 
 [node name="Back" type="TextureButton" parent="."]
 layout_mode = 1
@@ -81,9 +81,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -20.0
+offset_left = -19.0
 offset_top = -26.0
-offset_right = 20.0
+offset_right = 21.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = SubResource("Theme_v536l")
