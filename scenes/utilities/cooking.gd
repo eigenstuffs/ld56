@@ -2,6 +2,8 @@ extends Job
 
 class_name CookingJob
 
+signal cooking_complete
+
 @export var product : Recipe
 @export var ingredient_gathered : Array[IngredientInfo] = []
 @export var cook_time : int = 8
@@ -21,3 +23,7 @@ func init():
 		time = cook_time
 		item_reward = product
 	else: time = drop_time
+
+func give_reward():
+	cooking_complete.emit()
+	return null if item_reward == null else item_reward
