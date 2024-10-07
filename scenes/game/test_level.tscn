@@ -64,6 +64,12 @@ position = Vector2(214, 24)
 [node name="Goblin" parent="NavControl/GoblinFolder" index="0" instance=ExtResource("4_1y4fi")]
 position = Vector2(83, 146)
 
+[node name="Goblin2" parent="NavControl/GoblinFolder" index="1" instance=ExtResource("4_1y4fi")]
+position = Vector2(77, 146)
+
+[node name="Goblin3" parent="NavControl/GoblinFolder" index="2" instance=ExtResource("4_1y4fi")]
+position = Vector2(74, 146)
+
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 position = Vector2(-4, 0)
 navigation_polygon = SubResource("NavigationPolygon_nq5ct")

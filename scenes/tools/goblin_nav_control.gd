@@ -25,10 +25,11 @@ func _process(delta):
 		var target_goblins : Array[GoblinBase]
 		var target_goal : Goal
 		for goblin : GoblinBase in goblin_array:
-			if goblin.clicked:
-				target_goblins.append(goblin)
-				goblin.clicked = false
-				print(goblin.name + " is gonna move") #TODO remove this
+			if goblin != null:
+				if goblin.clicked:
+					target_goblins.append(goblin)
+					goblin.clicked = false
+					print(goblin.name + " is gonna move") #TODO remove this
 		for goal : Goal in goal_array:
 			if goal.clicked:
 				target_goal = goal.target_node
