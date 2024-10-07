@@ -15,6 +15,7 @@ enum STATE {
 signal listening_for_target
 signal state_changed(state : int, prev_state : int, item_holding)
 signal update_progress(stuff)
+signal clicked_on
 
 @onready var ingredient : Recipe = preload("res://scenes/tools/recipes/all_ingredients.tres")
 @onready var notice : Texture = preload("res://assets/ingredients/notice.png")
@@ -79,6 +80,7 @@ func _on_goblin_hitbox_area_entered(area: Area2D) -> void:
 func _on_goblin_hitbox_input_event(viewport, event, shape_idx):
 	get_viewport().set_input_as_handled()
 	if event.is_action_pressed("LMB") and (state == STATE.IDLE or state == STATE.AWAITING_INPUT):
+		clicked_on.emit()
 		clicked = !clicked
 		change_state("AwaitingInput" if clicked else "Idle")
 		print(item_holding)

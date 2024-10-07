@@ -12,6 +12,7 @@ func pre_job(gob : GoblinBase):
 	await task.done
 	item_reward = task.selected
 	finish_pre_job()
+	task.queue_free()
 	
 func check_trigger(gob : GoblinBase) -> bool:
 	return gob.item_holding == null

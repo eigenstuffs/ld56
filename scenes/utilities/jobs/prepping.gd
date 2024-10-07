@@ -16,14 +16,13 @@ func post_job(gob : GoblinBase):
 	get_tree().current_scene.add_child(task)
 	task.global_position = gob.global_position
 	await task.done
-	print("done")
-	print(task.result)
 	if(task.result == "lose"):
 		gob.change_state("Explode")
 	else:
 		gob.hold_item(give_reward())
 		gob.change_state("Idle")
 		finish_post_job()
+	task.queue_free()
 
 func check_trigger(gob : GoblinBase) -> bool:
 	return gob.item_holding is IngredientInfo and gob.item_holding.state == 0
