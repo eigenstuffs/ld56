@@ -130,8 +130,9 @@ shape = SubResource("RectangleShape2D_nr38a")
 position = Vector2(193, 137)
 script = ExtResource("12_ypyma")
 product = ExtResource("13_8lfds")
+ingredient_gathered = Array[ExtResource("9_p4p1p")]([ExtResource("8_oobhy"), ExtResource("10_yun1q"), ExtResource("13_agnl4")])
 recipe_window = NodePath("../../CanvasLayer/ToDoListUI")
-items_needed = [ExtResource("8_oobhy"), ExtResource("10_yun1q"), ExtResource("13_agnl4")]
+items_needed = Array[ExtResource("9_p4p1p")]([ExtResource("8_oobhy"), ExtResource("10_yun1q"), ExtResource("13_agnl4")])
 item_reward = ExtResource("13_8lfds")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Jobs/Cooking"]
