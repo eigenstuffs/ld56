@@ -2,7 +2,7 @@ extends Node2D
 
 class_name Level
 
-@export var next_level : Level #to be added
+@export var next_level : PackedScene
 @export var goblin_names : Array[String] = ["Victor"]
 @export var recipe_manager : Recipe_Display
 var progress_bar : ProgressBarManager
@@ -54,7 +54,7 @@ func level_end():
 	a.init(n_star)
 	
 	await a.confirmed
-	#TODO Load and go to next scene
+	get_tree().change_scene_to_packed(next_level)
 
 func calculate_score() -> int:
 	return 3 #TODO replace placeholder

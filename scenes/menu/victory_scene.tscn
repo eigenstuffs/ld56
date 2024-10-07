@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cer1ghlm4o53d"]
 
-[ext_resource type="Texture2D" uid="uid://c0m3mxblg2sy1" path="res://assets/victory.jpeg" id="1_dyykq"]
+[ext_resource type="Texture2D" uid="uid://bcdvxqqfv3dqv" path="res://assets/win.PNG" id="1_mgwgo"]
 
 [node name="VictoryScene" type="Control"]
 layout_mode = 3
@@ -17,4 +17,4 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_dyykq")
+texture = ExtResource("1_mgwgo")
