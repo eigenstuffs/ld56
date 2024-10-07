@@ -7,7 +7,8 @@ var task_list: TaskList = preload("res://scenes/tools/task/task_list.tres")
 @onready var dessert_recipe = preload("res://scenes/tools/recipes/dessert_recipe.tres")
 
 var label_theme = preload("res://scenes/menu/testing_purpose/test_theme.tres")
-@onready var recipe_container = $Recipe/VBoxContainer
+@onready var scroll_container = $Recipe/ScrollContainer
+@onready var recipe_container = scroll_container.get_node("VBoxContainer")
 
 var recipes = []
 var current_recipe_index = 0
@@ -23,7 +24,7 @@ var ingredient_sprites = {
 }
 
 func _ready():
-	recipes = [breakfast_recipe, soup_recipe, curry_recipe, dessert_recipe]
+	recipes = [soup_recipe, curry_recipe, dessert_recipe]
 	show_recipe(current_recipe_index)
 
 func show_recipe(index):
@@ -38,7 +39,7 @@ func show_recipe(index):
 		recipe_container.add_child(dish_name_label)
 		
 		for i in range(recipe.required_ing.size()):
-			var ing_name = String(recipe.required_ing[i].ing_name) 
+			var ing_name = String(recipe.required_ing[i].ing_name)
 			
 			if typeof(ing_name) != TYPE_STRING:
 				print("Unexpected type for ing_name:", typeof(ing_name))
@@ -56,12 +57,9 @@ func show_recipe(index):
 				hbox.add_child(sprite)
 
 			var ingredient_label = Label.new()
-			# Remove ingredient name from the UI display:
 			ingredient_label.text = str(current_amount) + "/" + str(req_amount)
 			ingredient_label.theme = label_theme
 			hbox.add_child(ingredient_label)
-
-			print("Sufficient ingredient?", recipe.enough(ing_name))
 
 			recipe_container.add_child(hbox)
 	else:
