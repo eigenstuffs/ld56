@@ -2,15 +2,26 @@ extends Job
 
 class_name CookingJob
 
-var product : Recipe
+@export var product : Recipe
 @export var ingredient_gathered = []
 var ing_gathered := {}
 @export var cook_time : int = 8
 @export var drop_time : int = 2
 signal ing_recieved(ing)
 
-func _ready() -> void:
-	time = drop_time
+func prejob(gob : GoblinBase):
+	if gob.item_holding in items_needed:
+		ingredient_gathered.append(gob.item_holding)
+		gob.remove_item()
+	var count : int = 0
+	for item in items_needed:
+		if item in ingredient_gathered:
+			count += 1
+	if count >= items_needed.size():
+		item_reward = product
+		time = cook_time
+	else: time = drop_time
+	job_done.emit()
 	
 func init():
 	if item_reward != null:

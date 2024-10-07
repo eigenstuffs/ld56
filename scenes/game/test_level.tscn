@@ -223,7 +223,7 @@ shape = SubResource("RectangleShape2D_nr38a")
 position = Vector2(210, 34)
 script = ExtResource("9_ltjqr")
 time = 3
-items_needed = [ExtResource("8_oobhy"), ExtResource("10_yun1q"), null]
+items_needed = [ExtResource("8_oobhy"), ExtResource("10_yun1q")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Jobs/Prepping"]
 shape = SubResource("RectangleShape2D_nr38a")
@@ -231,7 +231,7 @@ shape = SubResource("RectangleShape2D_nr38a")
 [node name="Cooking" type="Area2D" parent="Jobs"]
 position = Vector2(205, 170)
 script = ExtResource("12_ypyma")
-ingredient_gathered = [ExtResource("8_oobhy"), ExtResource("10_yun1q"), ExtResource("13_agnl4")]
+ingredient_gathered = [ExtResource("8_oobhy"), ExtResource("10_yun1q")]
 items_needed = [ExtResource("8_oobhy"), ExtResource("10_yun1q"), ExtResource("13_agnl4")]
 item_reward = ExtResource("13_8lfds")
 
