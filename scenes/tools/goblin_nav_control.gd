@@ -10,6 +10,9 @@ var agent_found : bool = false
 var goal_found : bool = false
 
 func _ready():
+	pass
+
+func init():
 	for goblin : GoblinBase in goblin_folder.get_children():
 		goblin_array.append(goblin)
 		goblin.connect("listening_for_target", _on_goblin_listening_for_target)

@@ -1,0 +1,79 @@
+[gd_scene load_steps=3 format=3 uid="uid://4epbqybefaie"]
+
+[ext_resource type="Script" path="res://scenes/utilities/score_screen.gd" id="1_85jog"]
+[ext_resource type="Texture2D" uid="uid://dicl0oxoa507v" path="res://assets/UIBorder/1pastalight.png" id="2_huags"]
+
+[node name="ScoreScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_85jog")
+n_star = 3
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(20, 40)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_huags")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="CanvasLayer/TextureRect"]
+layout_direction = 1
+layout_mode = 0
+offset_left = -31.0
+offset_top = 29.0
+offset_right = 53.0
+offset_bottom = 52.0
+rotation = -1.5708
+pivot_offset = Vector2(42, 11)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+text = "Your Score"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/TextureRect"]
+layout_direction = 1
+layout_mode = 0
+offset_left = 40.0
+offset_top = 20.0
+offset_right = 120.0
+offset_bottom = 37.0
+rotation = -1.5708
+pivot_offset = Vector2(20, 40)
+alignment = 1
+
+[node name="Confirm" type="Button" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.654
+anchor_right = 0.5
+anchor_bottom = 0.654
+offset_left = -23.0
+offset_top = -7.72001
+offset_right = 23.0
+offset_bottom = 12.28
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "Continue"
+
+[connection signal="pressed" from="CanvasLayer/Confirm" to="." method="_on_confirm_pressed"]

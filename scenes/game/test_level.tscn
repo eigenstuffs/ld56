@@ -1,22 +1,22 @@
 [gd_scene load_steps=20 format=3 uid="uid://tq42g3xnxngh"]
 
 [ext_resource type="Texture2D" uid="uid://ccxx0lpjdnpsr" path="res://assets/temp_with_latter.jpg" id="1_31b1t"]
+[ext_resource type="Script" path="res://scenes/game/test_level.gd" id="1_sw3k0"]
 [ext_resource type="PackedScene" uid="uid://bmq52iegph5xs" path="res://scenes/tools/goblin_nav_control.tscn" id="2_7etuc"]
 [ext_resource type="PackedScene" uid="uid://d13no63s202hy" path="res://scenes/goal/goal.tscn" id="3_tr6ll"]
-[ext_resource type="PackedScene" uid="uid://dy33jjb3kjeiu" path="res://scenes/goblin/goblin.tscn" id="4_1y4fi"]
 [ext_resource type="PackedScene" uid="uid://bjv16f3io6fw3" path="res://scenes/enemy_event/bird_window.tscn" id="4_n28lg"]
 [ext_resource type="Script" path="res://scenes/game/camera_2d.gd" id="6_3amsy"]
-[ext_resource type="Script" path="res://scenes/utilities/getting.gd" id="6_q5p7q"]
+[ext_resource type="Script" path="res://scenes/utilities/jobs/getting.gd" id="6_q5p7q"]
 [ext_resource type="PackedScene" uid="uid://dwn6tdlp54duv" path="res://scenes/qte/mix.tscn" id="7_0nvxj"]
 [ext_resource type="Resource" uid="uid://cyvura4urvq1v" path="res://scenes/tools/recipes/ingredients/egg.tres" id="8_oobhy"]
 [ext_resource type="PackedScene" uid="uid://teo71o0ubvgw" path="res://scenes/menu/ToDoListUI.tscn" id="9_0a727"]
-[ext_resource type="Script" path="res://scenes/utilities/prepping.gd" id="9_ltjqr"]
+[ext_resource type="Script" path="res://scenes/utilities/jobs/prepping.gd" id="9_ltjqr"]
 [ext_resource type="Script" path="res://scenes/tools/recipes/ingredients/ingredient_info.gd" id="9_p4p1p"]
 [ext_resource type="Resource" uid="uid://c7dthmhxgd8m" path="res://scenes/tools/recipes/ingredients/veggie.tres" id="10_yun1q"]
-[ext_resource type="Script" path="res://scenes/utilities/cooking.gd" id="12_ypyma"]
+[ext_resource type="Script" path="res://scenes/utilities/jobs/cooking.gd" id="12_ypyma"]
 [ext_resource type="Resource" uid="uid://cnhywb24r0wdq" path="res://scenes/tools/recipes/breakfast_recipe.tres" id="13_8lfds"]
 [ext_resource type="Resource" uid="uid://dao308cgo2ler" path="res://scenes/tools/recipes/ingredients/spices.tres" id="13_agnl4"]
-[ext_resource type="Script" path="res://scenes/utilities/plating.gd" id="15_ywuxg"]
+[ext_resource type="Script" path="res://scenes/utilities/jobs/plating.gd" id="15_ywuxg"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_nq5ct"]
 vertices = PackedVector2Array(146.289, 96.8281, 144.328, 98.2188, 143.711, 97.1172, 51.1484, 155.93, 52.3594, 168, 5.47656, 168, 7.5625, 131.852, 194.672, 157.047, 60, 130.852, 151.313, 139.32, 60, 119.953, 60.75, 120, 311.289, -81.9531, 311.703, -71, 162.359, -71, 140, -81.0391, 140, -29, 160.93, -39.6094, 156.383, -15.0234, 166.453, 23.0625, 185.617, 21, 253.813, 21, 253.367, 40, 139.391, 40, 122.359, 38, 60, -14.0078, 60, -29, 163.023, -22.6016, 176.578, 16.1406, 60, 38, 60, 10, 151.203, 10, 69, 95.2031, 69, 66.8984, 124.68, 65.8281, 152.797, 86.9063, 130.703, 120, 161.992, 131.703, 182.508, 121.031, 197.992, 125.508, 200.742, 141.203)
@@ -28,6 +28,8 @@ agent_radius = 8.0
 size = Vector2(32, 32)
 
 [node name="TestLevel" type="Node2D"]
+script = ExtResource("1_sw3k0")
+n_goblins = 2
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -39,6 +41,10 @@ offset_bottom = 180.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_31b1t")
+metadata/_edit_lock_ = true
+
+[node name="GoblinSpawnPoint" type="Node2D" parent="."]
+position = Vector2(71, 149)
 
 [node name="NavControl" parent="." node_paths=PackedStringArray("goal_array") instance=ExtResource("2_7etuc")]
 goal_array = [NodePath("../CanvasLayer/BirdWindow")]
@@ -60,15 +66,6 @@ position = Vector2(89, -27)
 
 [node name="Goal7" parent="NavControl/GoalFolder" index="5" instance=ExtResource("3_tr6ll")]
 position = Vector2(214, 24)
-
-[node name="Goblin" parent="NavControl/GoblinFolder" index="0" instance=ExtResource("4_1y4fi")]
-position = Vector2(83, 146)
-
-[node name="Goblin2" parent="NavControl/GoblinFolder" index="1" instance=ExtResource("4_1y4fi")]
-position = Vector2(77, 146)
-
-[node name="Goblin3" parent="NavControl/GoblinFolder" index="2" instance=ExtResource("4_1y4fi")]
-position = Vector2(74, 146)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 position = Vector2(-4, 0)
@@ -188,6 +185,8 @@ position = Vector2(-36.6666, 6.66665)
 [node name="AbortButton" parent="CanvasLayer/BirdWindow" index="5"]
 offset_left = -3.33329
 offset_right = 41.6667
+
+[connection signal="plating_complete" from="Jobs/Plating" to="." method="_on_plating_plating_complete"]
 
 [editable path="NavControl"]
 [editable path="CanvasLayer/BirdWindow"]

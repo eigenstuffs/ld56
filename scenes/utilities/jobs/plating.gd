@@ -9,4 +9,5 @@ func init():
 
 func give_reward():
 	plating_complete.emit()
+	print("completed!")
 	return null
