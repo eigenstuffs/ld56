@@ -8,20 +8,35 @@ var ing_gathered := {}
 @export var cook_time : int = 8
 @export var drop_time : int = 0
 signal ing_recieved(ing)
+@export var collectTask : PackedScene
 
 func prejob(gob : GoblinBase):
-	if gob.item_holding in items_needed:
-		ingredient_gathered.append(gob.item_holding)
-		gob.remove_item()
+	ingredient_gathered.append(gob.item_holding.ing_name)
+	gob.remove_item()
 	var count : int = 0
 	for item in items_needed:
-		if item in ingredient_gathered:
+		if item.ing_name in ingredient_gathered:
 			count += 1
 	if count >= items_needed.size():
 		item_reward = product
 		time = cook_time
 	else: time = drop_time
-	pre_job_done.emit()
+	finish_pre_job()
+	
+func postjob(gob : GoblinBase):
+	if(product != null):
+		var task : CollectionTask = collectTask.instantiate()
+		task.goblin = gob
+		get_tree().current_scene.add_child(task)
+		task.global_position = gob.global_position
+		await task.done
+		if(task.result == "lose"):
+			gob.change_state("Explode")
+			return
+		gob.hold_item(give_reward())
+		gob.change_state("Idle")
+		finish_post_job()
+		task.queue_free()
 	
 func init():
 	if item_reward != null:
@@ -33,6 +48,9 @@ func give_reward():
 	product = null
 	time = drop_time
 	return prod
+	
+func check_trigger(gob : GoblinBase) -> bool:
+	return gob.item_holding is IngredientInfo and gob.item_holding.state == 1
 	
 func start_cooking(rec : Recipe):
 	product = rec

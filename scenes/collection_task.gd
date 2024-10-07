@@ -16,7 +16,7 @@ func _on_timer_timeout():
 	result = "lose"
 	done.emit()
 
-func end_timer(state : int):
+func end_timer():
 	$Timer.stop()
 	result = "win"
 	done.emit()
