@@ -1,13 +1,14 @@
 class_name Dialogue extends Control
 
 @export var text : Array[String]
-@onready var label : Label
+@onready var label : Label = $CanvasLayer/Label
 @export var time_per_char : float = 0.02
 
 signal next
 signal done
 
-func start():
+func _ready():
+	print("started dialogue")
 	for i in text:
 		label.visible_ratio = 0
 		label.text = i

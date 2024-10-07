@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://tq42g3xnxngh"]
+[gd_scene load_steps=36 format=3 uid="uid://tq42g3xnxngh"]
 
 [ext_resource type="Script" path="res://scenes/game/test_level.gd" id="1_sw3k0"]
 [ext_resource type="PackedScene" uid="uid://bmq52iegph5xs" path="res://scenes/tools/goblin_nav_control.tscn" id="2_7etuc"]
@@ -19,6 +19,7 @@
 [ext_resource type="Resource" uid="uid://dao308cgo2ler" path="res://scenes/tools/recipes/ingredients/spices.tres" id="13_agnl4"]
 [ext_resource type="Script" path="res://scenes/utilities/jobs/plating.gd" id="15_ywuxg"]
 [ext_resource type="Texture2D" uid="uid://dfuup846m3b8k" path="res://assets/chef_stir.png" id="19_ck786"]
+[ext_resource type="Script" path="res://scenes/game/tutorial.gd" id="20_5h41t"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_nq5ct"]
 vertices = PackedVector2Array(311.898, -65.5703, 269.281, -9.72656, 281.289, -57, 311.289, -81.9531, 197.547, 37.1562, 253.773, 22.5781, 253.141, 50, 142.453, 50, 202.758, 167.031, 197.859, 167.047, 198.359, 163.852, 202.211, 147.828, 176.789, 145.461, 162.648, 151.508, 51.2188, 166.141, 51.3672, 167.742, 5.47656, 167.953, 7.5625, 131.852, 37.9062, 145.633, 38.0781, 131.258, 166.594, 109.211, 150.07, 105.93, 152.594, 86.2188, 69, 106.898, 69, 66.8984, 124.68, 65.8281, 122.359, 38, 158.922, -7.04688, 60, -6.03125, 60, -29, 140, -29, 157.102, -22.3906, 60, 38, 60, 18, 145.781, 18, 164.031, 28.9531, 172.844, 20.7891, 155.656, -57, 140, -81.0391)
@@ -286,6 +287,9 @@ sprite_frames = SubResource("SpriteFrames_eg2l4")
 animation = &"stirring_normal"
 autoplay = "stirring_normal"
 frame_progress = 0.369441
+
+[node name="Tutorial" type="Node" parent="."]
+script = ExtResource("20_5h41t")
 
 [connection signal="plating_complete" from="Jobs/Plating" to="." method="_on_plating_plating_complete"]
 

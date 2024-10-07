@@ -523,5 +523,4 @@ position = Vector2(0, -18)
 [connection signal="listening_for_target" from="." to="JobDone" method="_on_goblin_listening_for_target"]
 [connection signal="area_entered" from="Goblin_hitbox" to="." method="_on_goblin_hitbox_area_entered"]
 [connection signal="input_event" from="Goblin_hitbox" to="." method="_on_goblin_hitbox_input_event"]
-[connection signal="navigate_process" from="Navigate" to="." method="_on_navigate_navigate_process"]
 [connection signal="timeout" from="JobDone/Timer" to="JobDone" method="_on_timer_timeout"]

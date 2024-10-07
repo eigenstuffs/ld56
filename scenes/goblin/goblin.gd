@@ -68,21 +68,6 @@ func change_state(to : String):
 	find_child(to).init()
 	current_state_child = find_child(to)
 
-func set_movement_target(movement_target : Goal):
-	curr_target = movement_target
-	nav_agent.target_position = movement_target.target_node.global_position
-	if nav_agent.is_navigation_finished():
-		movement_target._on_area_entered($Goblin_hitbox)
-	else:
-		change_state("Navigate")
-
-func set_target_pos(target_pos : Vector2):
-	var obj :Goal = Goal.new()
-	obj.global_position = target_pos
-	obj.scale = Vector2(1,1)
-	obj.target_node = obj;
-	set_movement_target(obj)
-
 func _on_goblin_hitbox_area_entered(area: Area2D) -> void:
 	if area.get_parent() is GoblinBase:
 		if state == STATE.NAVIGATE and area.get_parent().state == STATE.NAVIGATE:
