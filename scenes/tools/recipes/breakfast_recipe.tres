@@ -5,16 +5,12 @@
 [ext_resource type="Script" path="res://scenes/tools/recipes/recipe.gd" id="2_1m5b0"]
 [ext_resource type="Resource" uid="uid://dao308cgo2ler" path="res://scenes/tools/recipes/ingredients/spices.tres" id="3_ivpr4"]
 [ext_resource type="Resource" uid="uid://c7dthmhxgd8m" path="res://scenes/tools/recipes/ingredients/veggie.tres" id="4_ry032"]
-
-[sub_resource type="Resource" id="Resource_oj7w0"]
-script = ExtResource("1_63l58")
-ing_name = "Egg"
-state = null
+[ext_resource type="Resource" uid="uid://cyvura4urvq1v" path="res://scenes/tools/recipes/ingredients/egg.tres" id="5_ey2et"]
 
 [resource]
 script = ExtResource("2_1m5b0")
 dish_name = "Deviled Eggs"
 recipe_img = ExtResource("1_wp60n")
-required_ing = Array[ExtResource("1_63l58")]([SubResource("Resource_oj7w0"), ExtResource("3_ivpr4"), ExtResource("4_ry032")])
+required_ing = Array[ExtResource("1_63l58")]([ExtResource("3_ivpr4"), ExtResource("4_ry032"), ExtResource("5_ey2et")])
 required_amount = Array[int]([1, 1, 1])
 current_amount = Array[int]([0, 0, 0])

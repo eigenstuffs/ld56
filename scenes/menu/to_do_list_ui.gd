@@ -8,6 +8,7 @@ var label_theme = preload("res://scenes/menu/testing_purpose/test_theme.tres")
 @onready var scroll_container = $Recipe/ScrollContainer
 @onready var recipe_container = scroll_container.get_node("VBoxContainer")
 var font_theme: Theme = preload("res://scenes/utilities/text_font.tres")
+@onready var goblin_counter = $GoblinCounter
 
 var ingredient_sprites = {
 	"egg": "res://assets/ingredients/egg_cracked.png",
@@ -22,14 +23,13 @@ var done_gathering = false
 
 func _ready():
 	self.theme = font_theme
-	show_recipe(null, [])
+	show_recipe(null, {})
 
-func show_recipe(recipe : Recipe, ing_gathered : Array[IngredientInfo]):
-	done_gathering = false
+func show_recipe(recipe : Recipe, ing_gathered : Dictionary) -> bool:
 	clear_container(recipe_container)
-	if(recipe == null): return;
-	done_gathering = false
+	if(recipe == null): return false;
 	
+	done_gathering = true
 	var title_container = VBoxContainer.new()
 	title_container.add_theme_constant_override("separation", 0) 
 	
@@ -41,12 +41,9 @@ func show_recipe(recipe : Recipe, ing_gathered : Array[IngredientInfo]):
 		title_container.add_child(line_label)
 
 	recipe_container.add_child(title_container)
-
 	for i in range(recipe.required_ing.size()):
 		var ing_name = recipe.required_ing[i].ing_name
-		var curr_amount = 0
-		for ing in ing_gathered:
-			curr_amount += 1 if ing.ing_name == ing_name else 0
+		var curr_amount = ing_gathered[ing_name] if ing_gathered.has(ing_name) else 0
 		var req_amount: int = recipe.required_amount[i]
 		done_gathering = done_gathering && curr_amount >= req_amount
 		ing_name = format_ingredient_key(ing_name)
@@ -66,7 +63,7 @@ func show_recipe(recipe : Recipe, ing_gathered : Array[IngredientInfo]):
 		ingredient_label.add_theme_font_override("font", font_theme.get_font("font", "Label"))
 		hbox.add_child(ingredient_label)
 		recipe_container.add_child(hbox)
-	print(done_gathering)
+	return done_gathering
 
 func load_texture_for_ingredient(ingredient_name: String) -> Texture:
 	if ingredient_name in ingredient_sprites:

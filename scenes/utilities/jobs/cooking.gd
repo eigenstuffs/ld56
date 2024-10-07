@@ -2,26 +2,27 @@ extends Job
 
 class_name CookingJob
 
-@export var product : Recipe
-@export var ingredient_gathered : Array[IngredientInfo] = []
+var product : Recipe
+@export var ingredient_gathered = []
+var ing_gathered := {}
 @export var cook_time : int = 8
 @export var drop_time : int = 2
-@export var recipe_window : Recipe_Display
+signal ing_recieved(ing)
 
+func _ready() -> void:
+	time = drop_time
+	
 func init():
 	if item_reward != null:
-		ingredient_gathered.append(item_reward)
+		emit_signal("ing_recieved", item_reward)
 		item_reward = null
-	recipe_window.show_recipe(product, ingredient_gathered)
-	print(recipe_window.done_gathering)
-	if recipe_window.done_gathering:
-		time = cook_time
-		item_reward = product
-	else: time = drop_time
 
 func give_reward():
-	return null if item_reward == null else item_reward
+	var prod = product
+	product = null
+	time = drop_time
+	return prod
 	
-func update_recipe(rec : Recipe):
+func start_cooking(rec : Recipe):
 	product = rec
-	recipe_window.show_recipe(product, ingredient_gathered)
+	time = cook_time

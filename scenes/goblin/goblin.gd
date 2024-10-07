@@ -14,6 +14,7 @@ enum STATE {
 }
 
 signal listening_for_target
+signal state_changed(state : int, prev_state : int)
 signal update_progress(stuff)
 
 @onready var ingredient : Recipe = preload("res://scenes/tools/recipes/all_ingredients.tres")
@@ -62,6 +63,7 @@ func change_state(to : String):
 			target_state = STATE.EATEN
 		"Explode":
 			target_state = STATE.EXPLODE
+	emit_signal("state_changed", target_state, state)
 	state = target_state
 	find_child(to).init()
 	current_state_child = find_child(to)
@@ -108,14 +110,13 @@ func hold_item(stuff):
 	item.texture = notice
 
 func updateProgress():
+	if item.texture == notice:
+		emit_signal("update_progress", item_holding)
 	if item_holding is IngredientInfo:
 		item.texture = item_holding.get_current_sprite()
-		print("ing")
 	elif item_holding is Recipe:
 		item.texture = item_holding.recipe_img
-		print("rec")
 	else: item.texture = null
-	emit_signal("update_progress", item_holding)
 
 func remove_item():
 	item_holding = null

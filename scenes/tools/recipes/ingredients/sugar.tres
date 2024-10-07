@@ -7,6 +7,6 @@
 [resource]
 script = ExtResource("1_uhusk")
 ing_name = "Sugar"
-state = 0
+state = 1
 sprite_upd = ExtResource("3_62k53")
 sprite_prd = ExtResource("2_mn33c")

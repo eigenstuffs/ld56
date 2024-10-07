@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("1_crbtj")
 ing_name = "Spices"
-state = 1
+state = 0
 sprite_upd = ExtResource("2_tk0h7")
 sprite_prd = ExtResource("2_tk0h7")
