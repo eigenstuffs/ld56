@@ -110,10 +110,11 @@ func hold_item(stuff):
 func updateProgress():
 	if item_holding is IngredientInfo:
 		item.texture = item_holding.get_current_sprite()
+		print("ing")
 	elif item_holding is Recipe:
 		item.texture = item_holding.recipe_img
+		print("rec")
 	else: item.texture = null
-	print(item_holding)
 	emit_signal("update_progress", item_holding)
 
 func remove_item():

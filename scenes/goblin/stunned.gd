@@ -7,7 +7,7 @@ var enable_process : bool = false
 
 func init():
 	enable_process = true
-	goblin.highlight.color = Color.WHITE
+	goblin.modulate = Color.YELLOW
 	get_parent().set_collision_mask(2)
 	await get_tree().create_timer(stun_time).timeout
 	goblin.change_state("Navigate")
