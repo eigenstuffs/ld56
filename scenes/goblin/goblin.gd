@@ -95,11 +95,20 @@ func hold_item(stuff):
 		item_holding = stuff
 	item.texture = notice
 
-func set_target_pos(Vector2 pos):
-	pass
+func set_target_pos(pos : Vector2):
+	var obj : Goal = Goal.new()
+	obj.global_position = pos
+	obj.scale = Vector2(1, 1)
+	obj.target_node = obj
+	set_movement_target(obj)
 	
 func set_movement_target(target_goal):
-	pass
+	curr_target = target_goal
+	nav_agent.target_position = target_goal.target_node.global_position
+	if nav_agent.is_navigation_finished():
+		target_goal._on_area_entered($Goblin_hitbox)
+	else:
+		change_state("Navigate")
 
 func updateProgress():
 	if item.texture == notice:

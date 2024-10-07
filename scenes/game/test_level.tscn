@@ -134,10 +134,10 @@ animations = [{
 [node name="TestLevel" type="Node2D" node_paths=PackedStringArray("recipe_manager", "cook", "birds")]
 script = ExtResource("1_sw3k0")
 goblin_names = Array[String](["Victor", "Ana"])
+recipe_list = Array[ExtResource("2_wbmnp")]([ExtResource("13_8lfds"), ExtResource("13_8lfds")])
 recipe_manager = NodePath("CanvasLayer/ToDoListUI")
 cook = NodePath("Jobs/Cooking")
 birds = NodePath("CanvasLayer/BirdWindow")
-recipe_list = Array[ExtResource("2_wbmnp")]([ExtResource("13_8lfds"), ExtResource("13_8lfds")])
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = 15
