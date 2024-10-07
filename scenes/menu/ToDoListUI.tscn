@@ -1438,6 +1438,7 @@ mouse_filter = 2
 theme = SubResource("Theme_pswhy")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 8
+show_percentage = false
 
 [node name="ProgressBar2" type="ProgressBar" parent="Progress Bars"]
 layout_mode = 1
@@ -1453,6 +1454,7 @@ mouse_filter = 2
 theme = SubResource("Theme_pswhy")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 8
+show_percentage = false
 
 [node name="ProgressBar4" type="ProgressBar" parent="Progress Bars"]
 layout_mode = 1
@@ -1468,6 +1470,7 @@ mouse_filter = 2
 theme = SubResource("Theme_pswhy")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 8
+show_percentage = false
 
 [node name="Progress Labels" type="Label" parent="."]
 layout_mode = 1

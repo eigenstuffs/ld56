@@ -9,6 +9,7 @@ var label_theme = preload("res://scenes/menu/testing_purpose/test_theme.tres")
 @onready var recipe_container = scroll_container.get_node("VBoxContainer")
 var font_theme: Theme = preload("res://scenes/utilities/text_font.tres")
 @onready var goblin_counter = $GoblinCounter
+@onready var progress_bars = $"Progress Bars"
 
 var ingredient_sprites = {
 	"egg": "res://assets/ingredients/egg_cracked.png",
