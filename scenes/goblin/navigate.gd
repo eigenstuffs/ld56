@@ -11,7 +11,7 @@ func init():
 	enable_process = true
 	rand_offset = Vector2.from_angle(randf_range(0,2*PI))
 	rand_offset *= randf_range(0,goblin.curr_target.scale.x * 10)
-	goblin.highlight.color = Color.ROYAL_BLUE
+	goblin.modulate = Color.WHITE
 	goblin.sprite.play("walking")
 	
 func run():

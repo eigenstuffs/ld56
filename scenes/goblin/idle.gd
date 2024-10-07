@@ -1,7 +1,7 @@
 extends GoblinState
 
 func init():
-	goblin.highlight.color = Color.YELLOW_GREEN
+	goblin.modulate = Color.WHITE
 	goblin.sprite.play("idle")
 	run()
 	

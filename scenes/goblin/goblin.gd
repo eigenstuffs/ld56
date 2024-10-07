@@ -14,10 +14,11 @@ enum STATE {
 }
 
 signal listening_for_target
+signal update_progress(stuff)
 
 @onready var ingredient : Recipe = preload("res://scenes/tools/recipes/all_ingredients.tres")
+@onready var notice : Texture = preload("res://assets/ingredients/notice.png")
 @onready var nav_agent : NavigationAgent2D = $NavigationAgent2D
-@onready var highlight : ColorRect = $Highlight #TODO temporary
 @onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var item : Sprite2D = $Item
 
@@ -102,10 +103,18 @@ func _on_goblin_hitbox_input_event(viewport, event, shape_idx):
 func hold_item(stuff):
 	if stuff is IngredientInfo:
 		item_holding = stuff
-		item.texture = item_holding.get_current_sprite()
 	if stuff is Recipe:
 		item_holding = stuff
+	item.texture = notice
+
+func updateProgress():
+	if item_holding is IngredientInfo:
+		item.texture = item_holding.get_current_sprite()
+	elif item_holding is Recipe:
 		item.texture = item_holding.recipe_img
+	else: item.texture = null
+	print(item_holding)
+	emit_signal("update_progress", item_holding)
 
 func remove_item():
 	item_holding = null

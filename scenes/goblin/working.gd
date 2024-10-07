@@ -25,7 +25,7 @@ func job(area : Job):
 				await get_tree().create_timer(area.time).timeout
 				print("Done job")
 				b.queue_free()
-				goblin.hold_item(area.give_reward())
 				change_state("JobDone")
+				goblin.hold_item(area.give_reward())
 				return
 	change_state("Idle")
