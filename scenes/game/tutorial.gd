@@ -1,6 +1,6 @@
 extends Node
 
-func ready():
+func _ready():
 	print("start")
 	if !Utilities.first_launch:
 		queue_free()
