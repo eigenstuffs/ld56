@@ -16,7 +16,8 @@ func job(area : Job):
 					a.global_position = get_parent().global_position - Vector2(0, 16)
 					await a.done
 					if a.result == "lose":
-						change_state("Eaten")
+						goblin.change_state("Explode")
+						return
 				var b = JOB_PROGRESS.instantiate() as TextureProgressBar
 				add_child(b)
 				b.global_position = get_parent().global_position - Vector2(8, 24)

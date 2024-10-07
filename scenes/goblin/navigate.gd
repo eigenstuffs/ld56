@@ -12,7 +12,9 @@ func init():
 	rand_offset = Vector2.from_angle(randf_range(0,2*PI))
 	rand_offset *= randf_range(0,goblin.curr_target.scale.x * 10)
 	goblin.modulate = Color.WHITE
-	goblin.sprite.play("walking")
+	if goblin.item_holding == null:
+		goblin.sprite.play("walking")
+	else: goblin.sprite.play("walking_item")
 	
 func run():
 	pass
