@@ -1,10 +1,8 @@
-[gd_scene load_steps=37 format=3 uid="uid://tq42g3xnxngh"]
+[gd_scene load_steps=35 format=3 uid="uid://tq42g3xnxngh"]
 
 [ext_resource type="Script" path="res://scenes/game/test_level.gd" id="1_sw3k0"]
 [ext_resource type="PackedScene" uid="uid://bmq52iegph5xs" path="res://scenes/tools/goblin_nav_control.tscn" id="2_7etuc"]
-[ext_resource type="PackedScene" uid="uid://bo3chmn1jqbjk" path="res://scenes/game/level_2.tscn" id="2_8ahx8"]
 [ext_resource type="Script" path="res://scenes/tools/recipes/recipe.gd" id="2_wbmnp"]
-[ext_resource type="AudioStream" uid="uid://cjfe37oc1qywe" path="res://assets/Music/Gobblin Goblins Breakfast.mp3" id="3_sdbsp"]
 [ext_resource type="PackedScene" uid="uid://d13no63s202hy" path="res://scenes/goal/goal.tscn" id="3_tr6ll"]
 [ext_resource type="Texture2D" uid="uid://tum4qkjre8jo" path="res://assets/bg no sprite boundary.PNG" id="4_ahfmr"]
 [ext_resource type="PackedScene" uid="uid://bjv16f3io6fw3" path="res://scenes/enemy_event/bird_window.tscn" id="4_n28lg"]
@@ -135,8 +133,6 @@ animations = [{
 
 [node name="TestLevel" type="Node2D" node_paths=PackedStringArray("recipe_manager", "cook", "birds")]
 script = ExtResource("1_sw3k0")
-next_level = ExtResource("2_8ahx8")
-music = ExtResource("3_sdbsp")
 goblin_names = Array[String](["Victor", "Ana"])
 recipe_manager = NodePath("CanvasLayer/ToDoListUI")
 cook = NodePath("Jobs/Cooking")
@@ -218,6 +214,10 @@ position = Vector2(88, -24)
 script = ExtResource("6_q5p7q")
 choosing_task = ExtResource("12_nacxf")
 ingredient_box = Array[ExtResource("9_p4p1p")]([ExtResource("13_agnl4"), ExtResource("10_yun1q"), ExtResource("8_oobhy")])
+time = null
+items_needed = null
+goblins_needed = null
+goblins_engagaed = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Jobs/Getting"]
 shape = SubResource("RectangleShape2D_nr38a")
@@ -227,6 +227,8 @@ position = Vector2(210, 34)
 script = ExtResource("9_ltjqr")
 time = 3
 items_needed = [ExtResource("8_oobhy"), ExtResource("10_yun1q")]
+goblins_needed = null
+goblins_engagaed = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Jobs/Prepping"]
 shape = SubResource("RectangleShape2D_nr38a")
@@ -235,7 +237,12 @@ shape = SubResource("RectangleShape2D_nr38a")
 position = Vector2(205, 170)
 script = ExtResource("12_ypyma")
 ingredient_gathered = [ExtResource("8_oobhy"), ExtResource("10_yun1q")]
+cook_time = null
+drop_time = null
+time = null
 items_needed = [ExtResource("8_oobhy"), ExtResource("10_yun1q"), ExtResource("13_agnl4")]
+goblins_needed = null
+goblins_engagaed = null
 item_reward = ExtResource("13_8lfds")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Jobs/Cooking"]
@@ -246,6 +253,8 @@ position = Vector2(96, 80)
 script = ExtResource("15_ywuxg")
 time = 1
 items_needed = [ExtResource("13_8lfds")]
+goblins_needed = null
+goblins_engagaed = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Jobs/Plating"]
 shape = SubResource("RectangleShape2D_nr38a")
@@ -290,9 +299,6 @@ sprite_frames = SubResource("SpriteFrames_eg2l4")
 animation = &"stirring_normal"
 autoplay = "stirring_normal"
 frame_progress = 0.369441
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_sdbsp")
 
 [connection signal="plating_complete" from="Jobs/Plating" to="." method="_on_plating_plating_complete"]
 

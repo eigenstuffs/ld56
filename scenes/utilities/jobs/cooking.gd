@@ -6,7 +6,7 @@ class_name CookingJob
 @export var ingredient_gathered = []
 var ing_gathered := {}
 @export var cook_time : int = 8
-@export var drop_time : int = 2
+@export var drop_time : int = 0
 signal ing_recieved(ing)
 
 func prejob(gob : GoblinBase):
@@ -21,7 +21,7 @@ func prejob(gob : GoblinBase):
 		item_reward = product
 		time = cook_time
 	else: time = drop_time
-	job_done.emit()
+	pre_job_done.emit()
 	
 func init():
 	if item_reward != null:

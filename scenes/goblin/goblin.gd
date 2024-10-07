@@ -7,7 +7,6 @@ enum STATE {
 	STUNNED,
 	NAVIGATE,
 	WORKING,
-	JOB_DONE,
 	AWAITING_INPUT,
 	EATEN,
 	EXPLODE
@@ -55,8 +54,6 @@ func change_state(to : String):
 			target_state = STATE.NAVIGATE
 		"Working":
 			target_state = STATE.WORKING
-		"JobDone":
-			target_state = STATE.JOB_DONE
 		"AwaitingInput":
 			target_state = STATE.AWAITING_INPUT
 		"Eaten":
@@ -81,20 +78,20 @@ func _on_goblin_hitbox_area_entered(area: Area2D) -> void:
 
 func _on_goblin_hitbox_input_event(viewport, event, shape_idx):
 	get_viewport().set_input_as_handled()
-	if event.is_action_pressed("LMB") and (state == STATE.IDLE or state == STATE.AWAITING_INPUT or state == STATE.JOB_DONE):
-		if has_node("JobProgress"):
-			get_node("JobProgress").queue_free()
+	if event.is_action_pressed("LMB") and (state == STATE.IDLE or state == STATE.AWAITING_INPUT):
 		clicked = !clicked
-		change_state("AwaitingInput")
-		#change_state("AwaitingInput" if clicked else "Idle")
+		change_state("AwaitingInput" if clicked else "Idle")
+		print(item_holding)
 		if clicked: emit_signal("listening_for_target")
 
 func hold_item(stuff):
 	if stuff is IngredientInfo:
 		item_holding = stuff
-	if stuff is Recipe:
+		item.texture = item_holding.get_current_sprite()
+		emit_signal("update_progress", item_holding)
+	elif stuff is Recipe:
 		item_holding = stuff
-	item.texture = notice
+		item.texture = item_holding.recipe_img
 
 func set_target_pos(pos : Vector2):
 	var obj : Goal = Goal.new()
@@ -110,15 +107,6 @@ func set_movement_target(target_goal):
 		target_goal._on_area_entered($Goblin_hitbox)
 	else:
 		change_state("Navigate")
-
-func updateProgress():
-	if item.texture == notice:
-		emit_signal("update_progress", item_holding)
-	if item_holding is IngredientInfo:
-		item.texture = item_holding.get_current_sprite()
-	elif item_holding is Recipe:
-		item.texture = item_holding.recipe_img
-	else: item.texture = null
 
 func remove_item():
 	item_holding = null

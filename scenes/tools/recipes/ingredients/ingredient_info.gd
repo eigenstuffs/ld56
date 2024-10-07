@@ -3,6 +3,7 @@ extends Resource
 class_name IngredientInfo
 
 @export var ing_name : String
+@export var prep_time : float = 5
 @export_enum("Unprocessed", "Processed") var state
 @export var sprite_upd : Texture2D
 @export var sprite_prd : Texture2D

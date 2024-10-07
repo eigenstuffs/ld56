@@ -1,23 +1,42 @@
 class_name Job extends Area2D
 
 @export var time : int
-@export var qte : PackedScene
 @export var items_needed : Array
 @export var goblins_needed : int = 1
 @export var goblins_engagaed : int = 0
 @export var item_reward : Resource
 
-signal job_done
+signal pre_job_done
+var pre_job_bool : bool = false
+signal post_job_done
+var post_job_bool : bool = false
 
 func pre_job(goblin : GoblinBase):
-	job_done.emit()
-func dur_job(goblin : GoblinBase):
-	pass
-func post_job(goblin : GoblinBase):
-	job_done.emit()
+	finish_pre_job()
 	
-func additional_conditions():
-	return true
+func finish_pre_job():
+	pre_job_done.emit()
+	pre_job_bool = true
+	
+func dur_job(goblin : GoblinBase):
+	print(item_reward)
+	
+func post_job(gob : GoblinBase):
+	gob.hold_item(give_reward())
+	gob.change_state("Idle")
+	finish_post_job()
+
+func finish_post_job():
+	post_job_done.emit()
+	post_job_bool = true
+
+func check_trigger(gob : GoblinBase) -> bool:
+	return items_needed.size() == 0
 	
 func give_reward():
-	return null if item_reward == null else item_reward
+	if item_reward == null:
+		return null
+	else:
+		var reward : IngredientInfo = item_reward.duplicate()
+		reward.state = 1 if reward.state == 0 else 0
+		return reward

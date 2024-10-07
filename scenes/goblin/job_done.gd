@@ -1,6 +1,7 @@
 extends GoblinState
 
 func init():
+	
 	$Timer.start(5)
 	goblin.sprite.play("await_input")
 
