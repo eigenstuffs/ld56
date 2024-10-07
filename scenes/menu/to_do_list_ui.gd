@@ -14,7 +14,7 @@ var recipes = []
 var current_recipe_index = 0
 
 var ingredient_sprites = {
-	"egg": "res://assets/ingredients/egg.png",
+	"egg": "res://assets/ingredients/egg.png", 
 	"flour": "res://assets/ingredients/flour.png",
 	"meat": "res://assets/ingredients/meat_frosted.png",
 	"secret": "res://assets/ingredients/secret_ingredient.png",
@@ -32,15 +32,32 @@ func show_recipe(index):
 
 	if index < recipes.size():
 		var recipe = recipes[index]
-		
-		var dish_name_label = Label.new()
-		dish_name_label.text = recipe.dish_name
-		dish_name_label.theme = label_theme
-		recipe_container.add_child(dish_name_label)
-		
+
+		var recipe_titles = {
+			breakfast_recipe: "Deviled\nEggs",
+			soup_recipe: "Chicken\nNoodle\nSoup",
+			curry_recipe: "Ghost\nCurry",
+			dessert_recipe: "Lava\nCake"
+		}
+
+		var dish_name = recipe_titles.get(recipe, "Unknown Dish")
+		var lines = dish_name.split("\n")
+
+		var title_container = VBoxContainer.new()
+		title_container.add_theme_constant_override("separation", 0) 
+
+		for line in lines:
+			var line_label = Label.new()
+			line_label.text = line
+			line_label.align = 1 
+			line_label.theme = label_theme
+			title_container.add_child(line_label)
+
+		recipe_container.add_child(title_container)
+
 		for i in range(recipe.required_ing.size()):
 			var ing_name = String(recipe.required_ing[i].ing_name)
-			
+
 			if typeof(ing_name) != TYPE_STRING:
 				print("Unexpected type for ing_name:", typeof(ing_name))
 				continue
@@ -58,6 +75,7 @@ func show_recipe(index):
 
 			var ingredient_label = Label.new()
 			ingredient_label.text = str(current_amount) + "/" + str(req_amount)
+			ingredient_label.align = 1 
 			ingredient_label.theme = label_theme
 			hbox.add_child(ingredient_label)
 
@@ -79,12 +97,10 @@ func load_texture_for_ingredient(ingredient_name: String) -> Texture:
 
 func clear_container(container: VBoxContainer):
 	for child in container.get_children():
-		container.remove_child(child)
 		child.queue_free()
 
 func complete_recipe():
 	if current_recipe_index < recipes.size():
-		
 		current_recipe_index += 1
 		if current_recipe_index < recipes.size():
 			show_recipe(current_recipe_index)
@@ -92,7 +108,6 @@ func complete_recipe():
 			print("All recipes completed!")
 
 func get_player_inventory_amount(ing_name: String) -> int:
-	# Placeholder for inventory
 	return 0
 
 func format_ingredient_key(ingredient_name: String) -> String:
