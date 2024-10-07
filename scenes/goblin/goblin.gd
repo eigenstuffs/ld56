@@ -68,7 +68,7 @@ func change_state(to : String):
 
 func set_movement_target(movement_target : Goal):
 	curr_target = movement_target
-	nav_agent.target_position = movement_target.global_position
+	nav_agent.target_position = movement_target.anchor.global_position
 	if nav_agent.is_navigation_finished():
 		movement_target._on_area_entered($Goblin_hitbox)
 	else:
