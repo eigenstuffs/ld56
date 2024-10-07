@@ -66,6 +66,7 @@ func show_recipe(recipe : Recipe, ing_gathered : Array[IngredientInfo]):
 		ingredient_label.add_theme_font_override("font", font_theme.get_font("font", "Label"))
 		hbox.add_child(ingredient_label)
 		recipe_container.add_child(hbox)
+	print(done_gathering)
 
 func load_texture_for_ingredient(ingredient_name: String) -> Texture:
 	if ingredient_name in ingredient_sprites:

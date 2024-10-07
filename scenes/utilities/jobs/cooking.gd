@@ -13,6 +13,7 @@ func init():
 		ingredient_gathered.append(item_reward)
 		item_reward = null
 	recipe_window.show_recipe(product, ingredient_gathered)
+	print(recipe_window.done_gathering)
 	if recipe_window.done_gathering:
 		time = cook_time
 		item_reward = product
