@@ -13,6 +13,8 @@ var recipe_index := 0
 @onready var score_screen = preload("res://scenes/utilities/score_screen.tscn")
 var paused := false
 var time = 0
+var ing_gathered = {}
+var ing_needed = {}
 
 func _ready():
 	for n in range(n_goblins):
@@ -27,6 +29,7 @@ func _ready():
 	progress_bar.update_prep_progress(0,num_ings)
 	progress_bar.update_cooking_progress(0,len(recipe_list))
 	cook.update_recipe(recipe_list[0])
+	
 	
 func _process(delta: float) -> void:
 	if !paused: time += delta
@@ -54,3 +57,22 @@ func update_progress(stuff):
 	elif stuff is Recipe:
 		var rec : Recipe = stuff
 		progress_bar.update_cooking_progress()
+
+func update_ingredient(ing : IngredientInfo, quantity: int = 1, reqDict := false) -> void:
+	var dict = ing_needed if reqDict else ing_gathered
+	if dict.has(ing.ing_name): dict[ingredient_name] += quantity
+	else: dict[ing.ing_name] = quantity
+	
+func remove_ingredient(ingredient_name: String, quantity: int = 1, reqDict := false) -> bool:
+	if dict.has(ingredient_name) and ingredients[ingredient_name] >= quantity:
+		dict[ingredient_name] -= quantity
+		return true
+	else:
+		return false
+
+func display_inventory() -> void:
+	for ingredient in ingredients.keys():
+		print("- ", ingredient.capitalize(), ":", ingredients[ingredient])
+
+func reset_inventory() -> void:
+	ingredients.clear()

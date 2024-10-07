@@ -17,5 +17,4 @@ func give_reward():
 	ingredient_gotten.emit()
 	if item_reward == null:
 		return null
-	item_reward.state = 0
 	return item_reward
