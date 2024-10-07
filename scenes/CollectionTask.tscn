@@ -9,7 +9,7 @@ anchors_preset = 0
 script = ExtResource("1_lw6f8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -26)
+position = Vector2(0, -22)
 texture = ExtResource("2_e0ay8")
 
 [node name="Timer" type="Timer" parent="."]

@@ -7,6 +7,7 @@
 [resource]
 script = ExtResource("1_obeqk")
 ing_name = "Veggie"
+prep_time = 5.0
 state = 1
 sprite_upd = ExtResource("3_f1nvd")
 sprite_prd = ExtResource("2_xelbi")
