@@ -3,6 +3,7 @@ extends Node2D
 class_name Level
 
 @export var next_level : PackedScene
+@export var music : Resource
 @export var goblin_names : Array[String] = ["Victor"]
 @export var recipe_manager : Recipe_Display
 var progress_bar : ProgressBarManager
@@ -23,6 +24,8 @@ var ing_needed = {}
 var ing_total = 0
 
 func _ready():
+	$AudioStreamPlayer.stream = music
+	$AudioStreamPlayer.play()
 	progress_bar = recipe_manager.progress_bars
 	birds.connect("gobs_changed", update_defense)
 	birds.connect("def_failed", bird_penalty)

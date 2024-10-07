@@ -1,9 +1,10 @@
-[gd_scene load_steps=37 format=3 uid="uid://bv05i1fh6wrbs"]
+[gd_scene load_steps=38 format=3 uid="uid://bv05i1fh6wrbs"]
 
 [ext_resource type="Script" path="res://scenes/game/test_level.gd" id="1_43tu8"]
 [ext_resource type="Script" path="res://scenes/tools/recipes/recipe.gd" id="2_m2j2c"]
 [ext_resource type="PackedScene" uid="uid://cer1ghlm4o53d" path="res://scenes/menu/victory_scene.tscn" id="2_ucwfh"]
 [ext_resource type="Resource" uid="uid://cv5m163x66a1o" path="res://scenes/tools/recipes/dessert_recipe.tres" id="3_efry7"]
+[ext_resource type="AudioStream" uid="uid://o1nkfsx0g6tp" path="res://assets/Music/Gobblin Goblins Kitchen Khaos 10-5-24.mp3" id="3_l5p08"]
 [ext_resource type="Texture2D" uid="uid://tum4qkjre8jo" path="res://assets/bg no sprite boundary.PNG" id="4_vdlyo"]
 [ext_resource type="PackedScene" uid="uid://bmq52iegph5xs" path="res://scenes/tools/goblin_nav_control.tscn" id="5_m1dqk"]
 [ext_resource type="PackedScene" uid="uid://d13no63s202hy" path="res://scenes/goal/goal.tscn" id="6_7o0j6"]
@@ -133,9 +134,10 @@ animations = [{
 "speed": 3.0
 }]
 
-[node name="TestLevel" type="Node2D" node_paths=PackedStringArray("recipe_manager", "cook", "birds")]
+[node name="Level4" type="Node2D" node_paths=PackedStringArray("recipe_manager", "cook", "birds")]
 script = ExtResource("1_43tu8")
 next_level = ExtResource("2_ucwfh")
+music = ExtResource("3_l5p08")
 goblin_names = Array[String](["Victor", "Ana"])
 recipe_manager = NodePath("CanvasLayer/ToDoListUI")
 cook = NodePath("Jobs/Cooking")
@@ -290,6 +292,8 @@ sprite_frames = SubResource("SpriteFrames_eg2l4")
 animation = &"stirring_normal"
 autoplay = "stirring_normal"
 frame_progress = 0.369441
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [connection signal="plating_complete" from="Jobs/Plating" to="." method="_on_plating_plating_complete"]
 

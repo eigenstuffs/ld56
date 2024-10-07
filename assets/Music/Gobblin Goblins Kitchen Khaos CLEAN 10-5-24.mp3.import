@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dtxddrvrpedy6"
+path="res://.godot/imported/Gobblin Goblins Kitchen Khaos CLEAN 10-5-24.mp3-24363d4c0fe026ea276215c211194f5e.mp3str"
+
+[deps]
+
+source_file="res://assets/Music/Gobblin Goblins Kitchen Khaos CLEAN 10-5-24.mp3"
+dest_files=["res://.godot/imported/Gobblin Goblins Kitchen Khaos CLEAN 10-5-24.mp3-24363d4c0fe026ea276215c211194f5e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

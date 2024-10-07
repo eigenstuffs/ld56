@@ -3,7 +3,6 @@ extends Node
 var first_launch : bool = true
 
 const DIALOGUE : PackedScene = preload("res://scenes/utilities/dialogue.tscn")
-
 signal done
 
 func dialogue(text : Array[String], bars : bool = true):
