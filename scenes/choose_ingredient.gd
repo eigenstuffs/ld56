@@ -23,13 +23,13 @@ func repick():
 		selection[i] = pick_from_left.pop_at(index)
 
 func _on_area_1_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	click_action(event, 1)
+	click_action(event, 0)
 
 func _on_area_2_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	click_action(event, 2)
+	click_action(event, 1)
 
 func _on_area_3_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	click_action(event, 3)
+	click_action(event, 2)
 
 func _on_area_4_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event.is_action_pressed("LMB"): repick()

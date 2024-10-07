@@ -1,24 +1,24 @@
-[gd_scene load_steps=35 format=3 uid="uid://tq42g3xnxngh"]
+[gd_scene load_steps=35 format=3 uid="uid://bo3chmn1jqbjk"]
 
-[ext_resource type="Script" path="res://scenes/game/test_level.gd" id="1_sw3k0"]
-[ext_resource type="PackedScene" uid="uid://bmq52iegph5xs" path="res://scenes/tools/goblin_nav_control.tscn" id="2_7etuc"]
-[ext_resource type="Script" path="res://scenes/tools/recipes/recipe.gd" id="2_wbmnp"]
-[ext_resource type="PackedScene" uid="uid://d13no63s202hy" path="res://scenes/goal/goal.tscn" id="3_tr6ll"]
-[ext_resource type="Texture2D" uid="uid://tum4qkjre8jo" path="res://assets/bg no sprite boundary.PNG" id="4_ahfmr"]
-[ext_resource type="PackedScene" uid="uid://bjv16f3io6fw3" path="res://scenes/enemy_event/bird_window.tscn" id="4_n28lg"]
-[ext_resource type="Script" path="res://scenes/game/camera_2d.gd" id="6_3amsy"]
-[ext_resource type="Script" path="res://scenes/utilities/jobs/getting.gd" id="6_q5p7q"]
-[ext_resource type="Resource" uid="uid://cyvura4urvq1v" path="res://scenes/tools/recipes/ingredients/egg.tres" id="8_oobhy"]
-[ext_resource type="PackedScene" uid="uid://teo71o0ubvgw" path="res://scenes/menu/ToDoListUI.tscn" id="9_0a727"]
-[ext_resource type="Script" path="res://scenes/utilities/jobs/prepping.gd" id="9_ltjqr"]
-[ext_resource type="Script" path="res://scenes/tools/recipes/ingredients/ingredient_info.gd" id="9_p4p1p"]
-[ext_resource type="Resource" uid="uid://c7dthmhxgd8m" path="res://scenes/tools/recipes/ingredients/veggie.tres" id="10_yun1q"]
-[ext_resource type="PackedScene" uid="uid://cnliugkwdvva7" path="res://scenes/ChooseIngredient.tscn" id="12_nacxf"]
-[ext_resource type="Script" path="res://scenes/utilities/jobs/cooking.gd" id="12_ypyma"]
-[ext_resource type="Resource" uid="uid://cnhywb24r0wdq" path="res://scenes/tools/recipes/breakfast_recipe.tres" id="13_8lfds"]
-[ext_resource type="Resource" uid="uid://dao308cgo2ler" path="res://scenes/tools/recipes/ingredients/spices.tres" id="13_agnl4"]
-[ext_resource type="Script" path="res://scenes/utilities/jobs/plating.gd" id="15_ywuxg"]
-[ext_resource type="Texture2D" uid="uid://dfuup846m3b8k" path="res://assets/chef_stir.png" id="19_ck786"]
+[ext_resource type="Script" path="res://scenes/game/test_level.gd" id="1_ei7ky"]
+[ext_resource type="Script" path="res://scenes/tools/recipes/recipe.gd" id="2_bfgc2"]
+[ext_resource type="Resource" uid="uid://cnhywb24r0wdq" path="res://scenes/tools/recipes/breakfast_recipe.tres" id="3_7utyq"]
+[ext_resource type="Texture2D" uid="uid://tum4qkjre8jo" path="res://assets/bg no sprite boundary.PNG" id="4_sngbm"]
+[ext_resource type="PackedScene" uid="uid://bmq52iegph5xs" path="res://scenes/tools/goblin_nav_control.tscn" id="5_qpmtk"]
+[ext_resource type="PackedScene" uid="uid://d13no63s202hy" path="res://scenes/goal/goal.tscn" id="6_i46jo"]
+[ext_resource type="Script" path="res://scenes/utilities/jobs/getting.gd" id="7_lnk6r"]
+[ext_resource type="Script" path="res://scenes/tools/recipes/ingredients/ingredient_info.gd" id="8_gn1j8"]
+[ext_resource type="Resource" uid="uid://dao308cgo2ler" path="res://scenes/tools/recipes/ingredients/spices.tres" id="9_lv046"]
+[ext_resource type="Resource" uid="uid://c7dthmhxgd8m" path="res://scenes/tools/recipes/ingredients/veggie.tres" id="10_bpman"]
+[ext_resource type="Resource" uid="uid://cyvura4urvq1v" path="res://scenes/tools/recipes/ingredients/egg.tres" id="11_820cl"]
+[ext_resource type="PackedScene" uid="uid://cnliugkwdvva7" path="res://scenes/ChooseIngredient.tscn" id="12_57cff"]
+[ext_resource type="Script" path="res://scenes/utilities/jobs/prepping.gd" id="13_cny6y"]
+[ext_resource type="Script" path="res://scenes/utilities/jobs/cooking.gd" id="14_pv37w"]
+[ext_resource type="Script" path="res://scenes/utilities/jobs/plating.gd" id="15_jhcmf"]
+[ext_resource type="Script" path="res://scenes/game/camera_2d.gd" id="16_5flcs"]
+[ext_resource type="PackedScene" uid="uid://teo71o0ubvgw" path="res://scenes/menu/ToDoListUI.tscn" id="17_8dbrf"]
+[ext_resource type="PackedScene" uid="uid://bjv16f3io6fw3" path="res://scenes/enemy_event/bird_window.tscn" id="18_a3ptf"]
+[ext_resource type="Texture2D" uid="uid://dfuup846m3b8k" path="res://assets/chef_stir.png" id="19_y1sl5"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_nq5ct"]
 vertices = PackedVector2Array(311.898, -65.5703, 269.281, -9.72656, 281.289, -57, 311.289, -81.9531, 197.547, 37.1562, 253.773, 22.5781, 253.141, 50, 142.453, 50, 202.758, 167.031, 197.859, 167.047, 198.359, 163.852, 202.211, 147.828, 176.789, 145.461, 162.648, 151.508, 51.2188, 166.141, 51.3672, 167.742, 5.47656, 167.953, 7.5625, 131.852, 37.9062, 145.633, 38.0781, 131.258, 166.594, 109.211, 150.07, 105.93, 152.594, 86.2188, 69, 106.898, 69, 66.8984, 124.68, 65.8281, 122.359, 38, 158.922, -7.04688, 60, -6.03125, 60, -29, 140, -29, 157.102, -22.3906, 60, 38, 60, 18, 145.781, 18, 164.031, 28.9531, 172.844, 20.7891, 155.656, -57, 140, -81.0391)
@@ -30,51 +30,51 @@ agent_radius = 8.0
 size = Vector2(32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fxei4"]
-atlas = ExtResource("19_ck786")
+atlas = ExtResource("19_y1sl5")
 region = Rect2(0, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_in3yn"]
-atlas = ExtResource("19_ck786")
+atlas = ExtResource("19_y1sl5")
 region = Rect2(48, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_quucc"]
-atlas = ExtResource("19_ck786")
+atlas = ExtResource("19_y1sl5")
 region = Rect2(96, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_acjsq"]
-atlas = ExtResource("19_ck786")
+atlas = ExtResource("19_y1sl5")
 region = Rect2(144, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r6epr"]
-atlas = ExtResource("19_ck786")
+atlas = ExtResource("19_y1sl5")
 region = Rect2(0, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yvf24"]
-atlas = ExtResource("19_ck786")
+atlas = ExtResource("19_y1sl5")
 region = Rect2(48, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wbdwx"]
-atlas = ExtResource("19_ck786")
+atlas = ExtResource("19_y1sl5")
 region = Rect2(96, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_by6to"]
-atlas = ExtResource("19_ck786")
+atlas = ExtResource("19_y1sl5")
 region = Rect2(144, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dgcx1"]
-atlas = ExtResource("19_ck786")
+atlas = ExtResource("19_y1sl5")
 region = Rect2(0, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_umaku"]
-atlas = ExtResource("19_ck786")
+atlas = ExtResource("19_y1sl5")
 region = Rect2(48, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sv7dq"]
-atlas = ExtResource("19_ck786")
+atlas = ExtResource("19_y1sl5")
 region = Rect2(96, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p7t15"]
-atlas = ExtResource("19_ck786")
+atlas = ExtResource("19_y1sl5")
 region = Rect2(144, 0, 48, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_eg2l4"]
@@ -132,12 +132,12 @@ animations = [{
 }]
 
 [node name="TestLevel" type="Node2D" node_paths=PackedStringArray("recipe_manager", "cook", "birds")]
-script = ExtResource("1_sw3k0")
+script = ExtResource("1_ei7ky")
 goblin_names = Array[String](["Victor", "Ana"])
 recipe_manager = NodePath("CanvasLayer/ToDoListUI")
 cook = NodePath("Jobs/Cooking")
 birds = NodePath("CanvasLayer/BirdWindow")
-recipe_list = Array[ExtResource("2_wbmnp")]([ExtResource("13_8lfds"), ExtResource("13_8lfds")])
+recipe_list = Array[ExtResource("2_bfgc2")]([ExtResource("3_7utyq"), ExtResource("3_7utyq")])
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -148,31 +148,31 @@ offset_right = 320.0
 offset_bottom = 182.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_ahfmr")
+texture = ExtResource("4_sngbm")
 
 [node name="GoblinSpawnPoint" type="Node2D" parent="."]
 position = Vector2(69, 156)
 
-[node name="NavControl" parent="." node_paths=PackedStringArray("goal_array") instance=ExtResource("2_7etuc")]
+[node name="NavControl" parent="." node_paths=PackedStringArray("goal_array") instance=ExtResource("5_qpmtk")]
 goal_array = [NodePath("../CanvasLayer/BirdWindow")]
 
-[node name="Goal" parent="NavControl/GoalFolder" index="0" instance=ExtResource("3_tr6ll")]
+[node name="Goal" parent="NavControl/GoalFolder" index="0" instance=ExtResource("6_i46jo")]
 position = Vector2(210, 174)
 
-[node name="Hole2Window" parent="NavControl/GoalFolder" index="1" instance=ExtResource("3_tr6ll")]
+[node name="Hole2Window" parent="NavControl/GoalFolder" index="1" instance=ExtResource("6_i46jo")]
 position = Vector2(210, -82)
 
-[node name="Goal2" parent="NavControl/GoalFolder" index="2" instance=ExtResource("3_tr6ll")]
+[node name="Goal2" parent="NavControl/GoalFolder" index="2" instance=ExtResource("6_i46jo")]
 position = Vector2(37, 153)
 
-[node name="Goal3" parent="NavControl/GoalFolder" index="3" instance=ExtResource("3_tr6ll")]
+[node name="Goal3" parent="NavControl/GoalFolder" index="3" instance=ExtResource("6_i46jo")]
 position = Vector2(96, 92)
 
-[node name="Goal5" parent="NavControl/GoalFolder" index="4" instance=ExtResource("3_tr6ll")]
+[node name="Goal5" parent="NavControl/GoalFolder" index="4" instance=ExtResource("6_i46jo")]
 position = Vector2(92, -12)
 scale = Vector2(1, 0.48)
 
-[node name="Goal7" parent="NavControl/GoalFolder" index="5" instance=ExtResource("3_tr6ll")]
+[node name="Goal7" parent="NavControl/GoalFolder" index="5" instance=ExtResource("6_i46jo")]
 position = Vector2(214, 39)
 scale = Vector2(1, 0.600001)
 
@@ -211,38 +211,38 @@ affect_navigation_mesh = true
 
 [node name="Getting" type="Area2D" parent="Jobs"]
 position = Vector2(88, -24)
-script = ExtResource("6_q5p7q")
-ingredient_box = Array[ExtResource("9_p4p1p")]([ExtResource("13_agnl4"), ExtResource("10_yun1q"), ExtResource("8_oobhy")])
+script = ExtResource("7_lnk6r")
+ingredient_box = Array[ExtResource("8_gn1j8")]([ExtResource("9_lv046"), ExtResource("10_bpman"), ExtResource("11_820cl")])
 time = 5
-qte = ExtResource("12_nacxf")
+qte = ExtResource("12_57cff")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Jobs/Getting"]
 shape = SubResource("RectangleShape2D_nr38a")
 
 [node name="Prepping" type="Area2D" parent="Jobs"]
 position = Vector2(210, 34)
-script = ExtResource("9_ltjqr")
+script = ExtResource("13_cny6y")
 time = 3
-items_needed = [ExtResource("8_oobhy"), ExtResource("10_yun1q"), null]
+items_needed = [ExtResource("11_820cl"), ExtResource("10_bpman"), null]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Jobs/Prepping"]
 shape = SubResource("RectangleShape2D_nr38a")
 
 [node name="Cooking" type="Area2D" parent="Jobs"]
 position = Vector2(205, 170)
-script = ExtResource("12_ypyma")
-ingredient_gathered = [ExtResource("8_oobhy"), ExtResource("10_yun1q"), ExtResource("13_agnl4")]
-items_needed = [ExtResource("8_oobhy"), ExtResource("10_yun1q"), ExtResource("13_agnl4")]
-item_reward = ExtResource("13_8lfds")
+script = ExtResource("14_pv37w")
+ingredient_gathered = [ExtResource("11_820cl"), ExtResource("10_bpman"), ExtResource("9_lv046")]
+items_needed = [ExtResource("11_820cl"), ExtResource("10_bpman"), ExtResource("9_lv046")]
+item_reward = ExtResource("3_7utyq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Jobs/Cooking"]
 shape = SubResource("RectangleShape2D_nr38a")
 
 [node name="Plating" type="Area2D" parent="Jobs"]
 position = Vector2(96, 80)
-script = ExtResource("15_ywuxg")
+script = ExtResource("15_jhcmf")
 time = 1
-items_needed = [ExtResource("13_8lfds")]
+items_needed = [ExtResource("3_7utyq")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Jobs/Plating"]
 shape = SubResource("RectangleShape2D_nr38a")
@@ -250,7 +250,7 @@ shape = SubResource("RectangleShape2D_nr38a")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(160, 88)
 limit_smoothed = true
-script = ExtResource("6_3amsy")
+script = ExtResource("16_5flcs")
 move_speed = 2
 
 [node name="TopLeft" type="Node2D" parent="Camera2D"]
@@ -261,7 +261,7 @@ position = Vector2(160, 182)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="ToDoListUI" parent="CanvasLayer" instance=ExtResource("9_0a727")]
+[node name="ToDoListUI" parent="CanvasLayer" instance=ExtResource("17_8dbrf")]
 metadata/_edit_lock_ = true
 
 [node name="ProgressBar" parent="CanvasLayer/ToDoListUI/Progress Bars" index="0"]
@@ -276,7 +276,7 @@ offset_bottom = 54.0
 offset_top = 66.0
 offset_bottom = 78.0
 
-[node name="BirdWindow" parent="CanvasLayer" node_paths=PackedStringArray("garrison_point") instance=ExtResource("4_n28lg")]
+[node name="BirdWindow" parent="CanvasLayer" node_paths=PackedStringArray("garrison_point") instance=ExtResource("18_a3ptf")]
 position = Vector2(290, 57)
 scale = Vector2(0.3, 0.3)
 garrison_point = NodePath("../../NavControl/GoalFolder/Hole2Window")

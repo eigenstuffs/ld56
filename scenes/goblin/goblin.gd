@@ -85,7 +85,8 @@ func _on_goblin_hitbox_input_event(viewport, event, shape_idx):
 		if has_node("JobProgress"):
 			get_node("JobProgress").queue_free()
 		clicked = !clicked
-		change_state("AwaitingInput" if clicked else "Idle")
+		change_state("AwaitingInput")
+		#change_state("AwaitingInput" if clicked else "Idle")
 		if clicked: emit_signal("listening_for_target")
 
 func hold_item(stuff):

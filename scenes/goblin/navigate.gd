@@ -7,6 +7,9 @@ func run():
 		goblin.sprite.play("walking")
 	else: goblin.sprite.play("walking_item")
 
+func stop():
+	enable_process = false
+	
 func init():
 	enable_process = true
 	if goblin.item_holding == null:
@@ -14,13 +17,14 @@ func init():
 	else: goblin.sprite.play("walking_item")
 
 func _process(delta):
-	if goblin.nav_agent.is_navigation_finished():
-		goblin.change_state("Idle")
-		return
+	if enable_process:
+		if goblin.nav_agent.is_navigation_finished():
+			goblin.change_state("Idle")
+			return
 
-	var current_agent_position: Vector2 = goblin.global_position
-	var next_path_position: Vector2 = goblin.nav_agent.get_next_path_position()
+		var current_agent_position: Vector2 = goblin.global_position
+		var next_path_position: Vector2 = goblin.nav_agent.get_next_path_position()
 
-	goblin.velocity = current_agent_position.direction_to(next_path_position) * goblin.movement_speed
-	goblin.sprite.scale.x = 1 if goblin.velocity.x > 0 else -1
-	goblin.move_and_slide()
+		goblin.velocity = current_agent_position.direction_to(next_path_position) * goblin.movement_speed
+		goblin.sprite.scale.x = 1 if goblin.velocity.x > 0 else -1
+		goblin.move_and_slide()
