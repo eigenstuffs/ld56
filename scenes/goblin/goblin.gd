@@ -14,7 +14,7 @@ enum STATE {
 }
 
 signal listening_for_target
-signal state_changed(state : int, prev_state : int)
+signal state_changed(state : int, prev_state : int, item_holding)
 signal update_progress(stuff)
 
 @onready var ingredient : Recipe = preload("res://scenes/tools/recipes/all_ingredients.tres")
@@ -63,14 +63,14 @@ func change_state(to : String):
 			target_state = STATE.EATEN
 		"Explode":
 			target_state = STATE.EXPLODE
-	emit_signal("state_changed", target_state, state)
+	emit_signal("state_changed", target_state, state, item_holding)
 	state = target_state
 	find_child(to).init()
 	current_state_child = find_child(to)
 
 func set_movement_target(movement_target : Goal):
 	curr_target = movement_target
-	nav_agent.target_position = movement_target.anchor.global_position
+	nav_agent.target_position = movement_target.target_node.global_position
 	if nav_agent.is_navigation_finished():
 		movement_target._on_area_entered($Goblin_hitbox)
 	else:
