@@ -10,8 +10,9 @@ var ing_gathered := {}
 signal ing_recieved(ing)
 @export var collectTask : PackedScene
 
-func prejob(gob : GoblinBase):
+func pre_job(gob : GoblinBase):
 	ingredient_gathered.append(gob.item_holding.ing_name)
+	emit_signal("ing_recieved", gob.item_holding)
 	gob.remove_item()
 	var count : int = 0
 	for item in items_needed:
@@ -23,7 +24,7 @@ func prejob(gob : GoblinBase):
 	else: time = drop_time
 	finish_pre_job()
 	
-func postjob(gob : GoblinBase):
+func post_job(gob : GoblinBase):
 	if(product != null):
 		var task : CollectionTask = collectTask.instantiate()
 		task.goblin = gob
