@@ -1,0 +1,119 @@
+[gd_scene load_steps=9 format=3 uid="uid://d3xtsa876tos4"]
+
+[ext_resource type="PackedScene" uid="uid://cyjq7ibl4808r" path="res://scenes/goblin/goblin_anim.tscn" id="2_0hxr1"]
+[ext_resource type="Script" path="res://scenes/game/test_goblin.gd" id="2_r80gu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lq8jd"]
+size = Vector2(44, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7i3da"]
+size = Vector2(42, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_83e8g"]
+size = Vector2(50, 82)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3dq22"]
+size = Vector2(50, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iiygc"]
+size = Vector2(80, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q4fgt"]
+
+[node name="NewNav" type="Node2D"]
+position = Vector2(80, 160)
+
+[node name="Points" type="Node2D" parent="."]
+
+[node name="ladder1" type="Node2D" parent="Points"]
+position = Vector2(64, -229)
+
+[node name="ladder2" type="Node2D" parent="Points"]
+position = Vector2(63, -178)
+
+[node name="ladder7" type="Node2D" parent="Points"]
+position = Vector2(64, -168)
+
+[node name="ladder3" type="Node2D" parent="Points"]
+position = Vector2(104, -123)
+
+[node name="ladder8" type="Node2D" parent="Points"]
+position = Vector2(104, -117)
+
+[node name="ladder4" type="Node2D" parent="Points"]
+position = Vector2(52, -113)
+
+[node name="ladder5" type="Node2D" parent="Points"]
+position = Vector2(52, -62)
+
+[node name="ladder9" type="Node2D" parent="Points"]
+position = Vector2(52, -67)
+
+[node name="ladder6" type="Node2D" parent="Points"]
+position = Vector2(96, -6)
+
+[node name="ladder10" type="Node2D" parent="Points"]
+position = Vector2(87, -9)
+
+[node name="Fridge" type="Area2D" parent="Points"]
+position = Vector2(16, -176)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Fridge"]
+position = Vector2(-6, -16)
+shape = SubResource("RectangleShape2D_lq8jd")
+
+[node name="Bird" type="Area2D" parent="Points"]
+position = Vector2(128, -232)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Bird"]
+shape = SubResource("RectangleShape2D_7i3da")
+
+[node name="Prep" type="Area2D" parent="Points"]
+position = Vector2(136, -120)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Prep"]
+position = Vector2(0, -24)
+shape = SubResource("RectangleShape2D_83e8g")
+
+[node name="Plate" type="Area2D" parent="Points"]
+position = Vector2(16, -64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Plate"]
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_3dq22")
+
+[node name="Cook" type="Area2D" parent="Points"]
+position = Vector2(104, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Cook"]
+position = Vector2(32, 0)
+shape = SubResource("RectangleShape2D_iiygc")
+
+[node name="Standby" type="Area2D" parent="Points"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Standby"]
+position = Vector2(16, -8)
+shape = SubResource("RectangleShape2D_iiygc")
+
+[node name="Goblin" type="Area2D" parent="." node_paths=PackedStringArray("points", "fridge_area", "bird_area", "prep_area", "plate_area", "cook_area", "standby_area")]
+script = ExtResource("2_r80gu")
+points = NodePath("../Points")
+fridge_area = NodePath("../Points/Fridge")
+bird_area = NodePath("../Points/Bird")
+prep_area = NodePath("../Points/Prep")
+plate_area = NodePath("../Points/Plate")
+cook_area = NodePath("../Points/Cook")
+standby_area = NodePath("../Points/Standby")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goblin"]
+shape = SubResource("RectangleShape2D_q4fgt")
+
+[node name="AnimatedSprite2D" parent="Goblin" instance=ExtResource("2_0hxr1")]
+
+[connection signal="input_event" from="Points/Fridge" to="Goblin" method="_on_fridge_input_event"]
+[connection signal="input_event" from="Points/Bird" to="Goblin" method="_on_bird_input_event"]
+[connection signal="input_event" from="Points/Prep" to="Goblin" method="_on_prep_input_event"]
+[connection signal="input_event" from="Points/Plate" to="Goblin" method="_on_plate_input_event"]
+[connection signal="input_event" from="Points/Cook" to="Goblin" method="_on_cook_input_event"]
+[connection signal="input_event" from="Points/Standby" to="Goblin" method="_on_standby_input_event"]
+[connection signal="input_event" from="Goblin" to="Goblin" method="_on_input_event"]
