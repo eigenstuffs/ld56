@@ -10,6 +10,7 @@ signal entered(goblin)
 var clicked : bool = false
 var occupied : bool = false
 @onready var target_node : Node2D = self
+@onready var anchor = $Anchor
 
 func _on_input_event(viewport, event, shape_idx):
 	if event.is_action_pressed("LMB"):

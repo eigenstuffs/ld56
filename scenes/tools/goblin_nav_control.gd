@@ -32,12 +32,10 @@ func _process(delta):
 				if goblin.clicked:
 					target_goblins.append(goblin)
 					goblin.clicked = false
-					print(goblin.name + " is gonna move") #TODO remove this
 		for goal : Goal in goal_array:
 			if goal.clicked:
 				target_goal = goal.target_node
 				goal.clicked = false
-				print("goal is " + target_goal.name) #TODO remove this
 		for goblin : GoblinBase in target_goblins:
 			goblin.set_movement_target(target_goal)
 		goal_found = false
