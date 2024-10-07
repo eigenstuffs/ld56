@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://tq42g3xnxngh"]
+[gd_scene load_steps=35 format=3 uid="uid://tq42g3xnxngh"]
 
 [ext_resource type="Script" path="res://scenes/game/test_level.gd" id="1_sw3k0"]
 [ext_resource type="PackedScene" uid="uid://bmq52iegph5xs" path="res://scenes/tools/goblin_nav_control.tscn" id="2_7etuc"]
@@ -18,6 +18,7 @@
 [ext_resource type="Resource" uid="uid://cnhywb24r0wdq" path="res://scenes/tools/recipes/breakfast_recipe.tres" id="13_8lfds"]
 [ext_resource type="Resource" uid="uid://dao308cgo2ler" path="res://scenes/tools/recipes/ingredients/spices.tres" id="13_agnl4"]
 [ext_resource type="Script" path="res://scenes/utilities/jobs/plating.gd" id="15_ywuxg"]
+[ext_resource type="Texture2D" uid="uid://dfuup846m3b8k" path="res://assets/chef_stir.png" id="19_ck786"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_nq5ct"]
 vertices = PackedVector2Array(146.289, 96.8281, 144.328, 98.2188, 143.711, 97.1172, 51.1484, 155.93, 52.3594, 168, 5.47656, 168, 7.5625, 131.852, 194.672, 157.047, 60, 130.852, 151.313, 139.32, 60, 119.953, 60.75, 120, 311.289, -81.9531, 311.703, -71, 162.359, -71, 140, -81.0391, 140, -29, 160.93, -39.6094, 156.383, -15.0234, 166.453, 23.0625, 185.617, 21, 253.813, 21, 253.367, 40, 139.391, 40, 122.359, 38, 60, -14.0078, 60, -29, 163.023, -22.6016, 176.578, 16.1406, 60, 38, 60, 10, 151.203, 10, 69, 95.2031, 69, 66.8984, 124.68, 65.8281, 152.797, 86.9063, 130.703, 120, 161.992, 131.703, 182.508, 121.031, 197.992, 125.508, 200.742, 141.203)
@@ -27,6 +28,108 @@ agent_radius = 8.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nr38a"]
 size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fxei4"]
+atlas = ExtResource("19_ck786")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_in3yn"]
+atlas = ExtResource("19_ck786")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_quucc"]
+atlas = ExtResource("19_ck786")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_acjsq"]
+atlas = ExtResource("19_ck786")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r6epr"]
+atlas = ExtResource("19_ck786")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvf24"]
+atlas = ExtResource("19_ck786")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbdwx"]
+atlas = ExtResource("19_ck786")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_by6to"]
+atlas = ExtResource("19_ck786")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dgcx1"]
+atlas = ExtResource("19_ck786")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umaku"]
+atlas = ExtResource("19_ck786")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sv7dq"]
+atlas = ExtResource("19_ck786")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7t15"]
+atlas = ExtResource("19_ck786")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eg2l4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fxei4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_in3yn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_quucc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_acjsq")
+}],
+"loop": true,
+"name": &"stirring_fast",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r6epr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yvf24")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wbdwx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_by6to")
+}],
+"loop": true,
+"name": &"stirring_normal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dgcx1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_umaku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sv7dq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7t15")
+}],
+"loop": true,
+"name": &"stirring_slower",
+"speed": 3.0
+}]
 
 [node name="TestLevel" type="Node2D" node_paths=PackedStringArray("progress_bar", "cook")]
 script = ExtResource("1_sw3k0")
@@ -161,10 +264,29 @@ position = Vector2(160, 182)
 
 [node name="ToDoListUI" parent="CanvasLayer" instance=ExtResource("9_0a727")]
 
+[node name="ProgressBar" parent="CanvasLayer/ToDoListUI/Progress Bars" index="0"]
+offset_top = 18.0
+offset_bottom = 30.0
+
+[node name="ProgressBar2" parent="CanvasLayer/ToDoListUI/Progress Bars" index="1"]
+offset_top = 42.0
+offset_bottom = 54.0
+
+[node name="ProgressBar4" parent="CanvasLayer/ToDoListUI/Progress Bars" index="2"]
+offset_top = 66.0
+offset_bottom = 78.0
+
 [node name="BirdWindow" parent="CanvasLayer" node_paths=PackedStringArray("garrison_point") instance=ExtResource("4_n28lg")]
 position = Vector2(290, 57)
 scale = Vector2(0.3, 0.3)
 garrison_point = NodePath("../../NavControl/GoalFolder/Hole2Window")
+
+[node name="Chef" type="AnimatedSprite2D" parent="."]
+position = Vector2(215, 126)
+sprite_frames = SubResource("SpriteFrames_eg2l4")
+animation = &"stirring_normal"
+autoplay = "stirring_normal"
+frame_progress = 0.369441
 
 [connection signal="plating_complete" from="Jobs/Plating" to="." method="_on_plating_plating_complete"]
 

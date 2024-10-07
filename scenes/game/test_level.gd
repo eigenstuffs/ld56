@@ -2,7 +2,7 @@ extends Node2D
 
 class_name Level
 
-@export var next_level : Level
+@export var next_level : Level #to be added
 @export var n_goblins : int = 1
 @export var progress_bar : ProgressBarManager
 @export var cook : CookingJob
@@ -11,6 +11,8 @@ var recipe_index := 0
 @onready var nav_control : Nav_Control= $NavControl
 @onready var goblin = preload("res://scenes/goblin/goblin.tscn")
 @onready var score_screen = preload("res://scenes/utilities/score_screen.tscn")
+@onready var chef_sprite = $Chef
+
 var paused := false
 var time = 0
 var ing_gathered = {}
