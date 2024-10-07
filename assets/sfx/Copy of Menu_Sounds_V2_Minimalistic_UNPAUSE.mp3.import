@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://gm3w1ikwxbj0"
+path="res://.godot/imported/Copy of Menu_Sounds_V2_Minimalistic_UNPAUSE.mp3-875e8e004c1c0a6f060b8f07d01f9e44.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/Copy of Menu_Sounds_V2_Minimalistic_UNPAUSE.mp3"
+dest_files=["res://.godot/imported/Copy of Menu_Sounds_V2_Minimalistic_UNPAUSE.mp3-875e8e004c1c0a6f060b8f07d01f9e44.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

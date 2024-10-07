@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://brlue7cl11i5t"
+path="res://.godot/imported/Copy of Menu_Sounds_V2_Minimalistic_LOAD_SAVEFILE.mp3-9d4296b2361a82f05dfef3d53027544a.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/Copy of Menu_Sounds_V2_Minimalistic_LOAD_SAVEFILE.mp3"
+dest_files=["res://.godot/imported/Copy of Menu_Sounds_V2_Minimalistic_LOAD_SAVEFILE.mp3-9d4296b2361a82f05dfef3d53027544a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

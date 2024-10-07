@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://4epbqybefaie"]
+[gd_scene load_steps=6 format=3 uid="uid://4epbqybefaie"]
 
 [ext_resource type="Script" path="res://scenes/utilities/score_screen.gd" id="1_85jog"]
 [ext_resource type="Texture2D" uid="uid://cpamkbmu8adu0" path="res://assets/score_screen/1star.png" id="2_014l4"]
 [ext_resource type="Texture2D" uid="uid://buleoug1m7fie" path="res://assets/score_screen/nestled button.PNG" id="3_1k4go"]
 [ext_resource type="Texture2D" uid="uid://b3ehwktnsbtlh" path="res://assets/score_screen/Replay button.PNG" id="4_n42yb"]
+[ext_resource type="AudioStream" uid="uid://c1e7gtjn8535t" path="res://assets/sfx/Party Horn.mp3" id="5_470qw"]
 
 [node name="ScoreScreen" type="Control"]
 layout_mode = 3
@@ -70,6 +71,9 @@ grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("4_n42yb")
 stretch_mode = 0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_470qw")
 
 [connection signal="pressed" from="CanvasLayer/Confirm" to="." method="_on_confirm_pressed"]
 [connection signal="pressed" from="CanvasLayer/Replay" to="." method="_on_replay_pressed"]

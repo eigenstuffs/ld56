@@ -79,6 +79,8 @@ texture_hover = ExtResource("7_2r0ra")
 stream = ExtResource("9_7xg3t")
 autoplay = true
 
+[node name="sfx" type="AudioStreamPlayer" parent="."]
+
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Options" to="." method="_on_credits_pressed"]

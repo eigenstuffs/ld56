@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cer1ghlm4o53d"]
+[gd_scene load_steps=3 format=3 uid="uid://cer1ghlm4o53d"]
 
 [ext_resource type="Texture2D" uid="uid://bcdvxqqfv3dqv" path="res://assets/win.PNG" id="1_mgwgo"]
+[ext_resource type="AudioStream" uid="uid://c1e7gtjn8535t" path="res://assets/sfx/Party Horn.mp3" id="2_qh4ke"]
 
 [node name="VictoryScene" type="Control"]
 layout_mode = 3
@@ -18,3 +19,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_mgwgo")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_qh4ke")
+autoplay = true

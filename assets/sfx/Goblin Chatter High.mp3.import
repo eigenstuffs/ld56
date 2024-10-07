@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://brn0j2ilv76nw"
+path="res://.godot/imported/Goblin Chatter High.mp3-e71d03d56a052ec115a19f6aa9500d4e.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/Goblin Chatter High.mp3"
+dest_files=["res://.godot/imported/Goblin Chatter High.mp3-e71d03d56a052ec115a19f6aa9500d4e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

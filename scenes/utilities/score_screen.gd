@@ -19,7 +19,10 @@ func init(number):
 	n_star = number
 	for n in range(n_star):
 		$CanvasLayer/TextureRect.texture = textures[n]
-		await get_tree().create_timer(0.8).timeout
+		$AudioStreamPlayer.pitch_scale += n*0.25
+		$AudioStreamPlayer.play()
+		await $AudioStreamPlayer.finished
+		#await get_tree().create_timer(0.8).timeout
 
 func _on_confirm_pressed():
 	confirmed.emit()
@@ -28,3 +31,6 @@ func _on_confirm_pressed():
 func _on_replay_pressed():
 	replay.emit()
 	print("replay")
+
+func _ready():
+	init(3)

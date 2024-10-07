@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b0uyd77orw8ta"
+path="res://.godot/imported/Goblin Dies in Fire SFX.mp3-5e522518483820fb06342caf2984b21f.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/Goblin Dies in Fire SFX.mp3"
+dest_files=["res://.godot/imported/Goblin Dies in Fire SFX.mp3-5e522518483820fb06342caf2984b21f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

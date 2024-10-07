@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://berv2r73otepu"
+path="res://.godot/imported/Copy of Menu_Sounds_V2_Minimalistic_ERROR.mp3-06162e7430e83f0e6665cde8927a501a.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/Copy of Menu_Sounds_V2_Minimalistic_ERROR.mp3"
+dest_files=["res://.godot/imported/Copy of Menu_Sounds_V2_Minimalistic_ERROR.mp3-06162e7430e83f0e6665cde8927a501a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
