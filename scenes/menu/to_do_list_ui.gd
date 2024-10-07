@@ -24,7 +24,7 @@ var ingredient_sprites = {
 }
 
 func _ready():
-	recipes = [soup_recipe, curry_recipe, dessert_recipe]
+	recipes = [breakfast_recipe, soup_recipe, curry_recipe, dessert_recipe]
 	show_recipe(current_recipe_index)
 
 func show_recipe(index):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://teo71o0ubvgw"]
+[gd_scene load_steps=22 format=4 uid="uid://teo71o0ubvgw"]
 
 [ext_resource type="Script" path="res://scenes/menu/to_do_list_ui.gd" id="1_fl081"]
 [ext_resource type="Texture2D" uid="uid://dicl0oxoa507v" path="res://assets/UIBorder/1pastalight.png" id="2_dusom"]
@@ -1305,6 +1305,90 @@ ProgressBar/fonts/font = SubResource("FontFile_prvgy")
 ProgressBar/styles/background = SubResource("StyleBoxFlat_cuu1c")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_nmxkb")
 
+[sub_resource type="ImageTexture" id="ImageTexture_pfqam"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_laxqq"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.639216, 0.631373, 0.305882, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ai3lr"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oc660"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.75, 0.75, 0.75, 0.75)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cyedd"]
+content_margin_left = 4.0
+content_margin_top = 0.0
+content_margin_right = 4.0
+content_margin_bottom = 0.0
+bg_color = Color(0.294118, 0.411765, 0.184314, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uuxx4"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="Theme" id="Theme_vyvpx"]
+VScrollBar/icons/decrement = SubResource("ImageTexture_pfqam")
+VScrollBar/icons/decrement_highlight = SubResource("ImageTexture_pfqam")
+VScrollBar/icons/decrement_pressed = SubResource("ImageTexture_pfqam")
+VScrollBar/icons/increment = SubResource("ImageTexture_pfqam")
+VScrollBar/icons/increment_highlight = SubResource("ImageTexture_pfqam")
+VScrollBar/icons/increment_pressed = SubResource("ImageTexture_pfqam")
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_laxqq")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_ai3lr")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_oc660")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_cyedd")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_uuxx4")
+
 [node name="ToDoListUI" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -1534,6 +1618,7 @@ offset_left = 9.0
 offset_top = 3.0
 offset_right = 53.0
 offset_bottom = 84.0
+theme = SubResource("Theme_vyvpx")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Recipe/ScrollContainer"]
 layout_mode = 2
