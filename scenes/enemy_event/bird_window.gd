@@ -43,7 +43,7 @@ func _ready() -> void:
 		else:
 			clear_gobs(false)
 			#TODO switch animation player to birds running away
-		
+
 func clear_gobs(killed : bool):
 	abort_button.disabled = true
 	while len(goblins)>0:
@@ -65,7 +65,8 @@ func _on_abort_button_pressed() -> void:
 	abort_button.text = "Flee"
 
 func add_gob(goblin : GoblinBase):
-	abort_button.disabled = len(goblins) > 0 && abort_button.disabled
-	goblins.append(goblin)
-	goblin.visible = false
-	emit_signal("gobs_changed")
+	if goblin.curr_target == garrison_point:
+		abort_button.disabled = len(goblins) > 0 && abort_button.disabled
+		goblins.append(goblin)
+		goblin.visible = false
+		emit_signal("gobs_changed")

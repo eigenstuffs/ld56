@@ -6,7 +6,7 @@
 [ext_resource type="Resource" uid="uid://cv5m163x66a1o" path="res://scenes/tools/recipes/dessert_recipe.tres" id="3_efry7"]
 [ext_resource type="AudioStream" uid="uid://o1nkfsx0g6tp" path="res://assets/Music/Gobblin Goblins Kitchen Khaos 10-5-24.mp3" id="3_l5p08"]
 [ext_resource type="Texture2D" uid="uid://tum4qkjre8jo" path="res://assets/bg no sprite boundary.PNG" id="4_vdlyo"]
-[ext_resource type="PackedScene" uid="uid://bmq52iegph5xs" path="res://scenes/tools/goblin_nav_control.tscn" id="5_m1dqk"]
+[ext_resource type="PackedScene" uid="uid://bcwuxxve07v7g" path="res://scenes/tools/goblin_nav_control.tscn" id="5_m1dqk"]
 [ext_resource type="PackedScene" uid="uid://d13no63s202hy" path="res://scenes/goal/goal.tscn" id="6_7o0j6"]
 [ext_resource type="Resource" uid="uid://d2w7w7y125h3k" path="res://scenes/tools/recipes/all_ingredients.tres" id="6_f4qft"]
 [ext_resource type="Script" path="res://scenes/utilities/jobs/getting.gd" id="7_usax2"]

@@ -5,13 +5,18 @@
 [ext_resource type="Resource" uid="uid://bmkk420mxdsfw" path="res://scenes/tools/recipes/ingredients/meat.tres" id="2_7j614"]
 [ext_resource type="Resource" uid="uid://dokfg58iwq26p" path="res://scenes/tools/recipes/ingredients/flour.tres" id="3_1bmw4"]
 [ext_resource type="Resource" uid="uid://c7dthmhxgd8m" path="res://scenes/tools/recipes/ingredients/veggie.tres" id="4_th63c"]
-[ext_resource type="Resource" uid="uid://cyvura4urvq1v" path="res://scenes/tools/recipes/ingredients/egg.tres" id="5_fd7o6"]
 [ext_resource type="Script" path="res://scenes/tools/recipes/recipe.gd" id="5_g4kr4"]
+
+[sub_resource type="Resource" id="Resource_oj7w0"]
+script = ExtResource("1_aygtu")
+ing_name = "Egg"
+prep_time = 5.0
+state = null
 
 [resource]
 script = ExtResource("5_g4kr4")
 dish_name = "Chicken Noodle Soup"
 recipe_img = ExtResource("1_jfec5")
-required_ing = Array[ExtResource("1_aygtu")]([ExtResource("2_7j614"), ExtResource("3_1bmw4"), ExtResource("5_fd7o6"), ExtResource("4_th63c")])
+required_ing = Array[ExtResource("1_aygtu")]([ExtResource("2_7j614"), ExtResource("3_1bmw4"), SubResource("Resource_oj7w0"), ExtResource("4_th63c")])
 required_amount = Array[int]([2, 1, 1, 1])
 current_amount = Array[int]([0, 0, 0, 0])

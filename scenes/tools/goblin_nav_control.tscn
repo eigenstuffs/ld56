@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bmq52iegph5xs"]
+[gd_scene load_steps=3 format=3 uid="uid://bcwuxxve07v7g"]
 
 [ext_resource type="Script" path="res://scenes/tools/goblin_nav_control.gd" id="1_xsfgd"]
 

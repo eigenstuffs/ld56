@@ -34,7 +34,7 @@ func _process(delta):
 		for goal : Goal in goal_array:
 			if goal.clicked:
 				target_goal = goal.target_node
-				goal.clicked = false
+				goal.clicked = true
 		for goblin : GoblinBase in target_goblins:
 			goblin.set_movement_target(target_goal)
 		goal_found = false
@@ -44,7 +44,7 @@ func _on_goblin_listening_for_target():
 	agent_found = true
 
 func _on_goal_listening_for_agent():
-	goal_found = agent_found
+	goal_found = agent_found	
 
 func _on_map_clickable_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event.is_action_pressed("LMB"):
@@ -60,4 +60,3 @@ func _on_map_clickable_input_event(viewport: Node, event: InputEvent, shape_idx:
 		obj.target_node = obj
 		for goblin : GoblinBase in target_goblins:
 			goblin.set_movement_target(obj)
-		
