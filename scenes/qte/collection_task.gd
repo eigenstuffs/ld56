@@ -7,7 +7,6 @@ var result
 signal done
 	
 func _ready() -> void:
-	goblin.change_state("Idle")
 	goblin.connect("clicked_on", end_timer)
 	$Timer.start(5)
 	goblin.sprite.play("await_input")

@@ -28,7 +28,6 @@ func generate_combination(len : int):
 			4:
 				input = "right"
 		combination.append(input)
-	print(combination)
 	create_icons()
 
 func create_icons():
@@ -79,4 +78,3 @@ func lose_minigame():
 
 func _on_timer_timeout():
 	lose_minigame()
-	print("timeout")

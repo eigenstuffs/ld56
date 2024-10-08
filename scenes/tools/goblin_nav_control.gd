@@ -18,7 +18,6 @@ func init():
 		goblin.connect("listening_for_target", _on_goblin_listening_for_target)
 	for goal : Goal in goal_folder.get_children():
 		goal_array.append(goal)
-		print(goal)
 	for goal : Goal in goal_array:
 		goal.connect("listening_for_agent", _on_goal_listening_for_agent)
 	
@@ -52,7 +51,7 @@ func _on_map_clickable_input_event(viewport: Node, event: InputEvent, shape_idx:
 		var target_goblins : Array[GoblinBase]
 		for goblin : GoblinBase in goblin_array:
 			if goblin != null:
-				if goblin.clicked:
+				if goblin.clicked and goblin.state == GoblinBase.STATE.AWAITING_INPUT:
 					target_goblins.append(goblin)
 					goblin.clicked = false
 		var obj : Goal = Goal.new()

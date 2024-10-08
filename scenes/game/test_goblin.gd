@@ -52,7 +52,6 @@ func go():
 		for i in path:
 			move_to_point(global_position, i.global_position)
 			await done_moving
-		print(path)
 		var a = create_tween()
 		a.tween_property(self, "global_position",
 		self.global_position + Vector2(randi_range(-25, 25), randi_range(-3, 3)), 0.2)
@@ -131,5 +130,4 @@ func _on_standby_input_event(viewport, event, shape_idx):
 
 func _on_input_event(viewport, event, shape_idx):
 	if event.is_action_pressed("LMB"):
-		print("goblin pressed")
 		set_deferred("starting_area", self)

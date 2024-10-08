@@ -8,11 +8,15 @@ var selected : IngredientInfo
 @export var pick_from : Array[IngredientInfo]
 var pick_from_left : Array[IngredientInfo]
 var result
+var goblin : GoblinBase
 signal done
 
 func _ready() -> void:
 	selected = null
 	repick()
+
+func _process(delta: float) -> void:
+	goblin.state = GoblinBase.STATE.WORKING
 	
 func repick():
 	for i in range(0,len(sprites)):
@@ -42,3 +46,7 @@ func click_action(event : InputEvent, choice : int):
 		$Sprite4.queue_free()
 		result = "done"
 		done.emit()
+
+func delete():
+	goblin.change_state("Idle")
+	queue_free()

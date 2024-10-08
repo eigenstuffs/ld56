@@ -1,11 +1,9 @@
 extends Node
 
 func _ready():
-	print("start")
 	if !Utilities.first_launch:
 		queue_free()
 	else:
-		print("going")
 		get_tree().paused = true
 		await get_tree().create_timer(0.1).timeout
 		Utilities.first_launch = false

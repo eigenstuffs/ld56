@@ -26,8 +26,6 @@ func init(number):
 
 func _on_confirm_pressed():
 	confirmed.emit()
-	print("confirmed")
 
 func _on_replay_pressed():
 	replay.emit()
-	print("replay")

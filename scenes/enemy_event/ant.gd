@@ -25,7 +25,6 @@ func after_ready():
 func retarget():
 	state = STATE.NAVIGATE
 	nav_agent.target_position = get_global_mouse_position()
-	print("set target")
 	########### idk what the targets are yet.... stored food? goblins? 
 
 func _physics_process(delta: float) -> void:

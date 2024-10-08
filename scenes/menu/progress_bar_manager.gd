@@ -16,7 +16,6 @@ func update_cooking_progress(val : int = 1, max : int = -1, add : bool = false):
 		update_progress_bar(1, val, max, add)
 
 func update_def_progress(val : int = 1, max : int = -1, add : bool = false):
-	print(max)
 	if max == 0:
 		get_child(2).max_value = 1
 		get_child(2).value = 0

@@ -54,7 +54,6 @@ func _ready():
 	
 func _process(delta: float) -> void:
 	if !get_tree().paused: time += delta
-	print(ing_delivered)
 
 func level_end():
 	var n_star = calculate_score()
@@ -118,7 +117,7 @@ func bird_penalty():
 			if len(plated) > 0:
 				clear_recipe(plated.pop_at(randi_range(0,len(plated) - 1)), 1)
 		else:
-			update_ingredient_str(del_items.pop_at(randi_range(0,len(del_items) - 1)), -1, 2)
+			update_ingredient_str(del_items[randi_range(0,len(del_items) - 1)], -1, 2)
 			update_ingredient_str(del_items.pop_at(randi_range(0,len(del_items) - 1)), -1, 1)
 	update_prep_progress()
 	

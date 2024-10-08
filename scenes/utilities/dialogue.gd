@@ -9,7 +9,6 @@ signal next
 signal done
 
 func _ready():
-	print("started dialogue")
 	for i in text:
 		label.visible_ratio = 0
 		label.text = i

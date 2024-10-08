@@ -56,14 +56,16 @@ func change_state(to : String):
 			target_state = STATE.NAVIGATE
 		"Working":
 			target_state = STATE.WORKING
+			in_job_region = false
 		"AwaitingInput":
 			target_state = STATE.AWAITING_INPUT
 		"Eaten":
 			target_state = STATE.EATEN
 		"Explode":
 			target_state = STATE.EXPLODE
-	emit_signal("state_changed", target_state, state, item_holding)
+	var prevState = state
 	state = target_state
+	emit_signal("state_changed", target_state, state, item_holding)
 	find_child(to).init()
 	current_state_child = find_child(to)
 
@@ -75,8 +77,9 @@ func _on_goblin_hitbox_area_entered(area: Area2D) -> void:
 				area.get_parent().change_state("Stunned")
 	if area is Job:
 		in_job_region = true
-		await state_changed
-		if(in_job_region):
+		while state != STATE.IDLE:
+			await state_changed
+		if(in_job_region and area.check_trigger(self)):
 			change_state("Working")
 			$Working.job(area)
 		# job done
@@ -86,14 +89,16 @@ func _on_goblin_hitbox_area_exited(area: Area2D) -> void:
 		in_job_region = false
 
 func _on_goblin_hitbox_input_event(viewport, event, shape_idx):
+	print(state)
 	get_viewport().set_input_as_handled()
 	if event.is_action_pressed("LMB"):
 		clicked_on.emit()
 		if(state == STATE.IDLE or state == STATE.AWAITING_INPUT):
 			clicked = !clicked
 			change_state("AwaitingInput" if clicked else "Idle")
-			print(item_holding)
 			if clicked: emit_signal("listening_for_target")
+		else:
+			clicked = false
 
 func hold_item(stuff):
 	if stuff is IngredientInfo:

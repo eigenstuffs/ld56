@@ -69,13 +69,7 @@ func show_recipe(recipe : Recipe, ing_gathered : Dictionary) -> bool:
 func load_texture_for_ingredient(ingredient_name: String) -> Texture:
 	if ingredient_name in ingredient_sprites:
 		var texture = load(ingredient_sprites[ingredient_name])
-		if texture:
-			print("Loaded texture for ingredient:", ingredient_name)
-		else:
-			print("Failed to load texture for ingredient:", ingredient_name)
 		return texture
-	else:
-		print("Ingredient name not in sprite map:", ingredient_name)
 	return null
 
 func clear_container(container: VBoxContainer):

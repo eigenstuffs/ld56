@@ -22,7 +22,6 @@ func _on_area_entered(area):
 	if area.get_parent() is GoblinBase and area.get_parent().curr_target == target_node:
 		occupied = true
 		emit_signal("entered", area.get_parent())
-		print("emitted")
 
 func _on_area_exited(area):
 	if area.get_parent() is GoblinBase:
