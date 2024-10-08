@@ -1,29 +1,23 @@
-[gd_scene load_steps=90 format=3 uid="uid://cmi6j8anm0kq4"]
+[gd_scene load_steps=45 format=3 uid="uid://cmi6j8anm0kq4"]
 
 [ext_resource type="Script" path="res://scenes/game/test_level.gd" id="1_ws1x8"]
-[ext_resource type="PackedScene" uid="uid://cer1ghlm4o53d" path="res://scenes/menu/victory_scene.tscn" id="2_6m4n4"]
 [ext_resource type="Script" path="res://scenes/tools/recipes/recipe.gd" id="2_reekr"]
-[ext_resource type="AudioStream" uid="uid://o1nkfsx0g6tp" path="res://assets/Music/Gobblin Goblins Kitchen Khaos 10-5-24.mp3" id="3_iaqpf"]
+[ext_resource type="PackedScene" uid="uid://5e1y84hd5lse" path="res://scenes/game/level_3.tscn" id="2_yfh34"]
 [ext_resource type="Resource" uid="uid://beb746r3b6hyc" path="res://scenes/tools/recipes/soup_recipe.tres" id="3_jcy7a"]
 [ext_resource type="AudioStream" uid="uid://4bnhuctew6x4" path="res://assets/Music/Gobblin Goblins March.mp3" id="3_xdgal"]
 [ext_resource type="Texture2D" uid="uid://tum4qkjre8jo" path="res://assets/bg no sprite boundary.PNG" id="4_qxvgk"]
-[ext_resource type="Resource" uid="uid://cv5m163x66a1o" path="res://scenes/tools/recipes/dessert_recipe.tres" id="5_lf47a"]
 [ext_resource type="PackedScene" uid="uid://bcwuxxve07v7g" path="res://scenes/tools/goblin_nav_control.tscn" id="5_vv84t"]
 [ext_resource type="PackedScene" uid="uid://d13no63s202hy" path="res://scenes/goal/goal.tscn" id="6_s4ske"]
-[ext_resource type="Script" path="res://scenes/tools/goblin_nav_control.gd" id="7_hmmcy"]
 [ext_resource type="Script" path="res://scenes/utilities/jobs/getting.gd" id="7_rergb"]
 [ext_resource type="Script" path="res://scenes/tools/recipes/ingredients/ingredient_info.gd" id="8_j1c1p"]
 [ext_resource type="Resource" uid="uid://dao308cgo2ler" path="res://scenes/tools/recipes/ingredients/spices.tres" id="9_lqi73"]
 [ext_resource type="Script" path="res://scenes/qte/choose_ingredient.gd" id="10_h4s7u"]
 [ext_resource type="Resource" uid="uid://c7dthmhxgd8m" path="res://scenes/tools/recipes/ingredients/veggie.tres" id="10_lvwib"]
 [ext_resource type="Resource" uid="uid://cyvura4urvq1v" path="res://scenes/tools/recipes/ingredients/egg.tres" id="11_0t5bn"]
-[ext_resource type="Resource" uid="uid://d2510q2f76g23" path="res://scenes/tools/recipes/ingredients/sugar.tres" id="13_a44ow"]
 [ext_resource type="Resource" uid="uid://bmkk420mxdsfw" path="res://scenes/tools/recipes/ingredients/meat.tres" id="13_iyn23"]
 [ext_resource type="Script" path="res://scenes/utilities/jobs/prepping.gd" id="13_opri8"]
 [ext_resource type="Script" path="res://scenes/utilities/jobs/cooking.gd" id="14_7h8p6"]
 [ext_resource type="Resource" uid="uid://dokfg58iwq26p" path="res://scenes/tools/recipes/ingredients/flour.tres" id="15_3vr46"]
-[ext_resource type="Resource" uid="uid://cnhywb24r0wdq" path="res://scenes/tools/recipes/breakfast_recipe.tres" id="15_ab5sv"]
-[ext_resource type="Resource" uid="uid://cdf3qkx0eu3hv" path="res://scenes/tools/recipes/ingredients/secret.tres" id="15_aqouc"]
 [ext_resource type="Texture2D" uid="uid://dxp5rc82dl6jr" path="res://assets/ingredients/egg.png" id="16_fho4q"]
 [ext_resource type="PackedScene" uid="uid://f47peacw0kny" path="res://scenes/qte/CollectionTask.tscn" id="16_xak2k"]
 [ext_resource type="Script" path="res://scenes/utilities/jobs/plating.gd" id="16_xnmxi"]
@@ -32,304 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://teo71o0ubvgw" path="res://scenes/menu/ToDoListUI.tscn" id="18_bslxr"]
 [ext_resource type="PackedScene" uid="uid://bjv16f3io6fw3" path="res://scenes/enemy_event/bird_window.tscn" id="19_3wm1k"]
 [ext_resource type="Texture2D" uid="uid://dfuup846m3b8k" path="res://assets/chef_stir.png" id="20_a4nip"]
-[ext_resource type="AudioStream" uid="uid://dtxddrvrpedy6" path="res://assets/Music/Gobblin Goblins Kitchen Khaos CLEAN 10-5-24.mp3" id="29_gk1b7"]
-[ext_resource type="Resource" uid="uid://d4y7qwdst5mh" path="res://scenes/tools/recipes/curry_recipe.tres" id="30_4gvru"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_s0q78"]
-size = Vector2(196, 282)
-
-[sub_resource type="PackedScene" id="PackedScene_yvok2"]
-_bundled = {
-"conn_count": 1,
-"conns": PackedInt32Array(3, 0, 12, 11, 2, 0, 0),
-"editable_instances": [],
-"names": PackedStringArray("NavControl", "script", "Node2D", "GoalFolder", "GoblinFolder", "MapClickable", "Area2D", "ClickCollider", "position", "shape", "CollisionShape2D", "_on_map_clickable_input_event", "input_event"),
-"node_count": 5,
-"node_paths": [],
-"nodes": PackedInt32Array(-1, -1, 2, 0, -1, 1, 1, 0, 0, 0, 0, 2, 3, -1, 0, 0, 0, 0, 2, 4, -1, 0, 0, 0, 0, 6, 5, -1, 0, 0, 3, 0, 10, 7, -1, 2, 8, 1, 9, 2, 0),
-"variants": [ExtResource("7_hmmcy"), Vector2(160, 89.5), SubResource("RectangleShape2D_s0q78")],
-"version": 3
-}
-
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_nq5ct"]
-vertices = PackedVector2Array(311.898, -65.5703, 269.281, -9.72656, 281.289, -57, 311.289, -81.9531, 197.547, 37.1562, 253.773, 22.5781, 253.141, 50, 142.453, 50, 202.758, 167.031, 197.859, 167.047, 198.359, 163.852, 202.211, 147.828, 176.789, 145.461, 162.648, 151.508, 51.2188, 166.141, 51.3672, 167.742, 5.47656, 167.953, 7.5625, 131.852, 37.9062, 145.633, 38.0781, 131.258, 166.594, 109.211, 150.07, 105.93, 152.594, 86.2188, 69, 106.898, 69, 66.8984, 124.68, 65.8281, 122.359, 38, 158.922, -7.04688, 60, -6.03125, 60, -29, 140, -29, 157.102, -22.3906, 60, 38, 60, 18, 145.781, 18, 164.031, 28.9531, 172.844, 20.7891, 155.656, -57, 140, -81.0391)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6), PackedInt32Array(4, 6, 7), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(12, 11, 10, 13), PackedInt32Array(14, 15, 16, 17, 18), PackedInt32Array(17, 19, 18), PackedInt32Array(14, 18, 13, 10), PackedInt32Array(20, 12, 13, 21, 22), PackedInt32Array(21, 23, 24, 25, 22), PackedInt32Array(7, 22, 25, 26), PackedInt32Array(27, 28, 29, 30, 31), PackedInt32Array(26, 32, 33, 34), PackedInt32Array(7, 26, 34, 35), PackedInt32Array(4, 7, 35, 36), PackedInt32Array(31, 4, 36, 27), PackedInt32Array(37, 31, 30, 38), PackedInt32Array(37, 38, 3, 2)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(52, -37, 52, 123, 0, 124, -3, 176, 211, 175, 210, 140, 261, 56, 262, 13, 320, -63, 319, -90, 132, -89, 132, -37)])
-agent_radius = 8.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_eohmf"]
-size = Vector2(16, 16)
-
-[sub_resource type="PackedScene" id="PackedScene_370vs"]
-_bundled = {
-"conn_count": 4,
-"conns": PackedInt32Array(1073741837, 1073741836, 45, 44, 2, 0, 0, 1073741839, 1073741838, 47, 46, 2, 0, 0, 1073741841, 1073741840, 49, 48, 2, 0, 0, 1073741843, 1073741842, 51, 50, 2, 0, 0),
-"editable_instances": [],
-"names": PackedStringArray("ChooseIngredient", "Control", "layout_mode", "anchors_preset", "script", "pick_from", "Sprite1", "Sprite2D", "position", "texture", "Area1", "Area2D", "CollisionShape2D", "CollisionShape2D", "shape", "Sprite2", "Sprite2D", "position", "texture", "Area2", "Area2D", "position", "CollisionShape2D", "CollisionShape2D", "position", "shape", "Sprite3", "Sprite2D", "position", "texture", "Area3", "Area2D", "CollisionShape2D", "CollisionShape2D", "shape", "Sprite4", "Sprite2D", "position", "texture", "Area4", "Area2D", "CollisionShape2D", "CollisionShape2D", "shape", "_on_area_1_input_event", "input_event", "_on_area_2_input_event", "input_event", "_on_area_3_input_event", "input_event", "_on_area_4_input_event", "input_event"),
-"node_count": 13,
-"node_paths": [NodePath("."), NodePath("./Sprite1"), NodePath("./Sprite1/Area1"), NodePath("."), NodePath("./Sprite2"), NodePath("./Sprite2/Area2"), NodePath("."), NodePath("./Sprite3"), NodePath("./Sprite3/Area3"), NodePath("."), NodePath("./Sprite4"), NodePath("./Sprite4/Area4"), NodePath("."), NodePath("Sprite1/Area1"), NodePath("."), NodePath("Sprite2/Area2"), NodePath("."), NodePath("Sprite3/Area3"), NodePath("."), NodePath("Sprite4/Area4")],
-"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 4, 2, 0, 3, 1, 4, 2, 5, 3, 0, 1073741824, 0, 7, 6, -1, 2, 8, 4, 9, 5, 0, 1073741825, 0, 11, 10, -1, 0, 0, 1073741826, 0, 13, 12, -1, 1, 14, 6, 0, 1073741827, 0, 16, 15, -1, 2, 17, 7, 18, 8, 0, 1073741828, 0, 20, 19, -1, 1, 21, 9, 0, 1073741829, 0, 23, 22, -1, 2, 24, 10, 25, 11, 0, 1073741830, 0, 27, 26, -1, 2, 28, 12, 29, 13, 0, 1073741831, 0, 31, 30, -1, 0, 0, 1073741832, 0, 33, 32, -1, 1, 34, 14, 0, 1073741833, 0, 36, 35, -1, 2, 37, 15, 38, 16, 0, 1073741834, 0, 40, 39, -1, 0, 0, 1073741835, 0, 42, 41, -1, 1, 43, 17, 0),
-"variants": [3, 0, ExtResource("10_h4s7u"), Array[ExtResource("8_j1c1p")]([ExtResource("15_3vr46"), ExtResource("13_a44ow"), ExtResource("11_0t5bn"), ExtResource("15_aqouc")]), Vector2(-30, -20), ExtResource("16_fho4q"), SubResource("RectangleShape2D_eohmf"), Vector2(-10, -20), ExtResource("16_fho4q"), Vector2(10, 38), Vector2(-10, -38), SubResource("RectangleShape2D_eohmf"), Vector2(10, -20), ExtResource("16_fho4q"), SubResource("RectangleShape2D_eohmf"), Vector2(30, -20), ExtResource("17_5ajgg"), SubResource("RectangleShape2D_eohmf")],
-"version": 3
-}
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nr38a"]
-size = Vector2(32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fxei4"]
-atlas = ExtResource("20_a4nip")
-region = Rect2(0, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_in3yn"]
-atlas = ExtResource("20_a4nip")
-region = Rect2(48, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_quucc"]
-atlas = ExtResource("20_a4nip")
-region = Rect2(96, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_acjsq"]
-atlas = ExtResource("20_a4nip")
-region = Rect2(144, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r6epr"]
-atlas = ExtResource("20_a4nip")
-region = Rect2(0, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yvf24"]
-atlas = ExtResource("20_a4nip")
-region = Rect2(48, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wbdwx"]
-atlas = ExtResource("20_a4nip")
-region = Rect2(96, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_by6to"]
-atlas = ExtResource("20_a4nip")
-region = Rect2(144, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dgcx1"]
-atlas = ExtResource("20_a4nip")
-region = Rect2(0, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_umaku"]
-atlas = ExtResource("20_a4nip")
-region = Rect2(48, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sv7dq"]
-atlas = ExtResource("20_a4nip")
-region = Rect2(96, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_p7t15"]
-atlas = ExtResource("20_a4nip")
-region = Rect2(144, 0, 48, 48)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_eg2l4"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fxei4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_in3yn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_quucc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_acjsq")
-}],
-"loop": true,
-"name": &"stirring_fast",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_r6epr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yvf24")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wbdwx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_by6to")
-}],
-"loop": true,
-"name": &"stirring_normal",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dgcx1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_umaku")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sv7dq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_p7t15")
-}],
-"loop": true,
-"name": &"stirring_slower",
-"speed": 3.0
-}]
-
-[sub_resource type="PackedScene" id="PackedScene_av7h5"]
-_bundled = {
-"conn_count": 1,
-"conns": PackedInt32Array(24, 0, 98, 97, 2, 0, 0),
-"editable_instances": [NodePath("NavControl"), NodePath("CanvasLayer/ToDoListUI")],
-"names": PackedStringArray("Level4", "script", "next_level", "music", "n_goblins", "recipe_manager", "cook", "birds", "recipe_list", "Node2D", "TextureRect", "anchors_preset", "anchor_right", "anchor_bottom", "offset_top", "offset_right", "offset_bottom", "grow_horizontal", "grow_vertical", "texture", "GoblinSpawnPoint", "position", "NavControl", "goal_array", "GoalFolder", "Goal", "Hole2Window", "Goal2", "Goal3", "Goal5", "scale", "Goal7", "GoblinFolder", "NavigationRegion2D", "navigation_polygon", "NavigationObstacle2D", "vertices", "affect_navigation_mesh", "NavigationObstacle2D2", "NavigationObstacle2D4", "NavigationObstacle2D5", "NavigationObstacle2D6", "NavigationObstacle2D7", "Jobs", "Getting", "choosing_task", "time", "Area2D", "CollisionShape2D", "shape", "Prepping", "collectTask", "items_needed", "Cooking", "item_reward", "Plating", "Camera2D", "limit_smoothed", "move_speed", "TopLeft", "BottomRight", "CanvasLayer", "ToDoListUI", "metadata/_edit_lock_", "Progress Bars", "ProgressBar", "ProgressBar2", "ProgressBar4", "Progress Labels", "Prep", "Cook", "DEF", "GoblinCounter", "BG", "BG2", "Num", "Border1", "Border2", "VBoxContainer", "CountLabel", "TitleLabel", "NinePatchRect", "Window", "BG4", "BG3", "ColorRect", "Recipe", "ScrollContainer", "BirdWindow", "garrison_point", "Chef", "sprite_frames", "animation", "autoplay", "frame_progress", "AnimatedSprite2D", "AudioStreamPlayer", "_on_plating_plating_complete", "plating_complete"),
-"node_count": 37,
-"node_paths": [NodePath("NavControl/GoalFolder"), NodePath("CanvasLayer/ToDoListUI/Progress Bars")],
-"nodes": PackedInt32Array(-1, -1, 9, 0, -1, 8, 1, 0, 2, 1, 3, 2, 4, 3, 1073741829, 4, 1073741830, 5, 1073741831, 6, 8, 7, 0, 0, 0, 10, 10, -1, 9, 11, 8, 12, 9, 13, 9, 14, 10, 15, 11, 16, 12, 17, 13, 18, 13, 19, 14, 0, 0, 0, 9, 20, -1, 1, 21, 15, 0, 0, 0, 2147483647, 22, 16, 1, 1073741847, 17, 0, 1073741824, 0, 2147483647, 262169, 18, 1, 21, 19, 0, 1073741824, 0, 2147483647, 524314, 18, 1, 21, 20, 0, 1073741824, 0, 2147483647, 786459, 18, 1, 21, 21, 0, 1073741824, 0, 2147483647, 1048604, 18, 1, 21, 22, 0, 1073741824, 0, 2147483647, 1310749, 18, 2, 21, 23, 30, 24, 0, 1073741824, 0, 2147483647, 1572895, 18, 2, 21, 25, 30, 26, 0, 0, 0, 33, 33, -1, 2, 21, 27, 34, 28, 0, 10, 0, 35, 35, -1, 2, 36, 29, 37, 30, 0, 10, 0, 35, 38, -1, 2, 36, 31, 37, 30, 0, 10, 0, 35, 39, -1, 2, 36, 32, 37, 30, 0, 10, 0, 35, 40, -1, 3, 21, 33, 36, 34, 37, 30, 0, 10, 0, 35, 41, -1, 3, 21, 35, 36, 36, 37, 30, 0, 10, 0, 35, 42, -1, 3, 21, 35, 36, 37, 37, 30, 0, 0, 0, 9, 43, -1, 0, 0, 17, 0, 47, 44, -1, 4, 21, 38, 1, 39, 45, 40, 46, 41, 0, 18, 0, 48, 48, -1, 1, 49, 42, 0, 17, 0, 47, 50, -1, 5, 21, 43, 1, 44, 51, 45, 46, 46, 52, 47, 0, 20, 0, 48, 48, -1, 1, 49, 42, 0, 17, 0, 47, 53, -1, 4, 21, 48, 1, 49, 52, 50, 54, 51, 0, 22, 0, 48, 48, -1, 1, 49, 42, 0, 17, 0, 47, 55, -1, 4, 21, 52, 1, 53, 46, 54, 52, 55, 0, 24, 0, 48, 48, -1, 1, 49, 42, 0, 0, 0, 56, 56, -1, 4, 21, 56, 57, 30, 1, 57, 58, 13, 0, 26, 0, 9, 59, -1, 1, 21, 58, 0, 26, 0, 9, 60, -1, 1, 21, 59, 0, 0, 0, 61, 61, -1, 0, 0, 29, 0, 2147483647, 62, 60, 1, 63, 30, 0, 1073741825, -1, 2147483647, 262209, -1, 2, 14, 61, 16, 62, 0, 1073741825, -1, 2147483647, 524354, -1, 2, 14, 63, 16, 64, 0, 1073741825, -1, 2147483647, 786499, -1, 2, 14, 65, 16, 66, 0, 29, 0, 2147483647, 88, 67, 3, 21, 68, 30, 69, 1073741913, 70, 0, 0, 0, 95, 90, -1, 5, 21, 71, 91, 72, 92, 73, 93, 74, 94, 75, 0, 0, 0, 96, 96, -1, 0, 0),
-"variants": [ExtResource("1_ws1x8"), ExtResource("2_6m4n4"), ExtResource("3_iaqpf"), 12, NodePath("CanvasLayer/ToDoListUI"), NodePath("Jobs/Cooking"), NodePath("CanvasLayer/BirdWindow"), Array[ExtResource("2_reekr")]([ExtResource("5_lf47a"), ExtResource("5_lf47a")]), 15, 1.0, -108.0, 320.0, 182.0, 2, ExtResource("4_qxvgk"), Vector2(69, 156), SubResource("PackedScene_yvok2"), [NodePath("../CanvasLayer/BirdWindow")], ExtResource("6_s4ske"), Vector2(210, 174), Vector2(210, -82), Vector2(37, 153), Vector2(96, 92), Vector2(92, -12), Vector2(1, 0.48), Vector2(214, 39), Vector2(1, 0.600001), Vector2(-4, 0), SubResource("NavigationPolygon_nq5ct"), PackedVector2Array(152, 143, 144, 114, 61, 115, 61, 59, 47, 58, 46, 138), true, PackedVector2Array(61, 184, 187, 185, 189, 172, 60, 174), PackedVector2Array(115, 46, 116, 58, 64, 59, 64, 46), Vector2(61, -116), PackedVector2Array(99, 199, 113, 222, 122, 254, 197, 261, 197, 169, 91, 168), Vector2(120, -224), PackedVector2Array(-62, 234, 28, 234, 43, 243, 34, 225, -63, 226), PackedVector2Array(81, 252, 135, 238, 151, 175, 44, 175, 45, 199), Vector2(88, -24), ExtResource("7_rergb"), SubResource("PackedScene_370vs"), 5, SubResource("RectangleShape2D_nr38a"), Vector2(210, 34), ExtResource("13_opri8"), ExtResource("16_xak2k"), 3, [ExtResource("11_0t5bn"), ExtResource("10_lvwib"), null], Vector2(205, 170), ExtResource("14_7h8p6"), [ExtResource("11_0t5bn"), ExtResource("10_lvwib"), ExtResource("9_lqi73")], ExtResource("15_ab5sv"), Vector2(96, 80), ExtResource("16_xnmxi"), 1, [ExtResource("15_ab5sv")], Vector2(160, 88), ExtResource("17_bdcs0"), Vector2(-160, -90), Vector2(160, 182), ExtResource("18_bslxr"), 18.0, 30.0, 42.0, 54.0, 66.0, 78.0, ExtResource("19_3wm1k"), Vector2(290, 57), Vector2(0.3, 0.3), NodePath("../../NavControl/GoalFolder/Hole2Window"), Vector2(215, 126), SubResource("SpriteFrames_eg2l4"), &"stirring_normal", "stirring_normal", 0.369441],
-"version": 3
-}
-
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_81ra8"]
-vertices = PackedVector2Array(311.898, -65.5703, 269.281, -9.72656, 281.289, -57, 311.289, -81.9531, 197.547, 37.1562, 253.773, 22.5781, 253.141, 50, 142.453, 50, 202.758, 167.031, 197.859, 167.047, 198.359, 163.852, 202.211, 147.828, 176.789, 145.461, 162.648, 151.508, 51.2188, 166.141, 51.3672, 167.742, 5.47656, 167.953, 7.5625, 131.852, 37.9062, 145.633, 38.0781, 131.258, 166.594, 109.211, 150.07, 105.93, 152.594, 86.2188, 69, 106.898, 69, 66.8984, 124.68, 65.8281, 122.359, 38, 158.922, -7.04688, 60, -6.03125, 60, -29, 140, -29, 157.102, -22.3906, 60, 38, 60, 18, 145.781, 18, 164.031, 28.9531, 172.844, 20.7891, 155.656, -57, 140, -81.0391)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6), PackedInt32Array(4, 6, 7), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(12, 11, 10, 13), PackedInt32Array(14, 15, 16, 17, 18), PackedInt32Array(17, 19, 18), PackedInt32Array(14, 18, 13, 10), PackedInt32Array(20, 12, 13, 21, 22), PackedInt32Array(21, 23, 24, 25, 22), PackedInt32Array(7, 22, 25, 26), PackedInt32Array(27, 28, 29, 30, 31), PackedInt32Array(26, 32, 33, 34), PackedInt32Array(7, 26, 34, 35), PackedInt32Array(4, 7, 35, 36), PackedInt32Array(31, 4, 36, 27), PackedInt32Array(37, 31, 30, 38), PackedInt32Array(37, 38, 3, 2)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(52, -37, 52, 123, 0, 124, -3, 176, 211, 175, 210, 140, 261, 56, 262, 13, 320, -63, 319, -90, 132, -89, 132, -37)])
-agent_radius = 8.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yyx03"]
-size = Vector2(16, 16)
-
-[sub_resource type="PackedScene" id="PackedScene_h3410"]
-_bundled = {
-"conn_count": 4,
-"conns": PackedInt32Array(1073741837, 1073741836, 45, 44, 2, 0, 0, 1073741839, 1073741838, 47, 46, 2, 0, 0, 1073741841, 1073741840, 49, 48, 2, 0, 0, 1073741843, 1073741842, 51, 50, 2, 0, 0),
-"editable_instances": [],
-"names": PackedStringArray("ChooseIngredient", "Control", "layout_mode", "anchors_preset", "script", "pick_from", "Sprite1", "Sprite2D", "position", "texture", "Area1", "Area2D", "CollisionShape2D", "CollisionShape2D", "shape", "Sprite2", "Sprite2D", "position", "texture", "Area2", "Area2D", "position", "CollisionShape2D", "CollisionShape2D", "position", "shape", "Sprite3", "Sprite2D", "position", "texture", "Area3", "Area2D", "CollisionShape2D", "CollisionShape2D", "shape", "Sprite4", "Sprite2D", "position", "texture", "Area4", "Area2D", "CollisionShape2D", "CollisionShape2D", "shape", "_on_area_1_input_event", "input_event", "_on_area_2_input_event", "input_event", "_on_area_3_input_event", "input_event", "_on_area_4_input_event", "input_event"),
-"node_count": 13,
-"node_paths": [NodePath("."), NodePath("./Sprite1"), NodePath("./Sprite1/Area1"), NodePath("."), NodePath("./Sprite2"), NodePath("./Sprite2/Area2"), NodePath("."), NodePath("./Sprite3"), NodePath("./Sprite3/Area3"), NodePath("."), NodePath("./Sprite4"), NodePath("./Sprite4/Area4"), NodePath("."), NodePath("Sprite1/Area1"), NodePath("."), NodePath("Sprite2/Area2"), NodePath("."), NodePath("Sprite3/Area3"), NodePath("."), NodePath("Sprite4/Area4")],
-"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 4, 2, 0, 3, 1, 4, 2, 5, 3, 0, 1073741824, 0, 7, 6, -1, 2, 8, 4, 9, 5, 0, 1073741825, 0, 11, 10, -1, 0, 0, 1073741826, 0, 13, 12, -1, 1, 14, 6, 0, 1073741827, 0, 16, 15, -1, 2, 17, 7, 18, 8, 0, 1073741828, 0, 20, 19, -1, 1, 21, 9, 0, 1073741829, 0, 23, 22, -1, 2, 24, 10, 25, 11, 0, 1073741830, 0, 27, 26, -1, 2, 28, 12, 29, 13, 0, 1073741831, 0, 31, 30, -1, 0, 0, 1073741832, 0, 33, 32, -1, 1, 34, 14, 0, 1073741833, 0, 36, 35, -1, 2, 37, 15, 38, 16, 0, 1073741834, 0, 40, 39, -1, 0, 0, 1073741835, 0, 42, 41, -1, 1, 43, 17, 0),
-"variants": [3, 0, ExtResource("10_h4s7u"), Array[ExtResource("8_j1c1p")]([ExtResource("13_iyn23"), ExtResource("9_lqi73"), ExtResource("10_lvwib"), ExtResource("15_3vr46"), ExtResource("13_a44ow"), ExtResource("11_0t5bn")]), Vector2(-30, -20), ExtResource("16_fho4q"), SubResource("RectangleShape2D_yyx03"), Vector2(-10, -20), ExtResource("16_fho4q"), Vector2(10, 38), Vector2(-10, -38), SubResource("RectangleShape2D_yyx03"), Vector2(10, -20), ExtResource("16_fho4q"), SubResource("RectangleShape2D_yyx03"), Vector2(30, -20), ExtResource("17_5ajgg"), SubResource("RectangleShape2D_yyx03")],
-"version": 3
-}
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ef71"]
-size = Vector2(32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mf7f6"]
-atlas = ExtResource("20_a4nip")
-region = Rect2(0, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mvj5l"]
-atlas = ExtResource("20_a4nip")
-region = Rect2(48, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sh11i"]
-atlas = ExtResource("20_a4nip")
-region = Rect2(96, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h6dmd"]
-atlas = ExtResource("20_a4nip")
-region = Rect2(144, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3nk3o"]
-atlas = ExtResource("20_a4nip")
-region = Rect2(0, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_018ov"]
-atlas = ExtResource("20_a4nip")
-region = Rect2(48, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0fv06"]
-atlas = ExtResource("20_a4nip")
-region = Rect2(96, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_oa0kb"]
-atlas = ExtResource("20_a4nip")
-region = Rect2(144, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_g167b"]
-atlas = ExtResource("20_a4nip")
-region = Rect2(0, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qmkts"]
-atlas = ExtResource("20_a4nip")
-region = Rect2(48, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_203wx"]
-atlas = ExtResource("20_a4nip")
-region = Rect2(96, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wn86d"]
-atlas = ExtResource("20_a4nip")
-region = Rect2(144, 0, 48, 48)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_isrpp"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mf7f6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mvj5l")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sh11i")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_h6dmd")
-}],
-"loop": true,
-"name": &"stirring_fast",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3nk3o")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_018ov")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0fv06")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_oa0kb")
-}],
-"loop": true,
-"name": &"stirring_normal",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_g167b")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qmkts")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_203wx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wn86d")
-}],
-"loop": true,
-"name": &"stirring_slower",
-"speed": 3.0
-}]
-
-[sub_resource type="PackedScene" id="PackedScene_beg1u"]
-_bundled = {
-"conn_count": 1,
-"conns": PackedInt32Array(24, 0, 98, 97, 2, 0, 0),
-"editable_instances": [NodePath("NavControl"), NodePath("CanvasLayer/ToDoListUI")],
-"names": PackedStringArray("Level3", "script", "next_level", "music", "n_goblins", "recipe_manager", "cook", "birds", "recipe_list", "Node2D", "TextureRect", "anchors_preset", "anchor_right", "anchor_bottom", "offset_top", "offset_right", "offset_bottom", "grow_horizontal", "grow_vertical", "texture", "GoblinSpawnPoint", "position", "NavControl", "goal_array", "GoalFolder", "Goal", "Hole2Window", "Goal2", "Goal3", "Goal5", "scale", "Goal7", "GoblinFolder", "NavigationRegion2D", "navigation_polygon", "NavigationObstacle2D", "vertices", "affect_navigation_mesh", "NavigationObstacle2D2", "NavigationObstacle2D4", "NavigationObstacle2D5", "NavigationObstacle2D6", "NavigationObstacle2D7", "Jobs", "Getting", "choosing_task", "time", "Area2D", "CollisionShape2D", "shape", "Prepping", "collectTask", "items_needed", "Cooking", "item_reward", "Plating", "Camera2D", "limit_smoothed", "move_speed", "TopLeft", "BottomRight", "CanvasLayer", "ToDoListUI", "metadata/_edit_lock_", "Progress Bars", "ProgressBar", "ProgressBar2", "ProgressBar4", "Progress Labels", "Prep", "Cook", "DEF", "GoblinCounter", "BG", "BG2", "Num", "Border1", "Border2", "VBoxContainer", "CountLabel", "TitleLabel", "NinePatchRect", "Window", "BG4", "BG3", "ColorRect", "Recipe", "ScrollContainer", "BirdWindow", "garrison_point", "Chef", "sprite_frames", "animation", "autoplay", "frame_progress", "AnimatedSprite2D", "AudioStreamPlayer", "_on_plating_plating_complete", "plating_complete"),
-"node_count": 37,
-"node_paths": [NodePath("NavControl/GoalFolder"), NodePath("CanvasLayer/ToDoListUI/Progress Bars")],
-"nodes": PackedInt32Array(-1, -1, 9, 0, -1, 8, 1, 0, 2, 1, 3, 2, 4, 3, 1073741829, 4, 1073741830, 5, 1073741831, 6, 8, 7, 0, 0, 0, 10, 10, -1, 9, 11, 8, 12, 9, 13, 9, 14, 10, 15, 11, 16, 12, 17, 13, 18, 13, 19, 14, 0, 0, 0, 9, 20, -1, 1, 21, 15, 0, 0, 0, 2147483647, 22, 16, 1, 1073741847, 17, 0, 1073741824, 0, 2147483647, 262169, 18, 1, 21, 19, 0, 1073741824, 0, 2147483647, 524314, 18, 1, 21, 20, 0, 1073741824, 0, 2147483647, 786459, 18, 1, 21, 21, 0, 1073741824, 0, 2147483647, 1048604, 18, 1, 21, 22, 0, 1073741824, 0, 2147483647, 1310749, 18, 2, 21, 23, 30, 24, 0, 1073741824, 0, 2147483647, 1572895, 18, 2, 21, 25, 30, 26, 0, 0, 0, 33, 33, -1, 2, 21, 27, 34, 28, 0, 10, 0, 35, 35, -1, 2, 36, 29, 37, 30, 0, 10, 0, 35, 38, -1, 2, 36, 31, 37, 30, 0, 10, 0, 35, 39, -1, 2, 36, 32, 37, 30, 0, 10, 0, 35, 40, -1, 3, 21, 33, 36, 34, 37, 30, 0, 10, 0, 35, 41, -1, 3, 21, 35, 36, 36, 37, 30, 0, 10, 0, 35, 42, -1, 3, 21, 35, 36, 37, 37, 30, 0, 0, 0, 9, 43, -1, 0, 0, 17, 0, 47, 44, -1, 4, 21, 38, 1, 39, 45, 40, 46, 41, 0, 18, 0, 48, 48, -1, 1, 49, 42, 0, 17, 0, 47, 50, -1, 5, 21, 43, 1, 44, 51, 45, 46, 46, 52, 47, 0, 20, 0, 48, 48, -1, 1, 49, 42, 0, 17, 0, 47, 53, -1, 4, 21, 48, 1, 49, 52, 50, 54, 51, 0, 22, 0, 48, 48, -1, 1, 49, 42, 0, 17, 0, 47, 55, -1, 4, 21, 52, 1, 53, 46, 54, 52, 55, 0, 24, 0, 48, 48, -1, 1, 49, 42, 0, 0, 0, 56, 56, -1, 4, 21, 56, 57, 30, 1, 57, 58, 13, 0, 26, 0, 9, 59, -1, 1, 21, 58, 0, 26, 0, 9, 60, -1, 1, 21, 59, 0, 0, 0, 61, 61, -1, 0, 0, 29, 0, 2147483647, 62, 60, 1, 63, 30, 0, 1073741825, -1, 2147483647, 262209, -1, 2, 14, 61, 16, 62, 0, 1073741825, -1, 2147483647, 524354, -1, 2, 14, 63, 16, 64, 0, 1073741825, -1, 2147483647, 786499, -1, 2, 14, 65, 16, 66, 0, 29, 0, 2147483647, 88, 67, 3, 21, 68, 30, 69, 1073741913, 70, 0, 0, 0, 95, 90, -1, 5, 21, 71, 91, 72, 92, 73, 93, 74, 94, 75, 0, 0, 0, 96, 96, -1, 0, 0),
-"variants": [ExtResource("1_ws1x8"), SubResource("PackedScene_av7h5"), ExtResource("29_gk1b7"), 9, NodePath("CanvasLayer/ToDoListUI"), NodePath("Jobs/Cooking"), NodePath("CanvasLayer/BirdWindow"), Array[ExtResource("2_reekr")]([ExtResource("30_4gvru"), ExtResource("30_4gvru"), ExtResource("30_4gvru")]), 15, 1.0, -108.0, 320.0, 182.0, 2, ExtResource("4_qxvgk"), Vector2(69, 156), SubResource("PackedScene_yvok2"), [NodePath("../CanvasLayer/BirdWindow")], ExtResource("6_s4ske"), Vector2(210, 174), Vector2(210, -82), Vector2(37, 153), Vector2(96, 92), Vector2(92, -12), Vector2(1, 0.48), Vector2(214, 39), Vector2(1, 0.600001), Vector2(-4, 0), SubResource("NavigationPolygon_81ra8"), PackedVector2Array(152, 143, 144, 114, 61, 115, 61, 59, 47, 58, 46, 138), true, PackedVector2Array(61, 184, 187, 185, 189, 172, 60, 174), PackedVector2Array(115, 46, 116, 58, 64, 59, 64, 46), Vector2(61, -116), PackedVector2Array(99, 199, 113, 222, 122, 254, 197, 261, 197, 169, 91, 168), Vector2(120, -224), PackedVector2Array(-62, 234, 28, 234, 43, 243, 34, 225, -63, 226), PackedVector2Array(81, 252, 135, 238, 151, 175, 44, 175, 45, 199), Vector2(88, -24), ExtResource("7_rergb"), SubResource("PackedScene_h3410"), 5, SubResource("RectangleShape2D_2ef71"), Vector2(210, 34), ExtResource("13_opri8"), ExtResource("16_xak2k"), 3, [ExtResource("11_0t5bn"), ExtResource("10_lvwib"), null], Vector2(205, 170), ExtResource("14_7h8p6"), [ExtResource("11_0t5bn"), ExtResource("10_lvwib"), ExtResource("9_lqi73")], ExtResource("15_ab5sv"), Vector2(96, 80), ExtResource("16_xnmxi"), 1, [ExtResource("15_ab5sv")], Vector2(160, 88), ExtResource("17_bdcs0"), Vector2(-160, -90), Vector2(160, 182), ExtResource("18_bslxr"), 18.0, 30.0, 42.0, 54.0, 66.0, 78.0, ExtResource("19_3wm1k"), Vector2(290, 57), Vector2(0.3, 0.3), NodePath("../../NavControl/GoalFolder/Hole2Window"), Vector2(215, 126), SubResource("SpriteFrames_isrpp"), &"stirring_normal", "stirring_normal", 0.369441],
-"version": 3
-}
+[ext_resource type="PackedScene" uid="uid://dwn6tdlp54duv" path="res://scenes/qte/mix.tscn" id="22_dc6rn"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ryns4"]
 vertices = PackedVector2Array(311.898, -65.5703, 269.281, -9.72656, 281.289, -57, 311.289, -81.9531, 197.547, 37.1562, 253.773, 22.5781, 253.141, 50, 142.453, 50, 202.758, 167.031, 197.859, 167.047, 198.359, 163.852, 202.211, 147.828, 176.789, 145.461, 162.648, 151.508, 51.2188, 166.141, 51.3672, 167.742, 5.47656, 167.953, 7.5625, 131.852, 37.9062, 145.633, 38.0781, 131.258, 166.594, 109.211, 150.07, 105.93, 152.594, 86.2188, 69, 106.898, 69, 66.8984, 124.68, 65.8281, 122.359, 38, 158.922, -7.04688, 60, -6.03125, 60, -29, 140, -29, 157.102, -22.3906, 60, 38, 60, 18, 145.781, 18, 164.031, 28.9531, 172.844, 20.7891, 155.656, -57, 140, -81.0391)
@@ -460,14 +157,14 @@ animations = [{
 
 [node name="Level2" type="Node2D" node_paths=PackedStringArray("recipe_manager", "cook", "fridge", "birds")]
 script = ExtResource("1_ws1x8")
-next_level = SubResource("PackedScene_beg1u")
+next_level = ExtResource("2_yfh34")
 music = ExtResource("3_xdgal")
 n_goblins = 6
 recipe_manager = NodePath("CanvasLayer/ToDoListUI")
 cook = NodePath("Jobs/Cooking")
 fridge = NodePath("Jobs/Getting")
 birds = NodePath("CanvasLayer/BirdWindow")
-recipe_list = Array[ExtResource("2_reekr")]([ExtResource("3_jcy7a"), ExtResource("15_ab5sv")])
+recipe_list = Array[ExtResource("2_reekr")]([ExtResource("3_jcy7a")])
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -546,8 +243,10 @@ shape = SubResource("RectangleShape2D_u4pia")
 [node name="Cooking" type="Area2D" parent="Jobs"]
 position = Vector2(205, 170)
 script = ExtResource("14_7h8p6")
+collectTask = ExtResource("16_xak2k")
+mixTasx = ExtResource("22_dc6rn")
 items_needed = [ExtResource("11_0t5bn"), ExtResource("10_lvwib"), ExtResource("9_lqi73")]
-item_reward = ExtResource("15_ab5sv")
+item_reward = ExtResource("3_jcy7a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Jobs/Cooking"]
 shape = SubResource("RectangleShape2D_u4pia")
@@ -556,7 +255,7 @@ shape = SubResource("RectangleShape2D_u4pia")
 position = Vector2(96, 80)
 script = ExtResource("16_xnmxi")
 time = 1
-items_needed = [ExtResource("15_ab5sv")]
+items_needed = Array[ExtResource("2_reekr")]([ExtResource("3_jcy7a")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Jobs/Plating"]
 shape = SubResource("RectangleShape2D_u4pia")

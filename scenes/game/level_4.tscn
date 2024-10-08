@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://dmdheipf052rq"]
+[gd_scene load_steps=46 format=3 uid="uid://dmdheipf052rq"]
 
 [ext_resource type="Script" path="res://scenes/game/test_level.gd" id="1_43tu8"]
 [ext_resource type="Script" path="res://scenes/tools/recipes/recipe.gd" id="2_m2j2c"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://tum4qkjre8jo" path="res://assets/bg no sprite boundary.PNG" id="4_vdlyo"]
 [ext_resource type="PackedScene" uid="uid://bcwuxxve07v7g" path="res://scenes/tools/goblin_nav_control.tscn" id="5_m1dqk"]
 [ext_resource type="PackedScene" uid="uid://d13no63s202hy" path="res://scenes/goal/goal.tscn" id="6_7o0j6"]
-[ext_resource type="Resource" uid="uid://d2w7w7y125h3k" path="res://scenes/tools/recipes/all_ingredients.tres" id="6_f4qft"]
 [ext_resource type="Script" path="res://scenes/utilities/jobs/getting.gd" id="7_usax2"]
 [ext_resource type="Script" path="res://scenes/tools/recipes/ingredients/ingredient_info.gd" id="8_e5t3a"]
 [ext_resource type="Resource" uid="uid://dao308cgo2ler" path="res://scenes/tools/recipes/ingredients/spices.tres" id="9_ueyb3"]
@@ -20,7 +19,6 @@
 [ext_resource type="Script" path="res://scenes/utilities/jobs/prepping.gd" id="13_rupob"]
 [ext_resource type="Script" path="res://scenes/utilities/jobs/cooking.gd" id="14_rejj1"]
 [ext_resource type="Resource" uid="uid://cdf3qkx0eu3hv" path="res://scenes/tools/recipes/ingredients/secret.tres" id="15_33w7n"]
-[ext_resource type="Resource" uid="uid://cnhywb24r0wdq" path="res://scenes/tools/recipes/breakfast_recipe.tres" id="15_glur0"]
 [ext_resource type="Script" path="res://scenes/utilities/jobs/plating.gd" id="16_0xywj"]
 [ext_resource type="Texture2D" uid="uid://dxp5rc82dl6jr" path="res://assets/ingredients/egg.png" id="16_twcyq"]
 [ext_resource type="PackedScene" uid="uid://f47peacw0kny" path="res://scenes/qte/CollectionTask.tscn" id="16_wuymv"]
@@ -29,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://teo71o0ubvgw" path="res://scenes/menu/ToDoListUI.tscn" id="18_k8ukc"]
 [ext_resource type="PackedScene" uid="uid://bjv16f3io6fw3" path="res://scenes/enemy_event/bird_window.tscn" id="19_xa8a2"]
 [ext_resource type="Texture2D" uid="uid://dfuup846m3b8k" path="res://assets/chef_stir.png" id="20_w2hj2"]
+[ext_resource type="PackedScene" uid="uid://dwn6tdlp54duv" path="res://scenes/qte/mix.tscn" id="23_03rqw"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_nq5ct"]
 vertices = PackedVector2Array(311.898, -65.5703, 269.281, -9.72656, 281.289, -57, 311.289, -81.9531, 197.547, 37.1562, 253.773, 22.5781, 253.141, 50, 142.453, 50, 202.758, 167.031, 197.859, 167.047, 198.359, 163.852, 202.211, 147.828, 176.789, 145.461, 162.648, 151.508, 51.2188, 166.141, 51.3672, 167.742, 5.47656, 167.953, 7.5625, 131.852, 37.9062, 145.633, 38.0781, 131.258, 166.594, 109.211, 150.07, 105.93, 152.594, 86.2188, 69, 106.898, 69, 66.8984, 124.68, 65.8281, 122.359, 38, 158.922, -7.04688, 60, -6.03125, 60, -29, 140, -29, 157.102, -22.3906, 60, 38, 60, 18, 145.781, 18, 164.031, 28.9531, 172.844, 20.7891, 155.656, -57, 140, -81.0391)
@@ -167,7 +166,7 @@ recipe_manager = NodePath("CanvasLayer/ToDoListUI")
 cook = NodePath("Jobs/Cooking")
 fridge = NodePath("Jobs/Getting")
 birds = NodePath("CanvasLayer/BirdWindow")
-recipe_list = Array[ExtResource("2_m2j2c")]([ExtResource("3_efry7"), ExtResource("3_efry7"), ExtResource("6_f4qft")])
+recipe_list = Array[ExtResource("2_m2j2c")]([ExtResource("3_efry7")])
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -246,8 +245,10 @@ shape = SubResource("RectangleShape2D_nr38a")
 [node name="Cooking" type="Area2D" parent="Jobs"]
 position = Vector2(205, 170)
 script = ExtResource("14_rejj1")
+collectTask = ExtResource("16_wuymv")
+mixTasx = ExtResource("23_03rqw")
 items_needed = [ExtResource("11_tjaxn"), ExtResource("10_4mt1t"), ExtResource("9_ueyb3")]
-item_reward = ExtResource("15_glur0")
+item_reward = ExtResource("3_efry7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Jobs/Cooking"]
 shape = SubResource("RectangleShape2D_nr38a")
@@ -256,7 +257,7 @@ shape = SubResource("RectangleShape2D_nr38a")
 position = Vector2(96, 80)
 script = ExtResource("16_0xywj")
 time = 1
-items_needed = [ExtResource("15_glur0")]
+items_needed = Array[ExtResource("2_m2j2c")]([ExtResource("3_efry7")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Jobs/Plating"]
 shape = SubResource("RectangleShape2D_nr38a")
