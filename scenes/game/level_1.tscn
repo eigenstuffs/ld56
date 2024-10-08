@@ -269,9 +269,34 @@ offset_bottom = 54.0
 offset_top = 66.0
 offset_bottom = 78.0
 
+[node name="BG" parent="CanvasLayer/ToDoListUI/GoblinCounter" index="0"]
+mouse_filter = 2
+
+[node name="BG2" parent="CanvasLayer/ToDoListUI/GoblinCounter" index="1"]
+mouse_filter = 2
+
+[node name="Num" parent="CanvasLayer/ToDoListUI/GoblinCounter" index="2"]
+mouse_filter = 2
+
+[node name="Border1" parent="CanvasLayer/ToDoListUI/GoblinCounter" index="3"]
+mouse_filter = 2
+
+[node name="Border2" parent="CanvasLayer/ToDoListUI/GoblinCounter" index="4"]
+mouse_filter = 2
+
+[node name="BG4" parent="CanvasLayer/ToDoListUI/Window" index="0"]
+mouse_filter = 2
+
+[node name="BG3" parent="CanvasLayer/ToDoListUI/Window" index="1"]
+mouse_filter = 2
+
+[node name="ScrollContainer" parent="CanvasLayer/ToDoListUI/Recipe" index="0"]
+mouse_filter = 2
+
 [node name="BirdWindow" parent="CanvasLayer" node_paths=PackedStringArray("garrison_point") instance=ExtResource("27_tf42o")]
 position = Vector2(290, 57)
 scale = Vector2(0.3, 0.3)
+priority = 1
 min_time = 30
 max_time = 40
 garrison_point = NodePath("../../NavControl/GoalFolder/Hole2Window")
