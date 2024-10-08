@@ -4,7 +4,7 @@ class_name Level
 
 @export var next_level : PackedScene
 @export var music : Resource
-@export var GOB_NAMES := ["Angelina", "Branden", "Caominh", "Joice", "Jon", "Lauclan", "Lea", "Nyla", "Osqurr"]
+@export var GOB_NAMES : Array[String] = ["Angelina", "Branden", "Caominh", "Joice", "Jon", "Lauclan", "Lea", "Nyla", "Osqurr"]
 @export var n_goblins : int
 @export var recipe_manager : Recipe_Display
 var progress_bar : ProgressBarManager
@@ -118,8 +118,8 @@ func bird_penalty():
 			if len(plated) > 0:
 				clear_recipe(plated.pop_at(randi_range(0,len(plated) - 1)), 1)
 		else:
-			update_ingredient_str(del_items[randi_range(0,len(del_items) - 1)], -1, 2)
-			update_ingredient_str(del_items[randi_range(0,len(del_items) - 1)], -1, 1)
+			update_ingredient_str(del_items.pop_at(randi_range(0,len(del_items) - 1)), -1, 2)
+			update_ingredient_str(del_items.pop_at(randi_range(0,len(del_items) - 1)), -1, 1)
 	update_prep_progress()
 	
 #mode is normal cooking, mode 1 is bird event, mode 2 is goblin died or cooking qte failed

@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://3b2ak27p4i25"]
+[gd_scene load_steps=47 format=3 uid="uid://dmdheipf052rq"]
 
 [ext_resource type="Script" path="res://scenes/game/test_level.gd" id="1_43tu8"]
 [ext_resource type="Script" path="res://scenes/tools/recipes/recipe.gd" id="2_m2j2c"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://tum4qkjre8jo" path="res://assets/bg no sprite boundary.PNG" id="4_vdlyo"]
 [ext_resource type="PackedScene" uid="uid://bmq52iegph5xs" path="res://scenes/tools/goblin_nav_control.tscn" id="5_m1dqk"]
 [ext_resource type="PackedScene" uid="uid://d13no63s202hy" path="res://scenes/goal/goal.tscn" id="6_7o0j6"]
+[ext_resource type="Resource" uid="uid://d2w7w7y125h3k" path="res://scenes/tools/recipes/all_ingredients.tres" id="6_f4qft"]
 [ext_resource type="Script" path="res://scenes/utilities/jobs/getting.gd" id="7_usax2"]
 [ext_resource type="Script" path="res://scenes/tools/recipes/ingredients/ingredient_info.gd" id="8_e5t3a"]
 [ext_resource type="Resource" uid="uid://dao308cgo2ler" path="res://scenes/tools/recipes/ingredients/spices.tres" id="9_ueyb3"]
@@ -156,15 +157,17 @@ animations = [{
 "speed": 3.0
 }]
 
-[node name="Level4" type="Node2D" node_paths=PackedStringArray("recipe_manager", "cook", "birds")]
+[node name="Level4" type="Node2D" node_paths=PackedStringArray("recipe_manager", "cook", "fridge", "birds")]
 script = ExtResource("1_43tu8")
 next_level = ExtResource("2_ucwfh")
 music = ExtResource("3_l5p08")
+GOB_NAMES = Array[String](["4ng3l1n4", "Bruh", "Rn_while_u_cn", "Goblin420.69", "Brat", "Demuer", "Kamal Trump", "Don Harris", "not Dave", "Eucla", "Gobo", "[redacted]"])
 n_goblins = 12
 recipe_manager = NodePath("CanvasLayer/ToDoListUI")
 cook = NodePath("Jobs/Cooking")
+fridge = NodePath("Jobs/Getting")
 birds = NodePath("CanvasLayer/BirdWindow")
-recipe_list = Array[ExtResource("2_m2j2c")]([ExtResource("3_efry7"), ExtResource("3_efry7")])
+recipe_list = Array[ExtResource("2_m2j2c")]([ExtResource("3_efry7"), ExtResource("3_efry7"), ExtResource("6_f4qft")])
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -183,25 +186,11 @@ position = Vector2(69, 156)
 [node name="NavControl" parent="." node_paths=PackedStringArray("goal_array") instance=ExtResource("5_m1dqk")]
 goal_array = [NodePath("../CanvasLayer/BirdWindow")]
 
-[node name="Goal" parent="NavControl/GoalFolder" index="0" instance=ExtResource("6_7o0j6")]
-position = Vector2(210, 174)
-
-[node name="Hole2Window" parent="NavControl/GoalFolder" index="1" instance=ExtResource("6_7o0j6")]
+[node name="Hole2Window" parent="NavControl/GoalFolder" index="0" instance=ExtResource("6_7o0j6")]
 position = Vector2(210, -82)
 
-[node name="Goal2" parent="NavControl/GoalFolder" index="2" instance=ExtResource("6_7o0j6")]
-position = Vector2(37, 153)
-
-[node name="Goal3" parent="NavControl/GoalFolder" index="3" instance=ExtResource("6_7o0j6")]
-position = Vector2(96, 92)
-
-[node name="Goal5" parent="NavControl/GoalFolder" index="4" instance=ExtResource("6_7o0j6")]
-position = Vector2(92, -12)
-scale = Vector2(1, 0.48)
-
-[node name="Goal7" parent="NavControl/GoalFolder" index="5" instance=ExtResource("6_7o0j6")]
-position = Vector2(214, 39)
-scale = Vector2(1, 0.600001)
+[node name="ClickCollider" parent="NavControl/MapClickable" index="0"]
+position = Vector2(159, 34)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 position = Vector2(-4, 0)
@@ -240,7 +229,6 @@ affect_navigation_mesh = true
 position = Vector2(88, -24)
 script = ExtResource("7_usax2")
 choosing_task = SubResource("PackedScene_370vs")
-time = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Jobs/Getting"]
 shape = SubResource("RectangleShape2D_nr38a")
@@ -305,6 +293,10 @@ offset_bottom = 78.0
 [node name="BirdWindow" parent="CanvasLayer" node_paths=PackedStringArray("garrison_point") instance=ExtResource("19_xa8a2")]
 position = Vector2(290, 57)
 scale = Vector2(0.3, 0.3)
+max_birds = 3
+min_time = 20
+max_time = 25
+garrison_time = 20
 garrison_point = NodePath("../../NavControl/GoalFolder/Hole2Window")
 
 [node name="Chef" type="AnimatedSprite2D" parent="."]

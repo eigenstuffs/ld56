@@ -46,3 +46,19 @@ func _on_goblin_listening_for_target():
 
 func _on_goal_listening_for_agent():
 	goal_found = agent_found
+
+func _on_map_clickable_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event.is_action_pressed("LMB"):
+		var target_goblins : Array[GoblinBase]
+		for goblin : GoblinBase in goblin_array:
+			if goblin != null:
+				if goblin.clicked:
+					target_goblins.append(goblin)
+					goblin.clicked = false
+		var obj : Goal = Goal.new()
+		obj.global_position = get_global_mouse_position()
+		obj.scale = Vector2(1, 1)
+		obj.target_node = obj
+		for goblin : GoblinBase in target_goblins:
+			goblin.set_movement_target(obj)
+		

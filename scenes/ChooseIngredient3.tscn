@@ -11,7 +11,7 @@
 [ext_resource type="Resource" uid="uid://d2510q2f76g23" path="res://scenes/tools/recipes/ingredients/sugar.tres" id="7_n2xt6"]
 [ext_resource type="Texture2D" uid="uid://bqbefijjxuwba" path="res://assets/ingredients/redo.png" id="7_v5pah"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_eohmf"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yyx03"]
 size = Vector2(16, 16)
 
 [node name="ChooseIngredient" type="Control"]
@@ -27,7 +27,7 @@ texture = ExtResource("6_dahgh")
 [node name="Area1" type="Area2D" parent="Sprite1"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite1/Area1"]
-shape = SubResource("RectangleShape2D_eohmf")
+shape = SubResource("RectangleShape2D_yyx03")
 
 [node name="Sprite2" type="Sprite2D" parent="."]
 position = Vector2(-10, -20)
@@ -38,7 +38,7 @@ position = Vector2(10, 38)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2/Area2"]
 position = Vector2(-10, -38)
-shape = SubResource("RectangleShape2D_eohmf")
+shape = SubResource("RectangleShape2D_yyx03")
 
 [node name="Sprite3" type="Sprite2D" parent="."]
 position = Vector2(10, -20)
@@ -47,7 +47,7 @@ texture = ExtResource("6_dahgh")
 [node name="Area3" type="Area2D" parent="Sprite3"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite3/Area3"]
-shape = SubResource("RectangleShape2D_eohmf")
+shape = SubResource("RectangleShape2D_yyx03")
 
 [node name="Sprite4" type="Sprite2D" parent="."]
 position = Vector2(30, -20)
@@ -56,7 +56,7 @@ texture = ExtResource("7_v5pah")
 [node name="Area4" type="Area2D" parent="Sprite4"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite4/Area4"]
-shape = SubResource("RectangleShape2D_eohmf")
+shape = SubResource("RectangleShape2D_yyx03")
 
 [connection signal="input_event" from="Sprite1/Area1" to="." method="_on_area_1_input_event"]
 [connection signal="input_event" from="Sprite2/Area2" to="." method="_on_area_2_input_event"]

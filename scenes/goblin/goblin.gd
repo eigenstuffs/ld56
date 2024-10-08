@@ -29,6 +29,7 @@ var state := STATE.IDLE
 var current_state_child
 var curr_target : Goal = null
 var item_holding = null
+var in_job_region : bool = false
 
 func _ready():
 	change_state("Idle")
@@ -73,9 +74,16 @@ func _on_goblin_hitbox_area_entered(area: Area2D) -> void:
 				change_state("Stunned")
 				area.get_parent().change_state("Stunned")
 	if area is Job:
-		change_state("Working")
-		$Working.job(area)
+		in_job_region = true
+		await state_changed
+		if(in_job_region):
+			change_state("Working")
+			$Working.job(area)
 		# job done
+
+func _on_goblin_hitbox_area_exited(area: Area2D) -> void:
+	if area is Job:
+		in_job_region = false
 
 func _on_goblin_hitbox_input_event(viewport, event, shape_idx):
 	get_viewport().set_input_as_handled()

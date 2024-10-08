@@ -7,6 +7,6 @@
 script = ExtResource("1_bduvp")
 ing_name = ""
 prep_time = 0.0
-state = null
+state = 1
 sprite_upd = ExtResource("2_c0qcp")
 sprite_prd = ExtResource("2_c0qcp")

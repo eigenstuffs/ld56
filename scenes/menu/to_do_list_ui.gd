@@ -15,7 +15,7 @@ var ingredient_sprites = {
 	"egg": "res://assets/ingredients/egg_cracked.png",
 	"flour": "res://assets/ingredients/flour.png",
 	"meat": "res://assets/ingredients/meat_defrosted.png",
-	"secret": "res://assets/ingredients/secret_ingredient.png",
+	"secret ingredient": "res://assets/ingredients/secret_ingredient.png",
 	"spices": "res://assets/ingredients/spice.png",
 	"sugar": "res://assets/ingredients/sugar_measured.png",
 	"veggie": "res://assets/ingredients/veggie_chopped.png"
@@ -34,7 +34,7 @@ func show_recipe(recipe : Recipe, ing_gathered : Dictionary) -> bool:
 	var title_container = VBoxContainer.new()
 	title_container.add_theme_constant_override("separation", 0) 
 	
-	for name_line in recipe.dish_name.split("\n"):
+	for name_line in recipe.dish_name.split(" "):
 		var line_label = Label.new()
 		line_label.text = name_line
 		line_label.align = 1 
