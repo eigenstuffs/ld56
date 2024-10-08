@@ -3,19 +3,19 @@
 [ext_resource type="Script" path="res://scenes/tools/goblin_nav_control.gd" id="1_xsfgd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s0q78"]
-size = Vector2(196, 282)
+size = Vector2(196, 243)
 
 [node name="NavControl" type="Node2D"]
 script = ExtResource("1_xsfgd")
-
-[node name="GoalFolder" type="Node2D" parent="."]
-
-[node name="GoblinFolder" type="Node2D" parent="."]
 
 [node name="MapClickable" type="Area2D" parent="."]
 
 [node name="ClickCollider" type="CollisionShape2D" parent="MapClickable"]
 position = Vector2(160, 89.5)
 shape = SubResource("RectangleShape2D_s0q78")
+
+[node name="GoalFolder" type="Node2D" parent="."]
+
+[node name="GoblinFolder" type="Node2D" parent="."]
 
 [connection signal="input_event" from="MapClickable" to="." method="_on_map_clickable_input_event"]

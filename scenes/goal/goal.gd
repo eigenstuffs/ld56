@@ -12,9 +12,7 @@ var occupied : bool = false
 @onready var target_node : Node2D = self
 
 func _on_input_event(_viewport, event : InputEvent, _shape_idx):
-	print("bird1")
 	if event.is_action_pressed("LMB"):
-		print("bird2")
 		clicked = true
 		emit_signal("listening_for_agent")
 		#get_viewport().set_input_as_handled()

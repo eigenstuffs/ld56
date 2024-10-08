@@ -486,6 +486,9 @@ position = Vector2(69, 156)
 [node name="NavControl" parent="." node_paths=PackedStringArray("goal_array") instance=ExtResource("5_vv84t")]
 goal_array = [NodePath("../CanvasLayer/BirdWindow")]
 
+[node name="ClickCollider" parent="NavControl/MapClickable" index="0"]
+position = Vector2(160, 59)
+
 [node name="Hole2Window" parent="NavControl/GoalFolder" index="0" instance=ExtResource("6_s4ske")]
 position = Vector2(210, -82)
 
