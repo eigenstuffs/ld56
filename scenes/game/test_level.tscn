@@ -25,9 +25,9 @@
 [ext_resource type="Script" path="res://scenes/game/tutorial.gd" id="23_6tmfo"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_nq5ct"]
-vertices = PackedVector2Array(311.898, -65.5703, 269.281, -9.72656, 281.289, -57, 311.289, -81.9531, 197.547, 37.1562, 253.773, 22.5781, 253.141, 50, 142.453, 50, 202.758, 167.031, 197.859, 167.047, 198.359, 163.852, 202.211, 147.828, 176.789, 145.461, 162.648, 151.508, 51.2188, 166.141, 51.3672, 167.742, 5.47656, 167.953, 7.5625, 131.852, 37.9062, 145.633, 38.0781, 131.258, 166.594, 109.211, 150.07, 105.93, 152.594, 86.2188, 69, 106.898, 69, 66.8984, 124.68, 65.8281, 122.359, 38, 158.922, -7.04688, 60, -6.03125, 60, -29, 140, -29, 157.102, -22.3906, 60, 38, 60, 18, 145.781, 18, 164.031, 28.9531, 172.844, 20.7891, 155.656, -57, 140, -81.0391)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6), PackedInt32Array(4, 6, 7), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(12, 11, 10, 13), PackedInt32Array(14, 15, 16, 17, 18), PackedInt32Array(17, 19, 18), PackedInt32Array(14, 18, 13, 10), PackedInt32Array(20, 12, 13, 21, 22), PackedInt32Array(21, 23, 24, 25, 22), PackedInt32Array(7, 22, 25, 26), PackedInt32Array(27, 28, 29, 30, 31), PackedInt32Array(26, 32, 33, 34), PackedInt32Array(7, 26, 34, 35), PackedInt32Array(4, 7, 35, 36), PackedInt32Array(31, 4, 36, 27), PackedInt32Array(37, 31, 30, 38), PackedInt32Array(37, 38, 3, 2)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(52, -37, 52, 123, 0, 124, -3, 176, 211, 175, 210, 140, 261, 56, 262, 13, 320, -63, 319, -90, 132, -89, 132, -37)])
+vertices = PackedVector2Array(311.898, -65.5703, 269.281, -9.72656, 281.289, -57, 311.289, -81.9531, 197.547, 37.1563, 253.773, 22.5781, 253.25, 44.9531, 141.648, 43.8984, 210.938, 167, 197.859, 167.047, 198.359, 163.852, 51.2188, 166.141, 51.3672, 167.742, 5.47656, 167.953, 7.5625, 131.852, 37.9063, 145.633, 38.0781, 131.258, 162.648, 151.508, 150.07, 105.93, 69, 106.898, 69, 66.8984, 124.68, 65.8281, 152.547, 86.1484, 158.922, -7.04688, 60, -6.03125, 60, -29, 140, -29, 157.102, -22.3906, 122.359, 38, 60, 38, 60, 18, 145.781, 18, 176.43, 134.859, 253.688, 136.883, 253.93, 165.313, 166.758, 109.492, 164.031, 28.9531, 172.844, 20.7891, 155.656, -57, 140, -81.0391)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6), PackedInt32Array(4, 6, 7), PackedInt32Array(8, 9, 10), PackedInt32Array(11, 12, 13, 14, 15), PackedInt32Array(14, 16, 15), PackedInt32Array(11, 15, 17, 10), PackedInt32Array(18, 19, 20, 21, 22), PackedInt32Array(23, 24, 25, 26, 27), PackedInt32Array(28, 29, 30, 31), PackedInt32Array(32, 33, 34, 8, 10, 17), PackedInt32Array(35, 32, 17, 18, 22), PackedInt32Array(7, 22, 21, 28), PackedInt32Array(7, 28, 31, 36), PackedInt32Array(4, 7, 36), PackedInt32Array(4, 36, 37), PackedInt32Array(27, 4, 37, 23), PackedInt32Array(38, 27, 26, 39), PackedInt32Array(38, 39, 3, 2)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(52, -37, 52, 123, 0, 124, -3, 176, 211, 175, 262, 173, 261, 56, 262, 13, 320, -63, 319, -90, 132, -89, 132, -37)])
 agent_radius = 8.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nr38a"]
@@ -201,7 +201,7 @@ affect_navigation_mesh = true
 
 [node name="NavigationObstacle2D5" type="NavigationObstacle2D" parent="NavigationRegion2D"]
 position = Vector2(61, -116)
-vertices = PackedVector2Array(99, 199, 113, 222, 122, 254, 197, 261, 197, 169, 91, 168)
+vertices = PackedVector2Array(99, 199, 113, 222, 121, 243, 197, 245, 197, 169, 91, 168)
 affect_navigation_mesh = true
 
 [node name="NavigationObstacle2D6" type="NavigationObstacle2D" parent="NavigationRegion2D"]
@@ -211,7 +211,7 @@ affect_navigation_mesh = true
 
 [node name="NavigationObstacle2D7" type="NavigationObstacle2D" parent="NavigationRegion2D"]
 position = Vector2(120, -224)
-vertices = PackedVector2Array(81, 252, 135, 238, 151, 175, 44, 175, 45, 199)
+vertices = PackedVector2Array(78, 239, 135, 239, 151, 175, 44, 175, 45, 199)
 affect_navigation_mesh = true
 
 [node name="Jobs" type="Node2D" parent="."]

@@ -18,6 +18,7 @@ func pre_job(gob : GoblinBase):
 func dur_job(gob : GoblinBase):
 	if(product != null):
 		gob.item_holding = product
+		product = null
 		var task : Mix = mixTasx.instantiate()
 		task.length = time
 		get_tree().current_scene.add_child(task)
@@ -28,7 +29,7 @@ func dur_job(gob : GoblinBase):
 			return
 	
 func post_job(gob : GoblinBase):
-	if(product != null):
+	if(gob.item_holding is Recipe):
 		var task : CollectionTask = collectTask.instantiate()
 		task.goblin = gob
 		get_tree().current_scene.add_child(task)
@@ -37,7 +38,7 @@ func post_job(gob : GoblinBase):
 		if(task.result == "lose"):
 			gob.change_state("Explode")
 			return
-		gob.hold_item(give_reward())
+		gob.hold_item(gob.item_holding)
 		task.queue_free()	
 		reset_cook()
 	gob.change_state("Idle")

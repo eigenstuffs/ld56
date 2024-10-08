@@ -54,6 +54,7 @@ func _ready():
 	
 func _process(delta: float) -> void:
 	if !get_tree().paused: time += delta
+	print(ing_delivered)
 
 func level_end():
 	var n_star = calculate_score()
@@ -74,10 +75,9 @@ func _on_plating_plating_complete(plate : Recipe):
 		level_end()
 	
 func update_progress(stuff):
-	if stuff is IngredientInfo:
+	if stuff is IngredientInfo and stuff.state == 1:
 		update_ingredient(stuff, 1, 1)
 	elif stuff is Recipe:
-		print("RECIPE FOUND")
 		recipe_index += 1
 		progress_bar.update_cooking_progress(recipe_index, len(recipe_list))
 		recipe_manager.show_recipe(recipe_list[recipe_index]
@@ -97,10 +97,10 @@ func update_ingredient_str(ing : String, quantity: int = 1, dictNum = 2):
 			dict[ing] += quantity
 		else:
 			dict[ing] = quantity
-		update_prep_progress()
 		if dictNum == 2 and recipe_manager.show_recipe(recipe_list[recipe_index], ing_delivered):
 			clear_recipe(recipe_list[recipe_index], 0)
 			cook.start_cooking(recipe_list[recipe_index])
+		update_prep_progress()
 
 func gob_death(carrying):
 	if carrying is IngredientInfo:
@@ -116,10 +116,11 @@ func bird_penalty():
 	for i in range(birds.num_birds):
 		if len(del_items) == 0 or randf() < 0.2:
 			if len(plated) > 0:
-				clear_recipe(plated.pick_random(), 1)
+				clear_recipe(plated.pop_at(randi_range(0,len(plated) - 1)), 1)
 		else:
 			update_ingredient_str(del_items[randi_range(0,len(del_items) - 1)], -1, 2)
 			update_ingredient_str(del_items[randi_range(0,len(del_items) - 1)], -1, 1)
+	update_prep_progress()
 	
 #mode is normal cooking, mode 1 is bird event, mode 2 is goblin died or cooking qte failed
 func clear_recipe(recipe : Recipe, mode = 1):
@@ -129,8 +130,8 @@ func clear_recipe(recipe : Recipe, mode = 1):
 	else:
 		for i in range(len(recipe.required_ing)):
 			update_ingredient(recipe.required_ing[i], -recipe.required_amount[i], 1)
-		recipe_index -= 1 if mode == 1 else 0
 		recipe_list.insert(recipe_index + 1, recipe)
+		recipe_index -= 1
 		recipe_list.pop_front()
 		progress_bar.update_cooking_progress(recipe_index, len(recipe_list))
 		progress_bar.update_prep_progress()

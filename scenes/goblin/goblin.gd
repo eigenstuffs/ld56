@@ -91,10 +91,10 @@ func hold_item(stuff):
 	if stuff is IngredientInfo:
 		item_holding = stuff
 		item.texture = item_holding.get_current_sprite()
-		emit_signal("update_progress", item_holding)
 	elif stuff is Recipe:
 		item_holding = stuff
 		item.texture = item_holding.recipe_img
+	emit_signal("update_progress", item_holding)
 
 func set_target_pos(pos : Vector2):
 	var obj : Goal = Goal.new()

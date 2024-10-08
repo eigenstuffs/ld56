@@ -22,6 +22,7 @@ func dur_job(goblin : GoblinBase):
 	print(item_reward)
 	
 func post_job(gob : GoblinBase):
+	gob.hold_item(give_reward())
 	gob.change_state("Idle")
 	finish_post_job()
 
