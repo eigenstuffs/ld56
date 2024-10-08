@@ -1,7 +1,6 @@
 class_name Mix extends Control
 
 signal done
-
 var result : String
 
 @export var length : int = 4

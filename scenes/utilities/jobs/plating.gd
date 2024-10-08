@@ -2,7 +2,7 @@ extends Job
 
 class_name PlatingJob
 
-signal plating_complete
+signal plating_complete(plate)
 
 func pre_job(gob : GoblinBase):
 	item_reward = gob.item_holding
@@ -13,6 +13,5 @@ func check_trigger(gob : GoblinBase) -> bool:
 	return gob.item_holding is Recipe
 
 func give_reward():
-	plating_complete.emit()
-	print("completed!")
+	emit_signal("plating_complete", item_reward)
 	return null

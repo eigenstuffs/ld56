@@ -1,6 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://xgvais5wsbrf"]
+[gd_scene load_steps=12 format=3 uid="uid://dsyc608141jlb"]
 
-[ext_resource type="Script" path="res://scenes/choose_ingredient.gd" id="1_ktw5u"]
+[ext_resource type="Script" path="res://scenes/qte/choose_ingredient.gd" id="1_366r6"]
 [ext_resource type="Script" path="res://scenes/tools/recipes/ingredients/ingredient_info.gd" id="2_v2gfx"]
 [ext_resource type="Resource" uid="uid://cyvura4urvq1v" path="res://scenes/tools/recipes/ingredients/egg.tres" id="3_ehrk5"]
 [ext_resource type="Resource" uid="uid://bmkk420mxdsfw" path="res://scenes/tools/recipes/ingredients/meat.tres" id="3_ni6jw"]
@@ -17,7 +17,7 @@ size = Vector2(16, 16)
 [node name="ChooseIngredient" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_ktw5u")
+script = ExtResource("1_366r6")
 pick_from = Array[ExtResource("2_v2gfx")]([ExtResource("3_ni6jw"), ExtResource("4_kkmxb"), ExtResource("5_uqk8o"), ExtResource("6_feryw"), ExtResource("7_n2xt6"), ExtResource("3_ehrk5")])
 
 [node name="Sprite1" type="Sprite2D" parent="."]

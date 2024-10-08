@@ -3,6 +3,7 @@ class_name Dialogue extends Control
 @export var text : Array[String]
 @onready var label : Label = $CanvasLayer/Label
 @export var time_per_char : float = 0.02
+var tween : Tween
 
 signal next
 signal done
@@ -12,8 +13,8 @@ func _ready():
 	for i in text:
 		label.visible_ratio = 0
 		label.text = i
-		var a = create_tween()
-		a.tween_property(label,
+		tween = create_tween()
+		tween.tween_property(label,
 			"visible_ratio", 1,
 			time_per_char * i.length()
 		)
@@ -26,3 +27,4 @@ func _input(event):
 			next.emit()
 		else:
 			label.visible_ratio = 1
+			tween.kill()

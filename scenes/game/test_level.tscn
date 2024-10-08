@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/game/test_level.gd" id="1_sw3k0"]
 [ext_resource type="PackedScene" uid="uid://bmq52iegph5xs" path="res://scenes/tools/goblin_nav_control.tscn" id="2_7etuc"]
-[ext_resource type="PackedScene" path="res://scenes/game/level_2.tscn" id="2_re7yy"]
+[ext_resource type="PackedScene" uid="uid://bwx4qha0e3wi7" path="res://scenes/game/level_2.tscn" id="2_re7yy"]
 [ext_resource type="Script" path="res://scenes/tools/recipes/recipe.gd" id="2_wbmnp"]
 [ext_resource type="AudioStream" uid="uid://cjfe37oc1qywe" path="res://assets/Music/Gobblin Goblins Breakfast.mp3" id="3_3ainu"]
 [ext_resource type="PackedScene" uid="uid://d13no63s202hy" path="res://scenes/goal/goal.tscn" id="3_tr6ll"]
@@ -13,14 +13,14 @@
 [ext_resource type="Resource" uid="uid://cyvura4urvq1v" path="res://scenes/tools/recipes/ingredients/egg.tres" id="8_oobhy"]
 [ext_resource type="PackedScene" uid="uid://teo71o0ubvgw" path="res://scenes/menu/ToDoListUI.tscn" id="9_0a727"]
 [ext_resource type="Script" path="res://scenes/utilities/jobs/prepping.gd" id="9_ltjqr"]
-[ext_resource type="Script" path="res://scenes/tools/recipes/ingredients/ingredient_info.gd" id="9_p4p1p"]
 [ext_resource type="Resource" uid="uid://c7dthmhxgd8m" path="res://scenes/tools/recipes/ingredients/veggie.tres" id="10_yun1q"]
-[ext_resource type="PackedScene" uid="uid://cnliugkwdvva7" path="res://scenes/ChooseIngredient.tscn" id="12_nacxf"]
+[ext_resource type="PackedScene" uid="uid://cnliugkwdvva7" path="res://scenes/qte/ChooseIngredient.tscn" id="12_nacxf"]
 [ext_resource type="Script" path="res://scenes/utilities/jobs/cooking.gd" id="12_ypyma"]
 [ext_resource type="Resource" uid="uid://cnhywb24r0wdq" path="res://scenes/tools/recipes/breakfast_recipe.tres" id="13_8lfds"]
 [ext_resource type="Resource" uid="uid://dao308cgo2ler" path="res://scenes/tools/recipes/ingredients/spices.tres" id="13_agnl4"]
-[ext_resource type="PackedScene" uid="uid://f47peacw0kny" path="res://scenes/CollectionTask.tscn" id="14_1odvp"]
+[ext_resource type="PackedScene" uid="uid://f47peacw0kny" path="res://scenes/qte/CollectionTask.tscn" id="14_1odvp"]
 [ext_resource type="Script" path="res://scenes/utilities/jobs/plating.gd" id="15_ywuxg"]
+[ext_resource type="PackedScene" uid="uid://dwn6tdlp54duv" path="res://scenes/qte/mix.tscn" id="16_0x563"]
 [ext_resource type="Texture2D" uid="uid://dfuup846m3b8k" path="res://assets/chef_stir.png" id="19_ck786"]
 [ext_resource type="Script" path="res://scenes/game/tutorial.gd" id="23_6tmfo"]
 
@@ -135,13 +135,14 @@ animations = [{
 "speed": 3.0
 }]
 
-[node name="TestLevel" type="Node2D" node_paths=PackedStringArray("recipe_manager", "cook", "birds")]
+[node name="TestLevel" type="Node2D" node_paths=PackedStringArray("recipe_manager", "cook", "fridge", "birds")]
 script = ExtResource("1_sw3k0")
 next_level = ExtResource("2_re7yy")
 music = ExtResource("3_3ainu")
-goblin_names = Array[String](["Victor", "Ana"])
+n_goblins = 3
 recipe_manager = NodePath("CanvasLayer/ToDoListUI")
 cook = NodePath("Jobs/Cooking")
+fridge = NodePath("Jobs/Getting")
 birds = NodePath("CanvasLayer/BirdWindow")
 recipe_list = Array[ExtResource("2_wbmnp")]([ExtResource("13_8lfds"), ExtResource("13_8lfds")])
 
@@ -219,7 +220,6 @@ affect_navigation_mesh = true
 position = Vector2(88, -24)
 script = ExtResource("6_q5p7q")
 choosing_task = ExtResource("12_nacxf")
-ingredient_box = Array[ExtResource("9_p4p1p")]([ExtResource("13_agnl4"), ExtResource("10_yun1q"), ExtResource("8_oobhy")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Jobs/Getting"]
 shape = SubResource("RectangleShape2D_nr38a")
@@ -238,6 +238,7 @@ shape = SubResource("RectangleShape2D_nr38a")
 position = Vector2(205, 170)
 script = ExtResource("12_ypyma")
 collectTask = ExtResource("14_1odvp")
+mixTasx = ExtResource("16_0x563")
 items_needed = [ExtResource("8_oobhy"), ExtResource("10_yun1q"), ExtResource("13_agnl4")]
 item_reward = ExtResource("13_8lfds")
 

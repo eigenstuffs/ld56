@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://f47peacw0kny"]
 
-[ext_resource type="Script" path="res://scenes/collection_task.gd" id="1_lw6f8"]
+[ext_resource type="Script" path="res://scenes/qte/collection_task.gd" id="1_lw6f8"]
 [ext_resource type="Texture2D" uid="uid://b4hycgkjkrsew" path="res://assets/ingredients/notice.png" id="2_e0ay8"]
 
 [node name="CollectionTask" type="Control"]

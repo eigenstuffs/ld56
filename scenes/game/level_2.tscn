@@ -1,7 +1,7 @@
-[gd_scene load_steps=39 format=3 uid="uid://bo3chmn1jqbjk"]
+[gd_scene load_steps=45 format=3 uid="uid://bwx4qha0e3wi7"]
 
 [ext_resource type="Script" path="res://scenes/game/test_level.gd" id="1_ws1x8"]
-[ext_resource type="PackedScene" uid="uid://cnmjn3lypjwsh" path="res://scenes/game/level_3.tscn" id="2_all8s"]
+[ext_resource type="PackedScene" uid="uid://li57rtkasrfm" path="res://scenes/game/level_3.tscn" id="2_all8s"]
 [ext_resource type="Script" path="res://scenes/tools/recipes/recipe.gd" id="2_reekr"]
 [ext_resource type="Resource" uid="uid://beb746r3b6hyc" path="res://scenes/tools/recipes/soup_recipe.tres" id="3_jcy7a"]
 [ext_resource type="AudioStream" uid="uid://4bnhuctew6x4" path="res://assets/Music/Gobblin Goblins March.mp3" id="3_xdgal"]
@@ -11,14 +11,18 @@
 [ext_resource type="Script" path="res://scenes/utilities/jobs/getting.gd" id="7_rergb"]
 [ext_resource type="Script" path="res://scenes/tools/recipes/ingredients/ingredient_info.gd" id="8_j1c1p"]
 [ext_resource type="Resource" uid="uid://dao308cgo2ler" path="res://scenes/tools/recipes/ingredients/spices.tres" id="9_lqi73"]
-[ext_resource type="PackedScene" uid="uid://2v2fud3h5g7" path="res://scenes/ChooseIngredient2.tscn" id="10_0ridv"]
+[ext_resource type="Script" path="res://scenes/qte/choose_ingredient.gd" id="10_h4s7u"]
 [ext_resource type="Resource" uid="uid://c7dthmhxgd8m" path="res://scenes/tools/recipes/ingredients/veggie.tres" id="10_lvwib"]
 [ext_resource type="Resource" uid="uid://cyvura4urvq1v" path="res://scenes/tools/recipes/ingredients/egg.tres" id="11_0t5bn"]
+[ext_resource type="Resource" uid="uid://bmkk420mxdsfw" path="res://scenes/tools/recipes/ingredients/meat.tres" id="13_iyn23"]
 [ext_resource type="Script" path="res://scenes/utilities/jobs/prepping.gd" id="13_opri8"]
 [ext_resource type="Script" path="res://scenes/utilities/jobs/cooking.gd" id="14_7h8p6"]
+[ext_resource type="Resource" uid="uid://dokfg58iwq26p" path="res://scenes/tools/recipes/ingredients/flour.tres" id="15_3vr46"]
 [ext_resource type="Resource" uid="uid://cnhywb24r0wdq" path="res://scenes/tools/recipes/breakfast_recipe.tres" id="15_ab5sv"]
-[ext_resource type="PackedScene" uid="uid://f47peacw0kny" path="res://scenes/CollectionTask.tscn" id="16_xak2k"]
+[ext_resource type="Texture2D" uid="uid://dxp5rc82dl6jr" path="res://assets/ingredients/egg.png" id="16_fho4q"]
+[ext_resource type="PackedScene" uid="uid://f47peacw0kny" path="res://scenes/qte/CollectionTask.tscn" id="16_xak2k"]
 [ext_resource type="Script" path="res://scenes/utilities/jobs/plating.gd" id="16_xnmxi"]
+[ext_resource type="Texture2D" uid="uid://bqbefijjxuwba" path="res://assets/ingredients/redo.png" id="17_5ajgg"]
 [ext_resource type="Script" path="res://scenes/game/camera_2d.gd" id="17_bdcs0"]
 [ext_resource type="PackedScene" uid="uid://teo71o0ubvgw" path="res://scenes/menu/ToDoListUI.tscn" id="18_bslxr"]
 [ext_resource type="PackedScene" uid="uid://bjv16f3io6fw3" path="res://scenes/enemy_event/bird_window.tscn" id="19_3wm1k"]
@@ -29,6 +33,22 @@ vertices = PackedVector2Array(311.898, -65.5703, 269.281, -9.72656, 281.289, -57
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6), PackedInt32Array(4, 6, 7), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(12, 11, 10, 13), PackedInt32Array(14, 15, 16, 17, 18), PackedInt32Array(17, 19, 18), PackedInt32Array(14, 18, 13, 10), PackedInt32Array(20, 12, 13, 21, 22), PackedInt32Array(21, 23, 24, 25, 22), PackedInt32Array(7, 22, 25, 26), PackedInt32Array(27, 28, 29, 30, 31), PackedInt32Array(26, 32, 33, 34), PackedInt32Array(7, 26, 34, 35), PackedInt32Array(4, 7, 35, 36), PackedInt32Array(31, 4, 36, 27), PackedInt32Array(37, 31, 30, 38), PackedInt32Array(37, 38, 3, 2)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(52, -37, 52, 123, 0, 124, -3, 176, 211, 175, 210, 140, 261, 56, 262, 13, 320, -63, 319, -90, 132, -89, 132, -37)])
 agent_radius = 8.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eohmf"]
+size = Vector2(16, 16)
+
+[sub_resource type="PackedScene" id="PackedScene_dkjil"]
+_bundled = {
+"conn_count": 4,
+"conns": PackedInt32Array(1073741837, 1073741836, 45, 44, 2, 0, 0, 1073741839, 1073741838, 47, 46, 2, 0, 0, 1073741841, 1073741840, 49, 48, 2, 0, 0, 1073741843, 1073741842, 51, 50, 2, 0, 0),
+"editable_instances": [],
+"names": PackedStringArray("ChooseIngredient", "Control", "layout_mode", "anchors_preset", "script", "pick_from", "Sprite1", "Sprite2D", "position", "texture", "Area1", "Area2D", "CollisionShape2D", "CollisionShape2D", "shape", "Sprite2", "Sprite2D", "position", "texture", "Area2", "Area2D", "position", "CollisionShape2D", "CollisionShape2D", "position", "shape", "Sprite3", "Sprite2D", "position", "texture", "Area3", "Area2D", "CollisionShape2D", "CollisionShape2D", "shape", "Sprite4", "Sprite2D", "position", "texture", "Area4", "Area2D", "CollisionShape2D", "CollisionShape2D", "shape", "_on_area_1_input_event", "input_event", "_on_area_2_input_event", "input_event", "_on_area_3_input_event", "input_event", "_on_area_4_input_event", "input_event"),
+"node_count": 13,
+"node_paths": [NodePath("."), NodePath("./Sprite1"), NodePath("./Sprite1/Area1"), NodePath("."), NodePath("./Sprite2"), NodePath("./Sprite2/Area2"), NodePath("."), NodePath("./Sprite3"), NodePath("./Sprite3/Area3"), NodePath("."), NodePath("./Sprite4"), NodePath("./Sprite4/Area4"), NodePath("."), NodePath("Sprite1/Area1"), NodePath("."), NodePath("Sprite2/Area2"), NodePath("."), NodePath("Sprite3/Area3"), NodePath("."), NodePath("Sprite4/Area4")],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 4, 2, 0, 3, 1, 4, 2, 5, 3, 0, 1073741824, 0, 7, 6, -1, 2, 8, 4, 9, 5, 0, 1073741825, 0, 11, 10, -1, 0, 0, 1073741826, 0, 13, 12, -1, 1, 14, 6, 0, 1073741827, 0, 16, 15, -1, 2, 17, 7, 18, 8, 0, 1073741828, 0, 20, 19, -1, 1, 21, 9, 0, 1073741829, 0, 23, 22, -1, 2, 24, 10, 25, 11, 0, 1073741830, 0, 27, 26, -1, 2, 28, 12, 29, 13, 0, 1073741831, 0, 31, 30, -1, 0, 0, 1073741832, 0, 33, 32, -1, 1, 34, 14, 0, 1073741833, 0, 36, 35, -1, 2, 37, 15, 38, 16, 0, 1073741834, 0, 40, 39, -1, 0, 0, 1073741835, 0, 42, 41, -1, 1, 43, 17, 0),
+"variants": [3, 0, ExtResource("10_h4s7u"), Array[ExtResource("8_j1c1p")]([ExtResource("11_0t5bn"), ExtResource("13_iyn23"), ExtResource("10_lvwib"), ExtResource("15_3vr46")]), Vector2(-30, -20), ExtResource("16_fho4q"), SubResource("RectangleShape2D_eohmf"), Vector2(-10, -20), ExtResource("16_fho4q"), Vector2(10, 38), Vector2(-10, -38), SubResource("RectangleShape2D_eohmf"), Vector2(10, -20), ExtResource("16_fho4q"), SubResource("RectangleShape2D_eohmf"), Vector2(30, -20), ExtResource("17_5ajgg"), SubResource("RectangleShape2D_eohmf")],
+"version": 3
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nr38a"]
 size = Vector2(32, 32)
@@ -139,7 +159,7 @@ animations = [{
 script = ExtResource("1_ws1x8")
 next_level = ExtResource("2_all8s")
 music = ExtResource("3_xdgal")
-goblin_names = Array[String](["Victor", "Ana"])
+n_goblins = 6
 recipe_manager = NodePath("CanvasLayer/ToDoListUI")
 cook = NodePath("Jobs/Cooking")
 birds = NodePath("CanvasLayer/BirdWindow")
@@ -218,8 +238,7 @@ affect_navigation_mesh = true
 [node name="Getting" type="Area2D" parent="Jobs"]
 position = Vector2(88, -24)
 script = ExtResource("7_rergb")
-choosing_task = ExtResource("10_0ridv")
-ingredient_box = Array[ExtResource("8_j1c1p")]([ExtResource("9_lqi73"), ExtResource("10_lvwib"), ExtResource("11_0t5bn")])
+choosing_task = SubResource("PackedScene_dkjil")
 time = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Jobs/Getting"]
@@ -238,8 +257,6 @@ shape = SubResource("RectangleShape2D_nr38a")
 [node name="Cooking" type="Area2D" parent="Jobs"]
 position = Vector2(205, 170)
 script = ExtResource("14_7h8p6")
-product = ExtResource("3_jcy7a")
-ingredient_gathered = [ExtResource("11_0t5bn"), ExtResource("10_lvwib"), ExtResource("9_lqi73")]
 items_needed = [ExtResource("11_0t5bn"), ExtResource("10_lvwib"), ExtResource("9_lqi73")]
 item_reward = ExtResource("15_ab5sv")
 

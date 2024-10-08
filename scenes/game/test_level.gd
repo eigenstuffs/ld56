@@ -4,14 +4,17 @@ class_name Level
 
 @export var next_level : PackedScene
 @export var music : Resource
-@export var goblin_names : Array[String] = ["Victor"]
+@export var GOB_NAMES := ["Angelina", "Branden", "Caominh", "Joice", "Jon", "Lauclan", "Lea", "Nyla", "Osqurr"]
+@export var n_goblins : int
 @export var recipe_manager : Recipe_Display
 var progress_bar : ProgressBarManager
 var goblin_counter : GoblinCounter
-@export var cook : CookingJob
+@export var cook : CookingJob	
+@export var fridge : GettingJob	
 @export var birds : Bird_Window
 @export var recipe_list : Array[Recipe] = []
 var recipe_index := 0
+var plated : Array[Recipe] = []
 @onready var nav_control : Nav_Control= $NavControl
 @onready var goblin = preload("res://scenes/goblin/goblin.tscn")
 @onready var score_screen = preload("res://scenes/utilities/score_screen.tscn")
@@ -30,10 +33,11 @@ func _ready():
 	birds.connect("gobs_changed", update_defense)
 	birds.connect("def_failed", bird_penalty)
 	goblin_counter = recipe_manager.goblin_counter
-	goblin_counter.add_goblins(len(goblin_names))
-	for name in goblin_names:
+	goblin_counter.add_goblins(n_goblins)
+	GOB_NAMES.shuffle()
+	for gob_name in GOB_NAMES.slice(0, n_goblins):
 		var a = goblin.instantiate()
-		a.gob_name = name
+		a.gob_name = gob_name
 		a.connect("update_progress", update_progress)
 		a.connect("state_changed", update_gob_count)
 		a.global_position = $GoblinSpawnPoint.global_position
@@ -41,6 +45,7 @@ func _ready():
 	nav_control.init()
 	for rec in recipe_list:
 		for ing : IngredientInfo in rec.required_ing:
+			fridge.ingredient_box.append(ing)
 			update_ingredient(ing, 1, 0)
 			ing_total += 1
 	update_prep_progress()
@@ -63,20 +68,22 @@ func calculate_score() -> int:
 	return 3 #TODO replace placeholder
 	#use the time var
 
-func _on_plating_plating_complete():
-	level_end()
+func _on_plating_plating_complete(plate : Recipe):
+	plated.append(plate)
+	if len(plated) == len(recipe_list):
+		level_end()
 	
 func update_progress(stuff):
 	if stuff is IngredientInfo:
 		update_ingredient(stuff, 1, 1)
 	elif stuff is Recipe:
+		print("RECIPE FOUND")
 		recipe_index += 1
 		progress_bar.update_cooking_progress(recipe_index, len(recipe_list))
 		recipe_manager.show_recipe(recipe_list[recipe_index]
 			if recipe_index < len(recipe_list) else null, ing_delivered)
 			
 func update_ingredient(ing : IngredientInfo, quantity: int = 1, dictNum = 2):
-	if dictNum > 0 and not ing.processed(): return
 	update_ingredient_str(ing.ing_name, quantity, dictNum)
 
 func update_ingredient_str(ing : String, quantity: int = 1, dictNum = 2):
@@ -92,8 +99,8 @@ func update_ingredient_str(ing : String, quantity: int = 1, dictNum = 2):
 			dict[ing] = quantity
 		update_prep_progress()
 		if dictNum == 2 and recipe_manager.show_recipe(recipe_list[recipe_index], ing_delivered):
-			cook.start_cooking(recipe_list[recipe_index])
 			clear_recipe(recipe_list[recipe_index], 0)
+			cook.start_cooking(recipe_list[recipe_index])
 
 func gob_death(carrying):
 	if carrying is IngredientInfo:
@@ -108,8 +115,8 @@ func bird_penalty():
 			del_items.append(ing)
 	for i in range(birds.num_birds):
 		if len(del_items) == 0 or randf() < 0.2:
-			if recipe_index > 0:
-				clear_recipe(recipe_list[randi_range(0,recipe_index - 1)], 1)
+			if len(plated) > 0:
+				clear_recipe(plated.pick_random(), 1)
 		else:
 			update_ingredient_str(del_items[randi_range(0,len(del_items) - 1)], -1, 2)
 			update_ingredient_str(del_items[randi_range(0,len(del_items) - 1)], -1, 1)
@@ -119,13 +126,14 @@ func clear_recipe(recipe : Recipe, mode = 1):
 	if mode == 0:
 		for i in range(len(recipe.required_ing)):
 			update_ingredient(recipe.required_ing[i], -recipe.required_amount[i], 2)
-	elif recipe_index > 0:
+	else:
 		for i in range(len(recipe.required_ing)):
 			update_ingredient(recipe.required_ing[i], -recipe.required_amount[i], 1)
 		recipe_index -= 1 if mode == 1 else 0
 		recipe_list.insert(recipe_index + 1, recipe)
 		recipe_list.pop_front()
 		progress_bar.update_cooking_progress(recipe_index, len(recipe_list))
+		progress_bar.update_prep_progress()
 		
 func update_prep_progress():
 	var ing_count = 0

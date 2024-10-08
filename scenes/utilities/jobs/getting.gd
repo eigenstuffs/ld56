@@ -3,7 +3,7 @@ extends Job
 class_name GettingJob
 
 @export var choosing_task : PackedScene
-@export var ingredient_box : Array[IngredientInfo]
+var ingredient_box : Array[IngredientInfo]
 
 func pre_job(gob : GoblinBase):
 	item_reward = null
