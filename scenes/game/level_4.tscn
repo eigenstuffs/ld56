@@ -1,16 +1,22 @@
-[gd_scene load_steps=7 format=3 uid="uid://dmdheipf052rq"]
+[gd_scene load_steps=8 format=3 uid="uid://dmdheipf052rq"]
 
-[ext_resource type="Script" path="res://scenes/tools/recipes/recipe.gd" id="2_m2j2c"]
-[ext_resource type="PackedScene" uid="uid://cer1ghlm4o53d" path="res://scenes/menu/victory_scene.tscn" id="2_ucwfh"]
-[ext_resource type="Resource" uid="uid://cv5m163x66a1o" path="res://scenes/tools/recipes/dessert_recipe.tres" id="3_efry7"]
-[ext_resource type="AudioStream" uid="uid://o1nkfsx0g6tp" path="res://assets/Music/Gobblin Goblins Kitchen Khaos 10-5-24.mp3" id="3_l5p08"]
-[ext_resource type="PackedScene" uid="uid://bfi415mwilkvx" path="res://scenes/game/LevelScene.tscn" id="6_3boyg"]
-[ext_resource type="Resource" uid="uid://d2w7w7y125h3k" path="res://scenes/tools/recipes/secret_recipe.tres" id="6_iro1x"]
+[ext_resource type="Script" path="res://scenes/game/konami.gd" id="1_fupjl"]
+[ext_resource type="PackedScene" uid="uid://bfi415mwilkvx" path="res://scenes/game/LevelScene.tscn" id="2_uwvii"]
+[ext_resource type="PackedScene" uid="uid://cer1ghlm4o53d" path="res://scenes/menu/victory_scene.tscn" id="3_jpom8"]
+[ext_resource type="AudioStream" uid="uid://cuovb20i3i13e" path="res://assets/Music/Gobblin Goblin Extra Song.mp3" id="4_83yym"]
+[ext_resource type="Script" path="res://scenes/tools/recipes/recipe.gd" id="5_2r50l"]
+[ext_resource type="Resource" uid="uid://cv5m163x66a1o" path="res://scenes/tools/recipes/dessert_recipe.tres" id="6_0ymut"]
+[ext_resource type="Resource" uid="uid://d2w7w7y125h3k" path="res://scenes/tools/recipes/secret_recipe.tres" id="7_ck46x"]
 
 [node name="Level4" type="Node2D"]
+script = ExtResource("1_fupjl")
 
-[node name="LevelScene" parent="." instance=ExtResource("6_3boyg")]
-next_level = ExtResource("2_ucwfh")
-music = ExtResource("3_l5p08")
+[node name="LevelScene" parent="." instance=ExtResource("2_uwvii")]
+next_level = ExtResource("3_jpom8")
+music = ExtResource("4_83yym")
 GOB_NAMES = Array[String](["4ng3l1n4", "Bruh", "Rn_wl_u_cn", "Gob420.69", "Demure Brat", "Kamal Trump", "Don Harris", "not Dave", "Euciel Le", "", "[redacted]", "Rogden Gamsey"])
-recipe_list = Array[ExtResource("2_m2j2c")]([ExtResource("3_efry7"), ExtResource("3_efry7"), ExtResource("6_iro1x")])
+n_goblins = 12
+max_birds = 3
+min_bird_time = 15
+max_bird_time = 25
+recipe_list = Array[ExtResource("5_2r50l")]([ExtResource("6_0ymut"), ExtResource("6_0ymut"), ExtResource("7_ck46x")])

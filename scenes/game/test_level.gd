@@ -9,8 +9,6 @@ class_name Level
 var recipe_manager : Recipe_Display
 var progress_bar : ProgressBarManager
 var goblin_counter : GoblinCounter
-var cook : CookingJob	
-var fridge : GettingJob	
 var birds : Bird_Window
 @export var max_birds = 1
 @export var min_bird_time = 30
@@ -32,16 +30,16 @@ var ing_total = 0
 func _ready():
 	$AudioStreamPlayer.stream = music
 	$AudioStreamPlayer.play()
+	
 	birds = find_child("BirdWindow")
 	birds.max_birds = max_birds
 	birds.min_time = min_bird_time
 	birds.max_time = max_bird_time
-	cook = find_child("Cooking")
-	fridge = find_child("Getting")
 	recipe_manager = find_child("ToDoListUI")
 	progress_bar = recipe_manager.progress_bars
 	birds.connect("gobs_changed", update_defense)
 	birds.connect("def_failed", bird_penalty)
+	
 	goblin_counter = recipe_manager.goblin_counter
 	goblin_counter.add_goblins(n_goblins)
 	GOB_NAMES.shuffle()
@@ -51,9 +49,12 @@ func _ready():
 		a.connect("update_progress", update_progress)
 		a.connect("state_changed", update_gob_count)
 		a.connect("ing_delivered", deliver_ingredient)
+		a.connect("plate_delivered", deliver_plate)
 		a.global_position = $GoblinSpawnPoint.global_position
 		nav_control.goblin_folder.add_child(a)
 	nav_control.init()
+	
+	var fridge : GettingJob = find_child("Getting")
 	for rec in recipe_list:
 		for ing : IngredientInfo in rec.required_ing:
 			fridge.ingredient_box.append(ing)
@@ -78,7 +79,7 @@ func calculate_score() -> int:
 	return 3 #TODO replace placeholder
 	#use the time var
 
-func _on_plating_plating_complete(plate : Recipe):
+func deliver_plate(plate : Recipe):
 	plated.append(plate)
 	if len(plated) == len(recipe_list):
 		level_end()
@@ -96,8 +97,8 @@ func deliver_ingredient(ing : IngredientInfo, cook : CookingJob):
 	if update_ingredient(ing):
 		cook.start_cooking(recipe_list[recipe_index])
 
-func update_ingredient(ing : IngredientInfo, quantity: int = 1, dictNum = 2):
-	update_ingredient_str(ing.ing_name, quantity, dictNum)
+func update_ingredient(ing : IngredientInfo, quantity: int = 1, dictNum = 2) -> bool:
+	return update_ingredient_str(ing.ing_name, quantity, dictNum)
 
 func update_ingredient_str(ing : String, quantity: int = 1, dictNum = 2) -> bool:
 	print(str(dictNum) + " - ING RECIEVED: " + ing)
@@ -111,7 +112,8 @@ func update_ingredient_str(ing : String, quantity: int = 1, dictNum = 2) -> bool
 			dict[ing] += quantity
 		else:
 			dict[ing] = quantity
-		if dictNum == 2 and recipe_manager.show_recipe(recipe_list[recipe_index], ing_delivered):
+		if dictNum == 2 and recipe_index < len(recipe_list) \
+			and	recipe_manager.show_recipe(recipe_list[recipe_index], ing_delivered):
 			clear_recipe(recipe_list[recipe_index], 0)
 			return true
 		update_prep_progress()
@@ -142,7 +144,7 @@ func clear_recipe(recipe : Recipe, mode = 1):
 	if mode == 0:
 		for i in range(len(recipe.required_ing)):
 			update_ingredient(recipe.required_ing[i], -recipe.required_amount[i], 2)
-	else:
+	elif recipe != null:
 		for i in range(len(recipe.required_ing)):
 			update_ingredient(recipe.required_ing[i], -recipe.required_amount[i], 1)
 		recipe_list.insert(recipe_index + 1, recipe)

@@ -1,7 +1,7 @@
 class_name Mix extends Control
 
 signal done
-var result : String
+var result : String = ""
 
 @export var length : int = 4
 @export var combination : Array[String]

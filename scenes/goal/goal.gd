@@ -4,8 +4,8 @@ extends Area2D
 
 class_name Goal
 
-signal listening_for_agent
-signal entered(goblin)
+signal listening_for_agent(goal : Goal)
+signal entered(goblin : GoblinBase)
 
 var clicked : bool = false
 var occupied : bool = false
@@ -14,8 +14,7 @@ var occupied : bool = false
 func _on_input_event(_viewport, event : InputEvent, _shape_idx):
 	if event.is_action_pressed("LMB"):
 		print("test")
-		clicked = true
-		emit_signal("listening_for_agent")
+		emit_signal("listening_for_agent", self)
 		#get_viewport().set_input_as_handled()
 
 func _on_area_entered(area):

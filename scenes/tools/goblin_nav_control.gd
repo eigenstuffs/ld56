@@ -44,11 +44,28 @@ func _process(delta):
 			goblin.set_movement_target(target_goal)
 		goal_found = false
 		agent_found = false	
+	elif agent_found:
+		printDebug()
+
+func printDebug():
+	var target_goblins : Array[GoblinBase]
+	var target_goal : Goal = temp_goal
+	for goblin : GoblinBase in goblin_array:
+		if goblin != null:
+			if goblin.clicked:
+				target_goblins.append(goblin)
+	for goal : Goal in goal_array:
+		if goal.clicked:
+			target_goal = goal.target_node
+	for goblin : GoblinBase in target_goblins:
+		print(goblin.gob_name)
+	print(target_goal)
 
 func _on_goblin_listening_for_target():
 	agent_found = true
 
-func _on_goal_listening_for_agent():
+func _on_goal_listening_for_agent(goal : Goal):
+	goal.clicked = agent_found
 	goal_found = agent_found
 
 func _on_map_clickable_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:

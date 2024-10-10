@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://tq42g3xnxngh"]
+[gd_scene load_steps=8 format=3 uid="uid://tq42g3xnxngh"]
 
+[ext_resource type="Script" path="res://scenes/game/konami.gd" id="1_7gad2"]
 [ext_resource type="PackedScene" uid="uid://bfi415mwilkvx" path="res://scenes/game/LevelScene.tscn" id="1_stsx8"]
 [ext_resource type="PackedScene" uid="uid://cmi6j8anm0kq4" path="res://scenes/game/level_2.tscn" id="2_ebm28"]
 [ext_resource type="AudioStream" uid="uid://cjfe37oc1qywe" path="res://assets/Music/Gobblin Goblins Breakfast.mp3" id="3_6hg8k"]
@@ -8,6 +9,7 @@
 [ext_resource type="Script" path="res://scenes/game/tutorial.gd" id="37_6ji0s"]
 
 [node name="Level1" type="Node2D"]
+script = ExtResource("1_7gad2")
 
 [node name="LevelScene" parent="." instance=ExtResource("1_stsx8")]
 next_level = ExtResource("2_ebm28")
@@ -16,4 +18,3 @@ recipe_list = Array[ExtResource("4_t12pw")]([ExtResource("5_px6v1")])
 
 [node name="tutorial" type="Node" parent="."]
 script = ExtResource("37_6ji0s")
-enabled = false

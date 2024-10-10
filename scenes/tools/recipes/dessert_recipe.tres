@@ -13,5 +13,5 @@ script = ExtResource("8_d2x4x")
 dish_name = "Chocolate Lavacake"
 recipe_img = ExtResource("1_mg33w")
 required_ing = Array[ExtResource("1_6ytxt")]([ExtResource("5_ekjn2"), ExtResource("4_tgbdr"), ExtResource("5_nd65v"), ExtResource("5_1c66u")])
-required_amount = Array[int]([4, 2, 2, 2])
+required_amount = Array[int]([4, 1, 1, 1])
 current_amount = Array[int]([0, 0, 0, 0])

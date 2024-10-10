@@ -16,6 +16,7 @@ signal listening_for_target
 signal state_changed(state : int, prev_state : int, item_holding)
 signal update_progress(stuff)
 signal ing_delivered(ing : IngredientInfo, cook : CookingJob)
+signal plate_delivered(plate : Recipe)
 signal clicked_on
 
 @onready var notice : Texture = preload("res://assets/ingredients/notice.png")

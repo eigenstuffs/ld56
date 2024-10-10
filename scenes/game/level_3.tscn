@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://5e1y84hd5lse"]
+[gd_scene load_steps=8 format=3 uid="uid://5e1y84hd5lse"]
 
+[ext_resource type="Script" path="res://scenes/game/konami.gd" id="1_i6dac"]
 [ext_resource type="Script" path="res://scenes/tools/recipes/recipe.gd" id="2_8pux4"]
 [ext_resource type="PackedScene" uid="uid://dmdheipf052rq" path="res://scenes/game/level_4.tscn" id="2_k5bop"]
 [ext_resource type="AudioStream" uid="uid://dtxddrvrpedy6" path="res://assets/Music/Gobblin Goblins Kitchen Khaos CLEAN 10-5-24.mp3" id="3_2vfeo"]
@@ -8,9 +9,13 @@
 [ext_resource type="PackedScene" uid="uid://bfi415mwilkvx" path="res://scenes/game/LevelScene.tscn" id="6_oioa1"]
 
 [node name="Level3" type="Node2D"]
+script = ExtResource("1_i6dac")
 
 [node name="LevelScene" parent="." instance=ExtResource("6_oioa1")]
 next_level = ExtResource("2_k5bop")
 music = ExtResource("3_2vfeo")
 n_goblins = 9
+max_birds = 3
+min_bird_time = 20
+max_bird_time = 30
 recipe_list = Array[ExtResource("2_8pux4")]([ExtResource("3_wt156"), ExtResource("6_3aswe")])

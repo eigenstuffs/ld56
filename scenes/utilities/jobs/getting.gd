@@ -12,7 +12,7 @@ func pre_job(gob : GoblinBase):
 	task.goblin = gob
 	task.pick_from = ingredient_box
 	gob.add_child(task)
-	task.global_position = gob.global_position
+	task.global_position = global_position
 	play_random_animation(gob)
 	print("Playing: " + gob.sprite.animation)
 	await task.done
@@ -23,6 +23,8 @@ func pre_job(gob : GoblinBase):
 	print("getting.gd")
 	gob.change_state("Idle")
 	finish_pre_job()
+
+func dur_job(gob : GoblinBase): return
 	
 func check_trigger(gob : GoblinBase) -> bool:
 	return gob.item_holding == null

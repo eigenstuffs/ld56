@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://cmi6j8anm0kq4"]
+[gd_scene load_steps=8 format=3 uid="uid://cmi6j8anm0kq4"]
 
+[ext_resource type="Script" path="res://scenes/game/konami.gd" id="1_fpa8l"]
 [ext_resource type="PackedScene" uid="uid://bfi415mwilkvx" path="res://scenes/game/LevelScene.tscn" id="1_la7j4"]
 [ext_resource type="Script" path="res://scenes/tools/recipes/recipe.gd" id="2_reekr"]
 [ext_resource type="PackedScene" uid="uid://5e1y84hd5lse" path="res://scenes/game/level_3.tscn" id="2_yfh34"]
@@ -8,11 +9,13 @@
 [ext_resource type="Resource" uid="uid://cnhywb24r0wdq" path="res://scenes/tools/recipes/breakfast_recipe.tres" id="6_scxvx"]
 
 [node name="Level2" type="Node2D"]
+script = ExtResource("1_fpa8l")
 
 [node name="LevelScene" parent="." instance=ExtResource("1_la7j4")]
 next_level = ExtResource("2_yfh34")
 music = ExtResource("3_xdgal")
 n_goblins = 6
+max_birds = 2
 min_bird_time = 25
 max_bird_time = 35
 recipe_list = Array[ExtResource("2_reekr")]([ExtResource("3_jcy7a"), ExtResource("6_scxvx")])

@@ -18,7 +18,7 @@ func update_cooking_progress(val : int = 1, max : int = -1, add : bool = false):
 func update_def_progress(val : int = 1, max : int = -1, add : bool = false):
 	if max == 0:
 		get_child(2).max_value = 1
-		get_child(2).value = 0
+		get_child(2).value = 1
 	else:
 		update_progress_bar(2, val, max, add)
 

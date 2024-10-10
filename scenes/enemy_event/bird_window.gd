@@ -13,6 +13,7 @@ var num_birds = 0
 @export var max_time = 40
 @export var garrison_time = 30
 @export var garrison_point : Goal
+var def_success : bool = false
 signal gobs_changed
 signal def_failed
 
@@ -26,7 +27,8 @@ func _ready() -> void:
 		emit_signal("gobs_changed")
 		progress_bar.value = 0
 		sprite.texture = birdImages[0]
-		await get_tree().create_timer(randi_range(min_time,max_time)).timeout
+		timer.start(randi_range(min_time, max_time) * (2 if def_success else 1))
+		await timer.timeout
 		num_birds = randi_range(1,max_birds)
 		emit_signal("gobs_changed")
 		progress_bar.max_value = garrison_time
@@ -36,13 +38,14 @@ func _ready() -> void:
 			progress_bar.value = garrison_time - i
 			timer.start(1)
 			await timer.timeout
-		if len(goblins) < num_birds * 3:
+		def_success = len(goblins) >= num_birds * 3
+		if def_success:
+			clear_gobs(false)
+			#TODO switch animation player to birds running away
+		else:
 			emit_signal("def_failed")
 			clear_gobs(true)
 			#TODO switch animation player to birds eating
-		else:
-			clear_gobs(false)
-			#TODO switch animation player to birds running away
 
 func clear_gobs(killed : bool):
 	abort_button.disabled = true
