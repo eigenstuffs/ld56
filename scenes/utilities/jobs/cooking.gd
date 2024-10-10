@@ -21,7 +21,7 @@ func dur_job(gob : GoblinBase):
 		product = null
 		var task : Mix = mixTasx.instantiate()
 		task.length = time
-		get_tree().current_scene.add_child(task)
+		gob.add_child(task)
 		task.global_position = gob.global_position + Vector2(0, 0.2)
 		await task.done
 		if(task.result == "lose"):
@@ -32,7 +32,7 @@ func post_job(gob : GoblinBase):
 	if(gob.item_holding is Recipe):
 		var task : CollectionTask = collectTask.instantiate()
 		task.goblin = gob
-		get_tree().current_scene.add_child(task)
+		gob.add_child(task)
 		task.global_position = gob.global_position
 		await task.done
 		if(task.result == "lose"):
@@ -41,6 +41,8 @@ func post_job(gob : GoblinBase):
 		gob.hold_item(gob.item_holding)
 		task.queue_free()	
 		reset_cook()
+		
+	print("cooking.gd")
 	gob.change_state("Idle")
 	finish_post_job()
 

@@ -13,6 +13,7 @@ var occupied : bool = false
 
 func _on_input_event(_viewport, event : InputEvent, _shape_idx):
 	if event.is_action_pressed("LMB"):
+		print("test")
 		clicked = true
 		emit_signal("listening_for_agent")
 		#get_viewport().set_input_as_handled()

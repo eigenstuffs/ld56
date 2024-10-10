@@ -24,6 +24,6 @@ func add_goblins(count: int):
 	goblin_count += count
 	update_goblin_count()
 
-func remove_goblins(count: int):
+func remove_goblins(count: int = 1):
 	goblin_count = max(goblin_count - count, 0)
 	update_goblin_count()

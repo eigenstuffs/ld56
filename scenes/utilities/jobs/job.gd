@@ -19,10 +19,11 @@ func finish_pre_job():
 	pre_job_bool = true
 	
 func dur_job(goblin : GoblinBase):
-	print(item_reward)
+	pass
 	
 func post_job(gob : GoblinBase):
 	gob.hold_item(give_reward())
+	print("job.gd")
 	gob.change_state("Idle")
 	finish_post_job()
 
@@ -40,3 +41,9 @@ func give_reward():
 		var reward : IngredientInfo = item_reward.duplicate()
 		reward.state = 1 if reward.state == 0 else 0
 		return reward
+
+func play_random_animation(goblin : GoblinBase):
+	var n = randi_range(0, 2)
+	if n == 0: goblin.sprite.play("working_back")
+	else: goblin.sprite.play("working_back")
+	print("should be working")

@@ -9,24 +9,18 @@ func job(area : Job):
 	if area.goblins_engagaed >= area.goblins_needed:
 		if area.check_trigger(goblin):
 			goblin.change_state("Working")
+			print("working")
 			area.pre_job(goblin)
-			goblin.change_state("Working")
 			if not area.pre_job_bool:
 				await area.pre_job_done
-			goblin.change_state("Working")
 			var b = JOB_PROGRESS.instantiate() as TextureProgressBar
 			add_child(b)
 			b.global_position = get_parent().global_position - Vector2(8, 24)
 			area.dur_job(goblin)
 			b.start(area.time)
-			play_random_animation()
 			await get_tree().create_timer(area.time).timeout
 			b.queue_free()
 			area.post_job(goblin)
 			if not area.post_job_bool:
 				await area.post_job_done
-
-func play_random_animation():
-	var n = randi_range(0, 2)
-	if n == 0: goblin.sprite.play("working_front")
-	else: goblin.sprite.play("working_back")
+			area.queue_free()

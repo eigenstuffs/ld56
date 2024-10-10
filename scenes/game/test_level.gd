@@ -145,6 +145,7 @@ func update_prep_progress():
 func update_gob_count(state : int, prev_state : int, carrying = null):
 	if(state in [GoblinBase.STATE.EXPLODE, GoblinBase.STATE.EATEN]):
 		gob_death(carrying)
+		goblin_counter.remove_goblins()
 	goblin_counter.update(state, prev_state)
 
 func update_defense():

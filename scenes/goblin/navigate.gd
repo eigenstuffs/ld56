@@ -19,6 +19,7 @@ func init():
 func _process(delta):
 	if enable_process:
 		if goblin.nav_agent.is_navigation_finished():
+			print("navigate.gd")
 			goblin.change_state("Idle")
 			return
 		var current_agent_position: Vector2 = goblin.global_position

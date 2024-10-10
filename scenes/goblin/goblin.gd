@@ -68,6 +68,7 @@ func change_state(to : String):
 	emit_signal("state_changed", target_state, state, item_holding)
 	find_child(to).init()
 	current_state_child = find_child(to)
+	print("Set " + gob_name + " state to: " + str(state))
 
 func _on_goblin_hitbox_area_entered(area: Area2D) -> void:
 	if area.get_parent() is GoblinBase:
@@ -80,8 +81,7 @@ func _on_goblin_hitbox_area_entered(area: Area2D) -> void:
 		while state != STATE.IDLE:
 			await state_changed
 		if(in_job_region and area.check_trigger(self)):
-			change_state("Working")
-			$Working.job(area)
+			$Working.job(area.duplicate())
 		# job done
 
 func _on_goblin_hitbox_area_exited(area: Area2D) -> void:
@@ -89,7 +89,6 @@ func _on_goblin_hitbox_area_exited(area: Area2D) -> void:
 		in_job_region = false
 
 func _on_goblin_hitbox_input_event(viewport, event, shape_idx):
-	print(state)
 	get_viewport().set_input_as_handled()
 	if event.is_action_pressed("LMB"):
 		clicked_on.emit()
@@ -97,6 +96,7 @@ func _on_goblin_hitbox_input_event(viewport, event, shape_idx):
 			clicked = !clicked
 			change_state("AwaitingInput" if clicked else "Idle")
 			if clicked: emit_signal("listening_for_target")
+			else: print("by goblin.gd")
 		else:
 			clicked = false
 
@@ -119,10 +119,11 @@ func set_target_pos(pos : Vector2):
 func set_movement_target(target_goal):
 	curr_target = target_goal
 	nav_agent.target_position = target_goal.target_node.global_position
+	change_state("Navigate")
 	if nav_agent.is_navigation_finished():
 		target_goal._on_area_entered($Goblin_hitbox)
-	else:
-		change_state("Navigate")
+		print("goblin.gd set move")
+		change_state("Idle")
 
 func remove_item():
 	item_holding = null

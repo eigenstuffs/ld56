@@ -14,7 +14,7 @@ offset_top = -20.0
 offset_right = 20.0
 offset_bottom = 20.0
 mouse_filter = 2
-color = Color(1, 1, 1, 0.211765)
+color = Color(1, 1, 1, 0)
 metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

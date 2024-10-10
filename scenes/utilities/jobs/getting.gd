@@ -9,12 +9,17 @@ func pre_job(gob : GoblinBase):
 	item_reward = null
 	var task : ChoosingIngredient = choosing_task.instantiate()
 	task.goblin = gob
-	get_tree().current_scene.add_child(task)
+	gob.add_child(task)
 	task.global_position = gob.global_position
+	gob.state = GoblinBase.STATE.WORKING
+	play_random_animation(gob)
 	await task.done
+	play_random_animation(gob)
 	item_reward = task.selected
 	gob.hold_item(give_reward())
-	task.delete()
+	task.queue_free()
+	print("getting.gd")
+	gob.change_state("Idle")
 	finish_pre_job()
 	
 func check_trigger(gob : GoblinBase) -> bool:
