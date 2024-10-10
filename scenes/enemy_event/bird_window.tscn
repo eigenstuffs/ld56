@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://bjv16f3io6fw3"]
+[gd_scene load_steps=22 format=4 uid="uid://bjv16f3io6fw3"]
 
 [ext_resource type="Script" path="res://scenes/enemy_event/bird_window.gd" id="1_mps5j"]
 [ext_resource type="FontFile" uid="uid://r78uefbd72ri" path="res://assets/Tiny5-Regular.ttf" id="2_cduet"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://bjpqd6lnavttj" path="res://assets/birds/bird_1.png" id="3_bixyf"]
 [ext_resource type="Texture2D" uid="uid://cf1ux8spep8ag" path="res://assets/birds/bird_2.png" id="4_wm862"]
 [ext_resource type="Texture2D" uid="uid://cvrblt8lmvyu0" path="res://assets/birds/bird_3.png" id="5_xlrmt"]
+[ext_resource type="AudioStream" uid="uid://voj5t4tgrd43" path="res://assets/sfx/Bird Alarm.mp3" id="6_40bif"]
+[ext_resource type="AudioStream" uid="uid://2a0jhyeucecb" path="res://assets/sfx/Bird chirping.mp3" id="7_asccg"]
+[ext_resource type="AudioStream" uid="uid://brn0j2ilv76nw" path="res://assets/sfx/Goblin Chatter High.mp3" id="8_2y04d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d4iih"]
 size = Vector2(162, 162)
@@ -2077,6 +2080,9 @@ ProgressBar/styles/fill = SubResource("StyleBoxFlat_wg454")
 [node name="BirdWindow" type="Area2D"]
 script = ExtResource("1_mps5j")
 birdImages = Array[Texture]([ExtResource("2_r31tf"), ExtResource("3_bixyf"), ExtResource("4_wm862"), ExtResource("5_xlrmt")])
+alarm_sound = ExtResource("6_40bif")
+chirp_sound = ExtResource("7_asccg")
+flee_sound = ExtResource("8_2y04d")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 scale = Vector2(3.375, 3.375)
@@ -2115,6 +2121,8 @@ show_percentage = false
 
 [node name="Timer" type="Timer" parent="."]
 process_mode = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="pressed" from="AbortButton" to="." method="_on_abort_button_pressed"]

@@ -25,7 +25,7 @@ func dur_job(gob : GoblinBase):
 		var task : Mix = mixTasx.instantiate()
 		task.length = time
 		gob.add_child(task)
-		task.global_position = $CollisionShape2D.global_position + Vector2(0,-40)
+		task.global_position = global_position
 		task.connect("done", interrupt_dur_job)
 		var bar = start_task_bar(gob)
 		var timer = gob.get_tree().create_timer(time)
@@ -37,6 +37,7 @@ func dur_job(gob : GoblinBase):
 		else:
 			await timer.timeout
 		bar.queue_free()
+		task.delete()
 	finish_dur_job()
 
 func interrupt_dur_job():
@@ -53,7 +54,7 @@ func post_job(gob : GoblinBase):
 			gob.change_state("Explode")
 			return
 		gob.hold_item(gob.item_holding)
-		task.queue_free()
+		task.delete()
 	if(gob.state != GoblinBase.STATE.EXPLODE):
 		print("cooking.gd")
 		gob.change_state("Idle")

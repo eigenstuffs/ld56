@@ -19,7 +19,7 @@ func pre_job(gob : GoblinBase):
 	play_random_animation(gob)
 	item_reward = task.selected
 	gob.hold_item(give_reward())
-	task.queue_free()
+	task.delete()
 	print("getting.gd")
 	gob.change_state("Idle")
 	finish_pre_job()

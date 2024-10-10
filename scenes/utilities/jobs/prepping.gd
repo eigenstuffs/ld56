@@ -24,7 +24,7 @@ func post_job(gob : GoblinBase):
 		print("prepping.gd")
 		gob.change_state("Idle")
 		finish_post_job()
-	task.queue_free()
+	task.delete()
 
 func check_trigger(gob : GoblinBase) -> bool:
 	return gob.item_holding is IngredientInfo and gob.item_holding.state == 0

@@ -3,7 +3,7 @@ extends Control
 class_name ScoreScreen
 
 signal confirmed
-signal replay
+var next_level : bool = true
 
 @onready var star_texture : Texture2D = preload("res://assets/deviled_egg.png") #TODO Replace Placeholder
 @onready var one_star : Texture2D = preload("res://assets/score_screen/1star.png")
@@ -28,4 +28,5 @@ func _on_confirm_pressed():
 	confirmed.emit()
 
 func _on_replay_pressed():
-	replay.emit()
+	next_level = false
+	confirmed.emit()

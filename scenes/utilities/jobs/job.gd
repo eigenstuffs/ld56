@@ -22,8 +22,8 @@ func finish_pre_job():
 	pre_job_bool = true
 	
 func dur_job(goblin : GoblinBase):
-	var bar = start_task_bar(goblin)
-	if bar != null:
+	if JOB_PROGRESS != null and time > 0:
+		var bar = start_task_bar(goblin)
 		await goblin.get_tree().create_timer(time).timeout
 		bar.queue_free()
 	finish_dur_job()

@@ -17,4 +17,3 @@ func job(area : Job):
 			area.post_job(goblin)
 			if not area.post_job_bool:
 				await area.post_job_done
-			area.queue_free()

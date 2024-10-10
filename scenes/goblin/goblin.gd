@@ -22,6 +22,7 @@ signal clicked_on
 @onready var notice : Texture = preload("res://assets/ingredients/notice.png")
 @onready var nav_agent : NavigationAgent2D = $NavigationAgent2D
 @onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
+@onready var audio : AudioStreamPlayer2D = $AudioPlayer
 @onready var item : Sprite2D = $Item
 @export var gob_name := ""
 @export var movement_speed : float = 100

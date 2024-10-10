@@ -1,19 +1,22 @@
-[gd_scene load_steps=77 format=3 uid="uid://dy33jjb3kjeiu"]
+[gd_scene load_steps=80 format=3 uid="uid://c33n2frl3fukg"]
 
 [ext_resource type="Script" path="res://scenes/goblin/goblin.gd" id="1_u2bdf"]
 [ext_resource type="Script" path="res://scenes/goblin/idle.gd" id="2_u32ex"]
 [ext_resource type="Script" path="res://scenes/goblin/navigate.gd" id="3_638pl"]
 [ext_resource type="Script" path="res://scenes/goblin/stunned.gd" id="3_y3xjl"]
 [ext_resource type="Script" path="res://scenes/goblin/working.gd" id="4_84cvj"]
+[ext_resource type="AudioStream" uid="uid://blxmwrshwm08v" path="res://assets/sfx/Not Roblox Oof.mp3" id="4_q2k55"]
 [ext_resource type="Script" path="res://scenes/goblin/awaiting_input.gd" id="5_0atyx"]
 [ext_resource type="Script" path="res://scenes/goblin/eaten.gd" id="5_0gohk"]
 [ext_resource type="Script" path="res://scenes/goblin/explode.gd" id="5_76ybd"]
+[ext_resource type="AudioStream" uid="uid://5i8x1efga345" path="res://assets/sfx/Gobblin Goblins Walking.mp3" id="6_ajqhd"]
 [ext_resource type="Texture2D" uid="uid://b0xvywq32ugu2" path="res://assets/goblin_sprites/gob_front.png" id="9_1lubn"]
 [ext_resource type="Texture2D" uid="uid://g7h8imohxvcb" path="res://assets/goblin_sprites/gob_walk_right.png" id="9_ibqqf"]
 [ext_resource type="Texture2D" uid="uid://d21yer14wmdgo" path="res://assets/goblin_sprites/gob_salute.png" id="9_t7lnl"]
 [ext_resource type="Texture2D" uid="uid://cx8dra5qo7xut" path="res://assets/goblin_sprites/gob_right.png" id="10_qkls0"]
 [ext_resource type="Texture2D" uid="uid://caq3sdxb24ioc" path="res://assets/goblin_sprites/gob_death.png" id="11_alydn"]
 [ext_resource type="Texture2D" uid="uid://cbxe04rnea8u6" path="res://assets/goblin_sprites/gob_back.png" id="11_cwiyn"]
+[ext_resource type="AudioStream" uid="uid://b0uyd77orw8ta" path="res://assets/sfx/Goblin Dies in Fire SFX.mp3" id="11_d3m0y"]
 [ext_resource type="Texture2D" uid="uid://dgg76cee1rtx2" path="res://assets/goblin_sprites/gob_idle.png" id="12_33mda"]
 [ext_resource type="Texture2D" uid="uid://dv10by8yp601y" path="res://assets/goblin_sprites/gob_left.png" id="12_cvlm8"]
 [ext_resource type="Texture2D" uid="uid://dlbwjtuwvf16j" path="res://assets/goblin_sprites/gob_walk_item_right.png" id="14_1c3y7"]
@@ -484,9 +487,11 @@ script = ExtResource("2_u32ex")
 
 [node name="Stunned" type="Node" parent="."]
 script = ExtResource("3_y3xjl")
+audio = ExtResource("4_q2k55")
 
 [node name="Navigate" type="Node" parent="."]
 script = ExtResource("3_638pl")
+audio = ExtResource("6_ajqhd")
 
 [node name="Eaten" type="Node" parent="."]
 script = ExtResource("5_0gohk")
@@ -499,6 +504,7 @@ script = ExtResource("5_0atyx")
 
 [node name="Explode" type="Node" parent="."]
 script = ExtResource("5_76ybd")
+audio = ExtResource("11_d3m0y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_nv43h")
@@ -526,6 +532,10 @@ bbcode_enabled = true
 text = "[center] Name"
 fit_content = true
 scroll_active = false
+
+[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="."]
+volume_db = 15.0
+max_distance = 200.0
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="area_entered" from="Goblin_hitbox" to="." method="_on_goblin_hitbox_area_entered"]

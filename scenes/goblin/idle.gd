@@ -1,5 +1,7 @@
 extends GoblinState
 
+@export var chatter : AudioEffect 
+
 func init():
 	goblin.modulate = Color.WHITE
 	if goblin.state == GoblinBase.STATE.IDLE:

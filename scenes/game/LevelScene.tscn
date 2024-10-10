@@ -10,8 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://cnliugkwdvva7" path="res://scenes/qte/ChooseIngredient.tscn" id="5_ro6nq"]
 [ext_resource type="Script" path="res://scenes/utilities/jobs/prepping.gd" id="6_7lvoe"]
 [ext_resource type="PackedScene" uid="uid://f47peacw0kny" path="res://scenes/qte/CollectionTask.tscn" id="7_4ykjy"]
+[ext_resource type="PackedScene" uid="uid://gei3y75mlyn5" path="res://scenes/utilities/jobs/Job.tscn" id="7_mspsq"]
+[ext_resource type="Script" path="res://scenes/tools/recipes/ingredients/ingredient_info.gd" id="9_3bopw"]
 [ext_resource type="Script" path="res://scenes/utilities/jobs/cooking.gd" id="10_bwflg"]
-[ext_resource type="PackedScene" uid="uid://0p8vty7m6ato" path="res://scenes/goblin/job_progress.tscn" id="11_3alul"]
 [ext_resource type="PackedScene" uid="uid://dwn6tdlp54duv" path="res://scenes/qte/mix.tscn" id="11_xyj56"]
 [ext_resource type="Script" path="res://scenes/utilities/jobs/plating.gd" id="14_wf4k7"]
 [ext_resource type="Script" path="res://scenes/game/camera_2d.gd" id="15_bmsru"]
@@ -25,9 +26,6 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Arr
 outlines = Array[PackedVector2Array]([PackedVector2Array(63, 168, 63, 161, 169, 160, 149, 107, 137, 107, 63, 107, 63, 100, 129, 100, 129, 70, 73, 68, 74, 61, 129, 63, 129, 42, 175, 42, 159, -5, 65, -6, 65, -13, 140, -12, 140, -71, 250, -70, 250, -63, 147, -64, 147, -12, 164, -12, 184, 42, 250, 42, 250, 48, 136, 49, 136, 100, 154, 100, 176, 159, 216, 140, 245, 160, 245, 167)])
 parsed_geometry_type = 0
 agent_radius = 3.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xxiyt"]
-size = Vector2(63.75, 75.625)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rym18"]
 atlas = ExtResource("18_ogi73")
@@ -166,46 +164,48 @@ navigation_polygon = SubResource("NavigationPolygon_7f0xb")
 
 [node name="Jobs" type="Node2D" parent="."]
 
-[node name="Getting" type="Area2D" parent="Jobs"]
-position = Vector2(88, -24)
+[node name="Getting" parent="Jobs" instance=ExtResource("7_mspsq")]
+position = Vector2(93, -51)
 script = ExtResource("4_y4gah")
 choosing_task = ExtResource("5_ro6nq")
+ingredient_box = Array[ExtResource("9_3bopw")]([])
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Jobs/Getting"]
-position = Vector2(5.5, -12.8125)
-shape = SubResource("RectangleShape2D_xxiyt")
+[node name="CollisionShape2D" parent="Jobs/Getting" index="0"]
+position = Vector2(0, 19)
+scale = Vector2(1.1, 1.4)
 
-[node name="Prepping" type="Area2D" parent="Jobs"]
-position = Vector2(210, 34)
+[node name="AudioStreamPlayer2D" parent="Jobs/Getting" index="1"]
+position = Vector2(0, 2)
+
+[node name="Prepping" parent="Jobs" instance=ExtResource("7_mspsq")]
+position = Vector2(216, 24)
 script = ExtResource("6_7lvoe")
 collectTask = ExtResource("7_4ykjy")
-time = 3
-JOB_PROGRESS = ExtResource("11_3alul")
+time = 5
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Jobs/Prepping"]
-position = Vector2(10, -17)
-shape = SubResource("RectangleShape2D_xxiyt")
+[node name="CollisionShape2D" parent="Jobs/Prepping" index="0"]
+scale = Vector2(1.2, 1.4)
 
-[node name="Cooking" type="Area2D" parent="Jobs"]
-position = Vector2(205, 170)
+[node name="Cooking" parent="Jobs" instance=ExtResource("7_mspsq")]
+position = Vector2(214, 98)
 script = ExtResource("10_bwflg")
+cook_time = 8
+drop_time = 0
 collectTask = ExtResource("7_4ykjy")
 mixTasx = ExtResource("11_xyj56")
-JOB_PROGRESS = ExtResource("11_3alul")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Jobs/Cooking"]
-position = Vector2(9, -24)
-shape = SubResource("RectangleShape2D_xxiyt")
+[node name="CollisionShape2D" parent="Jobs/Cooking" index="0"]
+position = Vector2(2, 45)
+scale = Vector2(1.3, 1.5)
 
-[node name="Plating" type="Area2D" parent="Jobs"]
-position = Vector2(96, 80)
+[node name="Plating" parent="Jobs" instance=ExtResource("7_mspsq")]
+position = Vector2(96, 66)
 script = ExtResource("14_wf4k7")
 time = 5
-JOB_PROGRESS = ExtResource("11_3alul")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Jobs/Plating"]
-position = Vector2(0, -7)
-shape = SubResource("RectangleShape2D_xxiyt")
+[node name="CollisionShape2D" parent="Jobs/Plating" index="0"]
+position = Vector2(0, -3)
+scale = Vector2(1, 0.5)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(160, 88)
@@ -249,7 +249,11 @@ sprite_frames = SubResource("SpriteFrames_mverc")
 animation = &"stirring_normal"
 autoplay = "stirring_normal"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [editable path="NavControl"]
+[editable path="Jobs/Getting"]
+[editable path="Jobs/Prepping"]
+[editable path="Jobs/Cooking"]
+[editable path="Jobs/Plating"]
 [editable path="CanvasLayer/ToDoListUI"]

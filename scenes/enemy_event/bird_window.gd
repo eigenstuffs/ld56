@@ -1,6 +1,10 @@
 class_name Bird_Window extends Goal
 
 @export var birdImages : Array[Texture] = []
+@export var alarm_sound : Resource
+@export var chirp_sound : Resource
+@export var flee_sound : Resource
+@onready var audio = $AudioStreamPlayer
 @onready var sprite = $Sprite
 @onready var progress_bar = $CountdownBar
 @onready var abort_button := $AbortButton
@@ -29,6 +33,8 @@ func _ready() -> void:
 		sprite.texture = birdImages[0]
 		timer.start(randi_range(min_time, max_time) * (2 if def_success else 1))
 		await timer.timeout
+		audio.stream = alarm_sound
+		audio.play()
 		num_birds = randi_range(1,max_birds)
 		emit_signal("gobs_changed")
 		progress_bar.max_value = garrison_time
@@ -40,10 +46,14 @@ func _ready() -> void:
 			await timer.timeout
 		def_success = len(goblins) >= num_birds * 3
 		if def_success:
+			audio.stream = chirp_sound
+			audio.play()
 			clear_gobs(false)
 			#TODO switch animation player to birds running away
 		else:
 			emit_signal("def_failed")
+			audio.stream = chirp_sound
+			audio.play()
 			clear_gobs(true)
 			#TODO switch animation player to birds eating
 
@@ -63,6 +73,8 @@ func clear_gobs(killed : bool):
 func _on_abort_button_pressed() -> void:
 	abort_button.disabled = true
 	abort_button.text = "Fleeing..."
+	audio.stream = flee_sound
+	audio.play()
 	await get_tree().create_timer(2).timeout
 	clear_gobs(false)
 	abort_button.text = "Flee"

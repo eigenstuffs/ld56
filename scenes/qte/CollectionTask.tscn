@@ -1,17 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://f47peacw0kny"]
+[gd_scene load_steps=5 format=3 uid="uid://f47peacw0kny"]
 
 [ext_resource type="Script" path="res://scenes/qte/collection_task.gd" id="1_lw6f8"]
 [ext_resource type="Texture2D" uid="uid://b4hycgkjkrsew" path="res://assets/ingredients/notice.png" id="2_e0ay8"]
+[ext_resource type="AudioStream" uid="uid://dq8v8qma7502i" path="res://assets/sfx/Ingredient Done.wav" id="2_q8tvp"]
+[ext_resource type="AudioStream" uid="uid://gm3w1ikwxbj0" path="res://assets/sfx/Copy of Menu_Sounds_V2_Minimalistic_UNPAUSE.mp3" id="3_pwuey"]
 
 [node name="CollectionTask" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_lw6f8")
+begin_sound = ExtResource("2_q8tvp")
+collect_sound = ExtResource("3_pwuey")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -22)
 texture = ExtResource("2_e0ay8")
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+volume_db = 10.0
+max_distance = 200.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

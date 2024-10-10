@@ -73,7 +73,10 @@ func level_end():
 	a.init(n_star)
 	
 	await a.confirmed
-	get_tree().change_scene_to_packed(next_level)
+	if a.next_level:
+		get_tree().change_scene_to_packed(next_level)
+	else:
+		get_tree().reload_current_scene()
 
 func calculate_score() -> int:
 	return 3 #TODO replace placeholder

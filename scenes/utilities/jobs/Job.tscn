@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://0p8vty7m6ato" path="res://scenes/goblin/job_progress.tscn" id="2_i17ko"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nr38a"]
-size = Vector2(32, 32)
+size = Vector2(46, 52)
 
 [node name="Job" type="Area2D"]
 script = ExtResource("1_fwcje")
@@ -12,3 +12,5 @@ JOB_PROGRESS = ExtResource("2_i17ko")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_nr38a")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

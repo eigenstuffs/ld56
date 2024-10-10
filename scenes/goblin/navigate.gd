@@ -1,5 +1,8 @@
 extends GoblinState
 
+class_name Navigate
+
+@export var audio : Resource
 var enable_process : bool = false
 
 func run():
@@ -9,9 +12,12 @@ func run():
 
 func stop():
 	enable_process = false
+	goblin.audio.stop()
 	
 func init():
 	enable_process = true
+	goblin.audio.stream = audio
+	goblin.audio.play()
 	if goblin.item_holding == null:
 		goblin.sprite.play("walking")
 	else: goblin.sprite.play("walking_item")
