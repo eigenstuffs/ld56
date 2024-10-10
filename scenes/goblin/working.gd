@@ -8,8 +8,8 @@ func job(area : Job):
 	area.goblins_engagaed += 1
 	if area.goblins_engagaed >= area.goblins_needed:
 		if area.check_trigger(goblin):
+			print("working.gd")
 			goblin.change_state("Working")
-			print("working")
 			area.pre_job(goblin)
 			if not area.pre_job_bool:
 				await area.pre_job_done

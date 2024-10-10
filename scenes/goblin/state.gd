@@ -10,9 +10,6 @@ func init():
 
 func run():
 	pass
-	
-func change_state(to : String):
-	goblin.change_state(to)
 
 func stop():
 	pass

@@ -11,8 +11,8 @@ func pre_job(gob : GoblinBase):
 	task.goblin = gob
 	gob.add_child(task)
 	task.global_position = gob.global_position
-	gob.state = GoblinBase.STATE.WORKING
 	play_random_animation(gob)
+	print("Playing: " + gob.sprite.animation)
 	await task.done
 	play_random_animation(gob)
 	item_reward = task.selected

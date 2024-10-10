@@ -17,8 +17,7 @@ func _ready() -> void:
 	repick()
 
 func _process(delta: float) -> void:
-	print(goblin.state)
-	#goblin.state = GoblinBase.STATE.WORKING
+	print(goblin.sprite.animation)
 	
 func repick():
 	for i in range(0,len(sprites)):

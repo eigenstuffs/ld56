@@ -2,7 +2,9 @@ extends GoblinState
 
 func init():
 	goblin.modulate = Color.WHITE
-	goblin.sprite.play("idle")
+	if goblin.state == GoblinBase.STATE.IDLE:
+		goblin.sprite.play("idle")
+		print("playing idle")
 	
 func run():
 	pass

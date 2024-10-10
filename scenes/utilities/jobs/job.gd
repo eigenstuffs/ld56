@@ -44,6 +44,5 @@ func give_reward():
 
 func play_random_animation(goblin : GoblinBase):
 	var n = randi_range(0, 2)
-	if n == 0: goblin.sprite.play("working_back")
+	if n == 0: goblin.sprite.play("working_front")
 	else: goblin.sprite.play("working_back")
-	print("should be working")

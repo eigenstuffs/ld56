@@ -5,12 +5,14 @@ class_name PreppingJob
 @export var collectTask : PackedScene
 
 func pre_job(gob : GoblinBase):
+	play_random_animation(gob)
 	item_reward = gob.item_holding
 	time = item_reward.prep_time
 	gob.remove_item()
 	finish_pre_job()
 
 func post_job(gob : GoblinBase):
+	gob.sprite.play("await_input")
 	var task : CollectionTask = collectTask.instantiate()
 	task.goblin = gob
 	gob.add_child(task)
