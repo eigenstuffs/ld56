@@ -9,8 +9,8 @@ var countdown = 0
 var goblins : Array[GoblinBase] = []
 @export var max_birds = 1
 var num_birds = 0
-@export var min_time = 5
-@export var max_time = 10
+@export var min_time = 30
+@export var max_time = 40
 @export var garrison_time = 30
 @export var garrison_point : Goal
 signal gobs_changed

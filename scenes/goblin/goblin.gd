@@ -15,9 +15,9 @@ enum STATE {
 signal listening_for_target
 signal state_changed(state : int, prev_state : int, item_holding)
 signal update_progress(stuff)
+signal ing_delivered(ing : IngredientInfo, cook : CookingJob)
 signal clicked_on
 
-@onready var ingredient : Recipe = preload("res://scenes/tools/recipes/all_ingredients.tres")
 @onready var notice : Texture = preload("res://assets/ingredients/notice.png")
 @onready var nav_agent : NavigationAgent2D = $NavigationAgent2D
 @onready var sprite : AnimatedSprite2D = $AnimatedSprite2D

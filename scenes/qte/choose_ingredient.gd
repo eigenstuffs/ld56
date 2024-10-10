@@ -5,27 +5,22 @@ class_name ChoosingIngredient
 @onready var sprites : Array[Sprite2D]= [$Sprite1, $Sprite2, $Sprite3]
 var selection : Array[IngredientInfo] = [null, null, null]
 var selected : IngredientInfo
-@export var pick_from : Array[IngredientInfo]
-var pick_from_left : Array[IngredientInfo]
+var pick_from : Array[IngredientInfo]
 var result
 var goblin : GoblinBase
 signal done
 
 func _ready() -> void:
 	selected = null
-	print(goblin.state)
 	repick()
-
-func _process(delta: float) -> void:
-	print(goblin.sprite.animation)
 	
 func repick():
+	pick_from.shuffle()
+	var index = 0
 	for i in range(0,len(sprites)):
-		if len(pick_from_left) == 0:
-			pick_from_left = pick_from.duplicate()
-		var index = randi_range(0,len(pick_from_left) - 1)
-		sprites[i].texture = pick_from_left[index].sprite_upd
-		selection[i] = pick_from_left.pop_at(index)
+		index = i % len(pick_from)
+		sprites[i].texture = pick_from[index].sprite_upd
+		selection[i] = pick_from[index]
 
 func _on_area_1_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	click_action(event, 0)

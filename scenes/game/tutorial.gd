@@ -1,7 +1,9 @@
 extends Node
 
-func ready():
-	if !Utilities.first_launch:
+@export var enabled := true
+
+func _ready():
+	if not enabled or !Utilities.first_launch:
 		queue_free()
 	else:
 		get_tree().paused = true

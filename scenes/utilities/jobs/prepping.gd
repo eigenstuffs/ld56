@@ -12,7 +12,6 @@ func pre_job(gob : GoblinBase):
 	finish_pre_job()
 
 func post_job(gob : GoblinBase):
-	gob.sprite.play("await_input")
 	var task : CollectionTask = collectTask.instantiate()
 	task.goblin = gob
 	gob.add_child(task)

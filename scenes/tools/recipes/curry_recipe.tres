@@ -14,5 +14,5 @@ script = ExtResource("6_pnnd0")
 dish_name = "Ghost Pepper Curry"
 recipe_img = ExtResource("1_vrief")
 required_ing = Array[ExtResource("1_08j56")]([ExtResource("2_yyh4r"), ExtResource("3_bx5uj"), ExtResource("3_kdmeo"), ExtResource("5_i8xku"), ExtResource("5_l7v8u")])
-required_amount = Array[int]([2, 2, 1, 1, 1, 1])
+required_amount = Array[int]([2, 4, 1, 1, 1])
 current_amount = Array[int]([0, 0, 0, 0, 0])

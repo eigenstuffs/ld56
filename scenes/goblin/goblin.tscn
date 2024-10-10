@@ -506,6 +506,7 @@ animation = &"await_input"
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 10.0
+target_desired_distance = 2.0
 path_postprocessing = 1
 avoidance_enabled = true
 radius = 150.0

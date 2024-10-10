@@ -3,12 +3,14 @@ extends Job
 class_name GettingJob
 
 @export var choosing_task : PackedScene
-var ingredient_box : Array[IngredientInfo]
+@export var ingredient_box : Array[IngredientInfo] = []
+#apparently duplicate only copies exported variables
 
 func pre_job(gob : GoblinBase):
 	item_reward = null
 	var task : ChoosingIngredient = choosing_task.instantiate()
 	task.goblin = gob
+	task.pick_from = ingredient_box
 	gob.add_child(task)
 	task.global_position = gob.global_position
 	play_random_animation(gob)
