@@ -1,8 +1,9 @@
-[gd_scene load_steps=80 format=3 uid="uid://c33n2frl3fukg"]
+[gd_scene load_steps=81 format=3 uid="uid://c33n2frl3fukg"]
 
 [ext_resource type="Script" path="res://scenes/goblin/goblin.gd" id="1_u2bdf"]
 [ext_resource type="Script" path="res://scenes/goblin/idle.gd" id="2_u32ex"]
 [ext_resource type="Script" path="res://scenes/goblin/navigate.gd" id="3_638pl"]
+[ext_resource type="AudioStream" uid="uid://kod60bmhybbs" path="res://assets/sfx/Goblin Chatter Low.mp3" id="3_pe3pm"]
 [ext_resource type="Script" path="res://scenes/goblin/stunned.gd" id="3_y3xjl"]
 [ext_resource type="Script" path="res://scenes/goblin/working.gd" id="4_84cvj"]
 [ext_resource type="AudioStream" uid="uid://blxmwrshwm08v" path="res://assets/sfx/Not Roblox Oof.mp3" id="4_q2k55"]
@@ -484,6 +485,7 @@ shape = SubResource("RectangleShape2D_b7bol")
 
 [node name="Idle" type="Node" parent="."]
 script = ExtResource("2_u32ex")
+chatter = ExtResource("3_pe3pm")
 
 [node name="Stunned" type="Node" parent="."]
 script = ExtResource("3_y3xjl")
@@ -515,7 +517,6 @@ path_desired_distance = 10.0
 target_desired_distance = 2.0
 simplify_path = true
 avoidance_enabled = true
-debug_enabled = true
 
 [node name="Item" type="Sprite2D" parent="."]
 position = Vector2(0, -18)
@@ -526,6 +527,7 @@ offset_left = -20.0
 offset_top = 11.0
 offset_right = 20.0
 offset_bottom = 20.0
+mouse_filter = 2
 theme_override_fonts/normal_font = ExtResource("21_32hmp")
 theme_override_font_sizes/normal_font_size = 8
 bbcode_enabled = true
@@ -536,6 +538,8 @@ scroll_active = false
 [node name="AudioPlayer" type="AudioStreamPlayer2D" parent="."]
 volume_db = 15.0
 max_distance = 200.0
+
+[node name="Timer" type="Timer" parent="."]
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="area_entered" from="Goblin_hitbox" to="." method="_on_goblin_hitbox_area_entered"]

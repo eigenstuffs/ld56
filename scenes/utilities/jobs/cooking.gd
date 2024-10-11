@@ -12,6 +12,9 @@ signal ing_recieved(ing)
 signal dur_job_interrupt
 
 func pre_job(gob : GoblinBase):
+	if gob.item_holding.state == 0:
+		gob.death_message = unprepped_msg(gob.item_holding)
+		gob.change_state("Explode")
 	gob.emit_signal("ing_delivered", gob.item_holding, self)
 	print("delivered emit")
 	gob.remove_item()
@@ -32,7 +35,6 @@ func dur_job(gob : GoblinBase):
 		timer.connect("timeout", interrupt_dur_job)
 		await dur_job_interrupt
 		if task.result != "win":
-			gob.item_holding = null
 			gob.change_state("Explode")
 		else:
 			await timer.timeout
@@ -61,9 +63,14 @@ func post_job(gob : GoblinBase):
 	finish_post_job()
 	
 func check_trigger(gob : GoblinBase) -> bool:
-	return gob.item_holding is IngredientInfo and gob.item_holding.state == 1
+	return gob.item_holding is IngredientInfo
 	
 func start_cooking(rec : Recipe):
 	product = rec
 	time = 0
 	for amt in rec.required_amount: time += 2
+
+func unprepped_msg(item : IngredientInfo) -> String:
+	match item.ing_name.to_lower():
+		"" : return ""
+		_ : return "died"

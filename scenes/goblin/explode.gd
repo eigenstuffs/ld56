@@ -1,6 +1,7 @@
 extends GoblinState
 
 @export var audio : Resource
+@export var text : Resource
 
 func init():
 	goblin.input_pickable = false

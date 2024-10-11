@@ -163,11 +163,12 @@ func update_prep_progress():
 			ing_count += min(ing_gathered[ing], ing_needed[ing])
 	progress_bar.update_prep_progress(ing_count, ing_total)
 
-func update_gob_count(state : int, prev_state : int, carrying = null):
-	if(state in [GoblinBase.STATE.EXPLODE, GoblinBase.STATE.EATEN]):
-		gob_death(carrying)
+func update_gob_count(gob : GoblinBase, prev_state : int):
+	if(gob.state in [GoblinBase.STATE.EXPLODE, GoblinBase.STATE.EATEN]):
+		gob_death(gob.item_holding)
 		goblin_counter.remove_goblins()
-	goblin_counter.update(state, prev_state)
+		goblin_counter.add_death_msg(gob)
+	goblin_counter.update(gob.state, prev_state)
 
 func update_defense():
 	progress_bar.update_def_progress(len(birds.goblins), birds.num_birds * 3)

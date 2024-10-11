@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cl32u8wa1ap7u"]
+
+[ext_resource type="FontFile" uid="uid://r78uefbd72ri" path="res://assets/Tiny5-Regular.ttf" id="8_hektl"]
+[ext_resource type="Script" path="res://scenes/utilities/fading_death_message.gd" id="9_7f3bm"]
+
+[node name="FadingDeathMessage" type="RichTextLabel"]
+offset_right = 144.0
+offset_bottom = 10.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.882353, 0, 0.164706, 1)
+theme_override_fonts/normal_font = ExtResource("8_hektl")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "[center]Goblin died from overcooking the food"
+fit_content = true
+scroll_active = false
+script = ExtResource("9_7f3bm")
+
+[node name="Timer" type="Timer" parent="."]

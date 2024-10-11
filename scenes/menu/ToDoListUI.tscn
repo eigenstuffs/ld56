@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://teo71o0ubvgw"]
+[gd_scene load_steps=29 format=4 uid="uid://teo71o0ubvgw"]
 
 [ext_resource type="Script" path="res://scenes/menu/to_do_list_ui.gd" id="1_fl081"]
 [ext_resource type="Texture2D" uid="uid://dicl0oxoa507v" path="res://assets/UIBorder/1pastalight.png" id="2_dusom"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://m65as66a46h2" path="res://assets/UIBorder/0pastayellow.png" id="4_ddg5d"]
 [ext_resource type="Script" path="res://scenes/menu/goblin_counter.gd" id="5_06jbi"]
 [ext_resource type="Texture2D" uid="uid://d21yer14wmdgo" path="res://assets/goblin_sprites/gob_salute.png" id="6_muqmv"]
+[ext_resource type="PackedScene" uid="uid://cl32u8wa1ap7u" path="res://scenes/utilities/fading_death_message.tscn" id="6_rpadv"]
 
 [sub_resource type="Image" id="Image_vpe2h"]
 data = {
@@ -1617,6 +1618,7 @@ offset_right = 60.0
 offset_bottom = 179.0
 texture = ExtResource("3_8oygj")
 script = ExtResource("5_06jbi")
+death_msg_label = ExtResource("6_rpadv")
 
 [node name="BG" type="ColorRect" parent="GoblinCounter"]
 layout_mode = 0
@@ -1692,6 +1694,19 @@ offset_top = 42.0
 offset_right = 49.0
 offset_bottom = 82.0
 texture = ExtResource("6_muqmv")
+
+[node name="DeathMessages" type="VBoxContainer" parent="GoblinCounter"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 58.0
+offset_top = -82.0
+offset_right = 202.0
+offset_bottom = -42.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
 
 [node name="Window" type="NinePatchRect" parent="."]
 layout_mode = 0

@@ -13,7 +13,7 @@ enum STATE {
 }
 
 signal listening_for_target
-signal state_changed(state : int, prev_state : int, item_holding)
+signal state_changed(gob : GoblinBase, prevstate : int)
 signal update_progress(stuff)
 signal ing_delivered(ing : IngredientInfo, cook : CookingJob)
 signal plate_delivered(plate : Recipe)
@@ -23,6 +23,7 @@ signal clicked_on
 @onready var nav_agent : NavigationAgent2D = $NavigationAgent2D
 @onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var audio : AudioStreamPlayer2D = $AudioPlayer
+@onready var timer : Timer = $Timer
 @onready var item : Sprite2D = $Item
 @export var gob_name := ""
 @export var movement_speed : float = 100
@@ -32,6 +33,7 @@ var current_state_child
 var curr_target : Goal = null
 var item_holding = null
 var in_job_region : bool = false
+var death_message : String = "died"
 
 func _ready():
 	change_state("Idle")
@@ -67,7 +69,7 @@ func change_state(to : String):
 			target_state = STATE.EXPLODE
 	var prevState = state
 	state = target_state
-	emit_signal("state_changed", target_state, state, item_holding)
+	emit_signal("state_changed", self, prevState)
 	find_child(to).init()
 	current_state_child = find_child(to)
 	print("Set " + gob_name + " state to: " + str(state))
